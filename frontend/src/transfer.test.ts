@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { emptyBuilding, newFloor } from "./model.ts";
+import { PREVIOUS_DOMAIN } from "./legacy.ts";
 import { exportFile, parseExport } from "./transfer.ts";
 
 function building() {
@@ -54,4 +55,13 @@ test("floor processes survive a full export and stay out of shareable templates"
   const shared = exportFile(b, true);
   assert.equal(shared.building.floors[0].processes, undefined);
   assert.deepEqual(b.floors[0].processes, saved, "sharing must not change the original floor");
+});
+
+
+test("the renamed app still imports plans exported under the previous format", () => {
+  const old = { ...exportFile(building(), false), format: PREVIOUS_DOMAIN };
+  const restored = parseExport(JSON.stringify(old));
+  assert.equal(restored.floors[0].name, "EG");
+  assert.equal(restored.floors[0].furniture[0].entity, "light.decke");
+  assert.equal(exportFile(restored, false).format, "masterplan3d");
 });

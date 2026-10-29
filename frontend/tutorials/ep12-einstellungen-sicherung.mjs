@@ -25,7 +25,7 @@ import { appVersion, FPS, narration, startRecorder } from "./recorder.mjs";
 const out = resolve(process.argv[2] ?? "tutorial-ep12");
 const PART = process.argv[3] === "b" ? "b" : "a";
 const FAST = !!process.env.EP12_FAST;
-const VERSION = `<br><span style="font-size:20px;opacity:.7">aufgenommen mit NeonPlan 3D ${appVersion()}</span>`;
+const VERSION = `<br><span style="font-size:20px;opacity:.7">aufgenommen mit MasterPlan3D ${appVersion()}</span>`;
 const DL = join(out, "downloads");
 mkdirSync(DL, { recursive: true });
 
@@ -87,9 +87,9 @@ const quiet = async (target, wait = 400) => {
 const EYE = 'button[aria-label="Bedienelemente ausblenden – nur die 3D-Ansicht bleibt"]';
 const STAR = 'button[aria-label="Zentral: alle Lichter, Rollläden und Favoriten"]';
 /** The main 3D view's viewer object. */
-const VIEWER = `const v = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-view3d"); const viewer = Object.values(v).find((o) => o && o.floors && o.floorMap);`;
+const VIEWER = `const v = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-view3d"); const viewer = Object.values(v).find((o) => o && o.floors && o.floorMap);`;
 /** The editor's 3D pane. */
-const PANE = `const e = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-editor"); const v = e.renderRoot.querySelector("fp3d-view3d"); const viewer = Object.values(v).find((o) => o && o.floors && o.floorMap);`;
+const PANE = `const e = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-editor"); const v = e.renderRoot.querySelector("fp3d-view3d"); const viewer = Object.values(v).find((o) => o && o.floors && o.floorMap);`;
 /** Set a camera (main view or the editor's pane) around a plan point of a floor (or keep the target: floorId null). */
 const camOf = (which, floorId, x, z, c) =>
   R.page.evaluate(
@@ -362,7 +362,7 @@ const toEditor = async (split = true) => {
 /** Open a side-panel section (a <summary>) if it is closed. */
 const openSection = async (name, seconds = 0.5, retry = false) => {
   const open = await R.page.evaluate((name) => {
-    const e = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-editor");
+    const e = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-editor");
     const sm = [...e.renderRoot.querySelectorAll("summary")].find((x) => x.textContent.replace(/\s+/g, " ").trim().startsWith(name));
     return sm ? sm.parentElement.open : null;
   }, name);
@@ -382,7 +382,7 @@ const openSection = async (name, seconds = 0.5, retry = false) => {
 /** Close a side-panel section quietly. */
 const closeSection = (name) =>
   R.page.evaluate((name) => {
-    const e = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-editor");
+    const e = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-editor");
     const sm = [...e.renderRoot.querySelectorAll("summary")].find((x) => x.textContent.replace(/\s+/g, " ").trim().startsWith(name));
     if (sm) sm.parentElement.open = false;
   }, name);
@@ -390,7 +390,7 @@ const closeSection = (name) =>
 const toSection = async (name, top = 150, seconds = 0.7) => {
   await R.move(1780, 640, 0.3);
   const y = await R.page.evaluate((name) => {
-    const e = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-editor");
+    const e = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-editor");
     const sm = [...e.renderRoot.querySelectorAll("summary")].find((x) => x.textContent.replace(/\s+/g, " ").trim().startsWith(name));
     return sm ? sm.getBoundingClientRect().top : null;
   }, name);
@@ -420,8 +420,8 @@ if (PART === "a") {
     const b = { theta: d.theta + 0.35, phi: d.phi - 0.04, radius: d.radius * 0.92 };
     await camOf("main", null, 0, 0, a);
     await R.sleep(1200);
-    await R.title("Einstellungen, Sicherung und Umzug", `NeonPlan 3D · Folge 12 · Teil 1${VERSION}`);
-    const l1 = "Wandstärke, Nordrichtung, Wetter, Favoriten und eigene Knöpfe: Mit den Einstellungen passt du NeonPlan 3D an dein Zuhause an.";
+    await R.title("Einstellungen, Sicherung und Umzug", `MasterPlan3D · Folge 12 · Teil 1${VERSION}`);
+    const l1 = "Wandstärke, Nordrichtung, Wetter, Favoriten und eigene Knöpfe: Mit den Einstellungen passt du MasterPlan3D an dein Zuhause an.";
     const l2 = "In dieser Folge gehe ich jede Einstellung mit dir durch.";
     const total = N.length(l1) + N.length(l2);
     const t0 = R.time;
@@ -603,7 +603,7 @@ if (PART === "a") {
     // the buttons of the newest favourite row
     const favBtn = (txt) =>
       R.page.evaluate((txt) => {
-        const e = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-editor");
+        const e = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-editor");
         const sm = [...e.renderRoot.querySelectorAll("summary")].find((x) => x.textContent.trim().startsWith("Favoriten"));
         const rows = [...sm.parentElement.querySelectorAll(":scope > .fp3d-dev-row")];
         const el = [...rows[rows.length - 1].querySelectorAll("button")].find((b) => b.textContent.trim() === txt);
@@ -630,7 +630,7 @@ if (PART === "a") {
   {
     // the new button's form is the last one
     const lbl = await R.page.evaluate(() => {
-      const e = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-editor");
+      const e = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-editor");
       const forms = [...e.renderRoot.querySelectorAll(".fp3d-own-button")].filter((f) => f.querySelector("select"));
       const f = forms[forms.length - 1];
       const r = f.querySelector('input[type="text"]').getBoundingClientRect();
@@ -670,7 +670,7 @@ if (PART === "a") {
   await R.key("Tab");
   {
     const icons = await R.page.evaluate(() => {
-      const e = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-editor");
+      const e = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-editor");
       const forms = [...e.renderRoot.querySelectorAll(".fp3d-own-button")].filter((f) => f.querySelector("select"));
       const f = forms[forms.length - 1];
       const r = f.querySelector(".fp3d-icon-row input").getBoundingClientRect();
@@ -686,7 +686,7 @@ if (PART === "a") {
   {
     const btn = async (txt) => {
       const b = await R.page.evaluate((txt) => {
-        const e = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-editor");
+        const e = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-editor");
         const forms = [...e.renderRoot.querySelectorAll(".fp3d-own-button")].filter((f) => f.querySelector("select"));
         const f = forms[forms.length - 1];
         const el = [...f.querySelectorAll("button")].find((x) => x.textContent.trim() === txt);
@@ -784,11 +784,11 @@ if (PART === "a") {
     const end = await line("Kurz zusammengefasst: Wände, Raster, Nordrichtung, Dach, Wetter, Startansicht, Favoriten und eigene Knöpfe – alles unten in der Seitenleiste des Editors.");
     await glide("main", null, 0, 0, a, b, end - R.time);
   }
-  await R.title("Teil 2: Sicherung, Umzug und Datenschutz", `NeonPlan 3D – läuft auch auf alten Wandtablets${VERSION}`);
+  await R.title("Teil 2: Sicherung, Umzug und Datenschutz", `MasterPlan3D – läuft auch auf alten Wandtablets${VERSION}`);
   {
     let end = await line("In Teil 2 sicherst du deinen Plan und ziehst damit auf ein neues Home Assistant um.");
     await live(end);
-    end = await line("Links zur Online-Demo und zur Anleitung stehen in der Beschreibung. Und NeonPlan 3D läuft auch auf alten Wandtablets. Bis gleich in Teil 2!");
+    end = await line("Links zur Online-Demo und zur Anleitung stehen in der Beschreibung. Und MasterPlan3D läuft auch auf alten Wandtablets. Bis gleich in Teil 2!");
     await live(end + 0.6);
   }
 }
@@ -798,7 +798,7 @@ if (PART === "b") {
   /** The editor's notice line (restored, imported) as a screen point, or null. */
   const noticeBox = () =>
     R.page.evaluate(() => {
-      const e = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-editor");
+      const e = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-editor");
       const n = e.renderRoot.querySelector(".fp3d-notice");
       if (!n) return null;
       const r = n.getBoundingClientRect();
@@ -814,19 +814,19 @@ if (PART === "b") {
       const p = window.fp3dPanel;
       const h = p.hass;
       const orig = h.callWS;
-      await orig({ type: "neonplan3d/license/remove" });
+      await orig({ type: "masterplan3d/license/remove" });
       h.callWS = async (m) => {
-        if (m.type === "neonplan3d/backup/export") {
-          const { building } = await orig({ type: "neonplan3d/building/get" });
-          return { format: "neonplan3d-backup", version: 1, building, packs: [{ id: "mastershort.living" }, { id: "mastershort.kitchen" }, { id: "demo.pack" }] };
+        if (m.type === "masterplan3d/backup/export") {
+          const { building } = await orig({ type: "masterplan3d/building/get" });
+          return { format: "masterplan3d-backup", version: 1, building, packs: [{ id: "mastershort.living" }, { id: "mastershort.kitchen" }, { id: "demo.pack" }] };
         }
-        if (m.type === "neonplan3d/backup/import") {
-          await orig({ type: "neonplan3d/history/snapshot" });
-          await orig({ type: "neonplan3d/building/save", building: m.building });
+        if (m.type === "masterplan3d/backup/import") {
+          await orig({ type: "masterplan3d/history/snapshot" });
+          await orig({ type: "masterplan3d/building/save", building: m.building });
           return { building: m.building, packs: 2, skipped: [{ id: "mastershort.living" }] };
         }
         const r = await orig(m);
-        if (m.type.startsWith("neonplan3d/license/") && r) return { ...r, offers: (r.offers ?? []).map((o) => ({ ...o, price: null })) };
+        if (m.type.startsWith("masterplan3d/license/") && r) return { ...r, offers: (r.offers ?? []).map((o) => ({ ...o, price: null })) };
         return r;
       };
     });
@@ -851,7 +851,7 @@ if (PART === "b") {
     const b = { theta: d.theta - 0.4, phi: d.phi - 0.03, radius: d.radius * 0.9 };
     await camOf("main", null, 0, 0, a);
     await R.sleep(1200);
-    await R.title("Einstellungen, Sicherung und Umzug", `NeonPlan 3D · Folge 12 · Teil 2${VERSION}`);
+    await R.title("Einstellungen, Sicherung und Umzug", `MasterPlan3D · Folge 12 · Teil 2${VERSION}`);
     const l1 = "Ein Klick zu viel, ein neues Home Assistant oder neue Hardware – dein Plan geht nicht verloren.";
     const l2 = "In Teil 2 zeige ich dir Sicherung, Import und Umzug.";
     const total = N.length(l1) + N.length(l2);
@@ -929,7 +929,7 @@ if (PART === "b") {
   await pointAt("Datei", 0.5, { tags: "H4" });
   await R.clickOn({ text: "Exportieren", exact: true }, 0.5);
   await R.sleep(500);
-  await downloadChip(basename(await downloaded("neonplan3d-sicherung")));
+  await downloadChip(basename(await downloaded("masterplan3d-sicherung")));
   await R.hold(1.0);
   await sayOver("Bilder sind nicht drin, das steht auch darunter. Für die Bilder gibt es gleich das Komplett-Backup.");
   await noChip();
@@ -938,7 +938,7 @@ if (PART === "b") {
   await sayOver("„Als Vorlage teilen“ lässt alles weg, was zu deinem Home Assistant gehört: Bereiche, Geräte, Sensoren und Bilder.");
   await R.clickOn({ text: "Als Vorlage teilen", exact: true }, 0.5);
   await R.sleep(500);
-  const template = await downloaded("neonplan3d-vorlage");
+  const template = await downloaded("masterplan3d-vorlage");
   await downloadChip(basename(template));
   await R.hold(0.8);
   await sayOver("Das ist die Datei für einen Freund, fürs Forum oder für einen Fehlerbericht – ohne deine Geräte.");
@@ -960,7 +960,7 @@ if (PART === "b") {
     const [chooser] = await Promise.all([
       R.page.waitForFileChooser(),
       R.page.evaluate(() => {
-        const e = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-editor");
+        const e = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-editor");
         const label = [...e.renderRoot.querySelectorAll("label.fp3d-upload")].find((l) => l.textContent.trim().startsWith("Importieren"));
         label.querySelector("input").click();
       }),
@@ -971,7 +971,7 @@ if (PART === "b") {
   await sayOver("So sieht eine Vorlage aus: Räume, Wände, Türen und Möbel sind da – aber keine Geräte und keine Verknüpfungen.");
   {
     const c = await R.page.evaluate(() => {
-      const e = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-editor");
+      const e = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-editor");
       const r = e.renderRoot.querySelector("svg").getBoundingClientRect();
       return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
     });
@@ -1002,7 +1002,7 @@ if (PART === "b") {
   {
     // the newest point is the one taken right before the import; its time as the row shows it
     const time = await R.page.evaluate(() => {
-      const e = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-editor");
+      const e = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-editor");
       const row = [...e.renderRoot.querySelectorAll(".fp3d-dev-row")].find((r) => r.textContent.includes("Wiederherstellen"));
       return row ? row.querySelector("span").textContent.split("·")[0].trim() : "";
     });
@@ -1020,7 +1020,7 @@ if (PART === "b") {
   await openSection("Sicherung", 0.3);
   await pointAt("Komplett-Backup", 0.5, { tags: "H4" });
   await R.clickOn({ text: "Alles sichern (Plan, Bilder, Packs)", exact: true }, 0.5);
-  const full = await downloaded("neonplan3d-komplett");
+  const full = await downloaded("masterplan3d-komplett");
   await downloadChip(basename(full));
   await R.hold(0.8);
   await sayOver("Der Lizenzschlüssel ist bewusst nicht in der Datei.");
@@ -1032,26 +1032,26 @@ if (PART === "b") {
   await R.hold(0.6);
   await sayOver("Jedes Pack wird dabei neu geprüft. Packs, die für eine andere Installation signiert sind, werden übersprungen – die holst du dort über den Shop neu.");
   await R.hold(0.8);
-  await sayOver("Übrigens: Das normale Backup von Home Assistant sichert NeonPlan 3D ebenfalls vollständig mit.");
+  await sayOver("Übrigens: Das normale Backup von Home Assistant sichert MasterPlan3D ebenfalls vollständig mit.");
   await R.hold(0.6);
 
   // ---------------------------------------------------------------- 8. Moving
   await chapter("Umzug auf ein neues Home Assistant");
   const STEPS = [
     "Altes System: „Alles sichern“",
-    "Neues System: NeonPlan 3D über HACS installieren, Integration hinzufügen, Bereiche anlegen",
+    "Neues System: MasterPlan3D über HACS installieren, Integration hinzufügen, Bereiche anlegen",
     "Editor › Sicherung › „Komplett-Backup wiederherstellen …“",
     "Erweiterungen: Schlüssel eintragen, „Aktivieren“, Packs „Installieren“",
   ];
   await sayOver("Jetzt der Umzug, zum Beispiel auf einen neuen Mini-PC. Am einfachsten spielst du das Backup von Home Assistant auf der neuen Hardware ein – dann ist NeonPlan mit allem da.");
-  await card("Weg 1: das Backup von Home Assistant", ["Auf der neuen Hardware einspielen – NeonPlan 3D ist mit Plan, Bildern, Packs und Shop-Verbindung da"], 0);
+  await card("Weg 1: das Backup von Home Assistant", ["Auf der neuen Hardware einspielen – MasterPlan3D ist mit Plan, Bildern, Packs und Shop-Verbindung da"], 0);
   await R.move(1100, 560, 1.2);
   await R.hold(0.6);
   await sayOver("Fängst du neu an, geht es in vier Schritten. Erstens: auf dem alten System „Alles sichern“.");
   await card("Weg 2: neu anfangen", STEPS, 0);
   await R.moveTo({ text: "Alles sichern (Plan, Bilder, Packs)", exact: true }, 0.6);
   await R.hold(0.6);
-  await sayOver("Zweitens: Auf dem neuen System installierst du NeonPlan 3D über HACS, fügst die Integration hinzu und legst deine Bereiche an.");
+  await sayOver("Zweitens: Auf dem neuen System installierst du MasterPlan3D über HACS, fügst die Integration hinzu und legst deine Bereiche an.");
   await card("Weg 2: neu anfangen", STEPS, 1);
   await R.hold(0.8);
   await sayOver("Drittens: Im Editor unter „Sicherung“ das Komplett-Backup wiederherstellen.");
@@ -1159,10 +1159,10 @@ if (PART === "b") {
     const b = { theta: d.theta + 0.2, phi: d.phi - 0.03, radius: d.radius * 1.0 };
     await camOf("main", null, 0, 0, a);
     await R.sleep(700);
-    const l1 = "Das war die letzte Folge der Reihe. Vom ersten Raum bis zum Umzug kennst du jetzt jeden Knopf in NeonPlan 3D.";
-    const l2 = "Danke, dass du dabei warst! Alle Folgen findest du in der Playlist „NeonPlan 3D – Tutorials“.";
+    const l1 = "Das war die letzte Folge der Reihe. Vom ersten Raum bis zum Umzug kennst du jetzt jeden Knopf in MasterPlan3D.";
+    const l2 = "Danke, dass du dabei warst! Alle Folgen findest du in der Playlist „MasterPlan3D – Tutorials“.";
     const l3 = "Links zur Online-Demo, zur Anleitung, zu GitHub für Fehlermeldungen und zu unserer Discord-Community stehen in der Beschreibung.";
-    const l4 = "Und denk dran: NeonPlan 3D läuft auch auf alten Wandtablets. Bis bald!";
+    const l4 = "Und denk dran: MasterPlan3D läuft auch auf alten Wandtablets. Bis bald!";
     const total = N.length(l1) + N.length(l2) + N.length(l3) + N.length(l4) + 0.6;
     const t0 = R.time;
     const step = async (end) => {
@@ -1175,11 +1175,11 @@ if (PART === "b") {
       }
     };
     await step(await line(l1));
-    await R.title("Danke fürs Zuschauen!", `Playlist „NeonPlan 3D – Tutorials“`);
+    await R.title("Danke fürs Zuschauen!", `Playlist „MasterPlan3D – Tutorials“`);
     await step(await line(l2));
     await R.title("Demo · Anleitung · GitHub · Discord", `Links in der Beschreibung`);
     await step(await line(l3));
-    await R.title("NeonPlan 3D", `läuft auch auf alten Wandtablets${VERSION}`);
+    await R.title("MasterPlan3D", `läuft auch auf alten Wandtablets${VERSION}`);
     await step((await line(l4)) + 0.6);
   }
 }

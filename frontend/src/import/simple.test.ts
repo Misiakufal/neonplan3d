@@ -75,13 +75,13 @@ test("a MasterPlan3D plan written by an AI with mistakes is repaired", () => {
   assert.equal(fl.furniture[0].rotation, 90);
   assert.ok(warnings.some((w) => w.code === "openings_dropped"));
   // what comes out is a plan the editor reads
-  assert.ok(parseExport(JSON.stringify({ format: "neonplan3d", version: 1, building: out })));
+  assert.ok(parseExport(JSON.stringify({ format: "masterplan3d", version: 1, building: out })));
 });
 
 test("files are told apart by name and content", async () => {
   const enc = (o: unknown) => new TextEncoder().encode(JSON.stringify(o));
   assert.equal((await readFile("plan.json", enc(simple))).kind, "simple");
-  assert.equal((await readFile("x.json", enc({ format: "neonplan3d", version: 1, building: { ...emptyBuilding(), floors: [newFloor("a", "A", 0)] } }))).kind, "neonplan");
+  assert.equal((await readFile("x.json", enc({ format: "masterplan3d", version: 1, building: { ...emptyBuilding(), floors: [newFloor("a", "A", 0)] } }))).kind, "neonplan");
   await assert.rejects(readFile("x.json", enc({ hello: 1 })), /unknown_format/);
   await assert.rejects(readFile("x.json", new TextEncoder().encode("{ broken")), /not_json/);
 });

@@ -1,15 +1,15 @@
 <?php
 /**
- * NeonPlan 3D – customer keys, installation binding and pack delivery for WooCommerce.
+ * MasterPlan3D – customer keys, installation binding and pack delivery for WooCommerce.
  *
  * Every customer gets one key (NP-XXXX-XXXX-XXXX-XXXX) with the first pack purchase. The key is shown
- * in the order e-mail, on the thank-you page and in "My account". In NeonPlan 3D the customer enters
+ * in the order e-mail, on the thank-you page and in "My account". In MasterPlan3D the customer enters
  * it once: the integration then lists the bought packs, installs them signed for that installation
  * (its fingerprint goes into the signature, so a copied file is refused elsewhere) and checks once a
  * day for updates and new purchases. A key can be bound to a few installations (a move to new
  * hardware is fine, handing it around is not).
  *
- * REST API (used by the integration, custom_components/neonplan3d/license.py):
+ * REST API (used by the integration, custom_components/masterplan3d/license.py):
  *   POST /wp-json/neonplan/v1/catalog  {key, instance}        -> {licensee, packs: [{id, name, release, url}],
  *                                                                 offers: [{id, name, teaser, image, url, kind, price, new}],
  *                                                                 loyalty: {code, percent} | null}
@@ -26,7 +26,7 @@
  *
  * Loyalty: with the first paid pack order every customer gets a personal coupon (MS_NP_LOYALTY_PERCENT on
  * every further pack and Pro add-on, not on bundles), bound to the buyer's e-mail. It shows in the order
- * mail, the account and in NeonPlan 3D; a shop link with ?np_coupon=CODE puts it into the cart.
+ * mail, the account and in MasterPlan3D; a shop link with ?np_coupon=CODE puts it into the cart.
  */
 
 if (!defined('ABSPATH')) {
@@ -50,7 +50,7 @@ const MS_NP_SHOP_PAGE = 'https://mastershort.de/neonplan3d/';
 /** Loyalty discount in percent on further purchases, and the meta key of the customer's coupon code. */
 const MS_NP_LOYALTY_PERCENT = 10;
 const MS_NP_COUPON_META = '_ms_np_coupon';
-/** Products this young show as "new" in NeonPlan 3D. */
+/** Products this young show as "new" in MasterPlan3D. */
 const MS_NP_NEW_DAYS = 45;
 
 // ------------------------------------------------------------------------------------ keys
@@ -157,15 +157,15 @@ function ms_np_key_in_mail(WC_Order $order, bool $sent_to_admin, bool $plain_tex
     }
     $coupon = ms_np_coupon_for_order($order);
     if ($plain_text) {
-        echo "\n" . 'NeonPlan 3D – Lizenzschlüssel: ' . $key . "\n" . 'In NeonPlan 3D unter Erweiterungen > Shop-Verbindung eintragen; die gekauften Packs erscheinen dann dort und bekommen Updates von selbst.' . "\n";
+        echo "\n" . 'MasterPlan3D – Lizenzschlüssel: ' . $key . "\n" . 'In MasterPlan3D unter Erweiterungen > Shop-Verbindung eintragen; die gekauften Packs erscheinen dann dort und bekommen Updates von selbst.' . "\n";
         if ($coupon !== '') {
             echo 'Dein Treuerabatt: ' . MS_NP_LOYALTY_PERCENT . ' % auf jedes weitere Pack und jede Pro-Erweiterung mit dem Code ' . $coupon . "\n";
         }
         echo "\n";
         return;
     }
-    echo '<h2>NeonPlan 3D – Lizenzschlüssel</h2><p style="font-size:1.3em;font-family:monospace"><b>' . esc_html($key) . '</b></p>'
-        . '<p>In NeonPlan 3D unter <i>Erweiterungen › Shop-Verbindung</i> eintragen. Die gekauften Packs erscheinen dann dort und bekommen Updates von selbst. Alles Installierte funktioniert auch ohne Verbindung.</p>'
+    echo '<h2>MasterPlan3D – Lizenzschlüssel</h2><p style="font-size:1.3em;font-family:monospace"><b>' . esc_html($key) . '</b></p>'
+        . '<p>In MasterPlan3D unter <i>Erweiterungen › Shop-Verbindung</i> eintragen. Die gekauften Packs erscheinen dann dort und bekommen Updates von selbst. Alles Installierte funktioniert auch ohne Verbindung.</p>'
         . ms_np_coupon_html($coupon);
 }
 
@@ -183,8 +183,8 @@ function ms_np_key_in_order(WC_Order $order): void
 {
     $key = ms_np_ensure_license($order);
     if ($key !== '') {
-        echo '<section class="ms-np-license"><h2>NeonPlan 3D – Lizenzschlüssel</h2><p style="font-size:1.3em;font-family:monospace"><b>' . esc_html($key) . '</b></p>'
-            . '<p>In NeonPlan 3D unter <i>Erweiterungen › Shop-Verbindung</i> eintragen.</p>' . ms_np_coupon_html(ms_np_coupon_for_order($order)) . '</section>';
+        echo '<section class="ms-np-license"><h2>MasterPlan3D – Lizenzschlüssel</h2><p style="font-size:1.3em;font-family:monospace"><b>' . esc_html($key) . '</b></p>'
+            . '<p>In MasterPlan3D unter <i>Erweiterungen › Shop-Verbindung</i> eintragen.</p>' . ms_np_coupon_html(ms_np_coupon_for_order($order)) . '</section>';
     }
 }
 
@@ -194,8 +194,8 @@ function ms_np_key_in_account(): void
     $key = (string) get_user_meta(get_current_user_id(), MS_NP_LICENSE_META, true);
     if ($key !== '') {
         $owner = ms_np_find_license($key);
-        echo '<section class="ms-np-license"><h3>NeonPlan 3D – Lizenzschlüssel</h3><p style="font-size:1.3em;font-family:monospace"><b>' . esc_html($key) . '</b></p>'
-            . '<p>In NeonPlan 3D unter <i>Erweiterungen › Shop-Verbindung</i> eintragen. Gekaufte Packs erscheinen dort und bekommen Updates von selbst.</p>'
+        echo '<section class="ms-np-license"><h3>MasterPlan3D – Lizenzschlüssel</h3><p style="font-size:1.3em;font-family:monospace"><b>' . esc_html($key) . '</b></p>'
+            . '<p>In MasterPlan3D unter <i>Erweiterungen › Shop-Verbindung</i> eintragen. Gekaufte Packs erscheinen dort und bekommen Updates von selbst.</p>'
             . ($owner ? ms_np_coupon_html(ms_np_ensure_coupon($owner)) : '') . '</section>';
     }
 }
@@ -417,7 +417,7 @@ function ms_np_ensure_coupon(array $owner): string
     $coupon->set_individual_use(false);
     $coupon->set_usage_limit(0);
     $coupon->set_email_restrictions(array_values(array_unique(array_filter([strtolower($email), strtolower($owner['orders'][0]->get_billing_email())]))));
-    $coupon->set_description('NeonPlan 3D Treuerabatt für ' . $email);
+    $coupon->set_description('MasterPlan3D Treuerabatt für ' . $email);
     $coupon->update_meta_data('_ms_np_loyalty', '1');
     $coupon->save();
     if ($owner['user_id']) {
@@ -496,8 +496,8 @@ function ms_np_loyalty_guest_restrictions($emails, $coupon)
 // ------------------------------------------------------------------------------ offers
 
 /**
- * Everything the shop sells for NeonPlan 3D (cached 10 minutes): published, visible products with a
- * _ms_np_key and a price. Each: keys (one pack, or several for a bundle) and what NeonPlan 3D shows.
+ * Everything the shop sells for MasterPlan3D (cached 10 minutes): published, visible products with a
+ * _ms_np_key and a price. Each: keys (one pack, or several for a bundle) and what MasterPlan3D shows.
  */
 function ms_np_all_offers(): array
 {

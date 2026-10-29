@@ -1,4 +1,4 @@
-**NeonPlan 3D 1.18.1** brings two presents: the fun packs **Halloween** and **Pets** are now free for everyone with a customer account – no purchase needed. On top: NeonPlan speaks **Chinese** and **Portuguese**, and every language has all the new texts of 1.18.
+**MasterPlan3D 1.18.1** brings two presents: the fun packs **Halloween** and **Pets** are now free for everyone with a customer account – no purchase needed. On top: NeonPlan speaks **Chinese** and **Portuguese**, and every language has all the new texts of 1.18.
 
 ### New
 
@@ -9,11 +9,11 @@
 
 ### How to update
 
-Settings → System → Updates. HACS only looks for new versions every few hours, so a fresh update may not show there yet. Then: HACS → NeonPlan 3D → ⋮ → **Update information** → **Download**. Restart Home Assistant and reload the page (Ctrl+F5).
+Settings → System → Updates. HACS only looks for new versions every few hours, so a fresh update may not show there yet. Then: HACS → MasterPlan3D → ⋮ → **Update information** → **Download**. Restart Home Assistant and reload the page (Ctrl+F5).
 
 ---
 
-**NeonPlan 3D 1.18.1** bringt zwei Geschenke: Die Fun-Packs **Halloween** und **Haustiere** sind jetzt gratis für jeden mit Kundenkonto – ganz ohne Kauf. Dazu spricht NeonPlan **Chinesisch** und **Portugiesisch**, und alle Sprachen haben die neuen Texte aus 1.18.
+**MasterPlan3D 1.18.1** bringt zwei Geschenke: Die Fun-Packs **Halloween** und **Haustiere** sind jetzt gratis für jeden mit Kundenkonto – ganz ohne Kauf. Dazu spricht NeonPlan **Chinesisch** und **Portugiesisch**, und alle Sprachen haben die neuen Texte aus 1.18.
 
 ### Neu
 
@@ -24,4 +24,4 @@ Settings → System → Updates. HACS only looks for new versions every few hour
 
 ### So bekommst du das Update
 
-Einstellungen → System → Updates. HACS sucht nur alle paar Stunden nach neuen Versionen, deshalb fehlt ein frisches Update dort manchmal noch. Dann: HACS → NeonPlan 3D → ⋮ → **Informationen aktualisieren** → **Herunterladen**. Home Assistant neu starten und die Seite neu laden (Strg+F5).
+Einstellungen → System → Updates. HACS sucht nur alle paar Stunden nach neuen Versionen, deshalb fehlt ein frisches Update dort manchmal noch. Dann: HACS → MasterPlan3D → ⋮ → **Informationen aktualisieren** → **Herunterladen**. Home Assistant neu starten und die Seite neu laden (Strg+F5).

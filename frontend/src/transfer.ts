@@ -1,9 +1,10 @@
 // Export and import of the building as a JSON file. Without entities, a plan can be shared with others:
 // areas, lights, sensors and every other link to this Home Assistant are removed.
 
+import { PREVIOUS_DOMAIN } from "./legacy.ts";
 import { normalizeBuilding, type Building } from "./model.ts";
 
-export const EXPORT_FORMAT = "neonplan3d";
+export const EXPORT_FORMAT = "masterplan3d";
 
 export interface ExportFile {
   format: typeof EXPORT_FORMAT;
@@ -42,7 +43,7 @@ export function parseExport(text: string): Building {
     throw new Error("not_json");
   }
   const file = data as Partial<ExportFile>;
-  const b = (file?.format === EXPORT_FORMAT ? file.building : data) as Building | undefined;
+  const b = ((file?.format === EXPORT_FORMAT || file?.format === PREVIOUS_DOMAIN) ? file.building : data) as Building | undefined;
   if (!b || b.version !== 1 || !Array.isArray(b.floors) || !b.settings) throw new Error("not_plan");
   // background images are not part of an export
   for (const f of b.floors) f.background = null;

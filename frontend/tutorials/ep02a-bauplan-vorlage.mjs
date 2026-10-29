@@ -46,7 +46,7 @@ const B = { theta: 0.95, phi: 0.8, radius: 19 };
 const C = { theta: 1.6, phi: 0.75, radius: 20 };
 await R.view(A);
 await R.sleep(1200);
-await R.title("Bauplan als Vorlage – Teil 1", `NeonPlan 3D · Folge 2${VERSION}`);
+await R.title("Bauplan als Vorlage – Teil 1", `MasterPlan3D · Folge 2${VERSION}`);
 await sayOver("Du hast deinen Grundriss als Bild? Dann zeichnest du dein Haus einfach darauf nach – in ein paar Minuten.");
 await R.glide(A, B, 5.5);
 await R.untitle();
@@ -400,7 +400,7 @@ await H.glide3d(D, E, 6);
 
 // ---------------------------------------------------------------- 11. Outro
 await chapter("Wie geht es weiter");
-await R.title("Teil 2: Türen und Garagentor", `NeonPlan 3D – läuft auch auf alten Wandtablets${VERSION}`);
+await R.title("Teil 2: Türen und Garagentor", `MasterPlan3D – läuft auch auf alten Wandtablets${VERSION}`);
 await say("Das war Teil 1: Bauplan einrichten, Räume nachzeichnen, Wände einstellen. In Teil 2 kommen die Türen und das Garagentor dazu, in Teil 3 die Fenster – mit Kontakten und Rollläden.");
 await say("Links zur Online-Demo und zur Anleitung findest du in der Beschreibung. Und NeonPlan läuft auch auf alten Wandtablets. Bis gleich in Teil 2!");
 await R.hold(0.6);

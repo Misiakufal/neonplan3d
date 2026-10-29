@@ -1,4 +1,4 @@
-**NeonPlan 3D 1.19.0** brings awnings that run out with their cover, waste bins and mailboxes for everyone, **Household Pro** as a beta, and a new **import page** (beta) that turns plans from other programs into a NeonPlan plan.
+**MasterPlan3D 1.19.0** brings awnings that run out with their cover, waste bins and mailboxes for everyone, **Household Pro** as a beta, and a new **import page** (beta) that turns plans from other programs into a NeonPlan plan.
 
 ### New
 
@@ -28,11 +28,11 @@
 
 ### How to update
 
-Settings → System → Updates. HACS only looks for new versions every few hours, so a fresh update may not show there yet; then use HACS → NeonPlan 3D → ⋮ → **Update information** → **Download**. Restart Home Assistant and reload the page (Ctrl+F5).
+Settings → System → Updates. HACS only looks for new versions every few hours, so a fresh update may not show there yet; then use HACS → MasterPlan3D → ⋮ → **Update information** → **Download**. Restart Home Assistant and reload the page (Ctrl+F5).
 
 ---
 
-**NeonPlan 3D 1.19.0** bringt Markisen, die mit ihrem Cover ausfahren, Mülltonnen und Briefkästen für alle, **Haushalt Pro** als Beta und eine neue **Import-Seite** (Beta), die Pläne aus anderen Programmen in einen NeonPlan-Plan verwandelt.
+**MasterPlan3D 1.19.0** bringt Markisen, die mit ihrem Cover ausfahren, Mülltonnen und Briefkästen für alle, **Haushalt Pro** als Beta und eine neue **Import-Seite** (Beta), die Pläne aus anderen Programmen in einen NeonPlan-Plan verwandelt.
 
 ### Neu
 
@@ -62,4 +62,4 @@ Settings → System → Updates. HACS only looks for new versions every few hour
 
 ### So aktualisierst du
 
-Einstellungen → System → Updates. HACS schaut nur alle paar Stunden nach neuen Versionen, ein frisches Update ist dort also vielleicht noch nicht zu sehen; dann HACS → NeonPlan 3D → ⋮ → **Informationen aktualisieren** → **Herunterladen**. Home Assistant neu starten und die Seite neu laden (Strg+F5).
+Einstellungen → System → Updates. HACS schaut nur alle paar Stunden nach neuen Versionen, ein frisches Update ist dort also vielleicht noch nicht zu sehen; dann HACS → MasterPlan3D → ⋮ → **Informationen aktualisieren** → **Herunterladen**. Home Assistant neu starten und die Seite neu laden (Strg+F5).

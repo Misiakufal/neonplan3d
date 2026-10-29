@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to NeonPlan 3D. The full notes in German and English are on the
+All notable changes to MasterPlan3D. The full notes in German and English are on the
 [releases page](https://github.com/Mastershort/neonplan3d/releases). Ideas and votes:
 [Discussions → Ideas](https://github.com/Mastershort/neonplan3d/discussions/categories/ideas).
 
@@ -8,7 +8,7 @@ All notable changes to NeonPlan 3D. The full notes in German and English are on 
 
 ### New
 
-- **Announcements from automations:** the action **NeonPlan 3D: Announcement** (`neonplan3d.announce`) says a message on the rooms' speakers with the Announcements module's settings (speaker per room, quiet time, text-to-speech), also with no NeonPlan page open – to every room, to rooms by name or area, or to one floor. **On NeonPlan screens** every open NeonPlan screen speaks it itself with a chime and shows it big – an old wall tablet becomes a speaker. Needs the Announcements module.
+- **Announcements from automations:** the action **MasterPlan3D: Announcement** (`masterplan3d.announce`) says a message on the rooms' speakers with the Announcements module's settings (speaker per room, quiet time, text-to-speech), also with no NeonPlan page open – to every room, to rooms by name or area, or to one floor. **On NeonPlan screens** every open NeonPlan screen speaks it itself with a chime and shows it big – an old wall tablet becomes a speaker. Needs the Announcements module.
 
 ## 2.0.8
 
@@ -248,7 +248,7 @@ Polished with the wishes of the beta testers on Discord – thanks to MacGywer, 
 ### Changed
 
 - **Modules run only after an administrator approved their code.** A module installed from the shop or from a file waits under Extensions → Modules until an admin opens **View code & approve** (publisher, version, size, fingerprint and the whole code) and approves it. A new release of a module never replaces the running code by itself: it waits beside it until it is approved too. Modules installed before 1.24 ask for this approval once. Furniture and feature packs without code are unchanged.
-- **Assist sentence files only on request.** NeonPlan no longer writes `custom_sentences/…/neonplan3d.yaml` on start: the file is written only when an admin picks sentences under ⚙ Settings → 🎙 Voice control (default: none). A file you changed yourself is never overwritten or deleted, and removing the integration removes NeonPlan's files. Files written by 1.22–1.23 stay as they are and are recognised as NeonPlan's.
+- **Assist sentence files only on request.** NeonPlan no longer writes `custom_sentences/…/masterplan3d.yaml` on start: the file is written only when an admin picks sentences under ⚙ Settings → 🎙 Voice control (default: none). A file you changed yourself is never overwritten or deleted, and removing the integration removes NeonPlan's files. Files written by 1.22–1.23 stay as they are and are recognised as NeonPlan's.
 
 ## 1.23.1
 
@@ -266,7 +266,7 @@ Polished with the wishes of the beta testers on Discord – thanks to MacGywer, 
 
 ### Changed
 
-- **Card loader:** the dashboard card's loader is served from NeonPlan's own path (`/neonplan3d_static/`); nothing is written into the user's `www` folder any more. A copy older versions left in `www/neonplan3d/` is removed and the dashboard resource is moved by itself.
+- **Card loader:** the dashboard card's loader is served from NeonPlan's own path (`/masterplan3d_static/`); nothing is written into the user's `www` folder any more. A copy older versions left in `www/masterplan3d/` is removed and the dashboard resource is moved by itself.
 
 ## 1.22.1
 
@@ -284,7 +284,7 @@ Polished with the wishes of the beta testers on Discord – thanks to MacGywer, 
 
 - **⚙ Settings menu in the editor:** everything that belongs to the whole plan – house (walls, grid, units, north), weather & warnings, live director, voice control, favourites, background, ground, backup and modules – sits in one menu in the toolbar; each topic opens as a dialog over the plan, also while something is selected. The side bar without a selection keeps the rooms, the floor-plan picture and help. The roof's shape, ridge, pitch and overhang moved to the roof tool; the start view is remembered in the 3D view's settings (📌).
 - **Modules:** NeonPlan can load code the shop delivers as a signed pack ("Modul von …" on the extensions page). The first module answers spoken questions ("Was ist offen?", "Wo ist es kalt?", "Läuft die Waschmaschine?", "Was zieht Strom?") in the house and out loud through the Assist pipeline's text-to-speech. Modules are checked and bound to the installation like furniture packs.
-- **Ask through Assist:** everything voice control understands can be said to a voice satellite, the Assist dialog or the app – the sentences (`custom_sentences/de|en/neonplan3d.yaml`, written on start) hand "Zeig das Wohnzimmer" or "Was ist offen?" to every open NeonPlan view; the first answer goes back to Assist, which speaks it where it was asked. The service `neonplan3d.ask` (text, screen, speak) does the same from automations and returns the answer. Views can carry a **screen name** (voice settings, card option `screen`) so a sentence reaches one tablet only.
+- **Ask through Assist:** everything voice control understands can be said to a voice satellite, the Assist dialog or the app – the sentences (`custom_sentences/de|en/masterplan3d.yaml`, written on start) hand "Zeig das Wohnzimmer" or "Was ist offen?" to every open NeonPlan view; the first answer goes back to Assist, which speaks it where it was asked. The service `masterplan3d.ask` (text, screen, speak) does the same from automations and returns the answer. Views can carry a **screen name** (voice settings, card option `screen`) so a sentence reaches one tablet only.
 - **Further names** for rooms, furniture and placed devices ("Smart TV Pro" also as "Wohnzimmerfernseher" or "Glotze"), for voice control and the search.
 - Modules have their own home: **⚙ Settings → 🧩 Module** lists them and imports a module file; the extensions page gets a **Module** section of its own next to the furniture packs.
 - **Modules may draw:** a module adds water, pipe flows and device glows to the 3D stage, glass cards, warnings and fields in the editor's outdoor form, and lends the pipe tools their rules – the host draws, the module knows (`scene`, `cards`, `alerts`, `areaFields`, `pipes`, `watched`, `pools`; module kind `stage`).
@@ -712,8 +712,8 @@ Polished with the wishes of the beta testers on Discord – thanks to MacGywer, 
 
 ### Fixed
 
-- Dashboard card: right after starting the app, the card could show "Custom element doesn't exist: neonplan3d-card" until the sidebar page was opened. The card's script is now also kept in the dashboard resources (storage mode), so dashboards wait for it; an older copy of the script there is pointed to the current one (#252 by TheRev-ha, RobertSorgenfrei).
-- Installing a Pro add-on from the shop: NeonPlan 3D now also sends its version in the request, so the shop can answer an installation that is too old with a readable "please update first" message.
+- Dashboard card: right after starting the app, the card could show "Custom element doesn't exist: masterplan3d-card" until the sidebar page was opened. The card's script is now also kept in the dashboard resources (storage mode), so dashboards wait for it; an older copy of the script there is pointed to the current one (#252 by TheRev-ha, RobertSorgenfrei).
+- Installing a Pro add-on from the shop: MasterPlan3D now also sends its version in the request, so the shop can answer an installation that is too old with a readable "please update first" message.
 - Energy Pro in a house with a single floor: the plant cards (solar, balance) show in the 3D view and the card, not only in the editor (#255 by Kohhal).
 - Energy Pro: a grid connection mounted on a wall – the grid cable starts at its height instead of on the ground, and its pin sits there too (#256 by Kohhal).
 - Solar fields moved to another roof face (e.g. after replacing a flat roof) keep their modules – rows, columns, format and tilt – instead of starting again from a proposal (#258 by rolandarends).
@@ -736,7 +736,7 @@ Polished with the wishes of the beta testers on Discord – thanks to MacGywer, 
 
 - A roof section whose eaves lie below a floor's ceiling now cuts that floor's walls, even when its wall top is set to the ceiling height (discussion #147 by twynne and wouter-b).
 - A house with a single floor shows its roof in 3D; an extra attic floor is no longer needed (discussion #208 by Kohhal).
-- Installing a Pro add-on that is newer than the installed NeonPlan 3D now says "please update NeonPlan 3D first" instead of a cryptic error (#218 by twynne).
+- Installing a Pro add-on that is newer than the installed MasterPlan3D now says "please update MasterPlan3D first" instead of a cryptic error (#218 by twynne).
 - Camera Cockpit: the camera wall fits any number of cameras – the grid picks the columns that give the largest tiles, nothing overlaps, and with very many cameras the wall scrolls (#217 by denisb88).
 - Solar fields: the inverter choice shows each inverter's own name (or its entity's name), and an inverter shows which strings feed it (#213 by rolandarends).
 - Garden solar fields stand on the ground floor, no longer on a cellar below it (#192 by denisb88).
@@ -979,7 +979,7 @@ Polished with the wishes of the beta testers on Discord – thanks to MacGywer, 
 ### New
 
 - **New in the shop** on the Extensions page (with a shop key) and a dot on the tab.
-- **Loyalty discount** code for further purchases, shown in NeonPlan 3D.
+- **Loyalty discount** code for further purchases, shown in MasterPlan3D.
 - The Extensions page shows once what a pack update brought.
 - Screens and status lights of pack furniture can link a light (glow in its colour) or a switch.
 

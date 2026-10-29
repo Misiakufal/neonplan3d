@@ -13,7 +13,7 @@
     </style>
   </head>
   <body>
-    <neonplan3d-panel></neonplan3d-panel>
+    <masterplan3d-panel></masterplan3d-panel>
     <script type="module">
       // Mock of the Home Assistant frontend object with invented demo data.
       import { DEMO_AREAS, DEMO_BUILDING, DEMO_FLOORS, DEMO_PACK, DEMO_ENTITIES, DEMO_STATES, DEMO_PICTURES } from "./demo-data.js";
@@ -22,7 +22,7 @@
       const params = new URLSearchParams(location.search);
       // the power flow lines are on with ?flows (and off without, whatever an earlier page stored)
       try {
-        localStorage.setItem("neonplan3d.flows", params.has("flows") ? "1" : "0");
+        localStorage.setItem("masterplan3d.flows", params.has("flows") ? "1" : "0");
       } catch {}
       // the shop connection of the demo: connected when ?shop is given, with one pack to install and one update
       let license = {
@@ -152,7 +152,7 @@
         },
         async callWS(msg) {
           switch (msg.type) {
-            case "neonplan3d/building/get": {
+            case "masterplan3d/building/get": {
               // the online demo has no private packs: their items would stand as grey boxes, so leave them out
               const packs = await previewPacks();
               const known = new Set(packs.flatMap((p) => p.items.map((it) => `pack:${p.id}:${it.id}`)));
@@ -160,7 +160,7 @@
               for (const f of shown.floors) f.furniture = f.furniture.filter((m) => !m.type.startsWith("pack:") || known.has(m.type));
               return { building: shown, revision };
             }
-            case "neonplan3d/building/save":
+            case "masterplan3d/building/save":
               // ?savefail simulates a backend that still runs an older version
               if (params.has("savefail")) throw { code: "invalid_format", message: "extra keys not allowed @ data['building']['floors'][0]['furniture'][0]['entity']" };
               building = structuredClone(msg.building);
@@ -168,13 +168,13 @@
               for (const cb of listeners) cb({ revision });
               return { revision };
             // the opt-in reports (only shown with the lab switch): a made-up status and preview
-            case "neonplan3d/diagnostics/client":
+            case "masterplan3d/diagnostics/client":
               return { enabled: diag.enabled };
-            case "neonplan3d/diagnostics/get":
-            case "neonplan3d/diagnostics/set":
-            case "neonplan3d/diagnostics/delete": {
-              if (msg.type === "neonplan3d/diagnostics/set") diag.enabled = msg.enabled;
-              if (msg.type === "neonplan3d/diagnostics/delete") diag.enabled = false;
+            case "masterplan3d/diagnostics/get":
+            case "masterplan3d/diagnostics/set":
+            case "masterplan3d/diagnostics/delete": {
+              if (msg.type === "masterplan3d/diagnostics/set") diag.enabled = msg.enabled;
+              if (msg.type === "masterplan3d/diagnostics/delete") diag.enabled = false;
               return {
                 enabled: diag.enabled,
                 last_daily: null,
@@ -189,49 +189,49 @@
                 },
               };
             }
-            case "neonplan3d/history/list":
+            case "masterplan3d/history/list":
               return { snapshots: history.map(({ building: b, ...rest }) => ({ ...rest, floors: b.floors.length, rooms: b.floors.reduce((n, f) => n + f.rooms.length, 0), furniture: b.floors.reduce((n, f) => n + f.furniture.length, 0) })).reverse() };
-            case "neonplan3d/history/snapshot":
+            case "masterplan3d/history/snapshot":
               history.push({ id: `s${history.length + 1}`, revision, saved_at: Date.now() / 1000, building: structuredClone(building) });
               return null;
-            case "neonplan3d/history/restore": {
+            case "masterplan3d/history/restore": {
               const snap = history.find((h) => h.id === msg.snapshot_id);
               building = structuredClone(snap.building);
               revision += 1;
               for (const cb of listeners) cb({ revision });
               return { revision };
             }
-            case "neonplan3d/image/get":
+            case "masterplan3d/image/get":
               if (!images[msg.image_id]) throw { code: "not_found", message: "Image not found" };
               return { data: images[msg.image_id] };
-            case "neonplan3d/image/set":
+            case "masterplan3d/image/set":
               images[msg.image_id] = msg.data;
               return null;
-            case "neonplan3d/packs/list":
+            case "masterplan3d/packs/list":
               return { packs: await previewPacks() };
-            case "neonplan3d/packs/import": {
+            case "masterplan3d/packs/import": {
               // the preview cannot check signatures: a file with a payload counts as valid
               const data = JSON.parse(msg.pack);
               if (!data.payload || !data.signature) throw { code: "unsigned", message: "unsigned" };
               importedPacks = [...importedPacks.filter((p) => p.id !== data.payload.id), data.payload];
               return { id: data.payload.id, name: data.payload.name, publisher: data.payload.publisher, licensee: data.payload.licensee ?? null, items: data.payload.items.length };
             }
-            case "neonplan3d/packs/remove":
+            case "masterplan3d/packs/remove":
               importedPacks = importedPacks.filter((p) => p.id !== msg.pack_id);
               return null;
-            case "neonplan3d/license/get":
+            case "masterplan3d/license/get":
               return license;
-            case "neonplan3d/license/activate":
+            case "masterplan3d/license/activate":
               if (!/^NP(-[A-Z0-9]{4}){4}$/i.test(msg.key)) throw { code: "invalid_key", message: "unknown" };
               license = { ...license, active: true, key_hint: "…" + msg.key.slice(-4), licensee: "Demo Kunde", checked_at: Date.now() / 1000 };
               return license;
-            case "neonplan3d/license/remove":
+            case "masterplan3d/license/remove":
               license = { ...license, active: false, key_hint: null, licensee: null, checked_at: null };
               return license;
-            case "neonplan3d/license/refresh":
+            case "masterplan3d/license/refresh":
               license = { ...license, checked_at: Date.now() / 1000 };
               return license;
-            case "neonplan3d/packs/install":
+            case "masterplan3d/packs/install":
               license.packs = license.packs.map((p) => (p.id === msg.pack_id ? { ...p, installed: p.release } : p));
               return { id: msg.pack_id, name: msg.pack_id, publisher: "Mastershort", licensee: "Demo Kunde", release: 1, items: 0 };
             case "recorder/statistics_during_period": {
@@ -253,7 +253,7 @@
               });
               return Object.fromEntries((msg.statistic_ids ?? []).map((id) => [id, curve]));
             }
-            case "neonplan3d/timetravel/history":
+            case "masterplan3d/timetravel/history":
               // the time travel: an invented week of the demo household (?tt=07:42 or ?tt=-3h opens it there)
               if (params.has("nopro")) throw { code: "not_unlocked", message: "Time travel is a Pro add-on" };
               return demoHistory(msg, hass.states);
@@ -289,7 +289,7 @@
         hass.states["weather.zuhause"].state = "rainy";
       }
       let current = hass;
-      await import("../custom_components/neonplan3d/frontend/neonplan3d.js");
+      await import("../custom_components/masterplan3d/frontend/masterplan3d.js");
       if (params.has("site")) {
         // ?site: the public online demo says what it is and where to get MasterPlan3D
         const de = hass.language === "de";
@@ -318,7 +318,7 @@
         // made for and offer the clean view (only the house) or the way to a PC
         let seen = false;
         try {
-          seen = sessionStorage.getItem("neonplan3d.demoPhoneHint") === "1";
+          seen = sessionStorage.getItem("masterplan3d.demoPhoneHint") === "1";
         } catch {
           /* no storage: show it */
         }
@@ -344,7 +344,7 @@
           const done = () => {
             veil.remove();
             try {
-              sessionStorage.setItem("neonplan3d.demoPhoneHint", "1");
+              sessionStorage.setItem("masterplan3d.demoPhoneHint", "1");
             } catch {
               /* no storage: it may show again on reload */
             }
@@ -352,7 +352,7 @@
           clean.onclick = () => {
             done();
             // the eye of the 3D view: hides every bar so only the house remains (tap the eye again for the buttons)
-            const v = document.querySelector("neonplan3d-panel")?.shadowRoot?.querySelector("fp3d-view3d");
+            const v = document.querySelector("masterplan3d-panel")?.shadowRoot?.querySelector("fp3d-view3d");
             v?.dispatchEvent(new CustomEvent("clean-toggle", { bubbles: true, composed: true }));
           };
           all.onclick = done;
@@ -362,16 +362,16 @@
       }
       if (params.has("card")) {
         // ?card: the dashboard card next to its visual editor (like Home Assistant's card dialog)
-        document.querySelector("neonplan3d-panel").remove();
-        const CardClass = customElements.get("neonplan3d-card");
+        document.querySelector("masterplan3d-panel").remove();
+        const CardClass = customElements.get("masterplan3d-card");
         const wrap = document.createElement("div");
         wrap.style.cssText = "display:grid;grid-template-columns:420px 1fr;gap:24px;padding:24px;font-family:Figtree,Roboto,sans-serif;--primary-text-color:#e1e1e1;--secondary-text-color:#9b9b9b;--card-background-color:#1c1c1c;--primary-color:#03a9f4;--divider-color:rgba(225,225,225,.2)";
         const editorBox = document.createElement("div");
         editorBox.style.cssText = "background:#1c1c1c;border-radius:12px;padding:20px";
         const editor = await CardClass.getConfigElement();
-        const card = document.createElement("neonplan3d-card");
+        const card = document.createElement("masterplan3d-card");
         let config = {
-          type: "custom:neonplan3d-card",
+          type: "custom:masterplan3d-card",
           quality: "low",
           floor: params.get("floor") || "eg",
           flows: false,
@@ -399,7 +399,7 @@
         document.body.append(wrap);
         window.fp3dCard = card;
       } else {
-        const panel = document.querySelector("neonplan3d-panel");
+        const panel = document.querySelector("masterplan3d-panel");
         panel.hass = hass;
         window.addEventListener("hass-more-info", (e) => console.log("more-info", e.detail.entityId));
         panel.narrow = window.innerWidth < 870;

@@ -78,14 +78,14 @@ export class Extensions extends LitElement {
     this._licenseMsg = null;
     let open: string[] = [];
     try {
-      open = JSON.parse(localStorage.getItem("neonplan3d.ext.open") ?? "[]") as string[];
+      open = JSON.parse(localStorage.getItem("masterplan3d.ext.open") ?? "[]") as string[];
     } catch {
       // nothing remembered
     }
     this._open = new Set(open);
     let nl: string | null = null;
     try {
-      nl = localStorage.getItem("neonplan3d.ext.newsletter");
+      nl = localStorage.getItem("masterplan3d.ext.newsletter");
     } catch {
       // nothing remembered
     }
@@ -95,7 +95,7 @@ export class Extensions extends LitElement {
   private setNewsletter(state: "opened" | "hidden"): void {
     this._nlState = state;
     try {
-      localStorage.setItem("neonplan3d.ext.newsletter", state);
+      localStorage.setItem("masterplan3d.ext.newsletter", state);
     } catch {
       // a private window: for this visit only
     }
@@ -127,7 +127,7 @@ export class Extensions extends LitElement {
     else next.add(key);
     this._open = next;
     try {
-      localStorage.setItem("neonplan3d.ext.open", JSON.stringify([...next]));
+      localStorage.setItem("masterplan3d.ext.open", JSON.stringify([...next]));
     } catch {
       // a private window: it stays open for this visit only
     }

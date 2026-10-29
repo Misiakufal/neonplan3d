@@ -39,14 +39,14 @@ type Mode = "view" | "editor" | "extensions";
 const prefs = {
   get(key: string): string | null {
     try {
-      return localStorage.getItem(`neonplan3d.${key}`);
+      return localStorage.getItem(`masterplan3d.${key}`);
     } catch {
       return null;
     }
   },
   set(key: string, value: string): void {
     try {
-      localStorage.setItem(`neonplan3d.${key}`, value);
+      localStorage.setItem(`masterplan3d.${key}`, value);
     } catch {
       // storage unavailable (private mode): the choice just is not remembered
     }
@@ -773,13 +773,13 @@ export class Floorplan3dPanel extends LitElement {
     // only once the installed packs are known, so it never flashes up for whoever has both
     if (!this.isAdmin || this._giftLater || this._shopConnected === null || !this.data.packsLoaded || UNRELEASED.includes("fun_halloween") || (hasFeature("fun_halloween") && hasFeature("fun_pets"))) return nothing;
     try {
-      if (localStorage.getItem(`neonplan3d.news.${id}`) === "never") return nothing;
+      if (localStorage.getItem(`masterplan3d.news.${id}`) === "never") return nothing;
     } catch {
       // no storage: shown each visit until "later"
     }
     const never = () => {
       try {
-        localStorage.setItem(`neonplan3d.news.${id}`, "never");
+        localStorage.setItem(`masterplan3d.news.${id}`, "never");
       } catch {
         // a private window
       }
@@ -1649,4 +1649,4 @@ export class Floorplan3dPanel extends LitElement {
   ];
 }
 
-if (!customElements.get("neonplan3d-panel")) customElements.define("neonplan3d-panel", Floorplan3dPanel);
+if (!customElements.get("masterplan3d-panel")) customElements.define("masterplan3d-panel", Floorplan3dPanel);

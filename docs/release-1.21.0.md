@@ -1,4 +1,4 @@
-**NeonPlan 3D 1.21.0** brings sloping walls, light switches and sockets, ceiling fans with light, a Wi-Fi access point and a water heater, a 3D lock for wall tablets, your own background behind the house – and a good round of fixes. It still runs on old and weak wall tablets: the new moving parts (fan blades) only draw while they run, at a reduced frame rate.
+**MasterPlan3D 1.21.0** brings sloping walls, light switches and sockets, ceiling fans with light, a Wi-Fi access point and a water heater, a 3D lock for wall tablets, your own background behind the house – and a good round of fixes. It still runs on old and weak wall tablets: the new moving parts (fan blades) only draw while they run, at a reduced frame rate.
 
 ### New
 
@@ -30,11 +30,11 @@
 
 ### How to update
 
-Settings → System → Updates. HACS only looks for new versions every few hours, so a fresh update may not show there yet. Then: HACS → NeonPlan 3D → ⋮ → **Update information** → **Download**. Restart Home Assistant and reload the page (Ctrl+F5).
+Settings → System → Updates. HACS only looks for new versions every few hours, so a fresh update may not show there yet. Then: HACS → MasterPlan3D → ⋮ → **Update information** → **Download**. Restart Home Assistant and reload the page (Ctrl+F5).
 
 ---
 
-**NeonPlan 3D 1.21.0** bringt schräge Wände, Lichtschalter und Steckdosen, Deckenventilatoren mit Licht, einen WLAN-Access-Point und einen Warmwasserspeicher, eine 3D-Sperre für Wandtablets, einen eigenen Hintergrund hinter dem Haus – und eine ordentliche Runde Fehlerbehebungen. Es läuft weiter auch auf alten und schwachen Wandtablets: Die neuen beweglichen Teile (Ventilatorflügel) werden nur gezeichnet, solange sie laufen, und mit weniger Bildern pro Sekunde.
+**MasterPlan3D 1.21.0** bringt schräge Wände, Lichtschalter und Steckdosen, Deckenventilatoren mit Licht, einen WLAN-Access-Point und einen Warmwasserspeicher, eine 3D-Sperre für Wandtablets, einen eigenen Hintergrund hinter dem Haus – und eine ordentliche Runde Fehlerbehebungen. Es läuft weiter auch auf alten und schwachen Wandtablets: Die neuen beweglichen Teile (Ventilatorflügel) werden nur gezeichnet, solange sie laufen, und mit weniger Bildern pro Sekunde.
 
 ### Neu
 
@@ -66,4 +66,4 @@ Settings → System → Updates. HACS only looks for new versions every few hour
 
 ### So bekommst du das Update
 
-Einstellungen → System → Updates. HACS sucht nur alle paar Stunden nach neuen Versionen, deshalb fehlt ein frisches Update dort manchmal noch. Dann: HACS → NeonPlan 3D → ⋮ → **Informationen aktualisieren** → **Herunterladen**. Home Assistant neu starten und die Seite neu laden (Strg+F5).
+Einstellungen → System → Updates. HACS sucht nur alle paar Stunden nach neuen Versionen, deshalb fehlt ein frisches Update dort manchmal noch. Dann: HACS → MasterPlan3D → ⋮ → **Informationen aktualisieren** → **Herunterladen**. Home Assistant neu starten und die Seite neu laden (Strg+F5).

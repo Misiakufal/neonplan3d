@@ -1,4 +1,4 @@
-## NeonPlan 3D 2.0.4 – The garden on the ground, and a request
+## MasterPlan3D 2.0.4 – The garden on the ground, and a request
 
 ### Help make NeonPlan better
 
@@ -24,11 +24,11 @@ Found a problem? Please open an [issue on GitHub](https://github.com/Mastershort
 
 ### How to update
 
-Settings → System → Updates. HACS only checks for new versions every few hours, so a fresh update is sometimes missing there. If it is: HACS → NeonPlan 3D → ⋮ → **Update information** → **Download**. Restart Home Assistant and reload the page (Ctrl+F5).
+Settings → System → Updates. HACS only checks for new versions every few hours, so a fresh update is sometimes missing there. If it is: HACS → MasterPlan3D → ⋮ → **Update information** → **Download**. Restart Home Assistant and reload the page (Ctrl+F5).
 
 ---
 
-## NeonPlan 3D 2.0.4 – Der Garten auf dem Boden, und eine Bitte
+## MasterPlan3D 2.0.4 – Der Garten auf dem Boden, und eine Bitte
 
 ### Hilf mit, NeonPlan besser zu machen
 
@@ -54,4 +54,4 @@ Ein Problem gefunden? Bitte schreib ein [Issue auf GitHub](https://github.com/Ma
 
 ### So bekommst du das Update
 
-Einstellungen → System → Updates. HACS sucht nur alle paar Stunden nach neuen Versionen, deshalb fehlt ein frisches Update dort manchmal noch. Dann: HACS → NeonPlan 3D → ⋮ → **Informationen aktualisieren** → **Herunterladen**. Home Assistant neu starten und die Seite neu laden (Strg+F5).
+Einstellungen → System → Updates. HACS sucht nur alle paar Stunden nach neuen Versionen, deshalb fehlt ein frisches Update dort manchmal noch. Dann: HACS → MasterPlan3D → ⋮ → **Informationen aktualisieren** → **Herunterladen**. Home Assistant neu starten und die Seite neu laden (Strg+F5).

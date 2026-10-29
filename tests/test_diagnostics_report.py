@@ -10,8 +10,8 @@ from homeassistant.helpers import instance_id
 from homeassistant.setup import async_setup_component
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
-from custom_components.neonplan3d import diagnostics_report as diag
-from custom_components.neonplan3d.const import DATA_DIAGNOSTICS, DOMAIN
+from custom_components.masterplan3d import diagnostics_report as diag
+from custom_components.masterplan3d.const import DATA_DIAGNOSTICS, DOMAIN
 
 REPORT_URL = f"{diag.TELEMETRY_API}/report"
 DELETE_URL = f"{diag.TELEMETRY_API}/delete"
@@ -82,15 +82,15 @@ def test_clients_and_errors_are_merged_and_limited() -> None:
     errors = diag.merge_errors(
         [],
         [
-            {"msg": "TypeError at light.kitchen", "where": "neonplan3d-3d.js:1:23", "count": 2, "version": "1.17.0"},
-            {"msg": "TypeError at light.bath", "where": "neonplan3d-3d.js:1:23", "count": 1, "version": "1.17.0"},
+            {"msg": "TypeError at light.kitchen", "where": "masterplan3d-3d.js:1:23", "count": 2, "version": "1.17.0"},
+            {"msg": "TypeError at light.bath", "where": "masterplan3d-3d.js:1:23", "count": 1, "version": "1.17.0"},
             {"msg": "not ours", "where": "https://evil/app.js:1:2"},
         ],
     )
     assert errors == [
-        {"msg": "TypeError at <entity>", "where": "neonplan3d-3d.js:1:23", "count": 3, "version": "1.17.0"}
+        {"msg": "TypeError at <entity>", "where": "masterplan3d-3d.js:1:23", "count": 3, "version": "1.17.0"}
     ]
-    errors = diag.merge_errors([], [{"msg": f"E{i}", "where": "neonplan3d.js:1:1"} for i in range(30)])
+    errors = diag.merge_errors([], [{"msg": f"E{i}", "where": "masterplan3d.js:1:1"} for i in range(30)])
     assert len(errors) == diag.MAX_ERRORS
 
 
@@ -152,14 +152,14 @@ async def test_nothing_is_sent_while_off(hass: HomeAssistant, hass_ws_client, ai
     aioclient_mock.post(REPORT_URL, json={"ok": True})
     client = await hass_ws_client(hass)
 
-    await client.send_json_auto_id({"type": "neonplan3d/diagnostics/get"})
+    await client.send_json_auto_id({"type": "masterplan3d/diagnostics/get"})
     status = (await client.receive_json())["result"]
     assert status["enabled"] is False and status["preview"]["id"] is None and status["can_delete"] is False
 
     # a frontend's aggregate is dropped and it is told not to collect
     await client.send_json_auto_id(
         {
-            "type": "neonplan3d/diagnostics/client",
+            "type": "masterplan3d/diagnostics/client",
             "client": {"device": "tablet", "browser": "Chrome 120", "os": "Android 9"},
         }
     )
@@ -176,7 +176,7 @@ async def test_daily_report_and_delete(hass: HomeAssistant, hass_ws_client, aioc
     aioclient_mock.post(DELETE_URL, json={"ok": True})
     client = await hass_ws_client(hass)
 
-    await client.send_json_auto_id({"type": "neonplan3d/diagnostics/set", "enabled": True})
+    await client.send_json_auto_id({"type": "masterplan3d/diagnostics/set", "enabled": True})
     status = (await client.receive_json())["result"]
     report_id = status["preview"]["id"]
     assert status["enabled"] is True and str(uuid.UUID(report_id)) == report_id
@@ -184,7 +184,7 @@ async def test_daily_report_and_delete(hass: HomeAssistant, hass_ws_client, aioc
 
     await client.send_json_auto_id(
         {
-            "type": "neonplan3d/diagnostics/client",
+            "type": "masterplan3d/diagnostics/client",
             "client": {
                 "device": "tablet",
                 "browser": "Silk 120",
@@ -194,7 +194,7 @@ async def test_daily_report_and_delete(hass: HomeAssistant, hass_ws_client, aioc
                 "views": {"3d": 2},
             },
             "errors": [
-                {"msg": "TypeError at sensor.power", "where": "neonplan3d-3d.js:1:5", "count": 1, "version": "1.17.0"}
+                {"msg": "TypeError at sensor.power", "where": "masterplan3d-3d.js:1:5", "count": 1, "version": "1.17.0"}
             ],
         }
     )
@@ -208,7 +208,7 @@ async def test_daily_report_and_delete(hass: HomeAssistant, hass_ws_client, aioc
     sent = aioclient_mock.mock_calls[-1][2]
     assert sent["kind"] == "errors" and sent["clients"] == []
     assert sent["errors"] == [
-        {"msg": "TypeError at <entity>", "where": "neonplan3d-3d.js:1:5", "count": 1, "version": "1.17.0"}
+        {"msg": "TypeError at <entity>", "where": "masterplan3d-3d.js:1:5", "count": 1, "version": "1.17.0"}
     ]
     assert reporter.state["errors"] == []
 
@@ -232,7 +232,7 @@ async def test_daily_report_and_delete(hass: HomeAssistant, hass_ws_client, aioc
     await reporter.async_tick(time.time() + diag.DAILY_INTERVAL + 120)
     assert aioclient_mock.call_count == 2
 
-    await client.send_json_auto_id({"type": "neonplan3d/diagnostics/delete"})
+    await client.send_json_auto_id({"type": "masterplan3d/diagnostics/delete"})
     result = await client.receive_json()
     assert result["success"], result
     assert aioclient_mock.mock_calls[-1][1].path.endswith("/telemetry/v1/delete")

@@ -1,4 +1,4 @@
-**NeonPlan 3D 1.20.0: talk to your house.** A microphone button in the 3D view: say "Show the living room" and NeonPlan goes there. A wall tablet that flies to the front door by itself when the doorbell rings. Gardens and terraces that open like rooms, and light that falls down the stairwell.
+**MasterPlan3D 1.20.0: talk to your house.** A microphone button in the 3D view: say "Show the living room" and NeonPlan goes there. A wall tablet that flies to the front door by itself when the doorbell rings. Gardens and terraces that open like rooms, and light that falls down the stairwell.
 
 ### New
 
@@ -21,11 +21,11 @@
 
 ### How to update
 
-Settings → System → Updates. HACS only looks for new versions every few hours, so a fresh update may not show there yet. Then: HACS → NeonPlan 3D → ⋮ → **Update information** → **Download**. Restart Home Assistant and reload the page (Ctrl+F5).
+Settings → System → Updates. HACS only looks for new versions every few hours, so a fresh update may not show there yet. Then: HACS → MasterPlan3D → ⋮ → **Update information** → **Download**. Restart Home Assistant and reload the page (Ctrl+F5).
 
 ---
 
-**NeonPlan 3D 1.20.0: Sprich mit deinem Haus.** Ein Mikrofon-Knopf in der 3D-Ansicht: Sag „Zeig das Wohnzimmer“, und NeonPlan geht hin. Ein Wandtablet, das von selbst zur Haustür fliegt, wenn es klingelt. Gärten und Terrassen, die sich wie Räume öffnen, und Licht, das ins Treppenhaus fällt.
+**MasterPlan3D 1.20.0: Sprich mit deinem Haus.** Ein Mikrofon-Knopf in der 3D-Ansicht: Sag „Zeig das Wohnzimmer“, und NeonPlan geht hin. Ein Wandtablet, das von selbst zur Haustür fliegt, wenn es klingelt. Gärten und Terrassen, die sich wie Räume öffnen, und Licht, das ins Treppenhaus fällt.
 
 ### Neu
 
@@ -48,4 +48,4 @@ Settings → System → Updates. HACS only looks for new versions every few hour
 
 ### So bekommst du das Update
 
-Einstellungen → System → Updates. HACS sucht nur alle paar Stunden nach neuen Versionen, deshalb fehlt ein frisches Update dort manchmal noch. Dann: HACS → NeonPlan 3D → ⋮ → **Informationen aktualisieren** → **Herunterladen**. Home Assistant neu starten und die Seite neu laden (Strg+F5).
+Einstellungen → System → Updates. HACS sucht nur alle paar Stunden nach neuen Versionen, deshalb fehlt ein frisches Update dort manchmal noch. Dann: HACS → MasterPlan3D → ⋮ → **Informationen aktualisieren** → **Herunterladen**. Home Assistant neu starten und die Seite neu laden (Strg+F5).

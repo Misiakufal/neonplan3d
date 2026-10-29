@@ -25,10 +25,10 @@
   "Der Lizenzschlüssel ist bewusst nicht in der Datei.": "The licence key is deliberately not in the file.",
   "„Komplett-Backup wiederherstellen …“ spielt sie zurück, in dieselbe oder eine andere Installation. Auch hier fragt NeonPlan vorher nach.": "“Restore a full backup” – „Komplett-Backup wiederherstellen“ – plays it back, into the same or another installation. Here too NeonPlan asks first.",
   "Jedes Pack wird dabei neu geprüft. Packs, die für eine andere Installation signiert sind, werden übersprungen – die holst du dort über den Shop neu.": "Every pack is checked again. Packs signed for another installation are skipped – you get them again there through the shop.",
-  "Übrigens: Das normale Backup von Home Assistant sichert NeonPlan 3D ebenfalls vollständig mit.": "By the way: the normal Home Assistant backup also saves NeonPlan 3D completely.",
+  "Übrigens: Das normale Backup von Home Assistant sichert MasterPlan3D ebenfalls vollständig mit.": "By the way: the normal Home Assistant backup also saves MasterPlan3D completely.",
   "Jetzt der Umzug, zum Beispiel auf einen neuen Mini-PC. Am einfachsten spielst du das Backup von Home Assistant auf der neuen Hardware ein – dann ist NeonPlan mit allem da.": "Now moving, for example to a new mini PC. The easiest way is to restore your Home Assistant backup on the new hardware – then NeonPlan is there with everything.",
   "Fängst du neu an, geht es in vier Schritten. Erstens: auf dem alten System „Alles sichern“.": "If you start fresh, it takes four steps. One: on the old system, “Back up everything”.",
-  "Zweitens: Auf dem neuen System installierst du NeonPlan 3D über HACS, fügst die Integration hinzu und legst deine Bereiche an.": "Two: on the new system you install NeonPlan 3D through HACS, add the integration and create your areas.",
+  "Zweitens: Auf dem neuen System installierst du MasterPlan3D über HACS, fügst die Integration hinzu und legst deine Bereiche an.": "Two: on the new system you install MasterPlan3D through HACS, add the integration and create your areas.",
   "Drittens: Im Editor unter „Sicherung“ das Komplett-Backup wiederherstellen.": "Three: in the editor, under Backup, restore the full backup.",
   "Die Meldung oben sagt, was zurückkam – und welches Pack übersprungen wurde, weil es noch für die alte Installation signiert ist.": "The message at the top tells you what came back – and which pack was skipped because it is still signed for the old installation.",
   "Viertens: Unter „Erweiterungen“ trägst du deinen Lizenzschlüssel ein und drückst „Aktivieren“. Ich nehme einen erfundenen Demo-Schlüssel.": "Four: under Extensions – „Erweiterungen“ – you enter your licence key and press Activate – „Aktivieren“. I use an invented demo key.",
@@ -41,8 +41,8 @@
   "Kamerabilder, Verläufe und Zustände bleiben in Home Assistant und werden nur in deinem Browser angezeigt.": "Camera pictures, history and states stay in Home Assistant and are only shown in your browser.",
   "Hakt etwas, steht in der Seitenleiste „Hilfe und Rückmeldung“: „Problem melden“ öffnet ein Issue auf GitHub, „Idee vorschlagen“ eine Diskussion.": "If something goes wrong, the sidebar has Help and feedback: “Report a problem” – „Problem melden“ – opens an issue on GitHub, “Propose an idea” a discussion.",
   "Und „Community auf Discord“ bringt dich zu den anderen NeonPlan-Nutzern – dort helfen wir uns gegenseitig.": "And “Community on Discord” takes you to the other NeonPlan users – there we help each other.",
-  "Das war die letzte Folge der Reihe. Vom ersten Raum bis zum Umzug kennst du jetzt jeden Knopf in NeonPlan 3D.": "That was the last episode of the series. From the first room to moving house, you now know every button in NeonPlan 3D.",
-  "Danke, dass du dabei warst! Alle Folgen findest du in der Playlist „NeonPlan 3D – Tutorials“.": "Thanks for watching along! You find every episode in the playlist “NeonPlan 3D – Tutorials”.",
+  "Das war die letzte Folge der Reihe. Vom ersten Raum bis zum Umzug kennst du jetzt jeden Knopf in MasterPlan3D.": "That was the last episode of the series. From the first room to moving house, you now know every button in MasterPlan3D.",
+  "Danke, dass du dabei warst! Alle Folgen findest du in der Playlist „MasterPlan3D – Tutorials“.": "Thanks for watching along! You find every episode in the playlist “MasterPlan3D – Tutorials”.",
   "Links zur Online-Demo, zur Anleitung, zu GitHub für Fehlermeldungen und zu unserer Discord-Community stehen in der Beschreibung.": "Links to the online demo, the manual, GitHub for bug reports and our Discord community are in the description.",
-  "Und denk dran: NeonPlan 3D läuft auch auf alten Wandtablets. Bis bald!": "And remember: NeonPlan 3D also runs on old wall tablets. See you soon!"
+  "Und denk dran: MasterPlan3D läuft auch auf alten Wandtablets. Bis bald!": "And remember: MasterPlan3D also runs on old wall tablets. See you soon!"
 }

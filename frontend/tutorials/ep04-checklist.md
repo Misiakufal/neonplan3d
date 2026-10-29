@@ -121,4 +121,4 @@ der Hinweis „Nichts gefunden …“ einer leeren Suche, ein Tipp in 3D, der de
 ## Rahmen
 - [x] a 0:00–0:13, 7:04 / b 0:00–0:11, 3:56 · Teaser, „In diesem Video …“, Outro mit Rückblick, nächste Folge, Links, alte Wandtablets
 - [x] a 1:23 / b 4:04 · Am Anfang und am Ende: Es gibt Erweiterungen mit mehr Möbeln, Folge 5 zeigt sie
-- [x] a 0:00 / 7:04, b 0:00 / 3:56 · Versionszeile „aufgenommen mit NeonPlan 3D 1.12.6“
+- [x] a 0:00 / 7:04, b 0:00 / 3:56 · Versionszeile „aufgenommen mit MasterPlan3D 1.12.6“

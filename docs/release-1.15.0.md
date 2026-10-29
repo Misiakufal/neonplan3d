@@ -1,4 +1,4 @@
-![NeonPlan 3D 1.15.0: wall view – 3D in the room and wall from the front](https://raw.githubusercontent.com/Mastershort/neonplan3d/main/docs/images/wall-view.jpg)
+![MasterPlan3D 1.15.0: wall view – 3D in the room and wall from the front](https://raw.githubusercontent.com/Mastershort/neonplan3d/main/docs/images/wall-view.jpg)
 
 **The big update for furnishing: the wall view.** Instead of pushing furniture around from above in the plan, you now stand in the room, look at the wall and put cabinets, shelves, TVs, wall cabinets and wall lights exactly where they belong, to the centimetre – just as you will see them in front of you later.
 
@@ -19,11 +19,11 @@
 
 ### How to update
 
-Settings → System → Updates. HACS only looks for new versions every few hours, so a fresh update may not show there yet. Then: HACS → NeonPlan 3D → ⋮ → **Update information** → **Download**. Restart Home Assistant and reload the page (Ctrl+F5).
+Settings → System → Updates. HACS only looks for new versions every few hours, so a fresh update may not show there yet. Then: HACS → MasterPlan3D → ⋮ → **Update information** → **Download**. Restart Home Assistant and reload the page (Ctrl+F5).
 
 ---
 
-![NeonPlan 3D 1.15.0: Wandansicht – 3D im Raum und Wand von vorne](https://raw.githubusercontent.com/Mastershort/neonplan3d/main/docs/images/wall-view.jpg)
+![MasterPlan3D 1.15.0: Wandansicht – 3D im Raum und Wand von vorne](https://raw.githubusercontent.com/Mastershort/neonplan3d/main/docs/images/wall-view.jpg)
 
 **Das große Update fürs Einrichten: die Wandansicht.** Statt Möbel von oben im Grundriss hin- und herzuschieben, stellst du dich jetzt in den Raum, schaust auf die Wand und setzt Schränke, Regale, Fernseher, Hängeschränke und Wandleuchten zentimetergenau dahin, wo sie hingehören – so, wie du sie später wirklich vor dir siehst.
 
@@ -44,4 +44,4 @@ Settings → System → Updates. HACS only looks for new versions every few hour
 
 ### So bekommst du das Update
 
-Einstellungen → System → Updates. HACS sucht nur alle paar Stunden nach neuen Versionen, deshalb fehlt ein frisches Update dort manchmal noch. Dann: HACS → NeonPlan 3D → ⋮ → **Informationen aktualisieren** → **Herunterladen**. Home Assistant neu starten und die Seite neu laden (Strg+F5).
+Einstellungen → System → Updates. HACS sucht nur alle paar Stunden nach neuen Versionen, deshalb fehlt ein frisches Update dort manchmal noch. Dann: HACS → MasterPlan3D → ⋮ → **Informationen aktualisieren** → **Herunterladen**. Home Assistant neu starten und die Seite neu laden (Strg+F5).

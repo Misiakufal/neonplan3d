@@ -5,7 +5,7 @@ from __future__ import annotations
 from types import SimpleNamespace
 from typing import Any
 
-from custom_components.neonplan3d.card_resource import (
+from custom_components.masterplan3d.card_resource import (
     LOADER_URL,
     async_ensure_card_resource,
     async_remove_card_resource,
@@ -40,7 +40,7 @@ class FakeResources:
         self.items = [i for i in self.items if i["id"] != item_id]
 
 
-URL = "/neonplan3d_static/neonplan3d.js?v=1.12.4-abc"
+URL = "/masterplan3d_static/masterplan3d.js?v=1.12.4-abc"
 
 
 async def test_added_updated_and_removed() -> None:
@@ -51,8 +51,8 @@ async def test_added_updated_and_removed() -> None:
     await async_ensure_card_resource(hass, URL)
     assert [i["url"] for i in res.items] == [other["url"], URL]
     # an update and an old hand-installed copy: both lead to the current bundle, nothing is added twice
-    res.items[1]["url"] = "/neonplan3d_static/neonplan3d.js?v=1.12.3-old"
-    res.items.append({"id": "old", "type": "module", "url": "/local/neonplan3d.js"})
+    res.items[1]["url"] = "/masterplan3d_static/masterplan3d.js?v=1.12.3-old"
+    res.items.append({"id": "old", "type": "module", "url": "/local/masterplan3d.js"})
     await async_ensure_card_resource(hass, URL)
     assert [i["url"] for i in res.items] == [other["url"], URL, URL]
     await async_remove_card_resource(hass)
@@ -85,9 +85,23 @@ def test_loader_file(tmp_path) -> None:
     assert f'const url = "{URL}";' in text
     assert "customElements.get(tag)" in text
     # a loader that an older version left in www is removed, with its folder
-    old = tmp_path / "neonplan3d" / "neonplan3d-loader.js"
+    old = tmp_path / "masterplan3d" / "masterplan3d-loader.js"
     old.parent.mkdir()
     old.write_text(text, encoding="utf-8")
     remove_loader(tmp_path)
-    assert not (tmp_path / "neonplan3d").exists()
+    assert not (tmp_path / "masterplan3d").exists()
     remove_loader(tmp_path)  # nothing there: no error
+
+
+async def test_previous_namespace_resources_are_replaced() -> None:
+    from custom_components.masterplan3d.const import PREVIOUS_DOMAIN
+
+    resources = FakeResources(
+        [
+            {"id": "old-bundle", "type": "module", "url": f"/{PREVIOUS_DOMAIN}_static/{PREVIOUS_DOMAIN}.js?v=old"},
+            {"id": "old-loader", "type": "module", "url": f"/local/{PREVIOUS_DOMAIN}/{PREVIOUS_DOMAIN}-loader.js"},
+        ]
+    )
+    hass = SimpleNamespace(data={"lovelace": SimpleNamespace(resources=resources)})
+    await async_ensure_card_resource(hass, LOADER_URL)
+    assert [item["url"] for item in resources.items] == [LOADER_URL, LOADER_URL]

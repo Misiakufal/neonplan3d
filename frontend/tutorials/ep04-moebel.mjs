@@ -20,7 +20,7 @@ import { helpers, tap } from "./ep02-common.mjs";
 const out = process.argv[2] ?? "tutorial-ep04";
 const PART = process.argv[3] === "b" ? "b" : "a";
 const FAST = !!process.env.EP04_FAST;
-const VERSION = `<br><span style="font-size:20px;opacity:.7">aufgenommen mit NeonPlan 3D ${appVersion()}</span>`;
+const VERSION = `<br><span style="font-size:20px;opacity:.7">aufgenommen mit MasterPlan3D ${appVersion()}</span>`;
 
 // ---------------------------------------------------------------- states (the invented house of episode 3)
 const rectRoom = (id, name, area_id, x0, z0, x1, z1, floor_material = "wood") => ({ id, name, area_id, points: [[x0, z0], [x1, z0], [x1, z1], [x0, z1]], floor_material });
@@ -124,7 +124,7 @@ const freeOnly = () =>
     const p = window.fp3dPanel;
     const hass = p.hass;
     const orig = hass.callWS;
-    hass.callWS = async (m) => (m.type === "neonplan3d/packs/list" ? { packs: [] } : orig(m));
+    hass.callWS = async (m) => (m.type === "masterplan3d/packs/list" ? { packs: [] } : orig(m));
     await p.data.reloadPacks();
   });
 /**
@@ -374,7 +374,7 @@ const search = async (text) => {
 const setPane = (floorId, x, z, cam, main = false) =>
   R.page.evaluate(
     (floorId, x, z, cam, main) => {
-      const panel = document.querySelector("neonplan3d-panel").shadowRoot;
+      const panel = document.querySelector("masterplan3d-panel").shadowRoot;
       const v = main ? panel.querySelector("fp3d-view3d") : panel.querySelector("fp3d-editor").renderRoot.querySelector("fp3d-view3d");
       const viewer = Object.values(v).find((o) => o && o.floors && o.floorMap);
       const fv = viewer.floorMap.get(floorId);
@@ -405,7 +405,7 @@ const glidePane = async (floorId, x, z, a, b, seconds, main = false) => {
 const panePoint = (floorId, x, y, z) =>
   R.page.evaluate(
     (floorId, x, y, z) => {
-      const e = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-editor");
+      const e = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-editor");
       const v = e.renderRoot.querySelector("fp3d-view3d");
       const viewer = Object.values(v).find((o) => o && o.floors && o.floorMap);
       const fv = viewer.floorMap.get(floorId);
@@ -480,7 +480,7 @@ if (PART === "a") {
     const C = { theta: 1.9, phi: 0.85, radius: 14 };
     await setPane("eg", 4.75, 3.75, A, true);
     await R.sleep(900);
-    await R.title("Möbel: platzieren, drehen, anpassen", `NeonPlan 3D · Folge 4 · Teil 1${VERSION}`);
+    await R.title("Möbel: platzieren, drehen, anpassen", `MasterPlan3D · Folge 4 · Teil 1${VERSION}`);
     await sayOver("Ein Erdgeschoss, fertig eingerichtet: Sofa, Küche, Bett und Bad – und die Lampen leuchten mit Home Assistant.");
     await glidePane("eg", 4.75, 3.75, A, B, 5.5, true);
     await R.untitle();
@@ -909,7 +909,7 @@ if (PART === "a") {
 
   // ---------------------------------------------------------------- outro
   await chapter("Wie geht es weiter");
-  await R.title("Teil 2: Elektrische Möbel, Stellplatz und Saugroboter", `NeonPlan 3D – läuft auch auf alten Wandtablets${VERSION}`);
+  await R.title("Teil 2: Elektrische Möbel, Stellplatz und Saugroboter", `MasterPlan3D – läuft auch auf alten Wandtablets${VERSION}`);
   await say("Das war Teil eins: setzen, verschieben, drehen, spiegeln, Größe, Höhe, fixieren und ganze Räume einrichten. In Teil zwei verknüpfen wir Möbel mit Home Assistant.");
   await say("Links zur Online-Demo und zur Anleitung stehen in der Beschreibung. NeonPlan läuft übrigens auch auf alten Wandtablets. Bis gleich in Teil zwei!");
   await R.hold(0.6);
@@ -948,7 +948,7 @@ if (PART === "a") {
     const C = { theta: 2.0, phi: 0.8, radius: 13 };
     await setPane("eg", 5.5, 3.5, A, true);
     await R.sleep(900);
-    await R.title("Elektrische Möbel, Stellplatz und Saugroboter", `NeonPlan 3D · Folge 4 · Teil 2${VERSION}`);
+    await R.title("Elektrische Möbel, Stellplatz und Saugroboter", `MasterPlan3D · Folge 4 · Teil 2${VERSION}`);
     await sayOver("Der Fernseher leuchtet, das Bett zeigt, wer drin liegt, und der Saugroboter fährt durch die Küche.");
     await glidePane("eg", 5.5, 3.5, A, B, 5.5, true);
     await R.untitle();
@@ -1133,7 +1133,7 @@ if (PART === "a") {
 
   // ---------------------------------------------------------------- outro
   await chapter("Wie geht es weiter");
-  await R.title("Nächste Folge: Erweiterungen und Möbel-Packs", `NeonPlan 3D – läuft auch auf alten Wandtablets${VERSION}`);
+  await R.title("Nächste Folge: Erweiterungen und Möbel-Packs", `MasterPlan3D – läuft auch auf alten Wandtablets${VERSION}`);
   await say("Das waren elektrische Möbel, Zustand und Hälften, der Stellplatz und der Saugroboter – alles mit den kostenlosen Möbeln.");
   await say("In Folge fünf zeige ich dir die Erweiterungen: Shop verbinden und Möbel-Packs installieren – mit mehr Möbeln, und auch mit den Fahrzeugen.");
   await say("Links zur Online-Demo und zur Anleitung stehen in der Beschreibung. Und NeonPlan läuft auch auf alten Wandtablets. Bis zum nächsten Mal!");

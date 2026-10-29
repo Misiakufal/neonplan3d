@@ -1,4 +1,4 @@
-**NeonPlan 3D 1.18.2** is a round of fixes from your reports: light wells you can leave out, sound rings back on their speakers, live energy curves, roof windows over lower floors, round mirrors you can see, daylight under roof windows, calmer pets – and the right mouse button pans the plan.
+**MasterPlan3D 1.18.2** is a round of fixes from your reports: light wells you can leave out, sound rings back on their speakers, live energy curves, roof windows over lower floors, round mirrors you can see, daylight under roof windows, calmer pets – and the right mouse button pans the plan.
 
 ### New
 
@@ -22,11 +22,11 @@
 
 ### How to update
 
-Settings → System → Updates. HACS only looks for new versions every few hours, so a fresh update may not show there yet. Then: HACS → NeonPlan 3D → ⋮ → **Update information** → **Download**. Restart Home Assistant and reload the page (Ctrl+F5).
+Settings → System → Updates. HACS only looks for new versions every few hours, so a fresh update may not show there yet. Then: HACS → MasterPlan3D → ⋮ → **Update information** → **Download**. Restart Home Assistant and reload the page (Ctrl+F5).
 
 ---
 
-**NeonPlan 3D 1.18.2** ist eine Runde Fixes aus euren Meldungen: Lichtschächte zum Weglassen, Klang-Ringe wieder an den Lautsprechern, Energie-Kurven live, Dachfenster über unteren Etagen, sichtbare runde Spiegel, Tageslicht unter Dachfenstern, entspanntere Haustiere – und die rechte Maustaste verschiebt den Plan.
+**MasterPlan3D 1.18.2** ist eine Runde Fixes aus euren Meldungen: Lichtschächte zum Weglassen, Klang-Ringe wieder an den Lautsprechern, Energie-Kurven live, Dachfenster über unteren Etagen, sichtbare runde Spiegel, Tageslicht unter Dachfenstern, entspanntere Haustiere – und die rechte Maustaste verschiebt den Plan.
 
 ### Neu
 
@@ -50,4 +50,4 @@ Settings → System → Updates. HACS only looks for new versions every few hour
 
 ### So bekommst du das Update
 
-Einstellungen → System → Updates. HACS sucht nur alle paar Stunden nach neuen Versionen, deshalb fehlt ein frisches Update dort manchmal noch. Dann: HACS → NeonPlan 3D → ⋮ → **Informationen aktualisieren** → **Herunterladen**. Home Assistant neu starten und die Seite neu laden (Strg+F5).
+Einstellungen → System → Updates. HACS sucht nur alle paar Stunden nach neuen Versionen, deshalb fehlt ein frisches Update dort manchmal noch. Dann: HACS → MasterPlan3D → ⋮ → **Informationen aktualisieren** → **Herunterladen**. Home Assistant neu starten und die Seite neu laden (Strg+F5).

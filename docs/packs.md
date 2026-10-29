@@ -4,7 +4,7 @@ Möbel-Packs bringen zusätzliche Möbel in MasterPlan3D. Sie werden wie die ein
 Quadern und Zylindern gebaut und laufen deshalb genauso flüssig auf schwachen Tablets.
 
 Nur Packs, die mit dem Herausgeber-Schlüssel unterschrieben sind, lassen sich importieren. Der
-öffentliche Schlüssel steht in `custom_components/neonplan3d/packs.py` (`PACK_PUBLIC_KEYS`); der
+öffentliche Schlüssel steht in `custom_components/masterplan3d/packs.py` (`PACK_PUBLIC_KEYS`); der
 geheime Schlüssel liegt nur beim Herausgeber und gehört nie ins Repo.
 
 ## Ablauf
@@ -147,7 +147,7 @@ der Bestell-Mail, auf der Danke-Seite und im Kundenkonto steht. In MasterPlan3D 
 
 - listet die Integration die gekauften Packs (Knopf „Installieren“ beziehungsweise „Aktualisieren“),
 - holt sie **signiert für diese Installation**: das Payload-Feld `instance` trägt den Fingerabdruck
-  (`sha256("neonplan3d:" + Instanz-ID)[:16]`, in der Oberfläche als „Installations-Kennung“ zu
+  (`sha256("masterplan3d:" + Instanz-ID)[:16]`, in der Oberfläche als „Installations-Kennung“ zu
   sehen); ein so signiertes Pack lehnt jede andere Installation mit `wrong_instance` ab,
 - prüft **einmal täglich** beim Shop nach neuen Käufen und neueren Releases (Payload-Feld `release`,
   Standard 1; ein höheres Release derselben Pack-ID ersetzt das installierte Pack).

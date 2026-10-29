@@ -22,7 +22,7 @@ import { helpers, tap } from "./ep02-common.mjs";
 const out = process.argv[2] ?? "tutorial-ep07";
 const PART = process.argv[3] === "b" ? "b" : "a";
 const FAST = !!process.env.EP07_FAST;
-const VERSION = `<br><span style="font-size:20px;opacity:.7">aufgenommen mit NeonPlan 3D ${appVersion()}</span>`;
+const VERSION = `<br><span style="font-size:20px;opacity:.7">aufgenommen mit MasterPlan3D ${appVersion()}</span>`;
 
 // ---------------------------------------------------------------- the invented house
 const rect = (id, name, area_id, x0, z0, x1, z1, floor_material = "wood") => ({ id, name, area_id, points: [[x0, z0], [x1, z0], [x1, z1], [x0, z1]], floor_material });
@@ -454,7 +454,7 @@ if (PART === "a") {
     const shape = (s) => patch3d(`b.settings.roof.sections[0].shape = ${T(s)};`);
     await R.view(A);
     await R.sleep(1500);
-    await R.title("Dächer: Satteldach, Walmdach & Co.", `NeonPlan 3D · Folge 7 · Teil 1${VERSION}`);
+    await R.title("Dächer: Satteldach, Walmdach & Co.", `MasterPlan3D · Folge 7 · Teil 1${VERSION}`);
     await sayOver("Satteldach, Walmdach, Krüppelwalm oder Mansarddach – in NeonPlan bekommt jedes Haus sein eigenes Dach.");
     await glideMain(A, { theta: 0.5, phi: 0.94, radius: 29.5 }, 1.6);
     await shape("hip");
@@ -642,7 +642,7 @@ if (PART === "a") {
 
   // ---------------------------------------------------------------- outro
   await chapter("Wie geht es weiter");
-  await R.title("Teil 2: Traufe, Neigung, Pultdach und Garage", `NeonPlan 3D – läuft auch auf alten Wandtablets${VERSION}`);
+  await R.title("Teil 2: Traufe, Neigung, Pultdach und Garage", `MasterPlan3D – läuft auch auf alten Wandtablets${VERSION}`);
   await sayOver("Das war Teil eins: das einfache Dach, Dachflächen aus den Räumen, selbst zeichnen, verschieben, alle acht Formen und die Firstrichtung.");
   await R.clickOn({ text: "‹ Dachflächen" }, 0.5);
   await glide3d(cam(th - 0.2, 0.98, 31, T_MAIN), cam(0.6, 0.93, 36, T_HOUSE), 3);
@@ -665,7 +665,7 @@ if (PART === "a") {
     const C = { theta: 0.1, phi: 0.95, radius: 29 };
     await R.view(A);
     await R.sleep(1500);
-    await R.title("Traufe, Neigung, Pultdach und Garage", `NeonPlan 3D · Folge 7 · Teil 2${VERSION}`);
+    await R.title("Traufe, Neigung, Pultdach und Garage", `MasterPlan3D · Folge 7 · Teil 2${VERSION}`);
     await sayOver("Ein Anbau mit Pultdach, eine Garage mit Flachdach und ein Haus in L-Form – alles aus einzelnen Dachflächen.");
     await glideMain(A, B, 5.5);
     await R.untitle();
@@ -886,7 +886,7 @@ if (PART === "a") {
 
   // ---------------------------------------------------------------- outro
   await chapter("Wie geht es weiter");
-  await R.title("Nächste Folge: Gauben, Dachfenster, Dachschrägen und Carport", `NeonPlan 3D – läuft auch auf alten Wandtablets${VERSION}`);
+  await R.title("Nächste Folge: Gauben, Dachfenster, Dachschrägen und Carport", `MasterPlan3D – läuft auch auf alten Wandtablets${VERSION}`);
   await say("Das war Teil zwei: Traufe und Neigung je Seite, Pultdach und Seiten tauschen, Wandoberkante, Etage, Überschneidungen, Flachdach und Attika, Fixieren und Neu erzeugen.");
   await say("In der nächsten Folge geht es weiter mit dem Dach: Gauben, Dachfenster, Dachschrägen mit Kniestock und ein Carport.");
   await say("Links zur Online-Demo und zur Anleitung stehen in der Beschreibung. Und NeonPlan läuft auch auf alten Wandtablets. Bis zum nächsten Mal!");

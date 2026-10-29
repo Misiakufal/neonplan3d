@@ -48,7 +48,7 @@ const PACK_SCRIPT = `
 `;
 
 // switches the lab on (cleared again before every shot) and opens the editor's last section, the opt-in reports
-const DIAG_SCRIPT = "localStorage.setItem('neonplan3d.lab', '1'); e.requestUpdate(); setTimeout(() => { const d = [...e.renderRoot.querySelectorAll('details')].at(-1); d.open = true; d.scrollIntoView(); }, 300); setTimeout(() => e.changeDiagnostics('on'), 700);";
+const DIAG_SCRIPT = "localStorage.setItem('masterplan3d.lab', '1'); e.requestUpdate(); setTimeout(() => { const d = [...e.renderRoot.querySelectorAll('details')].at(-1); d.open = true; d.scrollIntoView(); }, 300); setTimeout(() => e.changeDiagnostics('on'), 700);";
 
 // a farmhouse like a user's: a two-storey house, a long barn whose front slope sweeps down lower
 // (catslide), and a lean-to with a pent roof in front of the barn; roof sections at their own heights
@@ -118,7 +118,7 @@ const HOUSEHOLD_SCRIPT = `
 
 // lab prototype: a garden camera on the back wall casts a test picture (1 m squares, coloured bands) onto terrace and lawn
 const PROJECTION_SCRIPT = `
-  localStorage.setItem('neonplan3d.lab', '1');
+  localStorage.setItem('masterplan3d.lab', '1');
   const c = document.createElement('canvas'); c.width = 960; c.height = 540;
   const g = c.getContext('2d');
   const sky = g.createLinearGradient(0, 0, 0, 540); sky.addColorStop(0, '#5aa0d8'); sky.addColorStop(0.35, '#7fbf5a'); sky.addColorStop(1, '#3d7a2e');
@@ -325,7 +325,7 @@ const shots = [
   { name: "editor-pool-pipes", query: "", width: 1280, height: 1000, editor: true, editorScript: "e._tool = 'pool'; e.selectItem('outdoor', 'a4'); e._tool = 'pool'; e._pipeId = 'p_by'; setTimeout(() => { e._view = { ...e._view, scale: 70 }; e.showPoint(11, -2.4); }, 300);", afterWait: 1500 },
   // the wall view: the living room's walls from the front with the furniture on them
   // the wall view in 3D: standing in the kitchen, looking at the wall with the corner bench and the table
-  { name: "editor-wall-3d", query: "", width: 1280, height: 900, editor: true, editorScript: "localStorage.setItem('neonplan3d.wall3d', '1'); e._wallView3d = true; const r = e._doc.floors[0].rooms.find((x) => x.name === 'Küche'); e.openWallView(r.id, 2);", afterWait: 4000 },
+  { name: "editor-wall-3d", query: "", width: 1280, height: 900, editor: true, editorScript: "localStorage.setItem('masterplan3d.wall3d', '1'); e._wallView3d = true; const r = e._doc.floors[0].rooms.find((x) => x.name === 'Küche'); e.openWallView(r.id, 2);", afterWait: 4000 },
   { name: "editor-wall-3d-b", query: "", width: 1280, height: 900, editor: true, editorScript: "e._wallView3d = true; const r = e._doc.floors[0].rooms.find((x) => x.name === 'Wohnzimmer'); e.openWallView(r.id, 0);", afterWait: 4000 },
   { name: "editor-wall-view", query: "", width: 1280, height: 900, editor: true, editorScript: "e._wallView3d = false; const r = e._doc.floors[0].rooms.find((x) => x.name === 'Wohnzimmer'); e.openWallView(r.id, 0);", afterWait: 800 },
   { name: "editor-wall-view-2", query: "", width: 1280, height: 900, editor: true, editorScript: "e._wallView3d = false; const r = e._doc.floors[0].rooms.find((x) => x.name === 'Küche'); e.openWallView(r.id, 0); setTimeout(() => { const it = e._doc.floors[0].furniture.find((m) => m.type === 'kitchen_wall'); if (it) e._wallSel = it.id; }, 200);", afterWait: 900 },
@@ -485,7 +485,7 @@ for (const shot of shots.filter((s) => !only || only.includes(s.name))) {
   if (shot.editRoomName) {
     // change a room name through the panel's data controller, wait for the failed save, then reload
     await page.evaluate((name) => {
-      const panel = document.querySelector("neonplan3d-panel");
+      const panel = document.querySelector("masterplan3d-panel");
       const b = structuredClone(panel.data.building);
       b.floors[0].rooms[0].name = name;
       panel.data.edit(b);
@@ -499,7 +499,7 @@ for (const shot of shots.filter((s) => !only || only.includes(s.name))) {
   if (shot.viewScript) {
     // runs with v = the 3D view of the panel (search, quick menu, swipe)
     await page.evaluate((code) => {
-      const v = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-view3d");
+      const v = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-view3d");
       new Function("v", code)(v);
     }, shot.viewScript);
     await new Promise((r) => setTimeout(r, 1500 + (shot.afterWait ?? 0)));
@@ -507,7 +507,7 @@ for (const shot of shots.filter((s) => !only || only.includes(s.name))) {
   if (shot.mouseClickIn) {
     // a real mouse click on an element inside the 3D view (CSS selector in its shadow root); prints the services called
     const at = await page.evaluate((sel) => {
-      const v = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-view3d");
+      const v = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-view3d");
       const h = v.hass;
       window.__calls = [];
       const orig = h.callService.bind(h);
@@ -523,14 +523,14 @@ for (const shot of shots.filter((s) => !only || only.includes(s.name))) {
   }
   if (shot.editorScript) {
     await page.evaluate((code) => {
-      const e = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-editor");
+      const e = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-editor");
       new Function("e", code)(e);
     }, shot.editorScript);
     await new Promise((r) => setTimeout(r, 1200 + (shot.afterWait ?? 0)));
     // DEBUG_EVAL="<code using e>" prints what the editor says (for looking into a scene)
     if (process.env.DEBUG_EVAL) {
       const out = await page.evaluate((code) => {
-        const e = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-editor");
+        const e = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-editor");
         try {
           return String(new Function("e", "return " + code)(e));
         } catch (err) {
@@ -546,7 +546,7 @@ for (const shot of shots.filter((s) => !only || only.includes(s.name))) {
       if (shot.camera) {
         // turn the camera (radius, theta, phi around the house) for a view from another side
         await page.evaluate((cam) => {
-          const v = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-view3d");
+          const v = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-view3d");
           const viewer = Object.values(v).find((x) => x && x.floors && x.floorMap);
           const { target, ...rest } = cam;
           if (target) viewer.controls.view.target.set(target.x, target.y ?? 1, target.z);
@@ -558,7 +558,7 @@ for (const shot of shots.filter((s) => !only || only.includes(s.name))) {
       // DEBUG_VIEW="<code using v>" prints what the panel's 3D view says after the switch
       if (process.env.DEBUG_VIEW) {
         const out = await page.evaluate(async (code) => {
-          const v = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-view3d");
+          const v = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-view3d");
           try {
             return String(await new Function("v", "return " + code)(v));
           } catch (err) {
@@ -573,7 +573,7 @@ for (const shot of shots.filter((s) => !only || only.includes(s.name))) {
     await clickText("Einrichten");
     // screen position of the item: project its centre with the viewer's camera
     const at = await page.evaluate((id) => {
-      const view = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-view3d");
+      const view = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-view3d");
       const v = view.viewer;
       const fv = v.floors.find((f) => f.floor.furniture.some((m) => m.id === id));
       const f = fv.floor.furniture.find((m) => m.id === id);
@@ -590,7 +590,7 @@ for (const shot of shots.filter((s) => !only || only.includes(s.name))) {
   if (shot.furnishTap) {
     await clickText("Einrichten");
     const at = await page.evaluate((pt) => {
-      const view = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-view3d");
+      const view = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-view3d");
       const v = view.viewer;
       const fv = v.floors[0];
       const p = v.camera.position.clone().set(pt.x, fv.floor.elevation + fv.y + 0.02, pt.z).project(v.camera);
@@ -602,7 +602,7 @@ for (const shot of shots.filter((s) => !only || only.includes(s.name))) {
   }
   if (shot.editorState) {
     await page.evaluate((state) => {
-      const editor = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-editor");
+      const editor = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-editor");
       Object.assign(editor, state);
     }, shot.editorState);
     await new Promise((r) => setTimeout(r, 300));
@@ -610,14 +610,14 @@ for (const shot of shots.filter((s) => !only || only.includes(s.name))) {
   if (shot.hover) await hoverText(shot.hover);
   if (shot.openDetails) {
     await page.evaluate(() => {
-      const editor = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-editor");
+      const editor = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-editor");
       for (const d of editor.shadowRoot.querySelectorAll("details.fp3d-section")) d.open = !d.querySelector(".fp3d-library");
     });
     await new Promise((r) => setTimeout(r, 300));
   }
   if (shot.scrollSide) {
     await page.evaluate(() => {
-      const editor = document.querySelector("neonplan3d-panel").shadowRoot.querySelector("fp3d-editor");
+      const editor = document.querySelector("masterplan3d-panel").shadowRoot.querySelector("fp3d-editor");
       const side = editor.shadowRoot.querySelector(".fp3d-side");
       side.scrollTop = side.scrollHeight;
     });

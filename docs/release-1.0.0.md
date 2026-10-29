@@ -1,4 +1,4 @@
-## NeonPlan 3D 1.0 – the first public release
+## MasterPlan3D 1.0 – the first public release
 
 Draw your home right inside Home Assistant and control it in a neon 3D view. No external tools, no cloud, made for wall tablets.
 
@@ -19,8 +19,8 @@ Furniture packs and the Pro add-ons *Camera cockpit*, *Weather outside* and *Liv
 
 ### Installation
 
-[![Open your Home Assistant instance and open the NeonPlan 3D repository inside HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Mastershort&repository=neonplan3d&category=integration)
+[![Open your Home Assistant instance and open the MasterPlan3D repository inside HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Mastershort&repository=neonplan3d&category=integration)
 
-HACS → Custom repositories → `https://github.com/Mastershort/neonplan3d` (Integration) → install → restart → add the integration *NeonPlan 3D*.
+HACS → Custom repositories → `https://github.com/Mastershort/neonplan3d` (Integration) → install → restart → add the integration *MasterPlan3D*.
 
 Requires Home Assistant 2025.1 or newer. Manual (German): [docs/anleitung.md](https://github.com/Mastershort/neonplan3d/blob/main/docs/anleitung.md).

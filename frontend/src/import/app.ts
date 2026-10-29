@@ -400,7 +400,7 @@ function download(): void {
   const url = URL.createObjectURL(new Blob([JSON.stringify(file, null, 2)], { type: "application/json" }));
   const a = document.createElement("a");
   a.href = url;
-  a.download = `neonplan3d-import-${base}.json`;
+  a.download = `masterplan3d-import-${base}.json`;
   a.click();
   setTimeout(() => URL.revokeObjectURL(url), 2000);
 }

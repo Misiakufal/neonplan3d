@@ -1,4 +1,4 @@
-**NeonPlan 3D 1.20.2** brings fixes for light wells, stairwells, the media card and voice control on Android tablets, and more control over the devices of outdoor areas.
+**MasterPlan3D 1.20.2** brings fixes for light wells, stairwells, the media card and voice control on Android tablets, and more control over the devices of outdoor areas.
 
 ### Fixed
 
@@ -19,11 +19,11 @@
 
 ### How to update
 
-Settings → System → Updates. HACS only looks for new versions every few hours, so a fresh update may not show there yet. Then: HACS → NeonPlan 3D → ⋮ → **Update information** → **Download**. Restart Home Assistant and reload the page (Ctrl+F5).
+Settings → System → Updates. HACS only looks for new versions every few hours, so a fresh update may not show there yet. Then: HACS → MasterPlan3D → ⋮ → **Update information** → **Download**. Restart Home Assistant and reload the page (Ctrl+F5).
 
 ---
 
-**NeonPlan 3D 1.20.2** bringt Fehlerbehebungen für Lichtschächte, Treppenöffnungen, die Medienkarte und die Sprachsteuerung auf Android-Tablets, dazu mehr Kontrolle über die Geräte von Außenflächen.
+**MasterPlan3D 1.20.2** bringt Fehlerbehebungen für Lichtschächte, Treppenöffnungen, die Medienkarte und die Sprachsteuerung auf Android-Tablets, dazu mehr Kontrolle über die Geräte von Außenflächen.
 
 ### Behoben
 
@@ -44,4 +44,4 @@ Settings → System → Updates. HACS only looks for new versions every few hour
 
 ### So bekommst du das Update
 
-Einstellungen → System → Updates. HACS sucht nur alle paar Stunden nach neuen Versionen, deshalb fehlt ein frisches Update dort manchmal noch. Dann: HACS → NeonPlan 3D → ⋮ → **Informationen aktualisieren** → **Herunterladen**. Home Assistant neu starten und die Seite neu laden (Strg+F5).
+Einstellungen → System → Updates. HACS sucht nur alle paar Stunden nach neuen Versionen, deshalb fehlt ein frisches Update dort manchmal noch. Dann: HACS → MasterPlan3D → ⋮ → **Informationen aktualisieren** → **Herunterladen**. Home Assistant neu starten und die Seite neu laden (Strg+F5).

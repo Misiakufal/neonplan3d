@@ -1,4 +1,4 @@
-"""Announcements from automations: the service `neonplan3d.announce`."""
+"""Announcements from automations: the service `masterplan3d.announce`."""
 
 from __future__ import annotations
 
@@ -11,8 +11,8 @@ from homeassistant.exceptions import ServiceValidationError
 import pytest
 from pytest_homeassistant_custom_component.common import async_mock_service
 
-from custom_components.neonplan3d.announce import MODULE_ID, is_quiet, module_ready, placed_players, target_rooms
-from custom_components.neonplan3d.const import DOMAIN
+from custom_components.masterplan3d.announce import MODULE_ID, is_quiet, module_ready, placed_players, target_rooms
+from custom_components.masterplan3d.const import DOMAIN
 
 from .test_init import BUILDING, _setup
 
@@ -147,11 +147,11 @@ async def test_player_that_can_announce_lowers_its_music(hass: HomeAssistant) ->
 async def test_screens_get_the_announcement(hass: HomeAssistant, hass_ws_client) -> None:
     await _ready(hass, [APPROVED])
     view = await hass_ws_client(hass)
-    await view.send_json({"id": 1, "type": "neonplan3d/voice/subscribe", "announce": True})
+    await view.send_json({"id": 1, "type": "masterplan3d/voice/subscribe", "announce": True})
     assert (await view.receive_json())["success"]
     # an older view (without `announce`) never gets it
     old = await hass_ws_client(hass)
-    await old.send_json({"id": 1, "type": "neonplan3d/voice/subscribe"})
+    await old.send_json({"id": 1, "type": "masterplan3d/voice/subscribe"})
     assert (await old.receive_json())["success"]
     speak = async_mock_service(hass, "tts", "speak")
 

@@ -3,7 +3,7 @@
 // load starts without the sun's arc, the house shadow and the window light at night. A new version tries again
 // once. A context lost later on (a tablet sending the page to the background) never counts.
 
-const KEY = "neonplan3d.gpu_lost";
+const KEY = "masterplan3d.gpu_lost";
 
 declare const __FP3D_VERSION__: string;
 /** The MasterPlan3D version the memory is kept for. */

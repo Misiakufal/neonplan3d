@@ -1,4 +1,4 @@
-# NeonPlan 3D – Roadmap
+# MasterPlan3D – Roadmap
 
 What comes next. The order follows your wishes (issues, Discord and 👍 in [Discussions → Ideas](https://github.com/Mastershort/neonplan3d/discussions/categories/ideas)) and may change. There are deliberately no fixed dates – a feature ships when it is good. Everything keeps running on old, weak wall tablets.
 
@@ -22,7 +22,7 @@ What comes next. The order follows your wishes (issues, Discord and 👍 in [Dis
 - **Issue round** (1.25): roofs meeting at right angles and overlapping sections, a hip at one end only, sill per window, windows across open room transitions, faster editor with 3D beside, more contrast in the day look.
 - **Modules with admin approval** (1.24): module code and every update run only after an admin read and approved them; Assist sentence files only on request.
 - **Furniture library 2.0** (1.23): everything sorted by what it is, room chips, pictures and sizes on the cards, one card per family of sizes, favourites, everyday search words; **free sizes with fixed parts**; **furniture wave 1** in the shop: five packs with 213 more models.
-- **The house talks back** (1.22): the voice module answers around forty kinds of questions (beta for supporters), further names for rooms and devices, Assist asks the house (service `neonplan3d.ask`, custom sentences, screen names).
+- **The house talks back** (1.22): the voice module answers around forty kinds of questions (beta for supporters), further names for rooms and devices, Assist asks the house (service `masterplan3d.ask`, custom sentences, screen names).
 - **Modules** (1.22): packs that carry code, signed and bound like every pack; Pro add-ons become modules one by one; ⚙ Settings → Modules; the free Fenster-Wächter module.
 - **⚙ Settings menu** in the editor, look Auto, clock, smart locks on doors, radiator heat sensors, the household pinboard, editor start floor, iPad fixes (1.22).
 
@@ -121,7 +121,7 @@ Owners get new releases of their packs automatically and for free.
 
 ---
 
-# NeonPlan 3D – Roadmap (Deutsch)
+# MasterPlan3D – Roadmap (Deutsch)
 
 Was als Nächstes kommt. Die Reihenfolge richtet sich nach euren Wünschen (Issues, Discord und 👍 in [Discussions → Ideen](https://github.com/Mastershort/neonplan3d/discussions/categories/ideas)) und kann sich ändern. Feste Termine gibt es bewusst nicht – eine Funktion kommt, wenn sie gut ist. Alles läuft weiter auch auf alten, schwachen Wandtablets.
 
@@ -143,7 +143,7 @@ Was als Nächstes kommt. Die Reihenfolge richtet sich nach euren Wünschen (Issu
 - **Fehler-Runde** (1.25): Dächer im rechten Winkel und überlappende Dachflächen, Walm nur an einem Ende, Fensterbank pro Fenster, Fenster über offene Raumübergänge, schnellerer Editor mit 3D daneben, mehr Kontrast im Tag-Look.
 - **Module mit Freigabe** (1.24): Modul-Code und jedes Update laufen erst, wenn ein Admin sie angesehen und freigegeben hat; Assist-Satzdateien nur auf Wunsch.
 - **Möbel-Bibliothek 2.0** (1.23): alles sortiert nach dem, was es ist, Raum-Chips, Bilder und Maße auf den Karten, eine Karte je Größen-Familie, Favoriten, Alltagswörter in der Suche; **freie Maße mit festen Teilen**; **Möbel-Welle 1** im Shop: fünf Packs mit 213 Modellen mehr.
-- **Das Haus spricht zurück** (1.22): das Sprach-Modul beantwortet rund vierzig Frage-Arten (Beta für Supporter), weitere Namen für Räume und Geräte, Assist fragt das Haus (Dienst `neonplan3d.ask`, eigene Sätze, Bildschirmnamen).
+- **Das Haus spricht zurück** (1.22): das Sprach-Modul beantwortet rund vierzig Frage-Arten (Beta für Supporter), weitere Namen für Räume und Geräte, Assist fragt das Haus (Dienst `masterplan3d.ask`, eigene Sätze, Bildschirmnamen).
 - **Module** (1.22): Packs, die Code mitbringen, signiert und gebunden wie jedes Pack; die Pro-Erweiterungen werden nach und nach Module; ⚙ Einstellungen → Module; das kostenlose Modul Fenster-Wächter.
 - **⚙ Einstellungen-Menü** im Editor, Look Auto, Uhr, Smart Locks an Türen, Heiz-Sensor am Heizkörper, die Pinnwand im Haushalt, Start-Etage im Editor, iPad-Fixes (1.22).
 

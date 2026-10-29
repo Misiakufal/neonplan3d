@@ -10,7 +10,7 @@ declare const __FP3D_TIMETRAVEL_HASH__: string;
 let loading: Promise<typeof TimeTravelBundle> | undefined;
 
 export function loadTimeTravel(): Promise<typeof TimeTravelBundle> {
-  const url = new URL(`./neonplan3d-timetravel.js?v=${__FP3D_TIMETRAVEL_HASH__}`, new URL(import.meta.url)).href;
+  const url = new URL(`./masterplan3d-timetravel.js?v=${__FP3D_TIMETRAVEL_HASH__}`, new URL(import.meta.url)).href;
   // a failed download (a short network hiccup) may be tried again
   loading ??= (import(/* @vite-ignore */ url) as Promise<typeof TimeTravelBundle>).catch((err) => {
     loading = undefined;

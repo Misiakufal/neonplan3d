@@ -1,10 +1,10 @@
 <?php
 /**
- * NeonPlan 3D – personalised pack downloads for WooCommerce.
+ * MasterPlan3D – personalised pack downloads for WooCommerce.
  *
  * Every purchased furniture pack is signed with the buyer's name at download time, so the file the
  * buyer gets says "licensed to <name>" when it is imported. The integration accepts the shop key
- * (PACK_PUBLIC_KEYS in custom_components/neonplan3d/packs.py) next to the publisher's master key.
+ * (PACK_PUBLIC_KEYS in custom_components/masterplan3d/packs.py) next to the publisher's master key.
  *
  * Setup:
  *   1. wp-config.php: define('MS_NP_SIGNING_SEED', '<base64 seed>');   (from: python tools/fp3dpack.py seed shop-signing-key.pem)

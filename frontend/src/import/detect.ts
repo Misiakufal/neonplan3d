@@ -1,3 +1,4 @@
+import { PREVIOUS_DOMAIN } from "../legacy.ts";
 // Which program a file comes from, and reading it: by its name and its first bytes.
 
 import type { Building } from "../model.ts";
@@ -58,7 +59,7 @@ export async function readFile(name: string, bytes: Uint8Array, options: ReadOpt
     throw new Error(e === "json" ? "not_json" : "unknown_format");
   }
   const d = data as { format?: string; building?: Building; version?: number; floors?: unknown; settings?: unknown };
-  if (d?.format === EXPORT_FORMAT && d.building) {
+  if ((d?.format === EXPORT_FORMAT || d?.format === PREVIOUS_DOMAIN) && d.building) {
     const r = repairPlan(d.building);
     return { kind: "neonplan", raw: null, building: r.building, warnings: r.warnings };
   }

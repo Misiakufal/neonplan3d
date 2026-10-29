@@ -1,10 +1,10 @@
-// Builds the two bundles into custom_components/neonplan3d/frontend and checks the size budgets.
+// Builds the two bundles into custom_components/masterplan3d/frontend and checks the size budgets.
 
 import { build, context } from "esbuild";
 import { createHash } from "node:crypto";
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, statSync } from "node:fs";
 
-const out = "../custom_components/neonplan3d/frontend";
+const out = "../custom_components/masterplan3d/frontend";
 const watch = process.argv.includes("--watch");
 
 const common = {
@@ -19,7 +19,7 @@ const common = {
   logLevel: "info",
 };
 
-const viewerConfig = { ...common, entryPoints: ["src/viewer/viewer3d.ts"], outfile: `${out}/neonplan3d-3d.js` };
+const viewerConfig = { ...common, entryPoints: ["src/viewer/viewer3d.ts"], outfile: `${out}/masterplan3d-3d.js` };
 // the card's visual editor only loads in the dashboard's card dialog
 // the language files (lang/*.json) are fetched with a hash of their content, so a new text is never stale
 const LANGS = ["fr", "es", "nl", "it", "hu", "da", "sv", "nb", "nn", "fi", "cs", "pl", "ro", "sl", "zh", "pt"];
@@ -27,33 +27,33 @@ const langHash = createHash("sha256")
   .update(LANGS.map((l) => (existsSync(`lang/${l}.json`) ? readFileSync(`lang/${l}.json`) : "")).join("\n"))
   .digest("hex")
   .slice(0, 12);
-const cardEditorConfig = { ...common, entryPoints: ["src/card-editor.ts"], outfile: `${out}/neonplan3d-card-editor.js`, define: { __FP3D_LANG_HASH__: JSON.stringify(langHash) } };
+const cardEditorConfig = { ...common, entryPoints: ["src/card-editor.ts"], outfile: `${out}/masterplan3d-card-editor.js`, define: { __FP3D_LANG_HASH__: JSON.stringify(langHash) } };
 // the editor is only needed by admins who open it, so it is a bundle of its own as well
 // (it draws furniture previews with the 3D bundle, so it knows that bundle's hash too)
 const editorConfig = (viewerHash, locateHash) => ({
   ...common,
   entryPoints: ["src/components/editor.ts"],
-  outfile: `${out}/neonplan3d-editor.js`,
+  outfile: `${out}/masterplan3d-editor.js`,
   define: { __FP3D_VIEWER_HASH__: JSON.stringify(viewerHash), __FP3D_LANG_HASH__: JSON.stringify(langHash), __FP3D_LOCATE_HASH__: JSON.stringify(locateHash) },
 });
 // the time travel (Pro) only loads when it starts; its texts come from the main bundle
-const timeTravelConfig = { ...common, entryPoints: ["src/timetravel/entry.ts"], outfile: `${out}/neonplan3d-timetravel.js` };
+const timeTravelConfig = { ...common, entryPoints: ["src/timetravel/entry.ts"], outfile: `${out}/masterplan3d-timetravel.js` };
 // the fun packs (pets …) only load when one is unlocked and switched on; three.js is lent by the 3D bundle
-const funConfig = { ...common, entryPoints: ["src/fun/entry.ts"], outfile: `${out}/neonplan3d-fun.js` };
+const funConfig = { ...common, entryPoints: ["src/fun/entry.ts"], outfile: `${out}/masterplan3d-fun.js` };
 // voice (the microphone probe for now) only loads when it is asked for
-const voiceConfig = { ...common, entryPoints: ["src/voice/entry.ts"], outfile: `${out}/neonplan3d-voice.js` };
+const voiceConfig = { ...common, entryPoints: ["src/voice/entry.ts"], outfile: `${out}/masterplan3d-voice.js` };
 // the locating setup assistant only loads when an admin opens it
-const locateConfig = { ...common, entryPoints: ["src/locate/entry.ts"], outfile: `${out}/neonplan3d-locate.js` };
+const locateConfig = { ...common, entryPoints: ["src/locate/entry.ts"], outfile: `${out}/masterplan3d-locate.js` };
 // the import page of the website (other programs' plans to NeonPlan, in the browser): not part of the integration
 const importConfig = { ...common, entryPoints: ["src/import/app.ts"], outfile: "../site/import/neonplan-import.js" };
 // The main bundle loads the 3D bundle with a hash of its content in the URL, so a new 3D bundle is
 // never taken from the browser cache (the integration version only changes after a restart).
 // the frontend knows its own version, to notice a backend that still runs an older one
-const version = JSON.parse(readFileSync("../custom_components/neonplan3d/manifest.json", "utf8")).version;
+const version = JSON.parse(readFileSync("../custom_components/masterplan3d/manifest.json", "utf8")).version;
 const mainConfig = (viewerHash, editorHash, cardEditorHash, timeTravelHash, funHash, voiceHash, locateHash) => ({
   ...common,
   entryPoints: ["src/main.ts"],
-  outfile: `${out}/neonplan3d.js`,
+  outfile: `${out}/masterplan3d.js`,
   define: {
     __FP3D_VIEWER_HASH__: JSON.stringify(viewerHash),
     __FP3D_EDITOR_HASH__: JSON.stringify(editorHash),
@@ -139,7 +139,7 @@ function copyFonts() {
 // main 724 KB on 2026-10-29 for the 3D safety net on graphics chips that fail on the sun effects (#827), the 24-hour clock from the profile (#823) and their texts
 // main 726 KB on 2026-10-29: announcements from automations shown and spoken on the screens
 // Floor-process controls and their translated labels add about 4 KB to the editor and 1 KB to shared UI.
-const BUDGET = { "neonplan3d.js": 727 * 1024, "neonplan3d-fun.js": 40 * 1024, "neonplan3d-voice.js": 60 * 1024, "neonplan3d-locate.js": 160 * 1024, "neonplan3d-timetravel.js": 120 * 1024, "neonplan3d-3d.js": 836 * 1024, "neonplan3d-editor.js": 950 * 1024, "neonplan3d-card-editor.js": 275 * 1024 };
+const BUDGET = { "masterplan3d.js": 727 * 1024, "masterplan3d-fun.js": 40 * 1024, "masterplan3d-voice.js": 60 * 1024, "masterplan3d-locate.js": 160 * 1024, "masterplan3d-timetravel.js": 120 * 1024, "masterplan3d-3d.js": 836 * 1024, "masterplan3d-editor.js": 950 * 1024, "masterplan3d-card-editor.js": 275 * 1024 };
 
 copyFonts();
 if (watch) {

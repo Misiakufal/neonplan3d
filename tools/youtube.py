@@ -41,7 +41,7 @@ CLIENT = HOME / "youtube_client.json"
 TOKEN = HOME / "youtube_token.json"
 SCOPE = "https://www.googleapis.com/auth/youtube.force-ssl"
 API = "https://www.googleapis.com/youtube/v3"
-PLAYLIST = "NeonPlan 3D – Tutorials"  # noqa: RUF001
+PLAYLIST = "MasterPlan3D – Tutorials"  # noqa: RUF001
 CATEGORY = "28"  # Science & Technology
 
 
@@ -242,7 +242,7 @@ def ensure_playlist(dry: bool) -> str | None:
             "snippet": {
                 "title": PLAYLIST,
                 "defaultLanguage": "de",
-                "description": "Schritt für Schritt: dein Zuhause in 3D mit NeonPlan 3D und Home Assistant.",
+                "description": "Schritt für Schritt: dein Zuhause in 3D mit MasterPlan3D und Home Assistant.",
             },
             "status": {"privacyStatus": "private"},
         },

@@ -57,7 +57,7 @@ const A = { theta: 1.0, phi: 0.85, radius: 19 };
 const B = { theta: 0.35, phi: 0.9, radius: 21 };
 await R.view(A);
 await R.sleep(1200);
-await R.title("Bauplan als Vorlage – Teil 2", `NeonPlan 3D · Folge 2 · Türen und Garagentor${VERSION}`);
+await R.title("Bauplan als Vorlage – Teil 2", `MasterPlan3D · Folge 2 · Türen und Garagentor${VERSION}`);
 await sayOver("Eine Haustür, die live aufgeht, ein Garagentor, das mitfährt – heute kommen die Türen in unseren nachgezeichneten Grundriss.");
 await R.glide(A, { theta: 0.7, phi: 0.87, radius: 20 }, 2.5);
 await setState("binary_sensor.haustuer", "on");
@@ -264,7 +264,7 @@ await look(V.over, 1.5);
 // ---------------------------------------------------------------- 7. Outro
 await chapter("Wie geht es weiter");
 await R.hideCursor();
-await R.title("Teil 3: Fenster, Sensoren und Rollläden", `NeonPlan 3D – läuft auch auf alten Wandtablets${VERSION}`);
+await R.title("Teil 3: Fenster, Sensoren und Rollläden", `MasterPlan3D – läuft auch auf alten Wandtablets${VERSION}`);
 await say("Das waren die Türen und das Garagentor. In Teil 3 kommen die Fenster: Terrassentür, Glaswand, Griff- und Kippsensoren und Rollläden, die live mitfahren.");
 await say("Links zur Online-Demo und zur Anleitung findest du in der Beschreibung. Und NeonPlan läuft auch auf alten Wandtablets. Bis gleich!");
 await R.hold(0.6);

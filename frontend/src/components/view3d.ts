@@ -708,7 +708,7 @@ export class Fp3dView3d extends LitElement {
     this._settingsOpen = false;
     this._note = null;
     try {
-      this._thumbsCompact = localStorage.getItem("neonplan3d.thumbs_compact") === "1";
+      this._thumbsCompact = localStorage.getItem("masterplan3d.thumbs_compact") === "1";
     } catch {
       this._thumbsCompact = false;
     }
@@ -742,7 +742,7 @@ export class Fp3dView3d extends LitElement {
     this._micProbe = micProbeAsked();
     this._alerts = [];
     this._household = [];
-    this._hhFolded = readFlag("neonplan3d.hhFolded");
+    this._hhFolded = readFlag("masterplan3d.hhFolded");
     this._binInfo = null;
     this._gangMenu = null;
     this.householdCard = true;
@@ -754,8 +754,8 @@ export class Fp3dView3d extends LitElement {
     this.cameraWall = false;
     this.holograms = null;
     try {
-      this._flows = localStorage.getItem("neonplan3d.flows") === "1";
-      this._holoShow = localStorage.getItem("neonplan3d.holos") !== "0";
+      this._flows = localStorage.getItem("masterplan3d.flows") === "1";
+      this._holoShow = localStorage.getItem("masterplan3d.holos") !== "0";
     } catch {
       this._flows = false;
       this._holoShow = true;
@@ -777,7 +777,7 @@ export class Fp3dView3d extends LitElement {
     this.watchAsk();
   }
 
-  /** Listens to the sentences Assist and the service `neonplan3d.ask` hand to the views (once the connection is there). */
+  /** Listens to the sentences Assist and the service `masterplan3d.ask` hand to the views (once the connection is there). */
   private watchAsk(): void {
     const hass = this.hass;
     if (this.unsubAsk || !hass?.connection || !this.isConnected) return;
@@ -3675,7 +3675,7 @@ export class Fp3dView3d extends LitElement {
     const fold = () => {
       this._thumbsCompact = !compact;
       try {
-        localStorage.setItem("neonplan3d.thumbs_compact", this._thumbsCompact ? "1" : "0");
+        localStorage.setItem("masterplan3d.thumbs_compact", this._thumbsCompact ? "1" : "0");
       } catch {
         // private mode: the choice lasts for this page only
       }
@@ -3829,7 +3829,7 @@ export class Fp3dView3d extends LitElement {
     if (!this._household.length || !this.householdCard || !hasFeature("household") || this.panelOpen) return nothing;
     const fold = () => {
       this._hhFolded = !this._hhFolded;
-      writeFlag("neonplan3d.hhFolded", this._hhFolded);
+      writeFlag("masterplan3d.hhFolded", this._hhFolded);
     };
     return html`<div class="fp3d-hh ${this._hhFolded ? "fp3d-hh-folded" : ""}">
       <button class="fp3d-hh-head" aria-expanded=${!this._hhFolded} @click=${fold}>🏠 ${translate(this.hass, "hh_title")} <b>${this._household.length}</b></button>
@@ -4448,7 +4448,7 @@ export class Fp3dView3d extends LitElement {
       }
       // who and what is where: locating answers first (the same answer Assist gets) and flies there
       const located = await hass
-        .callWS<{ text: string; rooms: string[]; admins_only: boolean } | null>({ type: "neonplan3d/locate/ask", text, language: hass.language })
+        .callWS<{ text: string; rooms: string[]; admins_only: boolean } | null>({ type: "masterplan3d/locate/ask", text, language: hass.language })
         .catch(() => null);
       if (located) {
         say("done", `“${text}” – ${located.text}`);
@@ -4745,7 +4745,7 @@ export class Fp3dView3d extends LitElement {
         const next = structuredClone(cur);
         mutate(next);
         this.building = next;
-        saveBuilding(this.hass, next).catch((err) => this.serviceFailed("neonplan3d/building/save", err));
+        saveBuilding(this.hass, next).catch((err) => this.serviceFailed("masterplan3d/building/save", err));
       },
       callService: (domain, service, data) => (this.hass ? this.hass.callService(domain, service, data) : Promise.resolve()),
       newId: (prefix) => uid(prefix),
@@ -4947,7 +4947,7 @@ export class Fp3dView3d extends LitElement {
     const next = structuredClone(cur);
     Object.assign(next.settings, patch);
     this.building = next;
-    saveBuilding(this.hass, next).catch((err) => this.serviceFailed("neonplan3d/building/save", err));
+    saveBuilding(this.hass, next).catch((err) => this.serviceFailed("masterplan3d/building/save", err));
   }
 
   /**
@@ -5484,7 +5484,7 @@ export class Fp3dView3d extends LitElement {
   private toggleHolos(): void {
     this._holoShow = !this._holoShow;
     try {
-      localStorage.setItem("neonplan3d.holos", this._holoShow ? "1" : "0");
+      localStorage.setItem("masterplan3d.holos", this._holoShow ? "1" : "0");
     } catch {
       // private mode: the choice lasts for this page only
     }
@@ -5497,7 +5497,7 @@ export class Fp3dView3d extends LitElement {
   private toggleFlows(): void {
     this._flows = !this._flows;
     try {
-      localStorage.setItem("neonplan3d.flows", this._flows ? "1" : "0");
+      localStorage.setItem("masterplan3d.flows", this._flows ? "1" : "0");
     } catch {
       // private mode: the choice lasts for this page only
     }

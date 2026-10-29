@@ -20,7 +20,7 @@ Zeit = Stelle im fertigen Video (ep05.mp4, 6:57, eine Folge, kein Teil 2 nötig)
 - [x] 0:13 / 1:09 Reiter „✦ Erweiterungen“ oben, nur für Administratoren (gesagt, Demo ist Admin)
 - [x] 1:12 Kopfzeile: „Shop öffnen“, „Problem melden“, „Idee vorschlagen“, „Community auf Discord“, „Anleitung“
 - [x] 1:20 Aufbau: Shop-Verbindung, Pro-Erweiterungen, Möbel-Packs
-- [x] 1:25 Ohne Schlüssel fragt NeonPlan 3D den Shop nie (11)
+- [x] 1:25 Ohne Schlüssel fragt MasterPlan3D den Shop nie (11)
 
 ## Pro-Erweiterungen (7.2)
 - [x] 1:31 Kacheln: Kamera-Cockpit, Wetter draußen, Bildschirme live, Energie Pro, Klang & Kino, Auto Pro

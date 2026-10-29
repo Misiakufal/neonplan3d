@@ -1,5 +1,7 @@
 # MasterPlan3D
 
+The integration domain is now `masterplan3d`. Existing installations: see the [namespace migration guide](docs/namespace-migration.md).
+
 [![Spenden mit PayPal](https://img.shields.io/badge/PayPal-Spenden-00457C?logo=paypal&logoColor=white)](https://www.paypal.com/donate/?hosted_button_id=Z3G2VWKSK5VJL)
 
 **by Mastershort** – draw your home right inside Home Assistant and live in it as a neon 3D house: lights glow in their colours, blinds and curtains move, doors and windows open, cameras watch, the TV shows what is playing, energy flows through the walls – and you can simply **talk to it**. No external tools, no cloud, made for wall tablets – old Fire tablets included.
@@ -33,7 +35,7 @@ Not drawing at all? The [import page](https://neonplan3d.mastershort.de/import/)
 
 - ✏️ **Drawn in minutes, right in Home Assistant** – the plan editor with the 3D view beside it, a furniture library with pictures, free sizes, a wall view for exact placing. No external tool.
 - 📍 **Who is where – without Bermuda** – MasterPlan3D locates people, phones and key tags room by room from the Shelly plugs and ESPHome proxies you already have: learn each room in 90 seconds, see everyone as a glowing figure, get a sensor per device, ask "Where is my iPhone?". Free.
-- 🎙️ **Talk to your house** – tap the microphone or ask Assist: "Show the living room", "What's open?", "Good night". Assist satellites and automations ask the house too (service `neonplan3d.ask`); the answer module "Das Haus antwortet" is in beta for supporters.
+- 🎙️ **Talk to your house** – tap the microphone or ask Assist: "Show the living room", "What's open?", "Good night". Assist satellites and automations ask the house too (service `masterplan3d.ask`); the answer module "Das Haus antwortet" is in beta for supporters.
 - 🎬 **Live director** – the wall tablet shows by itself what happens: the doorbell rings and the view flies to the front door and looks through its camera; someone at a camera, the washer done, a warning. Every event is opt-in.
 - ⏪ **Time travel** – replay the last day or week in the house: lights, doors, motion, the robot's run.
 - 🚶 **Walk through the house** at eye level, with keys or a touch stick.
@@ -61,7 +63,7 @@ Three looks, an accent colour of your choice, and **Auto** – day while the sun
 | ![Walk](https://raw.githubusercontent.com/Mastershort/neonplan3d/main/docs/images/walk.jpg) | **Walk and wall view** – walk through the house at eye level with keys or a touch stick; in the editor, each wall from the front to place furniture to the centimetre. |
 | ![Warnings](https://raw.githubusercontent.com/Mastershort/neonplan3d/main/docs/images/view-alert-banner.jpg) | **Made for the wall** – warnings for smoke, gas, CO, water, alarm, a window open in the rain and power outages pulse in their room; kiosk mode with idle return, night dimming and a slow orbit; favourites and scene buttons. |
 | ![Heatmap](https://raw.githubusercontent.com/Mastershort/neonplan3d/main/docs/images/view-heat.jpg) | **Values and heatmap** – temperature, humidity and CO₂ per room, sunlight through the windows from `sun.sun`, the weather around the house. |
-| ![Card](https://raw.githubusercontent.com/Mastershort/neonplan3d/main/docs/images/card-og-dim.jpg) | **Dashboard card** – `custom:neonplan3d-card` with a visual editor, loaded automatically. |
+| ![Card](https://raw.githubusercontent.com/Mastershort/neonplan3d/main/docs/images/card-og-dim.jpg) | **Dashboard card** – `custom:masterplan3d-card` with a visual editor, loaded automatically. |
 
 **Coming from another program?** The [import page](https://neonplan3d.mastershort.de/import/) turns Sweet Home 3D, iPhone LiDAR scans (RoomPlan), CAD (DXF), Blender/SketchUp models (glTF, OBJ, STL), Floorplanner and Valetudo robot maps into a MasterPlan3D plan – in your browser. Or let an AI write it with [this template](https://github.com/Mastershort/neonplan3d/blob/main/docs/ai-import.md) ([format](https://github.com/Mastershort/neonplan3d/blob/main/docs/plan-format.md)).
 
@@ -106,7 +108,7 @@ Bought packs and modules are signed for your installation. Packs update by thems
 
 ### Manual
 
-Copy `custom_components/neonplan3d` into `config/custom_components/` and restart Home Assistant.
+Copy `custom_components/masterplan3d` into `config/custom_components/` and restart Home Assistant.
 
 Requires Home Assistant 2025.1 or newer.
 
@@ -115,7 +117,7 @@ Requires Home Assistant 2025.1 or newer.
 All options can be set in the card's visual editor. The most used ones in YAML:
 
 ```yaml
-type: custom:neonplan3d-card
+type: custom:masterplan3d-card
 floor: floor_ab12cd34   # show a single floor (id from the editor); room: opens a room
 height: 420             # height in pixels, or fill: true for the whole screen
 quality: auto           # auto | low | high – "auto" picks the tablet level on weak devices
@@ -152,12 +154,12 @@ cd frontend
 npm install
 npm test            # pure logic
 npm run typecheck
-npm run build       # writes the bundles to custom_components/neonplan3d/frontend (committed) and checks the size budgets
+npm run build       # writes the bundles to custom_components/masterplan3d/frontend (committed) and checks the size budgets
 npm run screenshot  # renders preview/index.html (invented demo data) with a local Chrome or Edge
 ```
 
 - **Preview without Home Assistant**: open `preview/index.html` through any local web server.
-- **Deploy to a test instance**: create `deploy.local.json` with `{"target": "<config>/custom_components/neonplan3d"}` and run `npm run deploy` in `frontend/`.
+- **Deploy to a test instance**: create `deploy.local.json` with `{"target": "<config>/custom_components/masterplan3d"}` and run `npm run deploy` in `frontend/`.
 - **Python tests** run in CI with `pytest-homeassistant-custom-component`.
 - **Furniture pack format**: [docs/packs.md](https://github.com/Mastershort/neonplan3d/blob/main/docs/packs.md) (German).
 

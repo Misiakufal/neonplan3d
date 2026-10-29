@@ -1,4 +1,4 @@
-![NeonPlan 3D 1.17.0: build your kitchen from single pieces, join them into a block and move it as one – in the wall view with the new side bar](https://raw.githubusercontent.com/Mastershort/neonplan3d/main/docs/images/wall-blocks-en.jpg)
+![MasterPlan3D 1.17.0: build your kitchen from single pieces, join them into a block and move it as one – in the wall view with the new side bar](https://raw.githubusercontent.com/Mastershort/neonplan3d/main/docs/images/wall-blocks-en.jpg)
 
 **New: furniture blocks.** Put your kitchen or wall unit together piece by piece – base cabinets, wall cabinets, the tall cabinet – then join it into a **block** and move it as one: in the plan, in the wall view and in 3D. The wall view gets a new side bar that offers only what fits into the gap you tap, and you can resize pieces right there. And **time travel** is now for everyone.
 
@@ -15,11 +15,11 @@
 
 ### How to update
 
-Settings → System → Updates. HACS only looks for new versions every few hours, so a fresh update may not show there yet. Then: HACS → NeonPlan 3D → ⋮ → **Update information** → **Download**. Restart Home Assistant and reload the page (Ctrl+F5).
+Settings → System → Updates. HACS only looks for new versions every few hours, so a fresh update may not show there yet. Then: HACS → MasterPlan3D → ⋮ → **Update information** → **Download**. Restart Home Assistant and reload the page (Ctrl+F5).
 
 ---
 
-![NeonPlan 3D 1.17.0: Küche aus Einzelteilen bauen, als Block zusammenfassen und am Stück verschieben – in der Wandansicht mit der neuen Leiste](https://raw.githubusercontent.com/Mastershort/neonplan3d/main/docs/images/wall-blocks.jpg)
+![MasterPlan3D 1.17.0: Küche aus Einzelteilen bauen, als Block zusammenfassen und am Stück verschieben – in der Wandansicht mit der neuen Leiste](https://raw.githubusercontent.com/Mastershort/neonplan3d/main/docs/images/wall-blocks.jpg)
 
 **Neu: Möbel-Blöcke.** Bau deine Küche oder Wohnwand Stück für Stück zusammen – Unterschränke, Hängeschränke, den Hochschrank –, fass sie zu einem **Block** zusammen und verschieb ihn am Stück: im Grundriss, in der Wandansicht und in 3D. Die Wandansicht bekommt eine neue Leiste, die nur anbietet, was in die angetippte Lücke passt, und du kannst Möbel direkt dort größer und kleiner ziehen. Und die **Zeitreise** gibt es jetzt für alle.
 
@@ -36,4 +36,4 @@ Settings → System → Updates. HACS only looks for new versions every few hour
 
 ### So bekommst du das Update
 
-Einstellungen → System → Updates. HACS sucht nur alle paar Stunden nach neuen Versionen, deshalb fehlt ein frisches Update dort manchmal noch. Dann: HACS → NeonPlan 3D → ⋮ → **Informationen aktualisieren** → **Herunterladen**. Home Assistant neu starten und die Seite neu laden (Strg+F5).
+Einstellungen → System → Updates. HACS sucht nur alle paar Stunden nach neuen Versionen, deshalb fehlt ein frisches Update dort manchmal noch. Dann: HACS → MasterPlan3D → ⋮ → **Informationen aktualisieren** → **Herunterladen**. Home Assistant neu starten und die Seite neu laden (Strg+F5).

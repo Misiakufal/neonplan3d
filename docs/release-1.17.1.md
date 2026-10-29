@@ -1,15 +1,15 @@
-**NeonPlan 3D 1.17.1** comes with a present: **pets** 🐱🐶🐰 – a thank-you for your great support. Many of you report bugs, test, send ideas and buy packs, and that is what keeps NeonPlan 3D going. So here is something just for fun.
+**MasterPlan3D 1.17.1** comes with a present: **pets** 🐱🐶🐰 – a thank-you for your great support. Many of you report bugs, test, send ideas and buy packs, and that is what keeps MasterPlan3D going. So here is something just for fun.
 
 Besides that, 1.17.1 fixes what you reported after 1.17.0: terrace doors that open outwards, the robot vacuum with dock from the Smart Home pack, smoke detectors with binary sensors and roof windows in the room view. The wall view can zoom now, and pools get a real depth.
 
-![NeonPlan 3D 1.17.1: pets – a cat on the sofa, a labrador and a cat taking the stairs, fish in the aquarium](https://raw.githubusercontent.com/Mastershort/neonplan3d/main/docs/images/pets.jpg)
+![MasterPlan3D 1.17.1: pets – a cat on the sofa, a labrador and a cat taking the stairs, fish in the aquarium](https://raw.githubusercontent.com/Mastershort/neonplan3d/main/docs/images/pets.jpg)
 
 ### 🎁 A present: pets (fun pack)
 
 - **A cat, a rabbit or a dog** – dachshund, pug, terrier, labrador or shepherd – live in your 3D house. They walk through the doors from room to room and **up and down the stairs**, a cat jumps onto the **sofa or bed** from the front, a dog lies down in front of it, and at night they sleep curled up.
 - A door whose contact reports it shut stops them. In the **aquariums** of the Pets pack, colourful **fish** swim.
 - They are only drawn while one moves – resting, they cost nothing, even on old wall tablets.
-- **How to get it:** the fun pack *Pets* is **free in the shop (0 €)** for everyone who already supports NeonPlan 3D with a pack – no invoice; give something if you like, but you don't have to. Then **Extensions → 🎈 Fun packs → + Add a pet**. In the dashboard card, **Show the pets** (`pets: false`) leaves them out, e.g. on the wall tablet. Admins get a short note in the editor once.
+- **How to get it:** the fun pack *Pets* is **free in the shop (0 €)** for everyone who already supports MasterPlan3D with a pack – no invoice; give something if you like, but you don't have to. Then **Extensions → 🎈 Fun packs → + Add a pet**. In the dashboard card, **Show the pets** (`pets: false`) leaves them out, e.g. on the wall tablet. Admins get a short note in the editor once.
 - More fun packs will follow now and then, e.g. for Halloween or Christmas.
 
 ### New
@@ -29,22 +29,22 @@ Besides that, 1.17.1 fixes what you reported after 1.17.0: terrace doors that op
 
 ### How to update
 
-Settings → System → Updates. HACS only looks for new versions every few hours, so a fresh update may not show there yet. Then: HACS → NeonPlan 3D → ⋮ → **Update information** → **Download**. Restart Home Assistant and reload the page (Ctrl+F5).
+Settings → System → Updates. HACS only looks for new versions every few hours, so a fresh update may not show there yet. Then: HACS → MasterPlan3D → ⋮ → **Update information** → **Download**. Restart Home Assistant and reload the page (Ctrl+F5).
 
 ---
 
-**NeonPlan 3D 1.17.1** bringt ein Geschenk mit: **Haustiere** 🐱🐶🐰 – als Dankeschön für eure großartige Unterstützung. Viele von euch melden Fehler, testen, schicken Ideen und kaufen Packs, und genau das hält NeonPlan 3D am Laufen. Darum gibt es jetzt etwas einfach nur zum Spaß.
+**MasterPlan3D 1.17.1** bringt ein Geschenk mit: **Haustiere** 🐱🐶🐰 – als Dankeschön für eure großartige Unterstützung. Viele von euch melden Fehler, testen, schicken Ideen und kaufen Packs, und genau das hält MasterPlan3D am Laufen. Darum gibt es jetzt etwas einfach nur zum Spaß.
 
 Außerdem behebt die 1.17.1, was ihr nach der 1.17.0 gemeldet habt: Terrassentüren, die nach außen öffnen, den Saugroboter mit Station aus dem Pack Smart Home, Rauchmelder mit Binärsensoren und Dachfenster in der Raumansicht. Die Wandansicht kann jetzt zoomen, und Pools bekommen eine echte Tiefe.
 
-![NeonPlan 3D 1.17.1: Haustiere – Katze auf dem Sofa, Labrador und Katze auf der Treppe, Fische im Aquarium](https://raw.githubusercontent.com/Mastershort/neonplan3d/main/docs/images/pets.jpg)
+![MasterPlan3D 1.17.1: Haustiere – Katze auf dem Sofa, Labrador und Katze auf der Treppe, Fische im Aquarium](https://raw.githubusercontent.com/Mastershort/neonplan3d/main/docs/images/pets.jpg)
 
 ### 🎁 Ein Geschenk: Haustiere (Fun-Pack)
 
 - **Katze, Kaninchen oder Hund** – Dackel, Mops, Terrier, Labrador oder Schäferhund – leben in deinem 3D-Haus. Sie laufen durch die Türen von Raum zu Raum und **die Treppe hoch und runter**, die Katze springt von vorne aufs **Sofa oder Bett**, der Hund legt sich davor, und nachts schlafen sie eingerollt.
 - Eine Tür, deren Kontakt „zu“ meldet, ist für sie zu. In den **Aquarien** aus dem Pack Haustiere schwimmen bunte **Fische**.
 - Gezeichnet wird nur, solange sich ein Tier bewegt – ruhend kosten sie nichts, auch nicht auf alten Wandtablets.
-- **So bekommst du es:** Das Fun-Pack *Haustiere* gibt es **kostenlos im Shop (0 €)** für alle, die NeonPlan 3D schon mit einem Pack unterstützen – ohne Rechnung; wer mag, gibt freiwillig etwas dazu, muss aber nicht. Dann **Erweiterungen → 🎈 Fun-Packs → + Haustier hinzufügen**. In der Dashboard-Karte blendet **Haustiere zeigen** (`pets: false`) sie aus, etwa am Wandtablet. Admins bekommen einmal einen kurzen Hinweis im Editor.
+- **So bekommst du es:** Das Fun-Pack *Haustiere* gibt es **kostenlos im Shop (0 €)** für alle, die MasterPlan3D schon mit einem Pack unterstützen – ohne Rechnung; wer mag, gibt freiwillig etwas dazu, muss aber nicht. Dann **Erweiterungen → 🎈 Fun-Packs → + Haustier hinzufügen**. In der Dashboard-Karte blendet **Haustiere zeigen** (`pets: false`) sie aus, etwa am Wandtablet. Admins bekommen einmal einen kurzen Hinweis im Editor.
 - Weitere Fun-Packs gibt es ab und zu, zum Beispiel zu Halloween oder Weihnachten.
 
 ### Neu
@@ -64,4 +64,4 @@ Außerdem behebt die 1.17.1, was ihr nach der 1.17.0 gemeldet habt: Terrassentü
 
 ### So bekommst du das Update
 
-Einstellungen → System → Updates. HACS sucht nur alle paar Stunden nach neuen Versionen, deshalb fehlt ein frisches Update dort manchmal noch. Dann: HACS → NeonPlan 3D → ⋮ → **Informationen aktualisieren** → **Herunterladen**. Home Assistant neu starten und die Seite neu laden (Strg+F5).
+Einstellungen → System → Updates. HACS sucht nur alle paar Stunden nach neuen Versionen, deshalb fehlt ein frisches Update dort manchmal noch. Dann: HACS → MasterPlan3D → ⋮ → **Informationen aktualisieren** → **Herunterladen**. Home Assistant neu starten und die Seite neu laden (Strg+F5).
