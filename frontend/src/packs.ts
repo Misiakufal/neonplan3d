@@ -135,7 +135,7 @@ export function isPackType(type: string): boolean {
 
 /**
  * Pack items with parts that move with a cover (#511): a motorised curtain opens to both sides, a roll-down projection
- * screen comes down from its roller. The packs stay as they are; NeonPlan knows these items by their id.
+ * screen comes down from its roller. The packs stay as they are; MasterPlan3D knows these items by their id.
  */
 export type PackMotion = "curtain" | "screen";
 

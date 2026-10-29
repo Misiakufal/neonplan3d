@@ -126,7 +126,7 @@ const DE = {
   quality: "Trefferquote prüfen",
   quality_result: "Trefferquote: {p}",
   relearn_all: "Alles neu einlernen",
-  live_intro: "So sieht NeonPlan dich gerade. Lauf herum und schau, ob es stimmt.",
+  live_intro: "So sieht MasterPlan3D dich gerade. Lauf herum und schau, ob es stimmt.",
   enabled: "Ortung eingeschaltet",
   admins_only: "Personen nur für Admins zeigen",
   not_heard: "nicht gehört",
@@ -141,7 +141,7 @@ const DE = {
   unheard: "⚠ nicht gehört",
   unheard_hint: "Gerade hört kein Empfänger dieses Gerät. Ist es an und sendet es? Android: BLE-Sender der Home-Assistant-App.",
   fly: "Bei „Wo ist …?“ und „Wer ist zu Hause?“ in die Räume fliegen",
-  fly_hint: "Die offenen NeonPlan-Ansichten fliegen in den Raum der Antwort, bei „Wer ist zu Hause?“ nacheinander in alle Räume. Antippen stoppt. Personen nicht, wenn sie nur Admins gezeigt werden.",
+  fly_hint: "Die offenen MasterPlan3D-Ansichten fliegen in den Raum der Antwort, bei „Wer ist zu Hause?“ nacheinander in alle Räume. Antippen stoppt. Personen nicht, wenn sie nur Admins gezeigt werden.",
 };
 const EN: typeof DE = {
   title: "Set up locating",
@@ -152,7 +152,7 @@ const EN: typeof DE = {
   s_walk: "3 · Learn",
   s_live: "4 · Live",
   no_bt: "Home Assistant has no Bluetooth set up. Shelly (Gen2/3: Bluetooth scanning passive), ESPHome Bluetooth proxies or a USB adapter will do.",
-  scanners_intro: "These are all Bluetooth scanners Home Assistant knows. Tell NeonPlan which room each one is in.",
+  scanners_intro: "These are all Bluetooth scanners Home Assistant knows. Tell MasterPlan3D which room each one is in.",
   not_placed: "– pick a room –",
   hint_room: "Signals say: {room} – use it",
   coverage: "Rooms without a scanner of their own – learning makes them recognisable anyway:",
@@ -215,7 +215,7 @@ const EN: typeof DE = {
   quality: "Check accuracy",
   quality_result: "Accuracy: {p}",
   relearn_all: "Learn everything anew",
-  live_intro: "This is where NeonPlan sees you now. Walk around and check.",
+  live_intro: "This is where MasterPlan3D sees you now. Walk around and check.",
   enabled: "Locating on",
   admins_only: "Show people to admins only",
   not_heard: "not heard",
@@ -230,7 +230,7 @@ const EN: typeof DE = {
   unheard: "⚠ not heard",
   unheard_hint: "No receiver hears this device right now. Is it on and sending? Android: the Home Assistant app's BLE Transmitter.",
   fly: "Fly into the rooms on “Where is …?” and “Who is home?”",
-  fly_hint: "The open NeonPlan views fly into the room of the answer, on “Who is home?” into every room in turn. A tap stops it. Not for people while they are shown to admins only.",
+  fly_hint: "The open MasterPlan3D views fly into the room of the answer, on “Who is home?” into every room in turn. A tap stops it. Not for people while they are shown to admins only.",
 };
 
 const CS: typeof DE = {
@@ -305,7 +305,7 @@ const CS: typeof DE = {
   quality: "Ověřit přesnost",
   quality_result: "Přesnost: {p}",
   relearn_all: "Vše naučit znovu",
-  live_intro: "Takhle tě NeonPlan právě vidí. Projdi se a zkontroluj, jestli to sedí.",
+  live_intro: "Takhle tě MasterPlan3D právě vidí. Projdi se a zkontroluj, jestli to sedí.",
   enabled: "Lokalizace zapnuta",
   admins_only: "Osoby zobrazit jen správcům",
   not_heard: "neslyšeno",
@@ -320,7 +320,7 @@ const CS: typeof DE = {
   unheard: "⚠ neslyšeno",
   unheard_hint: "Žádný přijímač toto zařízení právě neslyší. Je zapnuté a vysílá? Android: BLE Transmitter aplikace Home Assistant.",
   fly: "Při „Kde je …?“ a „Kdo je doma?“ přeletět do místností",
-  fly_hint: "Otevřená zobrazení NeonPlan přeletí do místnosti z odpovědi, u „Kdo je doma?“ postupně do všech. Klepnutí to zastaví. U osob ne, pokud se zobrazují jen správcům.",
+  fly_hint: "Otevřená zobrazení MasterPlan3D přeletí do místnosti z odpovědi, u „Kdo je doma?“ postupně do všech. Klepnutí to zastaví. U osob ne, pokud se zobrazují jen správcům.",
 };
 const DA: typeof DE = {
   title: "Opsæt lokalisering",
@@ -394,7 +394,7 @@ const DA: typeof DE = {
   quality: "Tjek træfsikkerhed",
   quality_result: "Træfsikkerhed: {p}",
   relearn_all: "Indlær alt igen",
-  live_intro: "Sådan ser NeonPlan dig lige nu. Gå rundt og se, om det passer.",
+  live_intro: "Sådan ser MasterPlan3D dig lige nu. Gå rundt og se, om det passer.",
   enabled: "Lokalisering slået til",
   admins_only: "Vis kun personer for administratorer",
   not_heard: "ikke hørt",
@@ -409,7 +409,7 @@ const DA: typeof DE = {
   unheard: "⚠ ikke hørt",
   unheard_hint: "Ingen modtager hører enheden lige nu. Er den tændt og sender? Android: Home Assistant-appens BLE Transmitter.",
   fly: "Flyv ind i rummene ved „Hvor er …?“ og „Hvem er hjemme?“",
-  fly_hint: "De åbne NeonPlan-visninger flyver ind i svarets rum, ved „Hvem er hjemme?“ ind i alle rum efter tur. Et tryk stopper det. Ikke for personer, når de kun vises for administratorer.",
+  fly_hint: "De åbne MasterPlan3D-visninger flyver ind i svarets rum, ved „Hvem er hjemme?“ ind i alle rum efter tur. Et tryk stopper det. Ikke for personer, når de kun vises for administratorer.",
 };
 const ES: typeof DE = {
   title: "Configurar localización",
@@ -483,7 +483,7 @@ const ES: typeof DE = {
   quality: "Comprobar precisión",
   quality_result: "Precisión: {p}",
   relearn_all: "Volver a aprender todo",
-  live_intro: "Así te ve NeonPlan ahora mismo. Camina un poco y comprueba si acierta.",
+  live_intro: "Así te ve MasterPlan3D ahora mismo. Camina un poco y comprueba si acierta.",
   enabled: "Localización activada",
   admins_only: "Mostrar personas solo a administradores",
   not_heard: "sin señal",
@@ -498,7 +498,7 @@ const ES: typeof DE = {
   unheard: "⚠ sin señal",
   unheard_hint: "Ahora mismo ningún receptor oye este dispositivo. ¿Está encendido y emitiendo? Android: el BLE Transmitter de la app de Home Assistant.",
   fly: "Volar a las habitaciones con «¿Dónde está …?» y «¿Quién está en casa?»",
-  fly_hint: "Las vistas abiertas de NeonPlan vuelan a la habitación de la respuesta y, con «¿Quién está en casa?», a todas por turno. Un toque lo detiene. No para personas mientras solo se muestren a administradores.",
+  fly_hint: "Las vistas abiertas de MasterPlan3D vuelan a la habitación de la respuesta y, con «¿Quién está en casa?», a todas por turno. Un toque lo detiene. No para personas mientras solo se muestren a administradores.",
 };
 const FI: typeof DE = {
   title: "Paikannuksen määritys",
@@ -572,7 +572,7 @@ const FI: typeof DE = {
   quality: "Tarkista osumatarkkuus",
   quality_result: "Osumatarkkuus: {p}",
   relearn_all: "Opeta kaikki uudelleen",
-  live_intro: "Näin NeonPlan näkee sinut juuri nyt. Kävele ympäriinsä ja katso, pitääkö se paikkansa.",
+  live_intro: "Näin MasterPlan3D näkee sinut juuri nyt. Kävele ympäriinsä ja katso, pitääkö se paikkansa.",
   enabled: "Paikannus päällä",
   admins_only: "Näytä henkilöt vain ylläpitäjille",
   not_heard: "ei kuultu",
@@ -587,7 +587,7 @@ const FI: typeof DE = {
   unheard: "⚠ ei kuultu",
   unheard_hint: "Mikään vastaanotin ei kuule laitetta juuri nyt. Onko se päällä ja lähettääkö se? Android: Home Assistant -sovelluksen BLE Transmitter.",
   fly: "Lennä huoneisiin kysymyksillä ”Missä on …?” ja ”Kuka on kotona?”",
-  fly_hint: "Avoimet NeonPlan-näkymät lentävät vastauksen huoneeseen, kysymyksellä ”Kuka on kotona?” vuorotellen kaikkiin. Napautus pysäyttää. Ei henkilöille, jos ne näytetään vain ylläpitäjille.",
+  fly_hint: "Avoimet MasterPlan3D-näkymät lentävät vastauksen huoneeseen, kysymyksellä ”Kuka on kotona?” vuorotellen kaikkiin. Napautus pysäyttää. Ei henkilöille, jos ne näytetään vain ylläpitäjille.",
 };
 const FR: typeof DE = {
   title: "Configurer la localisation",
@@ -661,7 +661,7 @@ const FR: typeof DE = {
   quality: "Vérifier la précision",
   quality_result: "Précision : {p}",
   relearn_all: "Tout réapprendre",
-  live_intro: "Voici comment NeonPlan vous voit en ce moment. Déplacez-vous et vérifiez.",
+  live_intro: "Voici comment MasterPlan3D vous voit en ce moment. Déplacez-vous et vérifiez.",
   enabled: "Localisation activée",
   admins_only: "Afficher les personnes aux admins uniquement",
   not_heard: "non capté",
@@ -676,7 +676,7 @@ const FR: typeof DE = {
   unheard: "⚠ non capté",
   unheard_hint: "Aucun récepteur n'entend cet appareil en ce moment. Est-il allumé et émet-il ? Android : le BLE Transmitter de l'app Home Assistant.",
   fly: "Voler dans les pièces avec « Où est … ? » et « Qui est à la maison ? »",
-  fly_hint: "Les vues NeonPlan ouvertes volent dans la pièce de la réponse et, avec « Qui est à la maison ? », dans chaque pièce tour à tour. Un toucher arrête. Pas pour les personnes tant qu'elles ne sont montrées qu'aux admins.",
+  fly_hint: "Les vues MasterPlan3D ouvertes volent dans la pièce de la réponse et, avec « Qui est à la maison ? », dans chaque pièce tour à tour. Un toucher arrête. Pas pour les personnes tant qu'elles ne sont montrées qu'aux admins.",
 };
 const HU: typeof DE = {
   title: "Helymeghatározás beállítása",
@@ -750,7 +750,7 @@ const HU: typeof DE = {
   quality: "Pontosság ellenőrzése",
   quality_result: "Pontosság: {p}",
   relearn_all: "Minden újratanítása",
-  live_intro: "Így lát most téged a NeonPlan. Sétálj egy kicsit, és nézd meg, stimmel-e.",
+  live_intro: "Így lát most téged a MasterPlan3D. Sétálj egy kicsit, és nézd meg, stimmel-e.",
   enabled: "Helymeghatározás bekapcsolva",
   admins_only: "Személyek csak adminoknak",
   not_heard: "nem hallható",
@@ -765,7 +765,7 @@ const HU: typeof DE = {
   unheard: "⚠ nem hallható",
   unheard_hint: "Most egyik vevő sem hallja ezt az eszközt. Be van kapcsolva és sugároz? Android: a Home Assistant alkalmazás BLE Transmittere.",
   fly: "Repülés a szobákba a „Hol van …?” és „Ki van otthon?” kérdésekre",
-  fly_hint: "A nyitott NeonPlan-nézetek a válasz szobájába repülnek, „Ki van otthon?” esetén sorban minden szobába. Koppintás leállítja. Személyeknél nem, ha csak adminoknak látszanak.",
+  fly_hint: "A nyitott MasterPlan3D-nézetek a válasz szobájába repülnek, „Ki van otthon?” esetén sorban minden szobába. Koppintás leállítja. Személyeknél nem, ha csak adminoknak látszanak.",
 };
 const IT: typeof DE = {
   title: "Configura localizzazione",
@@ -839,7 +839,7 @@ const IT: typeof DE = {
   quality: "Verifica precisione",
   quality_result: "Precisione: {p}",
   relearn_all: "Riapprendi tutto",
-  live_intro: "Ecco come ti vede NeonPlan adesso. Cammina un po’ e controlla se è giusto.",
+  live_intro: "Ecco come ti vede MasterPlan3D adesso. Cammina un po’ e controlla se è giusto.",
   enabled: "Localizzazione attiva",
   admins_only: "Mostra persone solo agli admin",
   not_heard: "non rilevato",
@@ -854,7 +854,7 @@ const IT: typeof DE = {
   unheard: "⚠ non rilevato",
   unheard_hint: "Nessun ricevitore sente questo dispositivo in questo momento. È acceso e trasmette? Android: il BLE Transmitter dell'app Home Assistant.",
   fly: "Volare nelle stanze con «Dov'è …?» e «Chi è a casa?»",
-  fly_hint: "Le viste NeonPlan aperte volano nella stanza della risposta e, con «Chi è a casa?», in tutte a turno. Un tocco ferma. Non per le persone finché sono mostrate solo agli admin.",
+  fly_hint: "Le viste MasterPlan3D aperte volano nella stanza della risposta e, con «Chi è a casa?», in tutte a turno. Un tocco ferma. Non per le persone finché sono mostrate solo agli admin.",
 };
 const NB: typeof DE = {
   title: "Sett opp lokalisering",
@@ -928,7 +928,7 @@ const NB: typeof DE = {
   quality: "Sjekk treffsikkerhet",
   quality_result: "Treffsikkerhet: {p}",
   relearn_all: "Lær inn alt på nytt",
-  live_intro: "Slik ser NeonPlan deg akkurat nå. Gå rundt og se om det stemmer.",
+  live_intro: "Slik ser MasterPlan3D deg akkurat nå. Gå rundt og se om det stemmer.",
   enabled: "Lokalisering på",
   admins_only: "Vis personer bare for administratorer",
   not_heard: "ikke hørt",
@@ -943,7 +943,7 @@ const NB: typeof DE = {
   unheard: "⚠ ikke hørt",
   unheard_hint: "Ingen mottaker hører enheten akkurat nå. Er den på og sender? Android: Home Assistant-appens BLE Transmitter.",
   fly: "Fly inn i rommene ved «Hvor er …?» og «Hvem er hjemme?»",
-  fly_hint: "De åpne NeonPlan-visningene flyr inn i rommet i svaret, ved «Hvem er hjemme?» inn i alle rom etter tur. Et trykk stopper. Ikke for personer når de bare vises for administratorer.",
+  fly_hint: "De åpne MasterPlan3D-visningene flyr inn i rommet i svaret, ved «Hvem er hjemme?» inn i alle rom etter tur. Et trykk stopper. Ikke for personer når de bare vises for administratorer.",
 };
 const NL: typeof DE = {
   title: "Locatiebepaling instellen",
@@ -1017,7 +1017,7 @@ const NL: typeof DE = {
   quality: "Trefzekerheid controleren",
   quality_result: "Trefzekerheid: {p}",
   relearn_all: "Alles opnieuw inleren",
-  live_intro: "Zo ziet NeonPlan je nu. Loop rond en kijk of het klopt.",
+  live_intro: "Zo ziet MasterPlan3D je nu. Loop rond en kijk of het klopt.",
   enabled: "Locatiebepaling aan",
   admins_only: "Personen alleen aan admins tonen",
   not_heard: "niet gehoord",
@@ -1032,7 +1032,7 @@ const NL: typeof DE = {
   unheard: "⚠ niet gehoord",
   unheard_hint: "Geen ontvanger hoort dit apparaat nu. Staat het aan en zendt het? Android: de BLE Transmitter van de Home Assistant-app.",
   fly: "Bij „Waar is …?” en „Wie is er thuis?” de kamers in vliegen",
-  fly_hint: "De open NeonPlan-weergaven vliegen naar de kamer uit het antwoord, bij „Wie is er thuis?” om de beurt naar alle kamers. Tikken stopt het. Niet voor personen zolang ze alleen aan admins worden getoond.",
+  fly_hint: "De open MasterPlan3D-weergaven vliegen naar de kamer uit het antwoord, bij „Wie is er thuis?” om de beurt naar alle kamers. Tikken stopt het. Niet voor personen zolang ze alleen aan admins worden getoond.",
 };
 const NN: typeof DE = {
   title: "Set opp lokalisering",
@@ -1106,7 +1106,7 @@ const NN: typeof DE = {
   quality: "Sjekk treffsikkerheit",
   quality_result: "Treffsikkerheit: {p}",
   relearn_all: "Lær inn alt på nytt",
-  live_intro: "Slik ser NeonPlan deg akkurat no. Gå rundt og sjå om det stemmer.",
+  live_intro: "Slik ser MasterPlan3D deg akkurat no. Gå rundt og sjå om det stemmer.",
   enabled: "Lokalisering på",
   admins_only: "Vis personar berre for administratorar",
   not_heard: "ikkje høyrt",
@@ -1121,7 +1121,7 @@ const NN: typeof DE = {
   unheard: "⚠ ikkje høyrt",
   unheard_hint: "Ingen mottakar høyrer eininga akkurat no. Er ho på og sender? Android: BLE Transmitter i Home Assistant-appen.",
   fly: "Fly inn i romma ved «Kvar er …?» og «Kven er heime?»",
-  fly_hint: "Dei opne NeonPlan-visingane flyg inn i rommet i svaret, ved «Kven er heime?» inn i alle rom etter tur. Eit trykk stoppar. Ikkje for personar når dei berre blir viste for administratorar.",
+  fly_hint: "Dei opne MasterPlan3D-visingane flyg inn i rommet i svaret, ved «Kven er heime?» inn i alle rom etter tur. Eit trykk stoppar. Ikkje for personar når dei berre blir viste for administratorar.",
 };
 const PL: typeof DE = {
   title: "Konfiguracja lokalizacji",
@@ -1195,7 +1195,7 @@ const PL: typeof DE = {
   quality: "Sprawdź trafność",
   quality_result: "Trafność: {p}",
   relearn_all: "Naucz wszystko od nowa",
-  live_intro: "Tak NeonPlan widzi cię teraz. Przejdź się i sprawdź, czy się zgadza.",
+  live_intro: "Tak MasterPlan3D widzi cię teraz. Przejdź się i sprawdź, czy się zgadza.",
   enabled: "Lokalizacja włączona",
   admins_only: "Pokazuj osoby tylko adminom",
   not_heard: "brak sygnału",
@@ -1210,7 +1210,7 @@ const PL: typeof DE = {
   unheard: "⚠ brak sygnału",
   unheard_hint: "Żaden odbiornik nie słyszy teraz tego urządzenia. Czy jest włączone i nadaje? Android: BLE Transmitter aplikacji Home Assistant.",
   fly: "Wlatuj do pomieszczeń przy „Gdzie jest …?” i „Kto jest w domu?”",
-  fly_hint: "Otwarte widoki NeonPlan wlatują do pomieszczenia z odpowiedzi, a przy „Kto jest w domu?” po kolei do wszystkich. Dotknięcie zatrzymuje. Nie dla osób, gdy są pokazywane tylko adminom.",
+  fly_hint: "Otwarte widoki MasterPlan3D wlatują do pomieszczenia z odpowiedzi, a przy „Kto jest w domu?” po kolei do wszystkich. Dotknięcie zatrzymuje. Nie dla osób, gdy są pokazywane tylko adminom.",
 };
 const PT: typeof DE = {
   title: "Configurar localização",
@@ -1284,7 +1284,7 @@ const PT: typeof DE = {
   quality: "Verificar precisão",
   quality_result: "Precisão: {p}",
   relearn_all: "Aprender tudo de novo",
-  live_intro: "É assim que o NeonPlan o vê agora. Ande um pouco e confirme se está certo.",
+  live_intro: "É assim que o MasterPlan3D o vê agora. Ande um pouco e confirme se está certo.",
   enabled: "Localização ligada",
   admins_only: "Mostrar pessoas só a administradores",
   not_heard: "não detetado",
@@ -1299,7 +1299,7 @@ const PT: typeof DE = {
   unheard: "⚠ não detetado",
   unheard_hint: "Nenhum recetor ouve este dispositivo agora. Está ligado e a emitir? Android: o BLE Transmitter da app Home Assistant.",
   fly: "Voar para as divisões com «Onde está …?» e «Quem está em casa?»",
-  fly_hint: "As vistas NeonPlan abertas voam para a divisão da resposta e, com «Quem está em casa?», para todas à vez. Um toque para. Não para pessoas enquanto só são mostradas a administradores.",
+  fly_hint: "As vistas MasterPlan3D abertas voam para a divisão da resposta e, com «Quem está em casa?», para todas à vez. Um toque para. Não para pessoas enquanto só são mostradas a administradores.",
 };
 const RO: typeof DE = {
   title: "Configurează localizarea",
@@ -1373,7 +1373,7 @@ const RO: typeof DE = {
   quality: "Verifică precizia",
   quality_result: "Precizie: {p}",
   relearn_all: "Reînvață tot",
-  live_intro: "Așa te vede NeonPlan acum. Plimbă-te și verifică dacă e corect.",
+  live_intro: "Așa te vede MasterPlan3D acum. Plimbă-te și verifică dacă e corect.",
   enabled: "Localizare pornită",
   admins_only: "Arată persoanele doar adminilor",
   not_heard: "neauzit",
@@ -1388,7 +1388,7 @@ const RO: typeof DE = {
   unheard: "⚠ neauzit",
   unheard_hint: "Niciun receptor nu aude acum acest dispozitiv. Este pornit și emite? Android: BLE Transmitter din aplicația Home Assistant.",
   fly: "Zbor în camere la „Unde este …?” și „Cine e acasă?”",
-  fly_hint: "Vederile NeonPlan deschise zboară în camera din răspuns, iar la „Cine e acasă?” pe rând în toate. O atingere oprește. Nu pentru persoane cât timp sunt arătate doar administratorilor.",
+  fly_hint: "Vederile MasterPlan3D deschise zboară în camera din răspuns, iar la „Cine e acasă?” pe rând în toate. O atingere oprește. Nu pentru persoane cât timp sunt arătate doar administratorilor.",
 };
 const SL: typeof DE = {
   title: "Nastavi lociranje",
@@ -1462,7 +1462,7 @@ const SL: typeof DE = {
   quality: "Preveri natančnost",
   quality_result: "Natančnost: {p}",
   relearn_all: "Znova nauči vse",
-  live_intro: "Tako te NeonPlan vidi zdaj. Sprehodi se in preveri, ali drži.",
+  live_intro: "Tako te MasterPlan3D vidi zdaj. Sprehodi se in preveri, ali drži.",
   enabled: "Lociranje vklopljeno",
   admins_only: "Osebe prikaži samo skrbnikom",
   not_heard: "ni slišano",
@@ -1477,7 +1477,7 @@ const SL: typeof DE = {
   unheard: "⚠ ni slišano",
   unheard_hint: "Trenutno te naprave ne sliši noben sprejemnik. Je vklopljena in oddaja? Android: BLE Transmitter aplikacije Home Assistant.",
   fly: "Pri »Kje je …?« in »Kdo je doma?« poleti v prostore",
-  fly_hint: "Odprti pogledi NeonPlan poletijo v prostor iz odgovora, pri »Kdo je doma?« po vrsti v vse. Dotik ustavi. Ne za osebe, dokler so prikazane samo skrbnikom.",
+  fly_hint: "Odprti pogledi MasterPlan3D poletijo v prostor iz odgovora, pri »Kdo je doma?« po vrsti v vse. Dotik ustavi. Ne za osebe, dokler so prikazane samo skrbnikom.",
 };
 const SV: typeof DE = {
   title: "Ställ in positionering",
@@ -1551,7 +1551,7 @@ const SV: typeof DE = {
   quality: "Kontrollera träffsäkerhet",
   quality_result: "Träffsäkerhet: {p}",
   relearn_all: "Lär in allt på nytt",
-  live_intro: "Så här ser NeonPlan dig just nu. Gå runt och kolla om det stämmer.",
+  live_intro: "Så här ser MasterPlan3D dig just nu. Gå runt och kolla om det stämmer.",
   enabled: "Positionering på",
   admins_only: "Visa personer bara för administratörer",
   not_heard: "inte hörd",
@@ -1566,7 +1566,7 @@ const SV: typeof DE = {
   unheard: "⚠ inte hörd",
   unheard_hint: "Ingen mottagare hör enheten just nu. Är den på och sänder? Android: Home Assistant-appens BLE Transmitter.",
   fly: "Flyg in i rummen vid ”Var är …?” och ”Vem är hemma?”",
-  fly_hint: "De öppna NeonPlan-vyerna flyger in i rummet i svaret, vid ”Vem är hemma?” in i alla rum i tur och ordning. Ett tryck stoppar. Inte för personer medan de bara visas för administratörer.",
+  fly_hint: "De öppna MasterPlan3D-vyerna flyger in i rummet i svaret, vid ”Vem är hemma?” in i alla rum i tur och ordning. Ett tryck stoppar. Inte för personer medan de bara visas för administratörer.",
 };
 const ZH: typeof DE = {
   title: "设置定位",
@@ -1640,7 +1640,7 @@ const ZH: typeof DE = {
   quality: "检查准确率",
   quality_result: "准确率：{p}",
   relearn_all: "全部重新学习",
-  live_intro: "这是 NeonPlan 此刻看到的你。走动一下，看看是否准确。",
+  live_intro: "这是 MasterPlan3D 此刻看到的你。走动一下，看看是否准确。",
   enabled: "定位已开启",
   admins_only: "仅向管理员显示人员",
   not_heard: "未检测到",
@@ -1655,7 +1655,7 @@ const ZH: typeof DE = {
   unheard: "⚠ 未检测到",
   unheard_hint: "目前没有接收器能听到这个设备。它是否开着并在发送？安卓：Home Assistant 应用的 BLE Transmitter。",
   fly: "问“…在哪里？”和“谁在家？”时飞进房间",
-  fly_hint: "打开的 NeonPlan 视图会飞进答案所在的房间；问“谁在家？”时依次飞过所有房间。轻点即可停止。若人员仅对管理员显示，则不会飞向人员。",
+  fly_hint: "打开的 MasterPlan3D 视图会飞进答案所在的房间；问“谁在家？”时依次飞过所有房间。轻点即可停止。若人员仅对管理员显示，则不会飞向人员。",
 };
 
 /** An IRK as 32 hex characters: pasted as hex (with or without separators) or as Base64 (as the Mac keychain shows it). */
@@ -1878,7 +1878,7 @@ export class LocateSetup extends LitElement {
     try {
       doors = doorPairs(this.building);
     } catch (e) {
-      console.warn("NeonPlan locate: no door graph", e);
+      console.warn("MasterPlan3D locate: no door graph", e);
     }
     const cfg = await this.call<Config>({
       type: "neonplan3d/locate/configure",
@@ -1988,7 +1988,7 @@ export class LocateSetup extends LitElement {
   }
 
   /**
-   * The NeonPlan key helper (an ESP32 with irk-capture, see site/keys): found by its profile select ("Heart Sensor" /
+   * The MasterPlan3D key helper (an ESP32 with irk-capture, see site/keys): found by its profile select ("Heart Sensor" /
    * "Keyboard"); its IRK sensor shows the key of the device that paired last.
    */
   private keyHelpers(): { name: string; select: string; option: string; irk: string | null; ours: boolean; refresh: string | null }[] {
@@ -2004,7 +2004,7 @@ export class LocateSetup extends LitElement {
       const refresh = Object.values(this.hass.entities ?? {}).find((e) => e.device_id === device && /_refresh_ble_identity$/.test(e.entity_id))?.entity_id ?? null;
       out.push({ name, select: id, option: st.state, irk: raw ? irkHex(raw) : null, ours: entry?.model === "neonplan_key" || /neonplan[ _]key/i.test(id), refresh });
     }
-    // NeonPlan's own helper first
+    // MasterPlan3D's own helper first
     return out.sort((x, y) => Number(y.ours) - Number(x.ours));
   }
 

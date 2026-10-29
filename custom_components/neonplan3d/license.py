@@ -109,7 +109,7 @@ async def _post(hass: HomeAssistant, path: str, body: dict[str, Any]) -> Any:
     A 429 is retried a few times with a pause (the host throttles bursts from one address)."""
     session = async_get_clientsession(hass)
     headers = {"User-Agent": await _user_agent_of(hass)}
-    # the shop answers an add-on that needs a newer NeonPlan 3D with a readable "please update" message
+    # the shop answers an add-on that needs a newer MasterPlan3D with a readable "please update" message
     body = {**body, "version": _version}
     attempt = 0
     try:
@@ -420,9 +420,9 @@ def _announce_new_packs(hass: HomeAssistant, data: FloorplanData, catalog: list[
         return
     german = (hass.config.language or "").startswith("de")
     names = ", ".join(f"**{p.get('name') or p['id']}**" for p in fresh)
-    link = f"[NeonPlan 3D](/{PANEL_URL_PATH})"
+    link = f"[MasterPlan3D](/{PANEL_URL_PATH})"
     if len(fresh) == 1:
-        title = "NeonPlan 3D: neues Pack bereit" if german else "NeonPlan 3D: a new pack is ready"
+        title = "MasterPlan3D: neues Pack bereit" if german else "MasterPlan3D: a new pack is ready"
         message = (
             f"{names} gehört jetzt dir. Installieren mit einem Klick: {link} → Erweiterungen."
             if german
@@ -431,9 +431,9 @@ def _announce_new_packs(hass: HomeAssistant, data: FloorplanData, catalog: list[
         notice = _notice_id(fresh[0]["id"])
     else:
         title = (
-            f"NeonPlan 3D: {len(fresh)} neue Packs bereit"
+            f"MasterPlan3D: {len(fresh)} neue Packs bereit"
             if german
-            else f"NeonPlan 3D: {len(fresh)} new packs are ready"
+            else f"MasterPlan3D: {len(fresh)} new packs are ready"
         )
         message = (
             f"{names} gehören jetzt dir. Installieren mit einem Klick: {link} → Erweiterungen."

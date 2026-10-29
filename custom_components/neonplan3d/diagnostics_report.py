@@ -1,7 +1,7 @@
-"""Opt-in "help improve NeonPlan" reports: anonymous usage counts and error messages.
+"""Opt-in "help improve MasterPlan3D" reports: anonymous usage counts and error messages.
 
 Nothing is sent unless the user switched it on in the editor (off by default). Then one report a day
-(and at most one error batch an hour) goes to the NeonPlan server: versions, the language, the ids of
+(and at most one error batch an hour) goes to the MasterPlan3D server: versions, the language, the ids of
 installed Mastershort packs, the active Pro features, counts of the plan (no names, no geometry), the
 kinds of devices the plan is shown on (device class, browser, OS, frame rate) and scrubbed error
 messages of our own bundles. The id is random, made when the user switches it on; it is not Home
@@ -387,7 +387,7 @@ class DiagnosticsReporter:
             self._sending = False
 
     async def _post(self, path: str, body: dict[str, Any]) -> bool:
-        """One request to the NeonPlan server; True on success. Failures are only logged for debugging."""
+        """One request to the MasterPlan3D server; True on success. Failures are only logged for debugging."""
         session = async_get_clientsession(self.hass)
         headers = {"User-Agent": await user_agent(self.hass)}
         attempt = 0

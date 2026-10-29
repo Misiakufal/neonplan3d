@@ -1,6 +1,6 @@
 # Möbel-Packs
 
-Möbel-Packs bringen zusätzliche Möbel in NeonPlan 3D. Sie werden wie die eingebauten Möbel aus
+Möbel-Packs bringen zusätzliche Möbel in MasterPlan3D. Sie werden wie die eingebauten Möbel aus
 Quadern und Zylindern gebaut und laufen deshalb genauso flüssig auf schwachen Tablets.
 
 Nur Packs, die mit dem Herausgeber-Schlüssel unterschrieben sind, lassen sich importieren. Der
@@ -51,7 +51,7 @@ dessen öffentlicher Schlüssel zusätzlich in `PACK_PUBLIC_KEYS` eingetragen un
 
 - `size`: Standardgröße in Metern (Breite, Tiefe, Höhe). Im Plan lässt sich jedes Möbel danach frei
   skalieren; alle Teile wachsen mit – außer denen mit `fix`.
-- `fix` an einem Teil (ab NeonPlan 1.23, Mindestversion setzen): welche Maße das Teil beim Skalieren
+- `fix` an einem Teil (ab MasterPlan3D 1.23, Mindestversion setzen): welche Maße das Teil beim Skalieren
   **behält** – `"w"`, `"d"`, `"h"` oder mehrere (`"wdh"`). Beine, Armlehnen, Platten und Griffe
   behalten so ihre Größe und ihren Abstand zur Kante des Möbels, die Teile dazwischen (Sitzfläche,
   Korpus) strecken sich. Je Achse gibt es damit eine feste Zone an jedem Ende und eine Mitte, die
@@ -87,7 +87,7 @@ dessen öffentlicher Schlüssel zusätzlich in `PACK_PUBLIC_KEYS` eingetragen un
 - `screen`: ein Teil mit `"screen": true` ist ein Bildschirm (Fernseher, Monitor). Das Möbel lässt sich
   dann mit einem Media Player verknüpfen; die Vorderseite (+z) zeigt die Farbe der laufenden App und
   ihr Bild, wie die eingebauten Fernseher.
-- **Bibliothek** (optional, ab NeonPlan 1.23 – ältere Versionen lehnen Packs mit diesen Feldern ab,
+- **Bibliothek** (optional, ab MasterPlan3D 1.23 – ältere Versionen lehnen Packs mit diesen Feldern ab,
   also die Mindestversion setzen): `group` sagt, was das Möbel ist (`sofa`, `seating`, `table`,
   `storage`, `bed`, `kitchen`, `appliance`, `bath`, `lamp`, `media`, `office`, `tech`, `heating`,
   `energy`, `household`, `deco`, `plant`, `outdoor`, `kids`, `sport`, `pets`, `vehicle`, `stairs`,
@@ -95,10 +95,10 @@ dessen öffentlicher Schlüssel zusätzlich in `PACK_PUBLIC_KEYS` eingetragen un
   `bedroom`, `kids`, `bath`, `office`, `hall`, `utility`, `garage`, `garden`, `hobby`; leer = überall),
   `tags` weitere Suchwörter. `family` fasst Varianten eines Möbels (ein Tisch in drei Längen) zu
   einer Karte zusammen, `variant` (Text je Sprache wie `name`) beschriftet den Chip der Variante.
-  Ohne diese Felder ordnet NeonPlan das Möbel nach seinen Wörtern und dem Pack ein; Varianten
+  Ohne diese Felder ordnet MasterPlan3D das Möbel nach seinen Wörtern und dem Pack ein; Varianten
   erkennt es an der Größe am Ende der ID (`table_160`) und an den Zahlen im Namen.
 
-## Feature-Packs (NeonPlan Pro)
+## Feature-Packs (MasterPlan3D Pro)
 
 Ein Pack darf statt Möbeln (oder zusätzlich) `features` tragen, zum Beispiel
 `"features": ["weather"]` mit `"items": []`. Ist so ein Pack installiert, ist die Pro-Funktion frei:
@@ -142,7 +142,7 @@ Pack erneut importiert wird.
 ## Lizenzschlüssel, Gerätebindung und Updates
 
 Jeder Kunde bekommt mit dem ersten Pack-Kauf **einen Schlüssel** (`NP-XXXX-XXXX-XXXX-XXXX`), der in
-der Bestell-Mail, auf der Danke-Seite und im Kundenkonto steht. In NeonPlan 3D wird er einmal unter
+der Bestell-Mail, auf der Danke-Seite und im Kundenkonto steht. In MasterPlan3D wird er einmal unter
 *Erweiterungen › Shop-Verbindung* eingetragen. Danach:
 
 - listet die Integration die gekauften Packs (Knopf „Installieren“ beziehungsweise „Aktualisieren“),

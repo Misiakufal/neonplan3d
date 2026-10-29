@@ -145,7 +145,7 @@ ITEM_SCHEMA = vol.Schema(
     }
 )
 
-# Pro features this version knows; a pack with a newer one needs a newer NeonPlan 3D
+# Pro features this version knows; a pack with a newer one needs a newer MasterPlan3D
 KNOWN_FEATURES = [
     "camera_cockpit",
     "weather",
@@ -162,7 +162,7 @@ KNOWN_FEATURES = [
     "fun_halloween",
 ]
 
-# A module: code the shop delivers (not part of the public repository), run by NeonPlan's module loader.
+# A module: code the shop delivers (not part of the public repository), run by MasterPlan3D's module loader.
 # `api` is the loader interface it was written for, `kind` where it plugs in. Signed and bound like any pack.
 # voice: answers spoken questions; stage: draws in the house (water, cards, warnings, editor fields)
 MODULE_KINDS = ["voice", "stage"]

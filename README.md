@@ -1,4 +1,4 @@
-# NeonPlan 3D
+# MasterPlan3D
 
 [![Spenden mit PayPal](https://img.shields.io/badge/PayPal-Spenden-00457C?logo=paypal&logoColor=white)](https://www.paypal.com/donate/?hosted_button_id=Z3G2VWKSK5VJL)
 
@@ -6,11 +6,11 @@
 
 ▶️ **[Try the online demo](https://neonplan3d.mastershort.de/)** – in your browser, with invented demo data: turn the house, switch lights, open the editor. Nothing to install.
 
-[![Open your Home Assistant instance and open the NeonPlan 3D repository inside HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Mastershort&repository=neonplan3d&category=integration)
+[![Open your Home Assistant instance and open the MasterPlan3D repository inside HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Mastershort&repository=neonplan3d&category=integration)
 
-[![NeonPlan 3D: the whole house in neon – solar roof with live energy cards, lit rooms on two floors, garden and drive](https://raw.githubusercontent.com/Mastershort/neonplan3d/main/docs/images/hero-house.jpg)](https://neonplan3d.mastershort.de/)
+[![MasterPlan3D: the whole house in neon – solar roof with live energy cards, lit rooms on two floors, garden and drive](https://raw.githubusercontent.com/Mastershort/neonplan3d/main/docs/images/hero-house.jpg)](https://neonplan3d.mastershort.de/)
 
-[![NeonPlan 3D: the house turns with its solar roof and energy cards, voice control opens the living room, the doorbell rings and the live director looks through the front door camera, then back to the whole house](https://raw.githubusercontent.com/Mastershort/neonplan3d/main/docs/images/demo.webp)](https://neonplan3d.mastershort.de/)
+[![MasterPlan3D: the house turns with its solar roof and energy cards, voice control opens the living room, the doorbell rings and the live director looks through the front door camera, then back to the whole house](https://raw.githubusercontent.com/Mastershort/neonplan3d/main/docs/images/demo.webp)](https://neonplan3d.mastershort.de/)
 
 📖 **Manual:** [English](https://mastershort.de/en/neonplan3d/manual/?lang=en) · [Deutsch](https://mastershort.de/neonplan3d/anleitung/?lang=de) (also here: [manual.md](https://github.com/Mastershort/neonplan3d/blob/main/docs/manual.md), [anleitung.md](https://github.com/Mastershort/neonplan3d/blob/main/docs/anleitung.md))
 💬 **Community:** [Discord](https://discord.gg/SSdVVFsev7) – show your 3D home, ask, share ideas
@@ -32,7 +32,7 @@ Not drawing at all? The [import page](https://neonplan3d.mastershort.de/import/)
 ## Highlights
 
 - ✏️ **Drawn in minutes, right in Home Assistant** – the plan editor with the 3D view beside it, a furniture library with pictures, free sizes, a wall view for exact placing. No external tool.
-- 📍 **Who is where – without Bermuda** – NeonPlan locates people, phones and key tags room by room from the Shelly plugs and ESPHome proxies you already have: learn each room in 90 seconds, see everyone as a glowing figure, get a sensor per device, ask "Where is my iPhone?". Free.
+- 📍 **Who is where – without Bermuda** – MasterPlan3D locates people, phones and key tags room by room from the Shelly plugs and ESPHome proxies you already have: learn each room in 90 seconds, see everyone as a glowing figure, get a sensor per device, ask "Where is my iPhone?". Free.
 - 🎙️ **Talk to your house** – tap the microphone or ask Assist: "Show the living room", "What's open?", "Good night". Assist satellites and automations ask the house too (service `neonplan3d.ask`); the answer module "Das Haus antwortet" is in beta for supporters.
 - 🎬 **Live director** – the wall tablet shows by itself what happens: the doorbell rings and the view flies to the front door and looks through its camera; someone at a camera, the washer done, a warning. Every event is opt-in.
 - ⏪ **Time travel** – replay the last day or week in the house: lights, doors, motion, the robot's run.
@@ -63,7 +63,7 @@ Three looks, an accent colour of your choice, and **Auto** – day while the sun
 | ![Heatmap](https://raw.githubusercontent.com/Mastershort/neonplan3d/main/docs/images/view-heat.jpg) | **Values and heatmap** – temperature, humidity and CO₂ per room, sunlight through the windows from `sun.sun`, the weather around the house. |
 | ![Card](https://raw.githubusercontent.com/Mastershort/neonplan3d/main/docs/images/card-og-dim.jpg) | **Dashboard card** – `custom:neonplan3d-card` with a visual editor, loaded automatically. |
 
-**Coming from another program?** The [import page](https://neonplan3d.mastershort.de/import/) turns Sweet Home 3D, iPhone LiDAR scans (RoomPlan), CAD (DXF), Blender/SketchUp models (glTF, OBJ, STL), Floorplanner and Valetudo robot maps into a NeonPlan plan – in your browser. Or let an AI write it with [this template](https://github.com/Mastershort/neonplan3d/blob/main/docs/ai-import.md) ([format](https://github.com/Mastershort/neonplan3d/blob/main/docs/plan-format.md)).
+**Coming from another program?** The [import page](https://neonplan3d.mastershort.de/import/) turns Sweet Home 3D, iPhone LiDAR scans (RoomPlan), CAD (DXF), Blender/SketchUp models (glTF, OBJ, STL), Floorplanner and Valetudo robot maps into a MasterPlan3D plan – in your browser. Or let an AI write it with [this template](https://github.com/Mastershort/neonplan3d/blob/main/docs/ai-import.md) ([format](https://github.com/Mastershort/neonplan3d/blob/main/docs/plan-format.md)).
 
 Also included: parking spots with vehicles that appear while a car is home, waste bins and mailboxes, smart locks on doors, a clock in the view, search, restore points, a full backup of plan, pictures and packs, and 18 languages.
 
@@ -85,7 +85,7 @@ The integration and everything above are **free and open source (MIT)**. Safety 
   | **Time travel** | Replay the last 24 hours or 7 days |
   | **Household Pro** *(beta)* | Bins with pickup tags, post in the mailbox, thirsty plants, appliance time left |
 
-- **Modules** – extensions that bring their own code from the shop, signed and bound to your installation like every pack; they update through the shop without waiting for a NeonPlan release. The Pro add-ons move over one by one; free modules: *Fenster-Wächter* (warns when a window stays open in the cold).
+- **Modules** – extensions that bring their own code from the shop, signed and bound to your installation like every pack; they update through the shop without waiting for a MasterPlan3D release. The Pro add-ons move over one by one; free modules: *Fenster-Wächter* (warns when a window stays open in the cold).
 
 Bought packs and modules are signed for your installation. Packs update by themselves once a day; a module's code runs only after an admin has viewed and approved it, and every module update waits for that approval too. Everything installed keeps working without the shop.
 
@@ -93,16 +93,16 @@ Bought packs and modules are signed for your installation. Packs update by thems
 
 ### HACS
 
-[![Open your Home Assistant instance and open the NeonPlan 3D repository inside HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Mastershort&repository=neonplan3d&category=integration)
+[![Open your Home Assistant instance and open the MasterPlan3D repository inside HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Mastershort&repository=neonplan3d&category=integration)
 
-1. Click the button above, or open HACS and search for **NeonPlan 3D** (it is in the HACS default list, no custom repository needed).
-2. Install **NeonPlan 3D** and restart Home Assistant.
+1. Click the button above, or open HACS and search for **MasterPlan3D** (it is in the HACS default list, no custom repository needed).
+2. Install **MasterPlan3D** and restart Home Assistant.
 3. Add the integration:
 
-   [![Open your Home Assistant instance and start setting up NeonPlan 3D.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=neonplan3d)
+   [![Open your Home Assistant instance and start setting up MasterPlan3D.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=neonplan3d)
 
-   or *Settings → Devices & services → Add integration → NeonPlan 3D*.
-4. Open **NeonPlan 3D** in the sidebar, switch to **Editor** and draw your first floor – or import a plan.
+   or *Settings → Devices & services → Add integration → MasterPlan3D*.
+4. Open **MasterPlan3D** in the sidebar, switch to **Editor** and draw your first floor – or import a plan.
 
 ### Manual
 
@@ -137,7 +137,7 @@ More: `start_view`, `explode`, `floor_stack`, `controls`, `controls_hidden`, `fl
 
 ## Privacy
 
-NeonPlan 3D stores the plan, its pictures and the packs in Home Assistant's `.storage`. It talks to the internet only when you enter a licence key in **Extensions**: then it asks mastershort.de once a day for updates of your packs, sending the key and an anonymous installation fingerprint (a hash). Voice control sends your speech only to your own Home Assistant's Assist pipeline, and the microphone is open only while you speak. Locating evaluates the Bluetooth signals only in Home Assistant; nothing about who is where leaves the house. Anonymous usage and error reports are opt-in (off by default) under ⚙ Settings → 🛟 Help improve; you can view every report before it is sent and delete the data at any time.
+MasterPlan3D stores the plan, its pictures and the packs in Home Assistant's `.storage`. It talks to the internet only when you enter a licence key in **Extensions**: then it asks mastershort.de once a day for updates of your packs, sending the key and an anonymous installation fingerprint (a hash). Voice control sends your speech only to your own Home Assistant's Assist pipeline, and the microphone is open only while you speak. Locating evaluates the Bluetooth signals only in Home Assistant; nothing about who is where leaves the house. Anonymous usage and error reports are opt-in (off by default) under ⚙ Settings → 🛟 Help improve; you can view every report before it is sent and delete the data at any time.
 
 ## Ideas, questions and bugs
 
@@ -163,11 +163,11 @@ npm run screenshot  # renders preview/index.html (invented demo data) with a loc
 
 ## Licence
 
-MIT – see [LICENSE](https://github.com/Mastershort/neonplan3d/blob/main/LICENSE). "NeonPlan 3D" is the name of the original project by Mastershort; furniture packs and Pro add-ons sold in the shop are not part of this repository.
+MIT – see [LICENSE](https://github.com/Mastershort/neonplan3d/blob/main/LICENSE). "MasterPlan3D" is the name of the original project by Mastershort; furniture packs and Pro add-ons sold in the shop are not part of this repository.
 
 ## Unterstützen / Support
 
-NeonPlan 3D ist kostenlos. Wenn es dir gefällt, freue ich mich über einen Kaffee ☕ – oder schau dir die Möbel-Packs im Shop an: https://mastershort.de/neonplan3d/
-NeonPlan 3D is free. If you like it, you can buy me a coffee or check out the furniture packs.
+MasterPlan3D ist kostenlos. Wenn es dir gefällt, freue ich mich über einen Kaffee ☕ – oder schau dir die Möbel-Packs im Shop an: https://mastershort.de/neonplan3d/
+MasterPlan3D is free. If you like it, you can buy me a coffee or check out the furniture packs.
 
 [![PayPal](https://img.shields.io/badge/PayPal-Spenden-00457C?logo=paypal&logoColor=white)](https://www.paypal.com/donate/?hosted_button_id=Z3G2VWKSK5VJL)

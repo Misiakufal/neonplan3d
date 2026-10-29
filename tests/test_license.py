@@ -268,7 +268,7 @@ async def test_a_pack_that_newly_belongs_to_the_customer_is_announced_once(
     aioclient_mock.clear_requests()
     aioclient_mock.post(f"{lic.SHOP_API}/catalog", json={"licensee": "Anna", "packs": [living, gift, *samples]})
     await lic.async_refresh(hass, hass.data[DOMAIN], install_updates=False)
-    assert notices == [("neonplan3d_packs_new", "NeonPlan 3D: 4 new packs are ready")]
+    assert notices == [("neonplan3d_packs_new", "MasterPlan3D: 4 new packs are ready")]
 
 
 async def test_a_pack_bound_elsewhere_is_refused_on_import(hass: HomeAssistant, hass_ws_client, monkeypatch) -> None:

@@ -1,4 +1,4 @@
-"""Sensors of NeonPlan 3D: the room of every device the locating feature tracks (one sensor per device)."""
+"""Sensors of MasterPlan3D: the room of every device the locating feature tracks (one sensor per device)."""
 
 from __future__ import annotations
 

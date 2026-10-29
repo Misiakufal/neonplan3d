@@ -2,12 +2,12 @@
   "config": {
     "step": {
       "user": {
-        "title": "NeonPlan 3D",
+        "title": "MasterPlan3D",
         "description": "在侧边栏添加一个页面，用于绘制你的家并以 3D 查看。"
       }
     },
     "abort": {
-      "single_instance_allowed": "NeonPlan 3D 已经设置好了。"
+      "single_instance_allowed": "MasterPlan3D 已经设置好了。"
     }
   }
 }

@@ -33,7 +33,7 @@ export interface Ask {
   admins_only?: boolean;
 }
 
-/** An announcement for the open screens (the service `neonplan3d.announce` with "On NeonPlan screens"). */
+/** An announcement for the open screens (the service `neonplan3d.announce` with "On MasterPlan3D screens"). */
 export interface ScreenAnnouncement {
   id: string;
   message: string;
@@ -287,7 +287,7 @@ export function installPack(hass: HomeAssistant, packId: string): Promise<Import
   return hass.callWS<ImportedPack & { release: number }>({ type: "neonplan3d/packs/install", pack_id: packId });
 }
 
-/** The opt-in reports ("help improve NeonPlan"): the setting and the exact next daily report. */
+/** The opt-in reports ("help improve MasterPlan3D"): the setting and the exact next daily report. */
 export interface DiagnosticsStatus {
   enabled: boolean;
   /** Unix time in seconds of the last daily report (or of switching on). */
@@ -313,7 +313,7 @@ export async function deleteDiagnostics(hass: HomeAssistant): Promise<Diagnostic
 
 export type SentenceMode = "distinct" | "all" | "off";
 
-/** Which sentences Assist hands to NeonPlan (the sentence files Home Assistant reads). */
+/** Which sentences Assist hands to MasterPlan3D (the sentence files Home Assistant reads). */
 export async function getVoiceSettings(hass: HomeAssistant): Promise<{ sentences: SentenceMode }> {
   return hass.callWS({ type: "neonplan3d/voice/settings" });
 }

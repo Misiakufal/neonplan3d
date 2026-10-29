@@ -48,12 +48,12 @@ ASK_SCHEMA = vol.Schema(
 
 # what Assist says when no view answers, by the language of Home Assistant
 _NO_SCREEN = {
-    "de": "Kein NeonPlan-Bildschirm ist gerade offen.",
-    "en": "No NeonPlan screen is open right now.",
+    "de": "Kein MasterPlan3D-Bildschirm ist gerade offen.",
+    "en": "No MasterPlan3D screen is open right now.",
 }
 _NOT_UNDERSTOOD = {
-    "de": "Das hat NeonPlan nicht verstanden.",
-    "en": "NeonPlan did not understand that.",
+    "de": "Das hat MasterPlan3D nicht verstanden.",
+    "en": "MasterPlan3D did not understand that.",
 }
 
 # which sentences Assist hands to NeonPlan: only the distinct ones (default), every question, or none at all
@@ -465,7 +465,9 @@ class AskIntentHandler(intent.IntentHandler):
     """Assist's "show me the living room" and the questions the modules answer."""
 
     intent_type = INTENT_ASK
-    description = "Shows a place or device in NeonPlan 3D or asks the house a question (the open NeonPlan views answer)"
+    description = (
+        "Shows a place or device in MasterPlan3D or asks the house a question (the open MasterPlan3D views answer)"
+    )
     slot_schema: ClassVar[dict] = {vol.Optional("text"): cv.string, vol.Optional(WHO_LIST): cv.string}
 
     def __init__(self, broker: AskBroker) -> None:

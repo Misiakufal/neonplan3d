@@ -2,12 +2,12 @@
   "config": {
     "step": {
       "user": {
-        "title": "NeonPlan 3D",
+        "title": "MasterPlan3D",
         "description": "Aggiunge una pagina nella barra laterale dove disegni la tua casa e la vedi in 3D."
       }
     },
     "abort": {
-      "single_instance_allowed": "NeonPlan 3D è già configurato."
+      "single_instance_allowed": "MasterPlan3D è già configurato."
     }
   }
 }

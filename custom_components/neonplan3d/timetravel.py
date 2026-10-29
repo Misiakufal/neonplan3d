@@ -194,7 +194,7 @@ async def ws_timetravel_history(
     """The past states of the given entities between two moments (at most about a day)."""
     data = hass.data.get(DOMAIN)
     if data is None:
-        connection.send_error(msg["id"], "not_loaded", "NeonPlan 3D is not set up")
+        connection.send_error(msg["id"], "not_loaded", "MasterPlan3D is not set up")
         return
     if not has_time_travel(data.packs):
         connection.send_error(msg["id"], "not_unlocked", "Time travel is a Pro add-on")

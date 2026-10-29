@@ -18,7 +18,7 @@ _ID = vol.All(str, vol.Length(min=1, max=64))
 def _service(hass: HomeAssistant, connection: websocket_api.ActiveConnection, msg: dict) -> LocateService | None:
     service: LocateService | None = hass.data.get(DATA_LOCATE)
     if service is None:
-        connection.send_error(msg["id"], "not_loaded", "NeonPlan 3D is not set up")
+        connection.send_error(msg["id"], "not_loaded", "MasterPlan3D is not set up")
     return service
 
 
@@ -142,7 +142,7 @@ def ws_locate_subscribe(hass: HomeAssistant, connection: websocket_api.ActiveCon
 )
 @websocket_api.async_response
 async def ws_locate_ask(hass: HomeAssistant, connection: websocket_api.ActiveConnection, msg: dict[str, Any]) -> None:
-    """A sentence said at a NeonPlan view: the locating answer ("Wer ist zu Hause?") with the rooms to fly to, or
+    """A sentence said at a MasterPlan3D view: the locating answer ("Wer ist zu Hause?") with the rooms to fly to, or
     null when it is no locating question (the view's own answers come next). The same answer Assist gets."""
     service: LocateService | None = hass.data.get(DATA_LOCATE)
     language = (msg.get("language") or hass.config.language or "en").split("-")[0]

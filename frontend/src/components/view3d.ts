@@ -3936,7 +3936,7 @@ export class Fp3dView3d extends LitElement {
         },
       });
     } catch (err) {
-      console.error("NeonPlan 3D: the pets failed to load", err);
+      console.error("MasterPlan3D: the pets failed to load", err);
     } finally {
       this.petsLoading = false;
     }
@@ -3967,7 +3967,7 @@ export class Fp3dView3d extends LitElement {
         night: () => this.hass?.states["sun.sun"]?.state === "below_horizon",
       });
     } catch (err) {
-      console.error("NeonPlan 3D: the ghost failed to load", err);
+      console.error("MasterPlan3D: the ghost failed to load", err);
     } finally {
       this.ghostLoading = false;
     }
@@ -4418,7 +4418,7 @@ export class Fp3dView3d extends LitElement {
 
   /**
    * One sentence, from the microphone or from Assist: a place or device to show is shown, a question is answered by
-   * the modules. Returns what was answered (for Assist to speak) or null when the sentence is not NeonPlan's.
+   * the modules. Returns what was answered (for Assist to speak) or null when the sentence is not MasterPlan3D's.
    * `speak`: the view speaks the answer itself (false when a satellite asked: it speaks).
    */
   private async handleSentence(hass: HomeAssistant, b: Building, v: Awaited<ReturnType<typeof loadVoice>>, text: string, speak: boolean): Promise<string | null> {
@@ -4880,7 +4880,7 @@ export class Fp3dView3d extends LitElement {
       try {
         await job();
       } catch (err) {
-        console.warn("NeonPlan 3D: module sheet failed", err);
+        console.warn("MasterPlan3D: module sheet failed", err);
       }
     };
     const send = () => {

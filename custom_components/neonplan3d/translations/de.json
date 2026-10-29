@@ -2,18 +2,18 @@
   "config": {
     "step": {
       "user": {
-        "title": "NeonPlan 3D",
+        "title": "MasterPlan3D",
         "description": "Fügt eine Seite in der Seitenleiste hinzu, auf der du deine Wohnung zeichnest und in 3D siehst."
       }
     },
     "abort": {
-      "single_instance_allowed": "NeonPlan 3D ist bereits eingerichtet."
+      "single_instance_allowed": "MasterPlan3D ist bereits eingerichtet."
     }
   },
   "services": {
     "ask": {
       "name": "Das Haus fragen",
-      "description": "Gibt einen Satz an die offenen NeonPlan-3D-Ansichten: „Zeig das Wohnzimmer“ zeigt es, Fragen beantworten die eingespielten Module („Was ist offen?“). Die erste Ansicht, die den Satz versteht, antwortet.",
+      "description": "Gibt einen Satz an die offenen MasterPlan3D-3D-Ansichten: „Zeig das Wohnzimmer“ zeigt es, Fragen beantworten die eingespielten Module („Was ist offen?“). Die erste Ansicht, die den Satz versteht, antwortet.",
       "fields": {
         "text": {
           "name": "Satz",
@@ -50,12 +50,12 @@
           "description": "Auch in Räumen sprechen, die gerade Ruhezeit haben. Ein einzelner, namentlich genannter Raum spricht immer."
         },
         "on_screens": {
-          "name": "Auf NeonPlan-Bildschirmen",
-          "description": "Jeder offene NeonPlan-Bildschirm (auch ein Wand-Tablet) spricht die Nachricht selbst und zeigt sie an. Ohne Räume oder Etage sprechen nur die Bildschirme."
+          "name": "Auf MasterPlan3D-Bildschirmen",
+          "description": "Jeder offene MasterPlan3D-Bildschirm (auch ein Wand-Tablet) spricht die Nachricht selbst und zeigt sie an. Ohne Räume oder Etage sprechen nur die Bildschirme."
         },
         "screens": {
           "name": "Bildschirme",
-          "description": "Nur die NeonPlan-Bildschirme mit diesen Bildschirmnamen (in den Einstellungen der Ansicht oder in der Kartenoption screen gesetzt)."
+          "description": "Nur die MasterPlan3D-Bildschirme mit diesen Bildschirmnamen (in den Einstellungen der Ansicht oder in der Kartenoption screen gesetzt)."
         }
       }
     }

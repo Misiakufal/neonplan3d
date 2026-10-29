@@ -1,12 +1,12 @@
 // A safety net for graphics chips whose driver fails on the newer 3D effects (#827): when the WebGL context is
-// lost right after the 3D view starts, this browser remembers it for the NeonPlan version in use, and the next
+// lost right after the 3D view starts, this browser remembers it for the MasterPlan3D version in use, and the next
 // load starts without the sun's arc, the house shadow and the window light at night. A new version tries again
 // once. A context lost later on (a tablet sending the page to the background) never counts.
 
 const KEY = "neonplan3d.gpu_lost";
 
 declare const __FP3D_VERSION__: string;
-/** The NeonPlan version the memory is kept for. */
+/** The MasterPlan3D version the memory is kept for. */
 export const GUARD_VERSION = typeof __FP3D_VERSION__ === "string" ? __FP3D_VERSION__ : "dev";
 
 /** A context lost this soon after the 3D view started counts as the effects' fault. */

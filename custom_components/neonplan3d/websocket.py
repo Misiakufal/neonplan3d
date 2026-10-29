@@ -80,7 +80,7 @@ def async_register_commands(hass: HomeAssistant) -> None:
 def _data(hass: HomeAssistant, connection: websocket_api.ActiveConnection, msg: dict) -> FloorplanData | None:
     data: FloorplanData | None = hass.data.get(DOMAIN)
     if data is None:
-        connection.send_error(msg["id"], "not_loaded", "NeonPlan 3D is not set up")
+        connection.send_error(msg["id"], "not_loaded", "MasterPlan3D is not set up")
     return data
 
 
@@ -469,7 +469,7 @@ async def ws_backup_import(
 def _reporter(hass: HomeAssistant, connection: websocket_api.ActiveConnection, msg: dict) -> DiagnosticsReporter | None:
     reporter: DiagnosticsReporter | None = hass.data.get(DATA_DIAGNOSTICS)
     if reporter is None:
-        connection.send_error(msg["id"], "not_loaded", "NeonPlan 3D is not set up")
+        connection.send_error(msg["id"], "not_loaded", "MasterPlan3D is not set up")
     return reporter
 
 
@@ -508,7 +508,7 @@ async def ws_diagnostics_delete(
     try:
         await reporter.async_delete()
     except DiagnosticsError as err:
-        connection.send_error(msg["id"], err.code, "The NeonPlan server could not be reached")
+        connection.send_error(msg["id"], err.code, "The MasterPlan3D server could not be reached")
         return
     connection.send_result(msg["id"], reporter.status())
 
@@ -603,7 +603,7 @@ def ws_voice_answer(hass: HomeAssistant, connection: websocket_api.ActiveConnect
 @websocket_api.websocket_command({vol.Required("type"): "neonplan3d/voice/settings"})
 @callback
 def ws_voice_settings(hass: HomeAssistant, connection: websocket_api.ActiveConnection, msg: dict[str, Any]) -> None:
-    """The voice settings: which sentences Assist hands to NeonPlan."""
+    """The voice settings: which sentences Assist hands to MasterPlan3D."""
     settings: VoiceSettings | None = hass.data.get(DATA_VOICE)
     connection.send_result(msg["id"], {"sentences": settings.sentences if settings else "off"})
 
@@ -616,7 +616,7 @@ def ws_voice_settings(hass: HomeAssistant, connection: websocket_api.ActiveConne
 async def ws_voice_settings_set(
     hass: HomeAssistant, connection: websocket_api.ActiveConnection, msg: dict[str, Any]
 ) -> None:
-    """Sets which sentences Assist hands to NeonPlan; the sentence files are rewritten and Assist reloads them."""
+    """Sets which sentences Assist hands to MasterPlan3D; the sentence files are rewritten and Assist reloads them."""
     settings: VoiceSettings | None = hass.data.get(DATA_VOICE)
     if settings is None:
         connection.send_error(msg["id"], "not_ready", "voice settings not loaded")

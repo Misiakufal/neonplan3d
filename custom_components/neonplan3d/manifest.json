@@ -1,6 +1,6 @@
 {
   "domain": "neonplan3d",
-  "name": "NeonPlan 3D",
+  "name": "MasterPlan3D",
   "after_dependencies": ["bluetooth", "recorder"],
   "codeowners": ["@Mastershort"],
   "config_flow": true,

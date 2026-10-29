@@ -1,7 +1,7 @@
 """Announcements from automations: the service `neonplan3d.announce`.
 
 The Announcements module (a shop module, runs in the browser) speaks when someone taps a sentence. An automation
-(the doorbell rings, the washing machine is done) runs with no NeonPlan page open, so its announcement is made here,
+(the doorbell rings, the washing machine is done) runs with no MasterPlan3D page open, so its announcement is made here,
 with the module's settings from the plan: the speaker chosen for a room, else one placed in the room on the plan,
 else one of the room's area, else the house's default speaker; the room's quiet time; the text-to-speech entity.
 The service works only while the Announcements module is installed and approved.
@@ -42,7 +42,7 @@ ANNOUNCE_SCHEMA = vol.Schema(
         vol.Optional("rooms", default=[]): vol.All(cv.ensure_list, [vol.All(cv.string, vol.Length(max=80))]),
         vol.Optional("floor"): vol.All(cv.string, vol.Length(max=80)),
         vol.Optional("ignore_quiet", default=False): cv.boolean,
-        # the open NeonPlan screens speak and show it too: every one, or only those with these screen names
+        # the open MasterPlan3D screens speak and show it too: every one, or only those with these screen names
         vol.Optional("on_screens", default=False): cv.boolean,
         vol.Optional("screens", default=[]): vol.All(cv.ensure_list, [vol.All(cv.string, vol.Length(max=60))]),
     }
@@ -258,7 +258,7 @@ async def async_announce(hass: HomeAssistant, call: ServiceCall) -> ServiceRespo
     data = hass.data[DOMAIN]
     if not module_ready(data.packs):
         raise ServiceValidationError(
-            "The Announcements module is not installed (or waits for an admin's approval in NeonPlan → Extensions)"
+            "The Announcements module is not installed (or waits for an admin's approval in MasterPlan3D → Extensions)"
         )
     building = data.building
     screens = call.data["screens"]

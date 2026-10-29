@@ -1,8 +1,8 @@
-# NeonPlan 3D – Anleitung
+# MasterPlan3D – Anleitung
 
 🇩🇪 Deutsch · [🇬🇧 English](manual.md)
 
-NeonPlan 3D zeichnet dein Zuhause direkt in Home Assistant und zeigt es als 3D-Modell im Neon-Look. Lichter leuchten in ihrer Farbe, Rollläden fahren, Fenster kippen, Türen schwingen auf, Kameras schauen in den Raum und der Fernseher zeigt, was läuft. Alles läuft lokal in Home Assistant, ohne Cloud und ohne externe Programme, und ist für Wandtablets gebaut.
+MasterPlan3D zeichnet dein Zuhause direkt in Home Assistant und zeigt es als 3D-Modell im Neon-Look. Lichter leuchten in ihrer Farbe, Rollläden fahren, Fenster kippen, Türen schwingen auf, Kameras schauen in den Raum und der Fernseher zeigt, was läuft. Alles läuft lokal in Home Assistant, ohne Cloud und ohne externe Programme, und ist für Wandtablets gebaut.
 
 Diese Anleitung beschreibt alle Funktionen der aktuellen Version. Was sich in welcher Version geändert hat, steht im [Changelog](../CHANGELOG.md) und auf der [Release-Seite](https://github.com/Mastershort/neonplan3d/releases). Die Bilder stammen aus der Demo mit erfundenen Daten.
 
@@ -20,7 +20,7 @@ Diese Anleitung beschreibt alle Funktionen der aktuellen Version. Was sich in we
 6. [Pro-Erweiterungen](#6-pro-erweiterungen)
 7. [Erweiterungen, Shop und Möbel-Packs](#7-erweiterungen-shop-und-möbel-packs)
 8. [Die Dashboard-Karte](#8-die-dashboard-karte)
-9. [NeonPlan 3D auf dem Wandtablet](#9-neonplan-3d-auf-dem-wandtablet)
+9. [MasterPlan3D auf dem Wandtablet](#9-neonplan-3d-auf-dem-wandtablet)
 10. [Sicherung und Umzug](#10-sicherung-und-umzug)
 11. [Daten und Datenschutz](#11-daten-und-datenschutz)
 12. [Häufige Fragen und Fehlerbehebung](#12-häufige-fragen-und-fehlerbehebung)
@@ -37,19 +37,19 @@ Diese Anleitung beschreibt alle Funktionen der aktuellen Version. Was sich in we
 
 ### Über HACS
 
-[![NeonPlan 3D in HACS öffnen](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Mastershort&repository=neonplan3d&category=integration)
+[![MasterPlan3D in HACS öffnen](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Mastershort&repository=neonplan3d&category=integration)
 
-Der Knopf öffnet NeonPlan 3D direkt in HACS deiner Installation. NeonPlan 3D steht in der offiziellen HACS-Liste, ein benutzerdefiniertes Repository brauchst du nicht. Von Hand geht es so:
+Der Knopf öffnet MasterPlan3D direkt in HACS deiner Installation. MasterPlan3D steht in der offiziellen HACS-Liste, ein benutzerdefiniertes Repository brauchst du nicht. Von Hand geht es so:
 
 1. In Home Assistant **HACS** öffnen.
-2. **NeonPlan 3D** suchen, installieren und Home Assistant neu starten.
-3. **Einstellungen → Geräte & Dienste → Integration hinzufügen → NeonPlan 3D**, oder direkt über diesen Knopf:
+2. **MasterPlan3D** suchen, installieren und Home Assistant neu starten.
+3. **Einstellungen → Geräte & Dienste → Integration hinzufügen → MasterPlan3D**, oder direkt über diesen Knopf:
 
-   [![NeonPlan 3D einrichten](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=neonplan3d)
+   [![MasterPlan3D einrichten](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=neonplan3d)
 
-Danach steht **NeonPlan 3D** in der Seitenleiste. Die Dashboard-Karte ist ebenfalls sofort verfügbar, eine Ressource musst du nicht eintragen.
+Danach steht **MasterPlan3D** in der Seitenleiste. Die Dashboard-Karte ist ebenfalls sofort verfügbar, eine Ressource musst du nicht eintragen.
 
-Hast du NeonPlan 3D früher als benutzerdefiniertes Repository eingetragen, musst du nichts tun: Updates kommen weiter wie gewohnt.
+Hast du MasterPlan3D früher als benutzerdefiniertes Repository eingetragen, musst du nichts tun: Updates kommen weiter wie gewohnt.
 
 ### Von Hand
 
@@ -57,14 +57,14 @@ Den Ordner `custom_components/neonplan3d` aus dem Repository nach `config/custom
 
 ### Updates
 
-HACS meldet neue Versionen von selbst. Nach jedem Update Home Assistant neu starten. Bis dahin zeigt NeonPlan 3D oben einen Hinweis, dass ein Neustart aussteht. Dein Plan bleibt bei Updates immer erhalten, auch wenn du die Integration entfernst und neu hinzufügst.
+HACS meldet neue Versionen von selbst. Nach jedem Update Home Assistant neu starten. Bis dahin zeigt MasterPlan3D oben einen Hinweis, dass ein Neustart aussteht. Dein Plan bleibt bei Updates immer erhalten, auch wenn du die Integration entfernst und neu hinzufügst.
 
 ---
 
 ## 2. In zehn Minuten zum ersten 3D-Plan
 
-1. **NeonPlan 3D** in der Seitenleiste öffnen und oben auf **Editor** wechseln.
-2. Rechts **Etage hinzufügen** wählen. Hast du in Home Assistant Etagen angelegt, bietet NeonPlan 3D sie direkt an.
+1. **MasterPlan3D** in der Seitenleiste öffnen und oben auf **Editor** wechseln.
+2. Rechts **Etage hinzufügen** wählen. Hast du in Home Assistant Etagen angelegt, bietet MasterPlan3D sie direkt an.
 3. Gibt es Bereiche auf der Etage, legt **„… Räume aus HA-Bereichen anlegen“** für jeden Bereich einen Raum an. Ziehe die Räume dann an die richtige Stelle und passe die Ecken an. Alternativ zeichnest du unter **Bauen → Raum** mit **Rechteck**, **Freie Form** oder **Nach Maß**.
 4. Mit **Tür & Fenster** auf eine Wand tippen, um Türen und Fenster einzusetzen.
 5. Einen Raum antippen und rechts unter **Geräte** bei den gewünschten Geräten **Platzieren** tippen, etwa Lichter, Rollläden, Thermostate, Media Player und Sensoren des Bereichs. Unter der Liste setzt **Alle … platzieren** nach einer Rückfrage alle Hauptgeräte auf einmal.
@@ -87,7 +87,7 @@ Oben gibt es drei Reiter:
 
 Zusätzlich gibt es die Dashboard-Karte, die dieselbe 3D-Ansicht in jedes Dashboard bringt. Mehr dazu in [Kapitel 8](#8-die-dashboard-karte).
 
-**Sprache:** NeonPlan folgt der Sprache deines Home-Assistant-Nutzers (Profil → Sprache). Deutsch und Englisch sind eingebaut; Französisch, Spanisch, Niederländisch, Italienisch, Ungarisch, Dänisch, Schwedisch, Norwegisch (Bokmål und Nynorsk), Finnisch, Tschechisch, Polnisch, Rumänisch, Slowenisch, Portugiesisch und Chinesisch (vereinfacht) werden bei Bedarf nachgeladen, so bleiben die Bundles für Wandtablets klein. Fehlt ein Text in einer Sprache, erscheint er auf Englisch.
+**Sprache:** MasterPlan3D folgt der Sprache deines Home-Assistant-Nutzers (Profil → Sprache). Deutsch und Englisch sind eingebaut; Französisch, Spanisch, Niederländisch, Italienisch, Ungarisch, Dänisch, Schwedisch, Norwegisch (Bokmål und Nynorsk), Finnisch, Tschechisch, Polnisch, Rumänisch, Slowenisch, Portugiesisch und Chinesisch (vereinfacht) werden bei Bedarf nachgeladen, so bleiben die Bundles für Wandtablets klein. Fehlt ein Text in einer Sprache, erscheint er auf Englisch.
 
 ---
 
@@ -152,7 +152,7 @@ Ganz links in der Werkzeugleiste steht **Etage: Erdgeschoss ▾** – die Etage,
 
 Ein ausgewählter Raum zeigt rechts:
 
-- **Name** und **Bereich**: Die Verknüpfung mit einem Home-Assistant-Bereich ist das Wichtigste. Darüber findet NeonPlan 3D Lichter, Rollläden, Sensoren und Szenen des Raums.
+- **Name** und **Bereich**: Die Verknüpfung mit einem Home-Assistant-Bereich ist das Wichtigste. Darüber findet MasterPlan3D Lichter, Rollläden, Sensoren und Szenen des Raums.
 - **Bodenbelag**: Holz, Eiche, Fliesen, Teppich, Stein oder Beton erscheinen in 3D als dezentes Muster.
 - **Ansicht als Start des Raums**: Schalte **3D daneben** ein, dreh und zoom den Raum so, wie er sich zeigen soll, und tippe den Knopf. Tippst du den Raum später in 3D an, fliegt die Kamera genau dorthin – Blickwinkel, Zoom und Bildausschnitt. ↺ nimmt das zurück, dann wird der Raum wieder von oben gezeigt.
 - Die **ID** des Raums für die Karten-Option `room:` (antippen kopiert sie).
@@ -232,7 +232,7 @@ Jede Öffnung hat:
 - **Ohne Sensor geschlossen zeigen:** Eine Tür ohne Kontakt steht in 3D halb offen, damit man sie als Tür erkennt. Der Haken zeichnet sie geschlossen, etwa für eine Haustür oder ein Carport ohne Sensor.
 - **Öffnungswinkel (seit 2.0.6):** Wie weit das Türblatt offen steht: **Standard**, 15°, 30°, 45°, 60° oder 90°. Ohne Sensor steht die Tür immer so weit offen, mit Sensor öffnet sie so weit, sobald er „offen“ meldet. **Standard** bleibt wie bisher: ohne Sensor halb offen, mit Sensor ganz offen.
 - **Smart Lock:** Das Schloss der Tür (Nuki, Aqara, `lock.*`). In 3D steht ein Pin an der Tür: 🔒 zu, rot leuchtend, solange sie offen ist; ein Tipp schließt auf oder ab. Auch ein Tipp auf die Tür selbst (ohne Antrieb) öffnet ihr Menü mit **Abschließen** bzw. **Aufschließen**, immer mit Rückfrage; solange das Schloss offen ist, leuchtet die freie Kante des Türblatts sanft in der Akzentfarbe – egal, was der Türkontakt meldet. An einer zweiflügeligen Tür oder Terrassentür sitzt der Pin am Hauptflügel (auf der Seite des Anschlags). Die Sprache fragt es ab („Ist die Haustür abgeschlossen?“).
-- **Kontakt umkehren:** Für Sensoren, die offen und geschlossen andersherum melden. NeonPlan zeigt dann offen, wenn der Sensor geschlossen meldet, und umgekehrt (Standard: aus).
+- **Kontakt umkehren:** Für Sensoren, die offen und geschlossen andersherum melden. MasterPlan3D zeigt dann offen, wenn der Sensor geschlossen meldet, und umgekehrt (Standard: aus).
 
 Türen und Fenster lassen sich im Plan auch an einem breiten Streifen um die Öffnung antippen; ein ausgewählter Raum listet seine Türen und Fenster im Formular.
 
@@ -251,13 +251,13 @@ Türen und Fenster lassen sich im Plan auch an einem breiten Streifen um die Öf
 | **Kontakt zweiter Flügel** | Für zweiflügelige Fenster und Türen |
 | **Garagentor** | Ein Garagentor folgt einer Cover-Entität oder einem Kontakt (an = offen; auch Sensoren, die „open“/„closed“ melden). Als Kontakt geht auch ein **Schalter oder input_boolean**, der das Tor antreibt: an = offen, Antippen in 3D schaltet ihn. Gibt dein Antrieb nur einen kurzen Impuls, wählst du den **Schalter, Taster (`button`) oder `input_button` unter Antrieb** und den echten Torkontakt unter Kontakt: Ein Tipp aufs Tor schaltet den Schalter ein bzw. drückt den Taster (mit *Vor dem Schalten nachfragen* erst nach Rückfrage), offen oder zu zeigt der Kontakt. Der offene Teil liegt dann unter der Decke. Ein Tor- oder Garagen-Cover an einer **Tür** (z. B. ein Schiebetor) bewegt das Türblatt statt eines Rollladens |
 
-Rollläden und Kontakte ordnet NeonPlan 3D über den Bereich automatisch zu. Du kannst sie jederzeit von Hand ändern.
+Rollläden und Kontakte ordnet MasterPlan3D über den Bereich automatisch zu. Du kannst sie jederzeit von Hand ändern.
 
 ### 4.8 Möbel
 
 ![Die Möbelbibliothek](images/editor-library.jpg)
 
-Das Werkzeug **Möbel** öffnet rechts die Bibliothek: die 80 eingebauten Modelle und alles aus deinen installierten Möbel-Packs, zusammen sortiert nach dem, **was** es ist – Sofas, Sitzmöbel, Tische, Schränke & Regale, Betten, Küche, Geräte, Bad, Leuchten, TV & Audio, Büro, Technik & Smart Home, Heizen & Klima, Energie, Haushalt, Deko, Pflanzen, Garten & Außen, Kinder, Fitness, Haustiere, Fahrzeuge, Treppen & Geländer, Architektur. Jede Karte zeigt ein **Bild**, das Maß (Breite × Tiefe) und woher das Möbel kommt („Basis“ oder der Pack-Name). Die Bilder zeichnet NeonPlan beim ersten Aufklappen und merkt sie sich im Browser; auf sehr schwachen Geräten bleiben die Karten ohne Bild, die Vorschau beim Darüberfahren gibt es trotzdem.
+Das Werkzeug **Möbel** öffnet rechts die Bibliothek: die 80 eingebauten Modelle und alles aus deinen installierten Möbel-Packs, zusammen sortiert nach dem, **was** es ist – Sofas, Sitzmöbel, Tische, Schränke & Regale, Betten, Küche, Geräte, Bad, Leuchten, TV & Audio, Büro, Technik & Smart Home, Heizen & Klima, Energie, Haushalt, Deko, Pflanzen, Garten & Außen, Kinder, Fitness, Haustiere, Fahrzeuge, Treppen & Geländer, Architektur. Jede Karte zeigt ein **Bild**, das Maß (Breite × Tiefe) und woher das Möbel kommt („Basis“ oder der Pack-Name). Die Bilder zeichnet MasterPlan3D beim ersten Aufklappen und merkt sie sich im Browser; auf sehr schwachen Geräten bleiben die Karten ohne Bild, die Vorschau beim Darüberfahren gibt es trotzdem.
 
 - **Raum-Chips** oben: Beim Öffnen eines Raums ist sein Raumtyp vorgewählt (ein „Wohnzimmer“ zeigt Wohnen, eine „Küche“ Küche) – die Bibliothek zeigt dann nur, was in diesen Raum passt, plus alles, was überall passt (Leuchten, Technik). **Alle Räume** hebt den Filter auf, jeder andere Chip wechselt ihn.
 - **Filter-Chips:** ⚡ **Verknüpfbar** (nimmt eine Entität), 💡 **Leuchtet** (verknüpft ein Licht), 🌳 **Außen**.
@@ -294,7 +294,7 @@ Die **Arbeitsplatte** (Küche) ist eine freie Platte ohne Unterbau, für Lücken
 - Mehrere ausgewählte Möbel verschiebst, drehst (**R**, ↺/↻ 90° – um ihre gemeinsame Mitte), kopierst (**Strg+D**), fixierst oder löschst du zusammen. **Als Block zusammenfassen** macht daraus einen dauerhaften Block (oranger Rahmen mit „Möbel-Block“).
 - Ein Klick auf irgendein Teil wählt danach den **ganzen Block**; Ziehen verschiebt ihn, auch in **3D daneben**. Ein **einzelnes Teil** bearbeitest du per **Doppelklick** (am Tablet zweimal antippen) oder über seinen Namen in der Liste rechts – etwa einen Oberschrank 2 cm höher. **Ganzen Block wählen** führt zurück, **Block auflösen** macht wieder Einzelmöbel daraus. Ist ein Teil fixiert, bleibt der ganze Block stehen – ein Hinweis sagt es, **Alle lösen** gibt ihn frei.
 - **In der Wandansicht** gehen Blöcke genauso – in **Wand von vorne** wie in **3D im Raum**: **Umschalt + Klick** (am Tablet *Mehrere auswählen*) oder **Umschalt + Ziehen** (Rahmen, nur von vorne) wählt mehrere Teile, unten **Als Block zusammenfassen**. Ziehen schiebt den ganzen Block an der Wand entlang (er rastet mit seinen Außenkanten ein), unten schaltest du zwischen **Ganzer Block** und **Nur dieses Teil** um – so richtest du einen einzelnen Schrank aus, ohne den Block aufzulösen. Ein Doppelklick auf ein Teil eines Blocks wählt ebenfalls nur dieses Teil.
-- **An die Wand** (Leiste links in der Wandansicht): wenige Symbole statt einer langen Liste – Unterschränke & Boards, Hängendes, Hochschränke, Sitzen & Liegen, Leuchten, deine Packs (und Energie mit Energie Pro) –, dazu eine Suche und **Zuletzt benutzt**. **Tipp auf eine freie Stelle an der Wand:** NeonPlan misst die Lücke (unten: stehend, oben: hängend) und zeigt nur, was hineinpasst – zuerst, was sie am besten füllt. Schränke nach Maß (Küchenzeile, Hängeschrank, Hochschrank, Sideboard, Regal …) werden auf die Breite der Lücke angepasst (↔), alles andere kommt in seiner Größe an den linken Rand der Lücke. Jedes Möbel zeigt ein kleines Bild. **Größe ändern** in *Wand von vorne*: Am gewählten Möbel ziehen die Anfasser **links und rechts** die Breite, **oben** die Höhe und bei Hängendem **unten** die Unterkante – die andere Seite bleibt stehen, die Kanten rasten an Nachbarn, Wandenden, Türen und Fenstern ein (**Alt** frei), darüber steht live das Maß. Unten tippst du **Breite** und **Höhe** auch ein (auch in *3D im Raum*). Ein gewähltes Teil (oder mehrere) löschst du unten mit **Löschen** oder mit der Taste **Entf**.
+- **An die Wand** (Leiste links in der Wandansicht): wenige Symbole statt einer langen Liste – Unterschränke & Boards, Hängendes, Hochschränke, Sitzen & Liegen, Leuchten, deine Packs (und Energie mit Energie Pro) –, dazu eine Suche und **Zuletzt benutzt**. **Tipp auf eine freie Stelle an der Wand:** MasterPlan3D misst die Lücke (unten: stehend, oben: hängend) und zeigt nur, was hineinpasst – zuerst, was sie am besten füllt. Schränke nach Maß (Küchenzeile, Hängeschrank, Hochschrank, Sideboard, Regal …) werden auf die Breite der Lücke angepasst (↔), alles andere kommt in seiner Größe an den linken Rand der Lücke. Jedes Möbel zeigt ein kleines Bild. **Größe ändern** in *Wand von vorne*: Am gewählten Möbel ziehen die Anfasser **links und rechts** die Breite, **oben** die Höhe und bei Hängendem **unten** die Unterkante – die andere Seite bleibt stehen, die Kanten rasten an Nachbarn, Wandenden, Türen und Fenstern ein (**Alt** frei), darüber steht live das Maß. Unten tippst du **Breite** und **Höhe** auch ein (auch in *3D im Raum*). Ein gewähltes Teil (oder mehrere) löschst du unten mit **Löschen** oder mit der Taste **Entf**.
 
 ![Ein Möbel-Block: die Küche](images/editor-block.jpg)
 
@@ -363,7 +363,7 @@ Fernseher, Medienwand, Wohnwand mit TV (die Wohnwand ohne TV ist eine Leuchte: V
 - **Vor dem Schalten nachfragen** und **Symbol in 3D** wie bei Geräten.
 - **Bilder nach Zustand** bei Bildschirmen: eine Pro-Erweiterung, siehe [6.3](#63-bildschirme-live).
 
-Steht dort „automatisch“, sucht NeonPlan 3D die passende Entität im Bereich selbst.
+Steht dort „automatisch“, sucht MasterPlan3D die passende Entität im Bereich selbst.
 
 ### 4.13 Kameras
 
@@ -395,7 +395,7 @@ Das Möbel **Stellplatz** in der Gruppe Stellplätze markiert, wo ein Auto steht
 
 Das Möbel Saugroboter – und genauso der **Saugroboter mit Station** aus dem Pack Smart Home – wird mit der `vacuum`-Entität verknüpft. Saugt der Roboter, fährt er in 3D in Bahnen durch den Raum seiner Station und kehrt danach zurück. Die Bahn ist simuliert, weil Home Assistant die echte Position meist nicht kennt. Beim Saugroboter mit Station fährt der Roboter des Modells selbst los: Solange er unterwegs ist, steht die Station leer.
 
-Viele Roboter melden aber den Raum, den sie gerade saugen, zum Beispiel Roborock und Dreame mit einem Sensor „Aktueller Raum“. NeonPlan 3D findet diesen Sensor am Gerät des Roboters von selbst; im Feld **Aktueller Raum (Sensor)** kannst du auch einen anderen wählen. Der gemeldete Name wird mit dem Raumnamen und dem Home-Assistant-Bereich verglichen, Groß- und Kleinschreibung und die Schreibweise von Umlauten spielen keine Rolle („Kueche“ passt zu „Küche“). Wechselt der Roboter den Raum, erscheint er in 3D dort und fährt seine Bahnen. Passt kein Raum, bleibt er im Raum seiner Station.
+Viele Roboter melden aber den Raum, den sie gerade saugen, zum Beispiel Roborock und Dreame mit einem Sensor „Aktueller Raum“. MasterPlan3D findet diesen Sensor am Gerät des Roboters von selbst; im Feld **Aktueller Raum (Sensor)** kannst du auch einen anderen wählen. Der gemeldete Name wird mit dem Raumnamen und dem Home-Assistant-Bereich verglichen, Groß- und Kleinschreibung und die Schreibweise von Umlauten spielen keine Rolle („Kueche“ passt zu „Küche“). Wechselt der Roboter den Raum, erscheint er in 3D dort und fährt seine Bahnen. Passt kein Raum, bleibt er im Raum seiner Station.
 
 Seine Bahnen machen einen Bogen um Möbel, die auf dem Boden stehen: Schränke, Sofas, Betten, Küchenzeilen und Geräte. Unter Tischen, Schreibtischen, Stühlen, Hockern und Bänken fährt er durch, ebenso über Teppiche und unter hängenden Möbeln wie Oberschränken.
 
@@ -431,7 +431,7 @@ Mit **Draußen → Außen** ziehst du Rasen, Terrasse, Weg, Einfahrt, Beet, Heck
 
 Ein einfaches Haus bekommt unter **Bauen → Dach** bei **Dachform** ein Flach- oder Satteldach über das ganze oberste Geschoss, mit First (entlang der langen oder der kurzen Seite, z. B. Reihenhaus), Neigung und Überstand. Für alles andere – ein Haus in L- oder T-Form, ein Wohnhaus mit Scheune, ein Anbau mit Pultdach, ein Dach, das auf einer Seite tief herunterzieht – baust du das Dach aus **Dachflächen**.
 
-- Wähle unter **Dach** die Option **Dachflächen (frei)** oder das Werkzeug **Dach**. Beim ersten Mal schlägt NeonPlan 3D die Dachflächen aus deinen Räumen vor: je Etage die Teile, über denen keine höhere Etage liegt, jeweils mit Satteldach. Danach passt du sie an.
+- Wähle unter **Dach** die Option **Dachflächen (frei)** oder das Werkzeug **Dach**. Beim ersten Mal schlägt MasterPlan3D die Dachflächen aus deinen Räumen vor: je Etage die Teile, über denen keine höhere Etage liegt, jeweils mit Satteldach. Danach passt du sie an.
 - Im Werkzeug **Dach** ziehst du eine neue Dachfläche im Plan auf. Antippen wählt eine aus, ziehen verschiebt sie, die Ecken ändern die Größe. Oben wählst du die Etage, deren Räume im Plan liegen. Daneben öffnet sich die 3D-Ansicht mit dem ganzen Haus, so siehst du jede Änderung sofort.
 - Mit dem Schloss **🔓 Fixieren** (oder der Taste **L**) sitzt eine fertige Dachfläche fest und verrutscht nicht mehr beim Antippen; **Grundriss sperren** sperrt alle Dachflächen mit.
 - Jede Dachfläche hat eine **Form** – Sattel, Walm, Krüppelwalm (oben abgewalmter Giebel), Zelt (vier Flächen zur Spitze), Mansard (steil unten, flach oben), Pult, Flach und Attika (Flachdach mit Brüstung) – und eine **Firstrichtung** (↔ oder ↕).
@@ -490,7 +490,7 @@ Unter dem Feld steht die Leistung, gerechnet mit 400 W je Modul. Die Grundriss-S
 
 **Stromzähler und Netzanschluss:** Der **Stromzähler** ist das vierte Energiegerät; er bekommt den Netzsensor (W, + = Bezug) und zeigt „Netzbezug 420 W“ oder „Einspeisung 900 W“. Der **Netzanschluss** markiert, wo die Leitung zum Stromanbieter das Grundstück verlässt, etwa am Ende der Einfahrt; er wird dort angelegt, wo die Leitung von selbst enden würde, und lässt sich im Grundriss verschieben. Jedes Gerät hat im Formular ein Feld **Name** („Wechselrichter Nord“), das in Liste, Formular und an den Pins in 3D erscheint, und Wechselrichter und Speicher ein **Modell**: Wandgerät, schmal und hoch oder Hybrid; Turm, Wandspeicher oder kompakter Balkonspeicher. Mehrere Wechselrichter und Speicher gehen, zum Beispiel eine große Anlage und ein Balkonkraftwerk: Jeder bekommt seinen eigenen Sensor.
 
-**Energiebilanz:** Netz, Solar und Akku holt NeonPlan von den Geräten im Plan (Zähler, Wechselrichter, Speicher; mehrere werden zusammengezählt, Ladestände gemittelt). Im Abschnitt **Energiebilanz** wählst du andere Sensoren, drehst Vorzeichen um und gibst den Hausverbrauch an. **Aus dem Energie-Dashboard übernehmen** holt die Sensoren, die du im Energie-Dashboard von Home Assistant eingetragen hast: zu jeder Energie-Statistik den Leistungssensor desselben Geräts, dazu Gas- und Wasserzähler. Prüfe danach die Vorzeichen. **Gaszähler** und **Wasserzähler** sind Zähler (Zählerstand, etwa in m³); mit Energie Pro zeigt die Haus-Karte, wie viel davon heute verbraucht wurde.
+**Energiebilanz:** Netz, Solar und Akku holt MasterPlan3D von den Geräten im Plan (Zähler, Wechselrichter, Speicher; mehrere werden zusammengezählt, Ladestände gemittelt). Im Abschnitt **Energiebilanz** wählst du andere Sensoren, drehst Vorzeichen um und gibst den Hausverbrauch an. **Aus dem Energie-Dashboard übernehmen** holt die Sensoren, die du im Energie-Dashboard von Home Assistant eingetragen hast: zu jeder Energie-Statistik den Leistungssensor desselben Geräts, dazu Gas- und Wasserzähler. Prüfe danach die Vorzeichen. **Gaszähler** und **Wasserzähler** sind Zähler (Zählerstand, etwa in m³); mit Energie Pro zeigt die Haus-Karte, wie viel davon heute verbraucht wurde.
 
 Ganz unten kündigt eine Karte die kommende Pro-Erweiterung **Energie Pro** an. Alles, was du hier einrichtest, bleibt kostenlos und wird von ihr direkt genutzt.
 
@@ -508,7 +508,7 @@ Ein **Keller** ist eine Etage mit negativer **Höhe über Boden**, etwa −2,6 m
 
 Unter **Möbel → Terrasse & Balkon** gibt es die **Markise**. Sie fährt in 3D mit ihrem Cover aus und ein – wie ein Rollladen.
 
-- **Art:** **Gelenkarm** (die Klassiker über der Terrasse), **Fallarm** (Balkon, Fenster – die Arme schwenken nach vorn und unten), **Senkrecht / ZIP** (das Tuch fährt in Seitenschienen senkrecht herunter), **Pergola / Wintergarten** (fester Rahmen mit Pfosten, das Tuch fährt oben aus) und **Seitenmarkise** (Sichtschutz, aus einem Pfosten zur Seite gezogen). Mit der Art setzt NeonPlan passende Maße, die du danach anpasst.
+- **Art:** **Gelenkarm** (die Klassiker über der Terrasse), **Fallarm** (Balkon, Fenster – die Arme schwenken nach vorn und unten), **Senkrecht / ZIP** (das Tuch fährt in Seitenschienen senkrecht herunter), **Pergola / Wintergarten** (fester Rahmen mit Pfosten, das Tuch fährt oben aus) und **Seitenmarkise** (Sichtschutz, aus einem Pfosten zur Seite gezogen). Mit der Art setzt MasterPlan3D passende Maße, die du danach anpasst.
 - **Größe:** Breite ist die Markise entlang der Wand, Tiefe der Ausfall ganz ausgefahren (beim Fallarm die Armlänge, bei der Pergola bis zu den Pfosten). Die Rückseite des Rahmens kommt an die Hauswand; **Höhe über Boden** ist die Unterkante der Kassette (bei der Seitenmarkise die Höhe des Tuchs). **Neigung** ist das Gefälle des Tuchs.
 - **Markise (Cover):** das Cover aus Home Assistant. Meldet es seine Position auch während der Fahrt, fährt die Markise in 3D langsam mit; meldet es nur „öffnet“/„schließt“, fährt sie in der **Laufzeit ganz aus**. Ein eigener **Positionssensor** geht auch. **Richtung umkehren** hilft bei Covers, die 100 % melden, wenn die Markise eingefahren ist.
 - **Volant:** die herunterhängende Stoffkante vorne, abschaltbar.
@@ -517,7 +517,7 @@ Unter **Möbel → Terrasse & Balkon** gibt es die **Markise**. Sie fährt in 3D
 
 Unter **Möbel → Haushalt** stehen **Mülltonne** und **Briefkasten**.
 
-- **Mülltonne – Bauform:** Rolltonne 120 l oder 240 l, Container 1100 l, Mehrkammer-Tonne, Sack, Eimer / Caddy oder Unterflur-Container (von dem nur die Einwurfsäule aus dem Boden ragt). Mit der Bauform setzt NeonPlan die üblichen Maße.
+- **Mülltonne – Bauform:** Rolltonne 120 l oder 240 l, Container 1100 l, Mehrkammer-Tonne, Sack, Eimer / Caddy oder Unterflur-Container (von dem nur die Einwurfsäule aus dem Boden ragt). Mit der Bauform setzt MasterPlan3D die üblichen Maße.
 - **Abfallart:** Restmüll, Bio, Papier, Verpackung, Glas, Garten, Recycling oder Sonstiges. Sie gibt der Tonne die Farben, die in deinem Land üblich sind (nach dem Land in Home Assistant: in Deutschland etwa Papier blau, Bio braun, Gelbe Tonne gelb; in Australien zeigt der Deckel die Sorte). **Farbe** und **Deckel** kannst du danach frei wählen.
 - **Briefkasten – Bauform:** Wandbriefkasten (hängt auf 1 m), Briefkasten auf Pfosten mit Fähnchen, Standbriefkasten mit Zeitungsfach, Paketbox oder Briefkastenanlage.
 
@@ -666,7 +666,7 @@ Ist die Nordrichtung eingestellt, fällt das Sonnenlicht aus `sun.sun` durch die
 
 ![Warnung](images/view-alert-banner.jpg)
 
-NeonPlan 3D warnt kostenlos und ohne Einrichtung:
+MasterPlan3D warnt kostenlos und ohne Einrichtung:
 
 | Warnung | Auslöser |
 |---|---|
@@ -693,7 +693,7 @@ Ein Tipp auf die Kamera oder auf ihren Sichtkegel öffnet das Standbild, das sic
 
 > **Neu in 1.20 und noch in Entwicklung.** Die Sprachsteuerung ist für alle freigeschaltet, kostenlos, und funktioniert schon gut. Sie wird in den nächsten Versionen weiter ausgebaut. Wenn ein Satz nicht so verstanden wird, wie du ihn meinst, schreib uns den Satz in den Discord oder in ein GitHub-Issue.
 
-Sprich mit deinem Haus. Unten links in der 3D-Ansicht erscheint ein **Mikrofon-Knopf** 🎙️. Antippen, dann wird er rot und darüber steht „Ich höre zu …“. Sprich deinen Satz und mach eine kurze Pause, dann reagiert NeonPlan.
+Sprich mit deinem Haus. Unten links in der 3D-Ansicht erscheint ein **Mikrofon-Knopf** 🎙️. Antippen, dann wird er rot und darüber steht „Ich höre zu …“. Sprich deinen Satz und mach eine kurze Pause, dann reagiert MasterPlan3D.
 
 **Was du sagen kannst:**
 
@@ -709,9 +709,9 @@ Sprich mit deinem Haus. Unten links in der 3D-Ansicht erscheint ein **Mikrofon-K
 | „Was ist offen?“, „Wo ist es kalt?“, „Läuft die Waschmaschine?“, „Was zieht Strom?“, „Wer ist zu Hause?“, „Wie ist das Wetter?“, „Ist alles in Ordnung?“, „Was steht heute an?“, „Guten Morgen“, „Gute Nacht“ … | Mit dem Modul **Das Haus antwortet** (kostenlos im Shop, siehe unten): Die Antwort erscheint als Sprechblase, wird über die Sprachausgabe von Assist vorgelesen, und das Haus zeigt sie – offene Fenster blinken, der kälteste Raum öffnet sich, die Ansicht fliegt zur Waschmaschine. Die ganze Liste steht unten. |
 | „Licht im Flur an“, „Mach die Rollläden runter“ | Befehle gehen an **Assist** von Home Assistant. Die Antwort erscheint als Sprechblase. |
 
-Zusammengesetzte Wörter versteht es auch: „Auffahrtkamera“ trifft die Kamera „Auffahrt“, „Flurlicht“ das Licht im Flur. Unter **⚙ Einstellungen → Sprachsteuerung** steht die Liste **Das versteht NeonPlan**, mit den Sätzen der eingespielten Module.
+Zusammengesetzte Wörter versteht es auch: „Auffahrtkamera“ trifft die Kamera „Auffahrt“, „Flurlicht“ das Licht im Flur. Unter **⚙ Einstellungen → Sprachsteuerung** steht die Liste **Das versteht MasterPlan3D**, mit den Sätzen der eingespielten Module.
 
-NeonPlan erkennt die Namen aus **deinem Plan**: Räume, Außenflächen, Etagen, Geräte und Möbel. Ein Raum hört auch auf den Namen seines Home-Assistant-Bereichs. Bei Geräten braucht es ein „zeig“ oder „wo ist“. So bleibt „Licht im Wohnzimmer an“ ein Befehl für Assist und schaltet das Licht, statt nur hinzufliegen.
+MasterPlan3D erkennt die Namen aus **deinem Plan**: Räume, Außenflächen, Etagen, Geräte und Möbel. Ein Raum hört auch auf den Namen seines Home-Assistant-Bereichs. Bei Geräten braucht es ein „zeig“ oder „wo ist“. So bleibt „Licht im Wohnzimmer an“ ein Befehl für Assist und schaltet das Licht, statt nur hinzufliegen.
 
 **Weitere Namen.** Heißt dein Fernseher in Home Assistant „Smart TV Pro“, du sagst aber „Wohnzimmerfernseher“ oder „Glotze“: Jeder Raum, jedes Möbel und jedes platzierte Gerät hat im Editor unter dem Namen das Feld **Weitere Namen für die Sprache** (mit Komma getrennt, bis zu zwölf). Die Namen gelten für die Sprachsteuerung und die Suche.
 
@@ -738,22 +738,22 @@ NeonPlan erkennt die Namen aus **deinem Plan**: Räume, Außenflächen, Etagen, 
 
 Befehle („Mach das Licht an“, „Stell die Heizung auf 22 Grad“) gehen weiter an Assist. Die Antworten kommen in der Sprache deines Nutzers (Deutsch oder Englisch).
 
-**Module.** Manche Fähigkeiten kommen als **Modul** aus dem Shop: ein signiertes Pack, das Code mitbringt, den NeonPlan nachlädt – geprüft und an deine Installation gebunden wie ein Möbel-Pack. Das erste Modul ist **Das Haus antwortet** (kostenlos mit Kundenkonto). Du spielst die .fp3dpack-Datei unter **⚙ Einstellungen → 🧩 Module → Modul einspielen …** ein (oder auf der Seite Erweiterungen im Abschnitt **Module**); danach steht es dort als „Modul von Mastershort“, und seine Sätze erscheinen unter 🎙 Sprachsteuerung. Für das Vorlesen braucht die Assist-Pipeline eine Sprachausgabe (Einstellungen → Sprachassistenten → Text-zu-Sprache); ohne sie bleibt es bei der Sprechblase.
+**Module.** Manche Fähigkeiten kommen als **Modul** aus dem Shop: ein signiertes Pack, das Code mitbringt, den MasterPlan3D nachlädt – geprüft und an deine Installation gebunden wie ein Möbel-Pack. Das erste Modul ist **Das Haus antwortet** (kostenlos mit Kundenkonto). Du spielst die .fp3dpack-Datei unter **⚙ Einstellungen → 🧩 Module → Modul einspielen …** ein (oder auf der Seite Erweiterungen im Abschnitt **Module**); danach steht es dort als „Modul von Mastershort“, und seine Sätze erscheinen unter 🎙 Sprachsteuerung. Für das Vorlesen braucht die Assist-Pipeline eine Sprachausgabe (Einstellungen → Sprachassistenten → Text-zu-Sprache); ohne sie bleibt es bei der Sprechblase.
 
 **Einschalten.** Standardmäßig ist die Sprachsteuerung aus. Du schaltest sie dort ein, wo du sprechen willst:
 
-- **NeonPlan-Seite (Panel):** Editor → **⚙ Einstellungen → 🎙 Sprachsteuerung** → **Auf diesem Gerät einschalten**. Das gilt nur für diesen Browser, also zum Beispiel das Wandtablet, aber nicht das Handy.
-- **Dashboard-Karte:** Dashboard bearbeiten → NeonPlan-Karte → **Funktionen** → **Sprachsteuerung (Mikrofon-Knopf)**, oder im YAML `voice: true`. Die Karten-Einstellung gilt auf allen Geräten, die dieses Dashboard zeigen. Du kannst sie bequem am PC setzen, auch wenn sie für das Tablet gedacht ist.
+- **MasterPlan3D-Seite (Panel):** Editor → **⚙ Einstellungen → 🎙 Sprachsteuerung** → **Auf diesem Gerät einschalten**. Das gilt nur für diesen Browser, also zum Beispiel das Wandtablet, aber nicht das Handy.
+- **Dashboard-Karte:** Dashboard bearbeiten → MasterPlan3D-Karte → **Funktionen** → **Sprachsteuerung (Mikrofon-Knopf)**, oder im YAML `voice: true`. Die Karten-Einstellung gilt auf allen Geräten, die dieses Dashboard zeigen. Du kannst sie bequem am PC setzen, auch wenn sie für das Tablet gedacht ist.
 
 **Was du dafür brauchst:**
 
-1. **Eine Assist-Pipeline mit Spracherkennung** in Home Assistant: Einstellungen → Sprachassistenten. Gut geeignet sind Home Assistant Cloud, Whisper oder **Speech-to-Phrase**, das lokal und schnell ist, auch auf einem Raspberry Pi. NeonPlan nimmt die **bevorzugte** Pipeline, also die mit dem Stern. Unter **Assist-Pipeline auf diesem Gerät** kannst du pro Gerät eine andere wählen.
+1. **Eine Assist-Pipeline mit Spracherkennung** in Home Assistant: Einstellungen → Sprachassistenten. Gut geeignet sind Home Assistant Cloud, Whisper oder **Speech-to-Phrase**, das lokal und schnell ist, auch auf einem Raspberry Pi. MasterPlan3D nimmt die **bevorzugte** Pipeline, also die mit dem Stern. Unter **Assist-Pipeline auf diesem Gerät** kannst du pro Gerät eine andere wählen.
 2. **https:** Browser geben das Mikrofon nur auf sicheren Seiten frei. Über `http://192.168…` geht es nicht, über Nabu Casa, ein eigenes Zertifikat oder einen Reverse Proxy schon.
 3. **Die Mikrofon-Freigabe:**
    - im Browser beim ersten Antippen „Zulassen“;
    - in **Fully Kiosk**: Einstellungen → Web Content Settings → Mikrofonzugriff einschalten (Plus-Lizenz), dazu in Android die Mikrofon-Berechtigung für Fully.
 
-**Über Assist fragen – ohne Mikrofon am Tablet.** Alles, was NeonPlan versteht, kannst du auch Assist sagen: einem Voice-Satelliten (Home Assistant Voice, ESPHome), dem Assist-Dialog oder der App. Dafür braucht Assist eine Satzdatei: NeonPlan legt `custom_sentences/de/neonplan3d.yaml` und `…/en/…` in deinem Konfigurationsordner **erst an, wenn du unter Sätze für Assist eine Auswahl triffst** (seit 1.24 – vorher geschah das beim Start). Sagst du Assist „Zeig das Wohnzimmer“ oder „Was ist offen?“, geht der Satz an **jede offene NeonPlan-Ansicht** – das Wandtablet zeigt den Raum oder die offenen Fenster, und Assist spricht die Antwort dort, wo du gefragt hast. Das Tablet selbst bleibt dabei still. Welche Sätze dort stehen, wählst du unter **⚙ Einstellungen → 🎙 Sprachsteuerung → Sätze für Assist**: **Nur eindeutige** („zeig …“, „geh …“, „frag das Haus …“, „NeonPlan, …“, „Guten Morgen“, „Gute Nacht“ – nichts davon sagt man Home Assistant selbst), **Alle Fragen** (dazu „welche Fenster sind offen“, „wo ist …“, „läuft die Waschmaschine“ – Vorsicht, einige davon beantwortet Home Assistant sonst selbst) oder **Keine** (Standard: keine Datei; eine vorhandene Datei von NeonPlan wird entfernt). Hast du die Datei selbst geändert, überschreibt oder löscht NeonPlan sie nie – der Dialog sagt dir dann, welche Sprache er in Ruhe gelassen hat. Entfernst du die Integration, verschwinden NeonPlans Satzdateien mit ihr. Mit „Frag das Haus, welche Fenster offen sind“ erreichst du NeonPlan in jedem Modus. Eigene Sätze legst du in einer weiteren Datei unter `custom_sentences` für den Intent `NeonPlanAsk` an.
+**Über Assist fragen – ohne Mikrofon am Tablet.** Alles, was MasterPlan3D versteht, kannst du auch Assist sagen: einem Voice-Satelliten (Home Assistant Voice, ESPHome), dem Assist-Dialog oder der App. Dafür braucht Assist eine Satzdatei: MasterPlan3D legt `custom_sentences/de/neonplan3d.yaml` und `…/en/…` in deinem Konfigurationsordner **erst an, wenn du unter Sätze für Assist eine Auswahl triffst** (seit 1.24 – vorher geschah das beim Start). Sagst du Assist „Zeig das Wohnzimmer“ oder „Was ist offen?“, geht der Satz an **jede offene MasterPlan3D-Ansicht** – das Wandtablet zeigt den Raum oder die offenen Fenster, und Assist spricht die Antwort dort, wo du gefragt hast. Das Tablet selbst bleibt dabei still. Welche Sätze dort stehen, wählst du unter **⚙ Einstellungen → 🎙 Sprachsteuerung → Sätze für Assist**: **Nur eindeutige** („zeig …“, „geh …“, „frag das Haus …“, „MasterPlan3D, …“, „Guten Morgen“, „Gute Nacht“ – nichts davon sagt man Home Assistant selbst), **Alle Fragen** (dazu „welche Fenster sind offen“, „wo ist …“, „läuft die Waschmaschine“ – Vorsicht, einige davon beantwortet Home Assistant sonst selbst) oder **Keine** (Standard: keine Datei; eine vorhandene Datei von MasterPlan3D wird entfernt). Hast du die Datei selbst geändert, überschreibt oder löscht MasterPlan3D sie nie – der Dialog sagt dir dann, welche Sprache er in Ruhe gelassen hat. Entfernst du die Integration, verschwinden MasterPlan3D’s Satzdateien mit ihr. Mit „Frag das Haus, welche Fenster offen sind“ erreichst du MasterPlan3D in jedem Modus. Eigene Sätze legst du in einer weiteren Datei unter `custom_sentences` für den Intent `NeonPlanAsk` an.
 
 **Der Dienst `neonplan3d.ask`.** Für Automationen und Skripte: Felder **Satz** (`text`), **Bildschirm** (`screen`, optional) und **Sprechen** (`speak`, Standard aus). Der Dienst liefert die Antwort zurück (`answer`, `answered`, `screen_open`), zum Beispiel für eine Benachrichtigung. Mit `speak: true` spricht die Ansicht die Antwort selbst über die Sprachausgabe ihrer Assist-Pipeline. Beispiel – jeden Abend um 22 Uhr der Nacht-Check am Wandtablet:
 
@@ -765,7 +765,7 @@ data:
   speak: true
 ```
 
-**Bildschirmnamen.** Hast du mehrere Tablets, gib jeder Ansicht einen Namen: im Editor unter **⚙ Einstellungen → 🎙 Sprachsteuerung → Bildschirmname** (gilt für dieses Gerät) oder an der Karte mit der Option `screen: Küche`. Nennt der Dienst einen Bildschirm, reagiert nur die Ansicht mit diesem Namen; ohne Angabe reagieren alle. Ist keine Ansicht offen, antwortet Assist „Kein NeonPlan-Bildschirm ist gerade offen“.
+**Bildschirmnamen.** Hast du mehrere Tablets, gib jeder Ansicht einen Namen: im Editor unter **⚙ Einstellungen → 🎙 Sprachsteuerung → Bildschirmname** (gilt für dieses Gerät) oder an der Karte mit der Option `screen: Küche`. Nennt der Dienst einen Bildschirm, reagiert nur die Ansicht mit diesem Namen; ohne Angabe reagieren alle. Ist keine Ansicht offen, antwortet Assist „Kein MasterPlan3D-Bildschirm ist gerade offen“.
 
 **Testen:** Im Abschnitt **🎙️ Sprachsteuerung** startet **🎙️ Mikrofon testen** eine Probe. Sie prüft der Reihe nach https, Mikrofon, Pegel und Assist. Sie zeigt auch, welchen Raum ein gesprochener Satz öffnen würde, und schaltet dabei nichts. Steht irgendwo ein ✖, steht daneben, was zu tun ist.
 
@@ -777,9 +777,9 @@ data:
 
 ### 5.11 Ortung (neu)
 
-> **Neu in 2.0, kostenlos.** Wer und was ist wo im Haus – ohne Bermuda, ohne ESPresense, ohne neue Hardware. NeonPlan nutzt die Bluetooth-Empfänger, die Home Assistant schon kennt.
+> **Neu in 2.0, kostenlos.** Wer und was ist wo im Haus – ohne Bermuda, ohne ESPresense, ohne neue Hardware. MasterPlan3D nutzt die Bluetooth-Empfänger, die Home Assistant schon kennt.
 
-NeonPlan zeigt, in welchem Raum du gerade bist – und wo dein iPhone oder dein Schlüsselbund liegt. Personen stehen als leuchtende Figur im Raum und gleiten beim Raumwechsel hinüber. Für jedes Gerät gibt es einen Sensor in Home Assistant („Torstens Uhr Raum: Küche“), und per Sprache fragst du „Wo ist mein iPhone?“.
+MasterPlan3D zeigt, in welchem Raum du gerade bist – und wo dein iPhone oder dein Schlüsselbund liegt. Personen stehen als leuchtende Figur im Raum und gleiten beim Raumwechsel hinüber. Für jedes Gerät gibt es einen Sensor in Home Assistant („Torstens Uhr Raum: Küche“), und per Sprache fragst du „Wo ist mein iPhone?“.
 
 **Was du brauchst:**
 
@@ -788,19 +788,19 @@ NeonPlan zeigt, in welchem Raum du gerade bist – und wo dein iPhone oder dein 
   - **ESPHome-Bluetooth-Proxys** (ein ESP32 für ein paar Euro). Sie melden häufiger als Shellys, Raumwechsel kommen damit schneller an.
   - den Bluetooth-Stick am Home-Assistant-Rechner.
 
-  Ideal ist ungefähr ein Empfänger pro Raum. Räume ohne eigenen Empfänger (Flur, Gäste-WC) erkennt NeonPlan trotzdem: Das Einlernen merkt sich, wie sie für die Empfänger in den Nachbarräumen aussehen.
+  Ideal ist ungefähr ein Empfänger pro Raum. Räume ohne eigenen Empfänger (Flur, Gäste-WC) erkennt MasterPlan3D trotzdem: Das Einlernen merkt sich, wie sie für die Empfänger in den Nachbarräumen aussehen.
 - **Etwas, das du dabei hast:**
   - **Apple Watch und iPhone** mit ihrem Schlüssel (IRK) – den liest der Schlüssel-Helfer in drei Minuten aus (siehe unten). Die Uhr am Handgelenk ist ideal: Ein iPhone in der Tasche wird bei dunklem Bildschirm nach etwa einer Minute still.
-  - **Android-Handys:** In der Home-Assistant-App unter **Einstellungen → Companion-App → Sensoren verwalten → BLE-Sender** einschalten. Kein Schlüssel nötig. Stell dort die **Sendeleistung auf „Hoch“** und den **Sendemodus auf „Niedrige Latenz“**: Ab Werk sendet die App so schwach, dass die Empfänger sie kaum hören. NeonPlan findet das Handy dann von selbst und zeigt einen Hinweis, wenn eine Einstellung zu schwach ist.
+  - **Android-Handys:** In der Home-Assistant-App unter **Einstellungen → Companion-App → Sensoren verwalten → BLE-Sender** einschalten. Kein Schlüssel nötig. Stell dort die **Sendeleistung auf „Hoch“** und den **Sendemodus auf „Niedrige Latenz“**: Ab Werk sendet die App so schwach, dass die Empfänger sie kaum hören. MasterPlan3D findet das Handy dann von selbst und zeigt einen Hinweis, wenn eine Einstellung zu schwach ist.
   - **Android über den Schlüssel-Helfer koppeln bringt nichts:** Android sendet diesen Schlüssel im Hintergrund nicht, das Gerät bleibt „nicht gehört“.
   - **Schlüsselanhänger** mit fester Adresse oder als iBeacon (z. B. Nut, Tile, iBeacon-Tags). **AirTags gehen nicht** – sie wechseln ihre Adresse, und Apple gibt keinen Schlüssel heraus.
 
 **Einrichten** (Editor → **⚙ Einstellungen → 📡 Ortung**, nur Admins):
 
-1. **Empfänger:** NeonPlan listet alle Bluetooth-Empfänger von Home Assistant und schlägt ihren Raum vor – aus dem Home-Assistant-Bereich des Geräts, aus einem Pin oder Möbel im Plan (die Waschmaschine mit dem Strommesser der Shelly-Steckdose) oder aus dem Namen („PC Büro Steckdose“). Außenflächen mit einem Home-Assistant-Bereich (Terrasse, Garten) stehen mit in der Liste und zählen als Räume, verbunden mit dem Raum, dessen Tür auf sie führt. Nach dem Einlernen weiß NeonPlan aus den Signalen selbst, wo jeder Empfänger steht, und bietet bei Abweichungen **„Signal sagt: … – übernehmen“** an.
+1. **Empfänger:** MasterPlan3D listet alle Bluetooth-Empfänger von Home Assistant und schlägt ihren Raum vor – aus dem Home-Assistant-Bereich des Geräts, aus einem Pin oder Möbel im Plan (die Waschmaschine mit dem Strommesser der Shelly-Steckdose) oder aus dem Namen („PC Büro Steckdose“). Außenflächen mit einem Home-Assistant-Bereich (Terrasse, Garten) stehen mit in der Liste und zählen als Räume, verbunden mit dem Raum, dessen Tür auf sie führt. Nach dem Einlernen weiß MasterPlan3D aus den Signalen selbst, wo jeder Empfänger steht, und bietet bei Abweichungen **„Signal sagt: … – übernehmen“** an.
 2. **Geräte:** Uhr und iPhone über den **🔑 Schlüssel-Helfer**, Android-Handys stehen unter **📱 Android mit der Home-Assistant-App** von selbst in der Liste, Anhänger über **📱 Android-Handy oder Schlüsselanhänger hinzufügen** (das Gerät direkt an einen Empfänger halten). Hört gerade kein Empfänger ein Gerät, steht **⚠ nicht gehört** daneben; einen Schlüssel, den du schon hast, trägst du unter **🔑 Eigenen Schlüssel einfügen** ein. Gib jedem Gerät einen Namen, ordne es einer Person zu und – für „Lass mein iPhone klingeln“ – die Home-Assistant-App des Handys.
 3. **Einlernen:** Hake an, welche Geräte du gerade **dabei hast**. Geh in jeden Raum, tippe ihn an und lauf **90 Sekunden** langsam herum, auch in die Ecken und an den Wänden entlang. Ein Handy dabei in die **Tasche** (Bildschirm aus), so wie im Alltag – zum Antippen nimmst du am besten ein anderes Tablet oder Handy. **Einmal einlernen reicht:** Geräte ohne eigene Lerndaten nutzen die der anderen mit. Der Countdown läuft mit, bei 0 ist der Raum fertig (✓). Danach zeigt **Trefferquote prüfen**, wie sicher jeder Raum erkannt wird. Einen schwachen Raum lernst du einfach noch einmal ein.
-4. **Live:** Ortung einschalten und durchs Haus gehen – die Liste zeigt sofort, wo NeonPlan dich sieht.
+4. **Live:** Ortung einschalten und durchs Haus gehen – die Liste zeigt sofort, wo MasterPlan3D dich sieht.
 
 **In der 3D-Ansicht:**
 
@@ -812,7 +812,7 @@ NeonPlan zeigt, in welchem Raum du gerade bist – und wo dein iPhone oder dein 
 
 **Schneller mit Präsenzmeldern:** Bewegungs- und Präsenzmelder (auch Radar wie Aqara FP2), die in Home Assistant einem Bereich zugeordnet sind, beschleunigen die Ortung von selbst: Bluetooth sagt, **wer** es ist, der Melder sagt, **wann** jemand den Raum betritt. Ohne Melder dauert ein Raumwechsel zwei bis fünf Sekunden – mit Melder oft nur einen Augenblick.
 
-**Sprache** (mit den Assist-Sätzen unter **⚙ Einstellungen → Sprachsteuerung**): „Wo ist mein iPhone?“, „Wo ist Torsten?“, „Wer ist zu Hause?“, „Lass mein iPhone klingeln“. Die Antwort kommt direkt aus Home Assistant – auch ohne offenen NeonPlan-Bildschirm. Offene NeonPlan-Ansichten fliegen dabei in den Raum der Antwort, bei „Wer ist zu Hause?“ nacheinander in alle Räume, in denen jemand ist (Antippen stoppt). Ausschalten lässt sich das im Ortungs-Assistenten unter **Live**; solange Personen nur Admins gezeigt werden, fliegen nur die Ansichten von Admins zu ihnen. „Wo ist Frauke?“ mit den Namen aus der Ortung versteht Assist auch dann, wenn ein KI-Agent (z. B. Gemini) die übrigen Fragen beantwortet. Klingeln schickt eine laute Mitteilung an die Home-Assistant-App (auf dem iPhone als kritische Mitteilung, die auch im Lautlos-Modus klingelt).
+**Sprache** (mit den Assist-Sätzen unter **⚙ Einstellungen → Sprachsteuerung**): „Wo ist mein iPhone?“, „Wo ist Torsten?“, „Wer ist zu Hause?“, „Lass mein iPhone klingeln“. Die Antwort kommt direkt aus Home Assistant – auch ohne offenen MasterPlan3D-Bildschirm. Offene MasterPlan3D-Ansichten fliegen dabei in den Raum der Antwort, bei „Wer ist zu Hause?“ nacheinander in alle Räume, in denen jemand ist (Antippen stoppt). Ausschalten lässt sich das im Ortungs-Assistenten unter **Live**; solange Personen nur Admins gezeigt werden, fliegen nur die Ansichten von Admins zu ihnen. „Wo ist Frauke?“ mit den Namen aus der Ortung versteht Assist auch dann, wenn ein KI-Agent (z. B. Gemini) die übrigen Fragen beantwortet. Klingeln schickt eine laute Mitteilung an die Home-Assistant-App (auf dem iPhone als kritische Mitteilung, die auch im Lautlos-Modus klingelt).
 
 **Für Automationen:** Jedes Gerät hat einen Sensor, z. B. `sensor.torstens_uhr_raum`. Sein Zustand ist der Raumname; die Attribute sind `room_id`, `area_id` (der Home-Assistant-Bereich des Raums), `floor`, `probability` (Sicherheit 0–1), `since` und `last_seen`. Beispiel – Licht folgt dir:
 
@@ -827,7 +827,7 @@ actions:
       area_id: kueche
 ```
 
-**Wie schnell ein Raumwechsel ankommt:** meist nach **zwei bis fünf Sekunden**. Das liegt an den Empfängern, nicht an NeonPlan: Ein **Shelly** meldet ein Gerät nur etwa **alle drei bis vier Sekunden** weiter, ein **ESP32-Bluetooth-Proxy etwa jede Sekunde**. Uhren senden ein- bis zweimal pro Sekunde, ein iPhone in der Tasche deutlich seltener. NeonPlan wartet zudem zwei, drei Messungen ab, damit die Anzeige nicht zwischen zwei Räumen hin- und herspringt. Schneller wird es mit **ESP32-Proxys** statt Shellys – und mit **Präsenzmeldern**, dann fast sofort.
+**Wie schnell ein Raumwechsel ankommt:** meist nach **zwei bis fünf Sekunden**. Das liegt an den Empfängern, nicht an MasterPlan3D: Ein **Shelly** meldet ein Gerät nur etwa **alle drei bis vier Sekunden** weiter, ein **ESP32-Bluetooth-Proxy etwa jede Sekunde**. Uhren senden ein- bis zweimal pro Sekunde, ein iPhone in der Tasche deutlich seltener. MasterPlan3D wartet zudem zwei, drei Messungen ab, damit die Anzeige nicht zwischen zwei Räumen hin- und herspringt. Schneller wird es mit **ESP32-Proxys** statt Shellys – und mit **Präsenzmeldern**, dann fast sofort.
 
 **Wo die Empfänger am besten stehen:**
 
@@ -839,12 +839,12 @@ actions:
 
 **Gut zu wissen:**
 
-- **Raumgenau, nicht zentimetergenau.** Bluetooth schwankt (schon der eigene Körper dämpft das Signal). NeonPlan sagt zuverlässig den Raum, nicht die Stelle im Raum.
+- **Raumgenau, nicht zentimetergenau.** Bluetooth schwankt (schon der eigene Körper dämpft das Signal). MasterPlan3D sagt zuverlässig den Raum, nicht die Stelle im Raum.
 - **Alles bleibt im Haus.** Die Signale werden nur in Home Assistant ausgewertet, nichts geht ins Internet.
 - **Neu einlernen**, wenn du Empfänger umstellst oder neue dazukommen.
-- **Bermuda oder ESPresense im Einsatz?** NeonPlan läuft parallel und stört sie nicht. Richte deine Geräte einfach hier ein; wenn alles sicher läuft, stellst du deine Automationen auf die neuen Sensoren um und kannst die alten Werkzeuge entfernen.
+- **Bermuda oder ESPresense im Einsatz?** MasterPlan3D läuft parallel und stört sie nicht. Richte deine Geräte einfach hier ein; wenn alles sicher läuft, stellst du deine Automationen auf die neuen Sensoren um und kannst die alten Werkzeuge entfernen.
 
-**Den Schlüssel (IRK) von iPhone und Apple Watch bekommen:** am einfachsten mit dem **NeonPlan Schlüssel-Helfer** – ohne Mac, auch für die Apple Watch:
+**Den Schlüssel (IRK) von iPhone und Apple Watch bekommen:** am einfachsten mit dem **MasterPlan3D Schlüssel-Helfer** – ohne Mac, auch für die Apple Watch:
 
 1. Einen **ESP32** (ESP32, ESP32-C3 oder ESP32-S3, ca. 5 €) per USB an den Computer stecken und auf [neonplan3d.mastershort.de/keys](https://neonplan3d.mastershort.de/keys/) mit Chrome oder Edge auf **Installieren** klicken. Danach das WLAN eintragen.
 2. Home Assistant findet **NeonPlan Key** als ESPHome-Gerät: **Einstellungen → Geräte & Dienste → Entdeckt → Hinzufügen**.
@@ -873,21 +873,21 @@ Pro-Erweiterungen sind kostenpflichtige Zusatzfunktionen, einzeln im Shop erhäl
 
 **Erkennungs-Pins:** Meldet ein Sensor der Kamera gerade eine Erkennung (Frigate, UniFi Protect, Reolink und ähnliche liefern je Objekt einen Sensor: Person, Fahrzeug, Tier, Bewegung), steht vor der Kamera ein Pin mit Symbol, Art und Uhrzeit – „Person · 18:42“. Antippen öffnet den Sensor. Mehrere Objekte zugleich ergeben mehrere Pins übereinander. Wem das zu unruhig ist: **Erkennungs-Symbole zeigen** im Formular der Kamera abschalten – dann färbt sich bei einer Erkennung nur der Sichtkegel rot.
 
-**Welche Sensoren zählen (seit 2.0.7):** Ab Werk nimmt NeonPlan alle Bewegungs-, Belegungs- und Präsenzsensoren am Gerät der Kamera. Sind die zu empfindlich – oder kommt die Erkennung von einem anderen Gerät, z. B. Frigate für eine Reolink-Kamera –, hake im Formular der Kamera **Erkennungs-Sensoren selbst wählen** an: Dann zählen nur die angehakten Sensoren, und unter **Sensor hinzufügen** wählst du Sensoren anderer Geräte dazu (etwa Frigates `…_person_occupancy`). Das gilt für die Pins, die Bewegungsspur und die Live-Regie.
+**Welche Sensoren zählen (seit 2.0.7):** Ab Werk nimmt MasterPlan3D alle Bewegungs-, Belegungs- und Präsenzsensoren am Gerät der Kamera. Sind die zu empfindlich – oder kommt die Erkennung von einem anderen Gerät, z. B. Frigate für eine Reolink-Kamera –, hake im Formular der Kamera **Erkennungs-Sensoren selbst wählen** an: Dann zählen nur die angehakten Sensoren, und unter **Sensor hinzufügen** wählst du Sensoren anderer Geräte dazu (etwa Frigates `…_person_occupancy`). Das gilt für die Pins, die Bewegungsspur und die Live-Regie.
 
 **Kamera-Wand:** Der Schalter **Kameras** unten (in der Karte die Option `camera_wall: true`) legt alle Livebilder deiner platzierten Kameras als Wand über die Szene, alle paar Sekunden aufgefrischt. Eine Kamera, die gerade Bewegung sieht, bekommt einen roten Rahmen; eine, die aufnimmt, einen roten Punkt. Die Kacheln teilen sich die Wand: Das Raster wählt so viele Spalten, dass alle Kameras möglichst groß und ohne Überlappen hineinpassen (eine Kamera füllt sie, zwei stehen nebeneinander, 22 etwa als 6 × 4); bei sehr vielen Kameras wird die Wand scrollbar. Die Kacheln sind Standbilder, alle 5 Sekunden neu (auf der Tablet-Stufe alle 10, ein kleiner Hinweis im Kopf sagt es) – zehn Livestreams würden ein altes Tablet überfordern. Auch beim Durchschauen in 3D ist das Bild ein Standbild; die Leiste unten sagt es. Antippen zeigt das Bild groß, und zwar als **Livestream** über den Player von Home Assistant, sobald die Kamera streamen kann (sonst bleibt das Standbild); von dort führt **Durch die Kamera schauen** in die 3D-Ansicht, und **Zurück zur Ansicht** bringt dich wieder zur Wand. **‹ Alle Kameras** geht zurück zum Raster, ✕ schließt die Wand.
 
 **Live-Regie:** Ein Bildschirm, meist das Wandtablet, zeigt von selbst, was im Haus passiert. Klingelt es, fliegt die Ansicht zur Haustür und schaut durch die Kamera dort. Sieht eine Kamera jemanden, ist die Waschmaschine fertig oder kommt eine Warnung, fliegt sie ebenfalls dorthin. Danach kehrt sie zurück, wo sie war. Alles ist **aus**, bis du es einschaltest, und zwar an zwei Stellen:
 
 1. **Welche Ereignisse:** Editor → **⚙ Einstellungen → 🎬 Live-Regie**. Jedes Ereignis hat einen eigenen Schalter:
-   - **Es klingelt:** Die Klingel findet NeonPlan selbst, nämlich eine Ereignis-Entität der Klasse „Türklingel“ (Ring, UniFi Protect …) oder einen Sensor wie Reolinks „Besucher“. Du kannst sie auch selbst wählen, ebenso die Kamera an der Tür. Ohne Wahl nimmt NeonPlan die Kamera desselben Geräts oder eine im selben Bereich. Die Kamera muss im Plan platziert sein, sonst fliegt die Ansicht nur zur Klingel.
+   - **Es klingelt:** Die Klingel findet MasterPlan3D selbst, nämlich eine Ereignis-Entität der Klasse „Türklingel“ (Ring, UniFi Protect …) oder einen Sensor wie Reolinks „Besucher“. Du kannst sie auch selbst wählen, ebenso die Kamera an der Tür. Ohne Wahl nimmt MasterPlan3D die Kamera desselben Geräts oder eine im selben Bereich. Die Kamera muss im Plan platziert sein, sonst fliegt die Ansicht nur zur Klingel.
    - **Eine Kamera sieht jemanden:** „Nur Personen“ oder „Jede Bewegung“, für alle platzierten Kameras.
    - **Waschmaschine, Trockner oder Spülmaschine fertig:** Das Gerät muss als Möbel mit Strommessung oder Status verknüpft sein. Als fertig gilt es, wenn es nach dem Lauf 3 Minuten ruht. Eine Pause im Programm zählt also nicht.
    - **Neue Warnung:** Rauch, Wasser, Alarm, Fenster bei Regen und so weiter.
    - **Zurück nach:** die Sekunden bis zur Rückkehr (Standard 30). Die Klingel bleibt doppelt so lange.
    - **Eigene Auslöser:** weitere Entitäten, jeweils mit einer Kamera. Geht eine davon an oder auf, z. B. eine zweite Klingel, das Garagentor oder das Gartentor, fliegt die Ansicht hin und schaut durch diese Kamera. Ohne Kamera fliegt sie zum Gerät.
    - **Livebild beim Durchschauen:** Statt eines Standbilds alle paar Sekunden läuft das Video der Kamera. Das gilt auch für „Durch die Kamera schauen“ von Hand. Braucht mehr Leistung, auf sehr alten Tablets lieber aus lassen.
-2. **Auf welchem Bildschirm:** im selben Abschnitt **Auf diesem Gerät einschalten**. Das gilt nur für diesen Browser, also zum Beispiel das Wandtablet mit dem NeonPlan-Panel. Auf einer Dashboard-Karte schaltest du stattdessen **Live-Regie** in den Karten-Einstellungen ein (`director: true`).
+2. **Auf welchem Bildschirm:** im selben Abschnitt **Auf diesem Gerät einschalten**. Das gilt nur für diesen Browser, also zum Beispiel das Wandtablet mit dem MasterPlan3D-Panel. Auf einer Dashboard-Karte schaltest du stattdessen **Live-Regie** in den Karten-Einstellungen ein (`director: true`).
 
 Wer das Tablet gerade bedient, wird nur von der Klingel und von Warnungen unterbrochen. Berührst du den Bildschirm, während die Regie etwas zeigt, bleibt die Ansicht, wo sie ist. Teil des Kamera-Cockpits.
 
@@ -907,7 +907,7 @@ Das Wetter rund ums Haus folgt deiner Wetter-Entität:
 | windy | Wind treibt Regen und Schnee schräg |
 | sunny, clear-night | Sonne am Tag, Mond in der Nacht |
 
-Liefert die Entität `cloud_coverage` und `wind_speed`, nutzt NeonPlan 3D diese Werte.
+Liefert die Entität `cloud_coverage` und `wind_speed`, nutzt MasterPlan3D diese Werte.
 
 ![Schnee](images/view-weather-snow.jpg)
 
@@ -941,7 +941,7 @@ Oben im Werkzeug **Energie** steht die **Einrichtung**: eine Liste, die abhakt, 
 
 1. **Solarfeld:** + Solarfeld legt Module auf die sonnigste Dachfläche (4.20).
 2. **Geräte:** Stromzähler, Wechselrichter, Stromspeicher, Wallbox und Netzanschluss anlegen. Sie kommen von selbst in Garage oder Technikraum und lassen sich im Grundriss verschieben.
-3. **Sensoren:** Am einfachsten **Aus dem Energie-Dashboard übernehmen** (Abschnitt Energiebilanz): NeonPlan nimmt die Statistiken deines Energie-Dashboards, sucht zu jeder den Leistungssensor desselben Geräts und trägt ihn beim Zähler (Netz), Wechselrichter (PV) und Speicher (Leistung, Ladestand) ein. Fehlende Geräte werden dabei angelegt. Sonst wählst du die Sensoren im Formular jedes Geräts von Hand: Zähler = Netzleistung in Watt (+ = Bezug), Wechselrichter = PV-Leistung, Speicher = Leistung (+ = Entladen) und Ladestand in Prozent, Wallbox = Leistung und Status.
+3. **Sensoren:** Am einfachsten **Aus dem Energie-Dashboard übernehmen** (Abschnitt Energiebilanz): MasterPlan3D nimmt die Statistiken deines Energie-Dashboards, sucht zu jeder den Leistungssensor desselben Geräts und trägt ihn beim Zähler (Netz), Wechselrichter (PV) und Speicher (Leistung, Ladestand) ein. Fehlende Geräte werden dabei angelegt. Sonst wählst du die Sensoren im Formular jedes Geräts von Hand: Zähler = Netzleistung in Watt (+ = Bezug), Wechselrichter = PV-Leistung, Speicher = Leistung (+ = Entladen) und Ladestand in Prozent, Wallbox = Leistung und Status.
 4. **Vorzeichen prüfen:** Meldet der Zähler nachts „Einspeisung“ oder lädt der Speicher ohne Sonne, zählt ein Sensor andersherum. Die Energiebilanz sagt das und bietet **Vorzeichen umkehren** an.
 5. **Netzanschluss** (optional): Dorthin läuft die Netzleitung, zum Beispiel ans Ende der Einfahrt. Ohne ihn endet sie am Rand deiner Außenflächen.
 
@@ -989,7 +989,7 @@ Klang & Kino bringt die Musik ins 3D-Haus. Voraussetzung ist ein Lautsprecher im
 
 **Wandtablet:** Auf der Tablet-Stufe laufen die Ringe mit etwa 5 Bildern pro Sekunde und ruhen 30 Sekunden nach der letzten Berührung, die Karten ohne Glaseffekt.
 
-**Welche Lautsprecher passen?** NeonPlan nutzt die Standard-Schnittstelle der Media Player von Home Assistant: Was im Media-Player-Fenster von Home Assistant geht, geht auch hier. Das ist eine Einschätzung nach Dokumentation und Erfahrungen, keine Garantie für jedes Modell:
+**Welche Lautsprecher passen?** MasterPlan3D nutzt die Standard-Schnittstelle der Media Player von Home Assistant: Was im Media-Player-Fenster von Home Assistant geht, geht auch hier. Das ist eine Einschätzung nach Dokumentation und Erfahrungen, keine Garantie für jedes Modell:
 
 | Integration | Cover und Titel | Lautstärke | Multiroom-Linien |
 |---|---|---|---|
@@ -1005,7 +1005,7 @@ Was ein Player mitbringen sollte: den Zustand `playing`/`paused`, `media_title` 
 
 **Ein Gerät, ein Player:** Jeder Media Player hat genau eine Karte. Ein Möbel, dem du den Player selbst zugewiesen hast, hat Vorrang vor einem als Gerät platzierten Player. Hast du denselben Lautsprecher doppelt in Home Assistant (etwa einen Echo über Alexa Media Player **und** über Music Assistant, erkennbar an „_2“ am Ende), wähle den, über den du wirklich abspielst – der andere meldet nie „spielt“.
 
-**Echo-Geräte (Alexa Media Player):** Abspielen, Pause und Titelwechsel gehen. Die **Lautstärke** lässt sich je nach Gerät und Version von Alexa Media Player nicht oder nur verzögert setzen, und der neue Wert kommt oft erst Minuten später zurück. Das liegt an der inoffiziellen Amazon-Schnittstelle, nicht an NeonPlan; dieselbe Grenze hat das Media-Player-Fenster von Home Assistant. Echos, die du über Music Assistant steuerst, folgen der Lautstärke in der Regel zuverlässiger.
+**Echo-Geräte (Alexa Media Player):** Abspielen, Pause und Titelwechsel gehen. Die **Lautstärke** lässt sich je nach Gerät und Version von Alexa Media Player nicht oder nur verzögert setzen, und der neue Wert kommt oft erst Minuten später zurück. Das liegt an der inoffiziellen Amazon-Schnittstelle, nicht an MasterPlan3D; dieselbe Grenze hat das Media-Player-Fenster von Home Assistant. Echos, die du über Music Assistant steuerst, folgen der Lautstärke in der Regel zuverlässiger.
 
 ### 6.6 Auto Pro
 
@@ -1013,7 +1013,7 @@ Auto Pro holt das Auto in den Plan, so wie es seine Integration meldet (Tesla, V
 
 Auto Pro hängt am **Stellplatz**, nicht am Fahrzeug-Möbel. Steht dein Auto als einfaches Möbel im Plan, macht **In Stellplatz umwandeln** in dessen Formular daraus einen Stellplatz mit diesem Fahrzeug.
 
-**Einrichten:** Im Stellplatz-Formular unten der Abschnitt **Auto Pro**. Wähle unter **Fahrzeug** irgendeine Entität des Autos – NeonPlan findet die übrigen am selben Gerät: Ladestand, Reichweite, Ladeleistung oder Ladezustand, Kabel, Schloss, Klima oder Vorheizen, Standort. Jede Rolle kannst du von Hand setzen oder mit „Keine“ abschalten. Das Schloss darf auch ein Text-Sensor sein, der `locked`/`secured` oder `unlocked` meldet (wie bei BMW). Hat der Stellplatz einen Sensor „Auto anwesend“, dient der auch als Ausgangspunkt der Suche.
+**Einrichten:** Im Stellplatz-Formular unten der Abschnitt **Auto Pro**. Wähle unter **Fahrzeug** irgendeine Entität des Autos – MasterPlan3D findet die übrigen am selben Gerät: Ladestand, Reichweite, Ladeleistung oder Ladezustand, Kabel, Schloss, Klima oder Vorheizen, Standort. Jede Rolle kannst du von Hand setzen oder mit „Keine“ abschalten. Das Schloss darf auch ein Text-Sensor sein, der `locked`/`secured` oder `unlocked` meldet (wie bei BMW). Hat der Stellplatz einen Sensor „Auto anwesend“, dient der auch als Ausgangspunkt der Suche.
 
 **Im Haus:** Das Fahrzeug trägt ein **Lichtband** in der Farbe des Ladestands (grün über 50 %, gelb bis 20 %, rot darunter), kräftiger, solange es lädt. Läuft die Klima oder das Vorheizen, glimmt das Auto warm. Der **Pin am Stellplatz** zeigt „78 % · 312 km · ⚡ 7,4 kW · 🔒“. Ist das Auto weg, bleibt der Stellplatz leer und der Pin sagt **unterwegs**, mit der Zone des Trackers, wenn es eine gibt („unterwegs · Arbeit“).
 
@@ -1092,22 +1092,22 @@ Nicht dabei sind Kamerabilder (der Recorder speichert keine) sowie Personen und 
 
 Haushalt Pro zeigt im Haus, was im Haushalt ansteht – dort, wo es passiert. Die Mülltonnen und Briefkästen selbst gibt es für alle (Kapitel 4.23); Haushalt Pro bringt sie und andere Geräte zum Leben. Die Felder dazu stehen im Formular des Möbels unter **🏠 Haushalt Pro**.
 
-- **Mülltonnen:** Wähle unter **Abfallkalender oder Sensor** einen Kalender (z. B. von *Waste Collection Schedule*) oder einen Sensor. Aus einem Kalender sucht NeonPlan die Einträge nach den Wörtern der Abfallart heraus (Papier, Bio, Gelber Sack, PMD, GFT, Recycling … in vielen Sprachen); passt das nicht, trägst du ein eigenes **Stichwort** ein. Ein Sensor darf die Tage bis zur Abholung, ein Datum oder „morgen“/„in 3 Tagen“ melden. Der Kalender wird sechs Wochen im Voraus gelesen. Jede Tonne mit Termin trägt ein kleines **Schildchen** auf dem Deckel – „Heute“, „Morgen“, „in 3 Tagen“ – in heller Schrift auf dunklem Grund mit einem Rand in ihrer Farbe; heute und morgen stehen hervor. Stehen mehrere Tonnen beieinander, teilen sie sich **ein Schild** mit einer Zeile je Tonne in der Reihenfolge der Abholung; Schilder, die sich sonst verdecken würden, rücken nach oben. Die Schildchen (auch die von Briefkasten und Pflanzen) wachsen mit der **Symbolgröße** wie die Beschriftung der Pins und werden auch von weitem nicht winzig. Ein Tipp auf die Tonne zeigt die nächsten Termine. **Leuchten ab / bis** legt fest, ab wann am Vortag bis wann am Abholtag eine Tonne als „dran“ gilt (für alle Tonnen). In den Looks Tag und Blueprint behalten Tonnen und Pack-Möbel mit eigenen Farben (etwa ein Halloween-Kürbis) ihre Farbe bis zum Boden.
+- **Mülltonnen:** Wähle unter **Abfallkalender oder Sensor** einen Kalender (z. B. von *Waste Collection Schedule*) oder einen Sensor. Aus einem Kalender sucht MasterPlan3D die Einträge nach den Wörtern der Abfallart heraus (Papier, Bio, Gelber Sack, PMD, GFT, Recycling … in vielen Sprachen); passt das nicht, trägst du ein eigenes **Stichwort** ein. Ein Sensor darf die Tage bis zur Abholung, ein Datum oder „morgen“/„in 3 Tagen“ melden. Der Kalender wird sechs Wochen im Voraus gelesen. Jede Tonne mit Termin trägt ein kleines **Schildchen** auf dem Deckel – „Heute“, „Morgen“, „in 3 Tagen“ – in heller Schrift auf dunklem Grund mit einem Rand in ihrer Farbe; heute und morgen stehen hervor. Stehen mehrere Tonnen beieinander, teilen sie sich **ein Schild** mit einer Zeile je Tonne in der Reihenfolge der Abholung; Schilder, die sich sonst verdecken würden, rücken nach oben. Die Schildchen (auch die von Briefkasten und Pflanzen) wachsen mit der **Symbolgröße** wie die Beschriftung der Pins und werden auch von weitem nicht winzig. Ein Tipp auf die Tonne zeigt die nächsten Termine. **Leuchten ab / bis** legt fest, ab wann am Vortag bis wann am Abholtag eine Tonne als „dran“ gilt (für alle Tonnen). In den Looks Tag und Blueprint behalten Tonnen und Pack-Möbel mit eigenen Farben (etwa ein Halloween-Kürbis) ihre Farbe bis zum Boden.
   - **Nur die nächste Abholung beschriften:** Nur die Tonne(n) mit dem frühesten Termin tragen ein Schild. **Schilder erst … Tage vorher zeigen:** Ein Schild erscheint erst so viele Tage vor der Abholung (leer = immer, 0 = nur am Abholtag). Beide gelten für alle Tonnen; Tonnen ohne Schild stehen weiter in „Heute im Haushalt“ und zeigen beim Antippen ihre Termine. Ohne diese Einstellungen bleibt alles wie bisher.
   - **Rausgestellt:** Optional ein Helfer (`input_boolean`), Schalter oder Binärsensor, der an ist, solange die Tonne draußen steht. Dann leuchtet die Tonne nicht mehr, ihr Schild sagt „rausgestellt ✓“ (grüner Rand), und in „Heute im Haushalt“ steht sie abgehakt. Ein Tipp auf die Tonne zeigt unter den Terminen **Als rausgestellt markieren** – das schaltet einen Helfer oder Schalter um. Typisch: eine Automation, die den Helfer jede Nacht (oder nach der Abholung) wieder ausschaltet.
 - **Briefkasten:** Ein **Sensor für Post** – ein Merker (z. B. ein input_boolean „Post da“ aus einer Automation) oder die Einwurfklappe – und optional der **Sensor der Entnahmetür**. Liegt Post drin, leuchtet der Briefkasten und zeigt „Post da“, bis er geleert wurde. Von weitem zeigt er statt der kleinen Schrift ein rundes **Briefsymbol**; die Schrift erscheint beim Heranzoomen.
 - **Pflanzen:** Eine Pflanze (plant.*) oder ein Feuchtesensor; unter dem eingestellten Wert (Standard 20 %) zeigt sie „Durst“ – von weitem als rundes **Pflanzensymbol**.
 - **Pinnwand:** Unter **⚙ Einstellungen → Haus → Pinnwand (Text-Helfer)** wählst du einen Text-Helfer (`input_text`) oder Sensor. Sein Text steht oben in „Heute im Haushalt“, mehrere Zeilen mit `|` getrennt – Automationen schreiben hinein („Paket für Alla liegt in der Garage“, „Morgen 10 Uhr kommt der Handwerker“), die Karte zeigt es.
-- **Waschmaschine, Trockner, Spüler:** Mit einem **Restzeit-Sensor** zeigt die Markierung „noch 23 min“; danach „Fertig!“, bis die Tür aufgeht (**Tür-Sensor**) oder das Gerät wieder läuft. „Fertig“ erkennt NeonPlan am Zustand des Geräts (finished, beendet …) oder daran, dass es zu laufen aufgehört hat. Die Restzeit steht nur da, solange das Gerät läuft: Sagt sein Zustand aus, bereit oder Standby oder liegt seine Leistung im Standby, zeigt NeonPlan keine Restzeit – auch wenn der Restzeit-Sensor (etwa nach einem Stromausfall) noch Minuten meldet.
+- **Waschmaschine, Trockner, Spüler:** Mit einem **Restzeit-Sensor** zeigt die Markierung „noch 23 min“; danach „Fertig!“, bis die Tür aufgeht (**Tür-Sensor**) oder das Gerät wieder läuft. „Fertig“ erkennt MasterPlan3D am Zustand des Geräts (finished, beendet …) oder daran, dass es zu laufen aufgehört hat. Die Restzeit steht nur da, solange das Gerät läuft: Sagt sein Zustand aus, bereit oder Standby oder liegt seine Leistung im Standby, zeigt MasterPlan3D keine Restzeit – auch wenn der Restzeit-Sensor (etwa nach einem Stromausfall) noch Minuten meldet.
 - **Wartung und Verbrauchsteile:** An jedem elektrischen Möbel kann ein Sensor für Filter, Salz oder Klarspüler stehen – ein Binärsensor (an = fällig), eine Zahl (Prozent oder Tage übrig, fällig ab dem eingestellten Wert) oder ein Datum. Fällig leuchtet das Gerät gelb. Sobald ein Sensor gewählt ist, gibt es eine **Zweite Wartung** mit eigenem Schwellwert – etwa beim Saugroboter Bürste am Roboter und Beutel der Station. Jede fällige steht als eigene Zeile in „Heute im Haushalt“.
-- **Kühlschrank:** Steht eine Tür länger offen als eingestellt (Standard 2 Minuten), warnt NeonPlan oben im Bild. Dazu gehört der **Smart-Kühlschrank** (Side-by-Side mit beweglichen Türen) in der Möbel-Bibliothek.
+- **Kühlschrank:** Steht eine Tür länger offen als eingestellt (Standard 2 Minuten), warnt MasterPlan3D oben im Bild. Dazu gehört der **Smart-Kühlschrank** (Side-by-Side mit beweglichen Türen) in der Möbel-Bibliothek.
 - **Heute im Haushalt:** Eine Glaskarte oben rechts listet, was gerade ansteht – Tonnen heute und morgen, Post, fertige Geräte, durstige Pflanzen, fällige Wartung, offene Kühlschranktüren. Ein Tipp öffnet das Gerät, der Kopf klappt sie ein. In der Dashboard-Karte schaltet `household_card: false` sie ab.
 
 ## 7. Erweiterungen, Shop und Möbel-Packs
 
 ![Erweiterungen](images/extensions.jpg)
 
-Der Reiter **✦ Erweiterungen** bündelt alles, was du zu NeonPlan 3D dazubekommen kannst.
+Der Reiter **✦ Erweiterungen** bündelt alles, was du zu MasterPlan3D dazubekommen kannst.
 
 ### 7.1 Shop-Verbindung
 
@@ -1119,13 +1119,13 @@ Mit dem ersten Kauf bei mastershort.de bekommst du einen **Lizenzschlüssel** de
 
 Danach:
 
-- **Updates kommen von selbst.** Einmal täglich fragt NeonPlan 3D, ob es neue Käufe oder neuere Versionen gibt, und installiert sie. **Jetzt prüfen** fragt sofort.
+- **Updates kommen von selbst.** Einmal täglich fragt MasterPlan3D, ob es neue Käufe oder neuere Versionen gibt, und installiert sie. **Jetzt prüfen** fragt sofort.
 - **Ohne Internet läuft alles weiter.** Installierte Packs werden lokal geprüft, der Shop wird dafür nie gebraucht.
 - **Trennen** entfernt den Schlüssel. Installierte Packs bleiben.
 - **Pack-Updates:** Wird ein gekauftes Pack erweitert, zeigt die Seite einmal, was dazugekommen ist.
-- **Neu im Shop:** Mit Shop-Verbindung zeigt die Seite oben die Packs und Pro-Erweiterungen, die du noch nicht hast, mit **NEU** für frische Sachen. Am Reiter **✦ Erweiterungen** zeigt ein Abzeichen, was wartet: **„2 bereit“** für gekaufte oder geschenkte Packs, die installiert oder aktualisiert werden können, **„3 neu“** für neue Angebote im Shop (nur, wenn du schon etwas gekauft hast; die Angebote stehen trotzdem immer hier). Kommt ein Pack neu in dein Konto (gekauft oder geschenkt), meldet Home Assistant das außerdem einmal unter **Benachrichtigungen** (mehrere Packs auf einmal in einer Meldung); nach dem Installieren verschwindet die Meldung. Ohne Schlüssel fragt NeonPlan 3D den Shop nie.
+- **Neu im Shop:** Mit Shop-Verbindung zeigt die Seite oben die Packs und Pro-Erweiterungen, die du noch nicht hast, mit **NEU** für frische Sachen. Am Reiter **✦ Erweiterungen** zeigt ein Abzeichen, was wartet: **„2 bereit“** für gekaufte oder geschenkte Packs, die installiert oder aktualisiert werden können, **„3 neu“** für neue Angebote im Shop (nur, wenn du schon etwas gekauft hast; die Angebote stehen trotzdem immer hier). Kommt ein Pack neu in dein Konto (gekauft oder geschenkt), meldet Home Assistant das außerdem einmal unter **Benachrichtigungen** (mehrere Packs auf einmal in einer Meldung); nach dem Installieren verschwindet die Meldung. Ohne Schlüssel fragt MasterPlan3D den Shop nie.
 - **Treuerabatt:** Mit dem ersten Kauf bekommst du einen persönlichen Rabattcode für jedes weitere Pack und jede Pro-Erweiterung (nicht für Bundles). Er steht in der Bestell-Mail, im Kundenkonto und oben unter **Neu im Shop**; ein Tipp auf ein Angebot legt ihn gleich in den Warenkorb.
-- **4 Möbel-Packs geschenkt:** Wer mit Shop-Verbindung den NeonPlan-Newsletter noch nicht abonniert hat, sieht hier einen kleinen Kasten. Nach der Anmeldung und der Bestätigung per Mail erscheinen die Schnupper-Packs Wohnzimmer, Küche, Schlafzimmer und Bad (je 4 Möbel) von selbst unter Erweiterungen – spätestens beim nächsten täglichen Abgleich, sofort mit **Jetzt prüfen**. **Nicht mehr zeigen** blendet den Kasten auf diesem Gerät aus.
+- **4 Möbel-Packs geschenkt:** Wer mit Shop-Verbindung den MasterPlan3D-Newsletter noch nicht abonniert hat, sieht hier einen kleinen Kasten. Nach der Anmeldung und der Bestätigung per Mail erscheinen die Schnupper-Packs Wohnzimmer, Küche, Schlafzimmer und Bad (je 4 Möbel) von selbst unter Erweiterungen – spätestens beim nächsten täglichen Abgleich, sofort mit **Jetzt prüfen**. **Nicht mehr zeigen** blendet den Kasten auf diesem Gerät aus.
 
 **Mehrere Installationen:** Ein Schlüssel ist mit höchstens drei Installationen gleichzeitig verbunden. Ziehst du auf neue Hardware um, verbindest du einfach die neue Installation, die älteste fällt dann heraus. Bis zu fünf neue Verbindungen sind pro Jahr möglich. Die **Installations-Kennung** oben ist ein anonymer Fingerabdruck deiner Installation.
 
@@ -1183,29 +1183,29 @@ Unter **🎈 Fun-Packs** schaltest du sie danach ein und aus.
 
 ### 7.5 Module
 
-Ein **Modul** ist ein Pack, das Code mitbringt: NeonPlan lädt ihn nach und lässt ihn im Haus laufen – geprüft, signiert und an deine Installation gebunden wie ein Möbel-Pack. Module kommen nur aus dem Shop (mit Kundenkonto, viele kostenlos); ihr Code liegt nicht im öffentlichen Repository.
+Ein **Modul** ist ein Pack, das Code mitbringt: MasterPlan3D lädt ihn nach und lässt ihn im Haus laufen – geprüft, signiert und an deine Installation gebunden wie ein Möbel-Pack. Module kommen nur aus dem Shop (mit Kundenkonto, viele kostenlos); ihr Code liegt nicht im öffentlichen Repository.
 
 **So funktioniert ein Modul – Schritt für Schritt:**
 
 1. **Holen:** Im Shop das Modul in den Warenkorb (kostenlose Module auch), bestellen, fertig. Es liegt dann in deinem Kundenkonto wie jedes Pack.
-2. **Installieren:** Hast du NeonPlan mit dem Shop verbunden (7.1), steht es unter Erweiterungen → **Alle installieren/aktualisieren** – ein Tipp. Ohne Verbindung lädst du die `.fp3dpack`-Datei aus dem Konto und spielst sie ein: **⚙ Einstellungen → 🧩 Module → Modul einspielen …** oder hier im Abschnitt **Module**.
+2. **Installieren:** Hast du MasterPlan3D mit dem Shop verbunden (7.1), steht es unter Erweiterungen → **Alle installieren/aktualisieren** – ein Tipp. Ohne Verbindung lädst du die `.fp3dpack`-Datei aus dem Konto und spielst sie ein: **⚙ Einstellungen → 🧩 Module → Modul einspielen …** oder hier im Abschnitt **Module**.
 3. **Freigeben (seit 1.24):** Ein Modul läuft erst, wenn ein Administrator seinen Code gesehen und freigegeben hat. Im Abschnitt **Module** steht dann „wartet auf deine Freigabe“ – **Code ansehen & freigeben** zeigt Anbieter, Version, Größe, Fingerabdruck und den ganzen Code; **Freigeben** startet genau diesen Code, ohne Neustart.
-4. **Sehen:** Das Modul steht in beiden Listen als „Modul von Mastershort · v2“. Was es kann, steht in seiner Beschreibung im Shop; die Sätze eines Sprach-Moduls erscheinen sofort unter **🎙 Sprachsteuerung → Das versteht NeonPlan**, Warnungen eines Moduls in der Warnleiste, Karten über dem Haus.
+4. **Sehen:** Das Modul steht in beiden Listen als „Modul von Mastershort · v2“. Was es kann, steht in seiner Beschreibung im Shop; die Sätze eines Sprach-Moduls erscheinen sofort unter **🎙 Sprachsteuerung → Das versteht MasterPlan3D**, Warnungen eines Moduls in der Warnleiste, Karten über dem Haus.
 5. **Updates:** Kommt eine neue Fassung, holt der tägliche Shop-Check sie von selbst; ohne Shop-Verbindung spielst du die neue Datei ein. **Neuer Code läuft nie von allein:** Das Update wartet neben der laufenden Fassung („Update auf v4 wartet auf deine Freigabe“), bis du es mit **Update ansehen & freigeben** bestätigst. Bis dahin läuft die alte Fassung weiter. Seit 2.0.6 zeigt auch die Shop-Liste so ein wartendes Update mit dem Knopf **Update ansehen & freigeben**, statt es noch einmal zum Aktualisieren anzubieten. Möbel- und Funktions-Packs ohne Code aktualisieren sich wie bisher.
 6. **Entfernen:** In der Liste **Entfernen**, wie bei einem Pack. Dein Plan bleibt unberührt.
 
 Sicherheit: Ein Modul läuft nur mit gültiger Signatur und auf der Installation, für die es gekauft wurde. Du kannst den Code in der Datei lesen (er ist nicht verschleiert), aber nicht weitergeben – dafür gilt die Elastic License 2.0.
 
-**Warum Module?** Die Pro-Erweiterungen ziehen nach und nach in diese Form um (auf der Erweiterungen-Seite stehen sie schon unter Module, „wird ein Modul“). An der Bedienung ändert sich nichts. Für die Entwicklung ändert sich viel: Jede Erweiterung bekommt ihre Updates über den Shop, ohne auf das nächste NeonPlan-Release zu warten; mehrere Erweiterungen lassen sich gleichzeitig bauen und testen, jede mit ihrer eigenen Supporter-Beta; und der Kern bleibt klein und schnell – ein Wandtablet lädt nur, was es nutzt.
+**Warum Module?** Die Pro-Erweiterungen ziehen nach und nach in diese Form um (auf der Erweiterungen-Seite stehen sie schon unter Module, „wird ein Modul“). An der Bedienung ändert sich nichts. Für die Entwicklung ändert sich viel: Jede Erweiterung bekommt ihre Updates über den Shop, ohne auf das nächste MasterPlan3D-Release zu warten; mehrere Erweiterungen lassen sich gleichzeitig bauen und testen, jede mit ihrer eigenen Supporter-Beta; und der Kern bleibt klein und schnell – ein Wandtablet lädt nur, was es nutzt.
 
-> **Beta: Das Haus antwortet.** Das Sprach-Modul testen zuerst die Supporter: Mit dem [Supporter-Pass](https://mastershort.de/neonplan3d/unterstuetzer/) liegt es in deinem Konto – **Alle installieren** oder Datei einspielen (Schritt 2). Dann **⚙ Einstellungen → 🎙 Sprachsteuerung** öffnen: Unter „Das versteht NeonPlan“ stehen jetzt alle Fragen. Probier „Was ist offen?“, „Guten Morgen“, „Gute Nacht“, „Wie ist das Wetter?“ – am Mikrofon oder im Assist-Dialog. Für das Vorlesen braucht die Assist-Pipeline eine Sprachausgabe (Einstellungen → Sprachassistenten → Text-zu-Sprache). Was nicht verstanden wird oder falsch antwortet, bitte mit dem genauen Satz auf Discord in **#beta-feedback** – daraus wird die nächste Fassung. Nach der Beta ist das Modul für alle kostenlos.
+> **Beta: Das Haus antwortet.** Das Sprach-Modul testen zuerst die Supporter: Mit dem [Supporter-Pass](https://mastershort.de/neonplan3d/unterstuetzer/) liegt es in deinem Konto – **Alle installieren** oder Datei einspielen (Schritt 2). Dann **⚙ Einstellungen → 🎙 Sprachsteuerung** öffnen: Unter „Das versteht MasterPlan3D“ stehen jetzt alle Fragen. Probier „Was ist offen?“, „Guten Morgen“, „Gute Nacht“, „Wie ist das Wetter?“ – am Mikrofon oder im Assist-Dialog. Für das Vorlesen braucht die Assist-Pipeline eine Sprachausgabe (Einstellungen → Sprachassistenten → Text-zu-Sprache). Was nicht verstanden wird oder falsch antwortet, bitte mit dem genauen Satz auf Discord in **#beta-feedback** – daraus wird die nächste Fassung. Nach der Beta ist das Modul für alle kostenlos.
 
 Module heute:
 
 | Modul | Was es tut | Preis |
 |---|---|---|
 | **Das Haus antwortet** | beantwortet gesprochene Fragen – „Was ist offen?“, „Wie ist das Wetter?“, „Guten Morgen“ … (5.10) | kostenlos |
-| **Durchsagen** (neu, ab NeonPlan 2.0.7) | Raum antippen, **📢 Durchsage**, „Essen ist fertig!“ antippen – und der Lautsprecher in dem Raum sagt es. Fertige Sätze (in ⚙ Einstellungen → Durchsagen: ✕ nimmt einen heraus, unten kommen eigene dazu, „Fertige Sätze zurückholen“ stellt die Vorgaben wieder her), eigener Text oder ins 🎙 Mikrofon gesprochen (braucht HTTPS und eine Sprach-Pipeline mit Spracherkennung, wie die Sprachsteuerung). Aus dem Zentral-Menü an **alle Räume**, an **eine Etage** oder nur dorthin, **wo gerade jemand ist** (Ortung, Präsenz- und Bewegungsmelder). Im Raumformular (Editor) hat jeder Raum eine **🌙 Ruhezeit** (etwa Kinderzimmer ab 20 Uhr bis 7 Uhr): Durchsagen an mehrere Räume lassen ihn dann aus, eine Durchsage nur an diesen Raum geht trotzdem raus. Dort stehen auch **eigene Sätze für den Raum**, die im Raum ganz oben erscheinen. Eigene Texte, die du zuletzt getippt hast, kommen als **↻** zum erneuten Senden. Welcher Lautsprecher spricht: der im Raumformular unter **📢 Durchsagen über** gewählte, sonst ein Lautsprecher, der im Plan im Raum steht – nur wenn dort keiner steht, einer aus dem Bereich des Raums (Fernseher und nicht erreichbare Geräte nie von selbst), sonst der Standard-Lautsprecher aus ⚙ Einstellungen. Echos (Alexa Media Player) und Sprach-Satelliten wie der Home Assistant Voice PE machen eine echte Durchsage mit Gong; andere Lautsprecher sprechen über die Sprachausgabe (TTS) von Home Assistant, mit chime_tts auch mit Gong; Lautsprecher, die Durchsagen können (z. B. Sonos), machen die Musik dafür leiser und spielen danach weiter. Die Lautstärke bleibt, wie sie ist. Der Lautsprecher leuchtet im Plan kurz auf, und in der 3D-Ansicht zeigt **🔊** über ihm, wo es gerade spricht. Mit **📢 auch direkt im Raum zeigen** (⚙ Einstellungen → Durchsagen) leuchtet in der 3D-Ansicht der Etage über dem Lautsprecher jedes Raums ein 📢-Knopf – ein Tipp öffnet sofort die Sätze. **Aus Automationen** (ab NeonPlan 2.0.9): Die Aktion **NeonPlan 3D: Durchsage** (`neonplan3d.announce`) sagt eine Nachricht mit denselben Einstellungen – etwa wenn es klingelt –, auch wenn keine NeonPlan-Seite offen ist; ohne Raum an alle Räume, mit **Räume** an die genannten, mit **Etage** an eine Etage; mehrere Räume lassen die mit Ruhezeit aus. Mit **Auf NeonPlan-Bildschirmen** spricht jeder offene NeonPlan-Bildschirm die Nachricht selbst – mit Gong – und zeigt sie groß an; mit **Bildschirme** nur die mit diesen Bildschirmnamen. So wird auch ein altes Wand-Tablet zum Durchsage-Lautsprecher. Dafür braucht Home Assistant eine Sprach-Pipeline mit Sprachausgabe; Browser spielen Ton erst nach dem ersten Tippen auf die Seite – in Fully Kiosk unter Webinhalt-Einstellungen **Autoplay Audio** einschalten. Ein Wand-Tablet mit Fully Kiosk kann selbst Lautsprecher sein: den Media Player der Fully-Kiosk-Integration im Raumformular unter **📢 Durchsagen über** wählen | Beta – zuerst mit dem Supporter-Pass |
+| **Durchsagen** (neu, ab MasterPlan3D 2.0.7) | Raum antippen, **📢 Durchsage**, „Essen ist fertig!“ antippen – und der Lautsprecher in dem Raum sagt es. Fertige Sätze (in ⚙ Einstellungen → Durchsagen: ✕ nimmt einen heraus, unten kommen eigene dazu, „Fertige Sätze zurückholen“ stellt die Vorgaben wieder her), eigener Text oder ins 🎙 Mikrofon gesprochen (braucht HTTPS und eine Sprach-Pipeline mit Spracherkennung, wie die Sprachsteuerung). Aus dem Zentral-Menü an **alle Räume**, an **eine Etage** oder nur dorthin, **wo gerade jemand ist** (Ortung, Präsenz- und Bewegungsmelder). Im Raumformular (Editor) hat jeder Raum eine **🌙 Ruhezeit** (etwa Kinderzimmer ab 20 Uhr bis 7 Uhr): Durchsagen an mehrere Räume lassen ihn dann aus, eine Durchsage nur an diesen Raum geht trotzdem raus. Dort stehen auch **eigene Sätze für den Raum**, die im Raum ganz oben erscheinen. Eigene Texte, die du zuletzt getippt hast, kommen als **↻** zum erneuten Senden. Welcher Lautsprecher spricht: der im Raumformular unter **📢 Durchsagen über** gewählte, sonst ein Lautsprecher, der im Plan im Raum steht – nur wenn dort keiner steht, einer aus dem Bereich des Raums (Fernseher und nicht erreichbare Geräte nie von selbst), sonst der Standard-Lautsprecher aus ⚙ Einstellungen. Echos (Alexa Media Player) und Sprach-Satelliten wie der Home Assistant Voice PE machen eine echte Durchsage mit Gong; andere Lautsprecher sprechen über die Sprachausgabe (TTS) von Home Assistant, mit chime_tts auch mit Gong; Lautsprecher, die Durchsagen können (z. B. Sonos), machen die Musik dafür leiser und spielen danach weiter. Die Lautstärke bleibt, wie sie ist. Der Lautsprecher leuchtet im Plan kurz auf, und in der 3D-Ansicht zeigt **🔊** über ihm, wo es gerade spricht. Mit **📢 auch direkt im Raum zeigen** (⚙ Einstellungen → Durchsagen) leuchtet in der 3D-Ansicht der Etage über dem Lautsprecher jedes Raums ein 📢-Knopf – ein Tipp öffnet sofort die Sätze. **Aus Automationen** (ab MasterPlan3D 2.0.9): Die Aktion **MasterPlan3D: Durchsage** (`neonplan3d.announce`) sagt eine Nachricht mit denselben Einstellungen – etwa wenn es klingelt –, auch wenn keine MasterPlan3D-Seite offen ist; ohne Raum an alle Räume, mit **Räume** an die genannten, mit **Etage** an eine Etage; mehrere Räume lassen die mit Ruhezeit aus. Mit **Auf MasterPlan3D-Bildschirmen** spricht jeder offene MasterPlan3D-Bildschirm die Nachricht selbst – mit Gong – und zeigt sie groß an; mit **Bildschirme** nur die mit diesen Bildschirmnamen. So wird auch ein altes Wand-Tablet zum Durchsage-Lautsprecher. Dafür braucht Home Assistant eine Sprach-Pipeline mit Sprachausgabe; Browser spielen Ton erst nach dem ersten Tippen auf die Seite – in Fully Kiosk unter Webinhalt-Einstellungen **Autoplay Audio** einschalten. Ein Wand-Tablet mit Fully Kiosk kann selbst Lautsprecher sein: den Media Player der Fully-Kiosk-Integration im Raumformular unter **📢 Durchsagen über** wählen | Beta – zuerst mit dem Supporter-Pass |
 | **Fenster-Wächter** | warnt, wenn ein Fenster bei Kälte (unter 12 °C draußen) länger als 20 Minuten offen steht oder die Heizung bei offenem Fenster läuft (10 Minuten): Der Raum pulst, die Warnleiste nennt Fenster und Zeit; „Welche Fenster sind zu lange offen?“ fliegt sie ab. Ruhe in der Nacht (ab Release 3): Legst du in Home Assistant einen Helfer (Schalter) `input_boolean.fensterwaechter_ruhe` an, warnt er nicht, solange der an ist – etwa per Automation nachts oder wenn die Rollläden unten sind | kostenlos |
 
 ## 8. Die Dashboard-Karte
@@ -1214,7 +1214,7 @@ Module heute:
 
 Die Karte `custom:neonplan3d-card` bringt die 3D-Ansicht in jedes Dashboard. Sie wird automatisch geladen.
 
-**Anlegen:** Dashboard bearbeiten, **Karte hinzufügen**, nach „NeonPlan“ suchen. Alle Optionen stellst du im visuellen Editor der Karte ein:
+**Anlegen:** Dashboard bearbeiten, **Karte hinzufügen**, nach „MasterPlan3D“ suchen. Alle Optionen stellst du im visuellen Editor der Karte ein:
 
 | Abschnitt | Optionen |
 |---|---|
@@ -1283,11 +1283,11 @@ idle_orbit: false
 
 ---
 
-## 9. NeonPlan 3D auf dem Wandtablet
+## 9. MasterPlan3D auf dem Wandtablet
 
 ![Tablet](images/tablet.jpg)
 
-NeonPlan 3D ist für Wandtablets wie das Amazon Fire gebaut:
+MasterPlan3D ist für Wandtablets wie das Amazon Fire gebaut:
 
 - **Kein Rechnen im Leerlauf.** Ändert sich nichts, zeichnet die Ansicht kein einziges Bild. Die FPS-Anzeige zeigt dann „Ruhe (0 B/s)“.
 - **Qualitätsstufe Tablet:** Auf Fire-Tablets wählt „Auto“ sie von selbst. Muster, Schatten, Halos und Partikel fallen weg. Bewegte Deko (Energiefluss, Solarfelder, Klangringe, Poolwasser, Saugroboter, Farbeffekte, Haustiere) läuft mit etwa 5 Bildern pro Sekunde und bleibt 30 Sekunden nach der letzten Berührung stehen; Antippen oder etwas, das neu losläuft, weckt sie wieder. Reine Messwerte (Watt, Temperatur) erscheinen höchstens alle 2 Sekunden, Schalter, Türen und Alarme sofort.
@@ -1301,7 +1301,7 @@ NeonPlan 3D ist für Wandtablets wie das Amazon Fire gebaut:
 
 **Tipps für Fire-Tablets:** Fully Kiosk Browser mit Hardwarebeschleunigung nutzen, die Karte mit `fill: true` bildschirmfüllend zeigen und `quality: auto` lassen.
 
-**Sprachsteuerung:** Auf dem Wandtablet sprichst du mit NeonPlan über einen Mikrofon-Knopf, z. B. „Zeig das Wohnzimmer“. Alles dazu steht in [5.10 Sprachsteuerung](#510-sprachsteuerung-neu).
+**Sprachsteuerung:** Auf dem Wandtablet sprichst du mit MasterPlan3D über einen Mikrofon-Knopf, z. B. „Zeig das Wohnzimmer“. Alles dazu steht in [5.10 Sprachsteuerung](#510-sprachsteuerung-neu).
 
 ---
 
@@ -1316,21 +1316,21 @@ Unter **Sicherung** im Editor:
 - **Als Vorlage teilen** exportiert ohne Bereiche, Geräte, Sensoren und Bilder. Das ist gut, um einen Grundriss weiterzugeben.
 - **Komplett-Backup:** **Alles sichern (Plan, Bilder, Packs)** speichert eine Datei mit dem Plan, allen Hintergrund- und Bildschirmbildern und den installierten Packs. **Komplett-Backup wiederherstellen …** spielt sie in dieselbe oder eine andere Installation zurück. Jedes Pack wird dabei erneut geprüft. Packs, die für eine andere Installation signiert sind, holst du dort über die Shop-Verbindung neu. Der Lizenzschlüssel ist nicht in der Datei.
 
-Das normale Backup von Home Assistant sichert NeonPlan 3D ebenfalls vollständig mit.
+Das normale Backup von Home Assistant sichert MasterPlan3D ebenfalls vollständig mit.
 
-**Aus anderen Programmen übernehmen:** Die **Import-Seite** (<https://neonplan3d.mastershort.de/import/>, auch unter **Sicherung → Zur Import-Seite**) macht aus Plänen anderer Programme eine NeonPlan-Datei: Sweet Home 3D (`.sh3d`), iPhone-/iPad-Scans mit LiDAR (RoomPlan-JSON), CAD-Zeichnungen (`.dxf`), 3D-Modelle aus Blender, SketchUp & Co. (`.glb`, `.gltf`, `.obj`, `.stl`), Floorplanner und Valetudo-Saugroboterkarten. Sie zeigt eine Vorschau mit Räumen, Türen, Fenstern und Möbeln, lässt Räume umbenennen und je nach Format Einheit, Layer oder Etagenhöhen einstellen; die Datei bleibt dabei auf deinem Computer. Die heruntergeladene Datei lädst du hier mit **Importieren …**. Wer sich den Plan lieber von einer KI schreiben lässt, findet die Vorlage dafür in [docs/ai-import.md](https://github.com/Mastershort/neonplan3d/blob/main/docs/ai-import.md); die Import-Seite prüft und repariert das Ergebnis.
+**Aus anderen Programmen übernehmen:** Die **Import-Seite** (<https://neonplan3d.mastershort.de/import/>, auch unter **Sicherung → Zur Import-Seite**) macht aus Plänen anderer Programme eine MasterPlan3D-Datei: Sweet Home 3D (`.sh3d`), iPhone-/iPad-Scans mit LiDAR (RoomPlan-JSON), CAD-Zeichnungen (`.dxf`), 3D-Modelle aus Blender, SketchUp & Co. (`.glb`, `.gltf`, `.obj`, `.stl`), Floorplanner und Valetudo-Saugroboterkarten. Sie zeigt eine Vorschau mit Räumen, Türen, Fenstern und Möbeln, lässt Räume umbenennen und je nach Format Einheit, Layer oder Etagenhöhen einstellen; die Datei bleibt dabei auf deinem Computer. Die heruntergeladene Datei lädst du hier mit **Importieren …**. Wer sich den Plan lieber von einer KI schreiben lässt, findet die Vorlage dafür in [docs/ai-import.md](https://github.com/Mastershort/neonplan3d/blob/main/docs/ai-import.md); die Import-Seite prüft und repariert das Ergebnis.
 
 ---
 
 ## 11. Daten und Datenschutz
 
 - Plan, Bilder und Packs liegen in Home Assistant unter `.storage`. Nichts davon verlässt deine Installation.
-- NeonPlan 3D verbindet sich nur dann mit dem Internet, wenn du einen Lizenzschlüssel einträgst. Dann fragt es einmal am Tag bei mastershort.de nach Updates und sendet dabei den Schlüssel und die anonyme Installations-Kennung.
+- MasterPlan3D verbindet sich nur dann mit dem Internet, wenn du einen Lizenzschlüssel einträgst. Dann fragt es einmal am Tag bei mastershort.de nach Updates und sendet dabei den Schlüssel und die anonyme Installations-Kennung.
 - Kamerabilder, Verlaufsdaten und Zustände bleiben in Home Assistant und werden nur im Browser angezeigt.
 - Die Zeitreise liest den Verlauf aus dem Recorder von Home Assistant, nur für die Geräte des Plans. Personen und ihre Tracker liest sie nie.
 - Die **Ortung** wertet die Bluetooth-Signale nur in Home Assistant aus. Nichts darüber, wer wo ist, verlässt dein Haus.
-- **Hilf mit, NeonPlan besser zu machen (freiwillig, standardmäßig aus):** Unter **⚙ Einstellungen → 🛟 Hilf mit** kannst du anonyme Nutzungs- und Fehlerberichte einschalten. Wer sie noch nicht eingeschaltet hat, bekommt als Admin im Editor einmal einen Hinweis; **Ansehen** öffnet die Einstellung, **Nicht jetzt** blendet ihn auf diesem Gerät für immer aus. Dann geht höchstens einmal am Tag ein Bericht (und höchstens einmal pro Stunde ein Bündel Fehlermeldungen) an api.mastershort.de.
-  - **Gesendet wird:** eine zufällige Kennung (nicht die von Home Assistant, sie entsteht beim Einschalten), die Versionen von NeonPlan, Home Assistant und Python, die Sprache, die installierten Packs und Pro-Erweiterungen, Anzahlen aus dem Plan (Etagen, Räume, Möbel, verknüpfte Geräte, Kameras), Geräteart, Browser und System der Bildschirme mit Bildrate und Grafikklasse, wie oft welche Ansicht geöffnet wurde, und Fehlermeldungen von NeonPlan ohne Namen und Adressen.
+- **Hilf mit, MasterPlan3D besser zu machen (freiwillig, standardmäßig aus):** Unter **⚙ Einstellungen → 🛟 Hilf mit** kannst du anonyme Nutzungs- und Fehlerberichte einschalten. Wer sie noch nicht eingeschaltet hat, bekommt als Admin im Editor einmal einen Hinweis; **Ansehen** öffnet die Einstellung, **Nicht jetzt** blendet ihn auf diesem Gerät für immer aus. Dann geht höchstens einmal am Tag ein Bericht (und höchstens einmal pro Stunde ein Bündel Fehlermeldungen) an api.mastershort.de.
+  - **Gesendet wird:** eine zufällige Kennung (nicht die von Home Assistant, sie entsteht beim Einschalten), die Versionen von MasterPlan3D, Home Assistant und Python, die Sprache, die installierten Packs und Pro-Erweiterungen, Anzahlen aus dem Plan (Etagen, Räume, Möbel, verknüpfte Geräte, Kameras), Geräteart, Browser und System der Bildschirme mit Bildrate und Grafikklasse, wie oft welche Ansicht geöffnet wurde, und Fehlermeldungen von MasterPlan3D ohne Namen und Adressen.
   - **Nie gesendet werden:** Namen, Entitäten, Bereiche, die Form deines Grundrisses, IP-Adressen, die Kennung deiner Home-Assistant-Installation, Benutzernamen, dein Lizenzschlüssel – und nichts aus der Ortung.
   - **„Bericht ansehen“** zeigt genau den nächsten Bericht, bevor er gesendet wird. **„Daten löschen“** entfernt alles, was schon gesendet wurde. Ausschalten vergisst die Kennung.
 
@@ -1341,22 +1341,22 @@ Das normale Backup von Home Assistant sichert NeonPlan 3D ebenfalls vollständig
 **Hilfe und Rückmeldung:** Einen Fehler meldest du am besten als [Issue auf GitHub](https://github.com/Mastershort/neonplan3d/issues/new/choose), eine Idee als [Diskussion](https://github.com/Mastershort/neonplan3d/discussions/categories/ideas). So geht nichts verloren, alle sehen den Stand, und du wirst in den Release-Notizen genannt, wenn es umgesetzt ist. Die beiden Knöpfe dafür stehen auch im Editor unten in der Seitenleiste und auf der Seite Erweiterungen.
 
 **Wie bekomme ich das neueste Update?**
-Einstellungen → System → Updates. HACS sucht nur alle paar Stunden nach neuen Versionen, deshalb fehlt ein frisches Update dort manchmal noch. Dann: HACS → NeonPlan 3D → ⋮ → **Informationen aktualisieren** → **Herunterladen**. Danach Home Assistant neu starten und die Seite neu laden (Strg+F5, in der Companion-App: Einstellungen → Companion-App → Frontend-Cache zurücksetzen).
+Einstellungen → System → Updates. HACS sucht nur alle paar Stunden nach neuen Versionen, deshalb fehlt ein frisches Update dort manchmal noch. Dann: HACS → MasterPlan3D → ⋮ → **Informationen aktualisieren** → **Herunterladen**. Danach Home Assistant neu starten und die Seite neu laden (Strg+F5, in der Companion-App: Einstellungen → Companion-App → Frontend-Cache zurücksetzen).
 
 **Kann ich Helfer statt echter Sensoren nehmen?**
-Ja. Überall, wo NeonPlan einen Zahlenwert erwartet (Leistung, Ladestand, Reichweite, Position …), stehen auch `input_number`- und `number`-Helfer zur Wahl, und wo ein Ein/Aus erwartet wird (Kontakt, Anwesenheit …), auch `input_boolean`. Für Leistung braucht der Helfer die Einheit W oder kW.
+Ja. Überall, wo MasterPlan3D einen Zahlenwert erwartet (Leistung, Ladestand, Reichweite, Position …), stehen auch `input_number`- und `number`-Helfer zur Wahl, und wo ein Ein/Aus erwartet wird (Kontakt, Anwesenheit …), auch `input_boolean`. Für Leistung braucht der Helfer die Einheit W oder kW.
 
 **Die Lautstärke eines Echo ändert sich nicht.**
 Alexa Media Player setzt die Lautstärke bei manchen Echos nicht oder nur verzögert und meldet den neuen Wert spät zurück. Prüfe es unter Entwicklerwerkzeuge → Aktionen mit `media_player.volume_set`: Passiert dort nichts, liegt es an der Integration (siehe Kapitel 6.5).
 
-**Auf iPhone oder iPad schließt sich NeonPlan, wenn ich mit zwei Fingern verschiebe oder zoome.**
+**Auf iPhone oder iPad schließt sich MasterPlan3D, wenn ich mit zwei Fingern verschiebe oder zoome.**
 Das ist kein Absturz: Die Home-Assistant-App hat eigene Wischgesten. Liegt auf einem Wischen mit zwei Fingern eine Aktion (etwa zur Startseite), führt die App sie aus und verlässt die Seite. In der App unter **Einstellungen → Companion App → Gesten** die Zwei-Finger-Gesten auf **Keine** stellen. In Safari passiert das nicht.
 
 **Oben steht „Neustart nötig“.**
 Nach einem Update läuft im Hintergrund noch die alte Version. Home Assistant neu starten.
 
 **Ein Gerät fehlt in der Geräteliste eines Raums.**
-Der Raum braucht einen Bereich, und das Gerät muss diesem Bereich zugeordnet sein, entweder das Gerät oder die Entität selbst. Steckt die Entität unter einem Gerät mit mehreren Entitäten, steht sie hinter „+n mehr“. Das Suchfeld findet sie direkt. In Home Assistant ausgeblendete oder deaktivierte Entitäten nimmt NeonPlan nicht von selbst auf; war eine schon im Raum platziert, bleibt sie in der Liste, damit du sie entfernen oder mit 👁 ausblenden kannst.
+Der Raum braucht einen Bereich, und das Gerät muss diesem Bereich zugeordnet sein, entweder das Gerät oder die Entität selbst. Steckt die Entität unter einem Gerät mit mehreren Entitäten, steht sie hinter „+n mehr“. Das Suchfeld findet sie direkt. In Home Assistant ausgeblendete oder deaktivierte Entitäten nimmt MasterPlan3D nicht von selbst auf; war eine schon im Raum platziert, bleibt sie in der Liste, damit du sie entfernen oder mit 👁 ausblenden kannst.
 
 **Eine Kamera ist schwer zu treffen.**
 Tippe auf ihren Sichtkegel am Boden, er zählt wie die Kamera.
@@ -1377,7 +1377,7 @@ Qualität auf **Tablet** stellen und mit **FPS** prüfen, was zeichnet. Im Leerl
 Die Zeitreise nimmt den Verlauf aus dem Recorder von Home Assistant. Steht dort „Ohne den Recorder … gibt es keinen Verlauf“, ist der Recorder abgeschaltet (`recorder:` in der `configuration.yaml`). Steht ein Gerät auf „unbekannt“, ist es vom Recorder ausgeschlossen (`exclude:` unter `recorder:`) oder erst seit Kurzem da. Graue Flächen am Anfang der Leiste: Der Recorder hat noch keine 24 Stunden gesammelt (frisch eingerichtet, oder `purge_keep_days` ist kleiner als 1). Schraffierte Flächen: Home Assistant war in dieser Zeit aus oder startete neu. Temperaturen und Leistungen kommen aus den Fünf-Minuten-Statistiken; ein Sensor ohne Zustandsklasse (`state_class: measurement`) wird stattdessen aus seinen Zuständen gezeigt. Meldet die Leiste „Bitte Home Assistant neu starten“, läuft im Hintergrund noch eine ältere Version.
 
 **Die 3D-Ansicht bricht gleich nach dem Start ab (Grafik verloren, „Error creating WebGL context“).**
-Manche ältere Grafikchips scheitern an Sonnenbahn, Hausschatten oder dem Fensterschein bei Nacht (etwa ältere AMD-Chips in Chrome auf dem Mac). Geht der 3D-Ansicht in den ersten Sekunden die Grafik verloren, merkt sich der Browser das: Ab dem nächsten Laden startet er ohne diese Effekte, und ⚙ Einstellungen sagt es dazu. Jede neue NeonPlan-Version probiert sie einmal wieder. Hat Chrome die Grafik nach mehreren Abstürzen gesperrt, Chrome ganz beenden und neu öffnen.
+Manche ältere Grafikchips scheitern an Sonnenbahn, Hausschatten oder dem Fensterschein bei Nacht (etwa ältere AMD-Chips in Chrome auf dem Mac). Geht der 3D-Ansicht in den ersten Sekunden die Grafik verloren, merkt sich der Browser das: Ab dem nächsten Laden startet er ohne diese Effekte, und ⚙ Einstellungen sagt es dazu. Jede neue MasterPlan3D-Version probiert sie einmal wieder. Hat Chrome die Grafik nach mehreren Abstürzen gesperrt, Chrome ganz beenden und neu öffnen.
 
 **Das Sonnenlicht fällt durch die falschen Fenster.**
 Unter Einstellungen die **Nordrichtung** prüfen: Grad im Uhrzeigersinn von „oben“ im Plan.
@@ -1386,10 +1386,10 @@ Unter Einstellungen die **Nordrichtung** prüfen: Grad im Uhrzeigersinn von „o
 Der Schlüssel war in den letzten zwölf Monaten mit mehr als fünf neuen Installationen verbunden. Melde dich bei uns, wir helfen.
 
 **Die Aktivierung meldet „Der Shop ist gerade ausgelastet“ oder „HTTP 429“.**
-Der Webhoster des Shops bremst zu viele Anfragen von einer Adresse. NeonPlan versucht es seit 1.9.1 selbst noch zweimal mit Pause; wenn es danach immer noch hakt, eine Minute warten und noch einmal auf **Aktivieren** klicken. Ältere Versionen vor 1.9.1 wurden vom Hoster an ihrem Browserkennzeichen abgewiesen – dort hilft nur das Update.
+Der Webhoster des Shops bremst zu viele Anfragen von einer Adresse. MasterPlan3D versucht es seit 1.9.1 selbst noch zweimal mit Pause; wenn es danach immer noch hakt, eine Minute warten und noch einmal auf **Aktivieren** klicken. Ältere Versionen vor 1.9.1 wurden vom Hoster an ihrem Browserkennzeichen abgewiesen – dort hilft nur das Update.
 
-**Die Meldung „Diese Seite zeigt noch NeonPlan 3D x.y, Home Assistant hat schon …“ bleibt.**
-Browser oder Companion-App halten noch ein altes NeonPlan-Bundle. Auf **Neu laden** tippen; in der Companion-App unter Einstellungen → Companion-App → **Frontend-Cache zurücksetzen**, dann die App ganz schließen und neu öffnen. Ein Neustart von Home Assistant hilft hier nicht. Dasselbe gilt, wenn eine gekaufte Pro-Erweiterung unter den Packs „braucht eine neuere NeonPlan-Version“ meldet.
+**Die Meldung „Diese Seite zeigt noch MasterPlan3D x.y, Home Assistant hat schon …“ bleibt.**
+Browser oder Companion-App halten noch ein altes MasterPlan3D-Bundle. Auf **Neu laden** tippen; in der Companion-App unter Einstellungen → Companion-App → **Frontend-Cache zurücksetzen**, dann die App ganz schließen und neu öffnen. Ein Neustart von Home Assistant hilft hier nicht. Dasselbe gilt, wenn eine gekaufte Pro-Erweiterung unter den Packs „braucht eine neuere MasterPlan3D-Version“ meldet.
 
 **Am Dach hängen zwei Hologramme (Energie Pro).**
 Das ist gewollt: Das große ist die **Hausbilanz** (Solar & Energie), das kleinere die **Anlagenkarte** des Wechselrichters, dessen Feld das ist – bei mehreren Anlagen hat jede ihre eigene. Zu viel? Im Abschnitt **Hologramm** die Hausbilanz **Frei im Plan** hängen (Griff ◈), oder im Wechselrichter-Formular den Haken **Anlagenkarte zeigen** rausnehmen. Eine kleine Karte, die scheinbar am Dach klebt, ist oft das Geräte-Hologramm eines Geräts im Raum darunter – Kamera etwas drehen.

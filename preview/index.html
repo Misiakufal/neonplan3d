@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NeonPlan 3D – Vorschau</title>
+    <title>MasterPlan3D – Vorschau</title>
     <style>
       /* Like HA: the panel's parent has no explicit height, the panel sizes itself. */
       body {
@@ -65,10 +65,10 @@
       async function previewPacks() {
         if (importedPacks === null) {
           importedPacks = [DEMO_PACK];
-          // the demo has NeonPlan Pro unless ?nopro asks for the locked look
+          // the demo has MasterPlan3D Pro unless ?nopro asks for the locked look
           // add-ons not out yet (Pool Pro) only on a local preview or with ?pool, not on the public demo
           const unreleasedDemo = params.has("pool") || ["localhost", "127.0.0.1"].includes(location.hostname);
-          if (!params.has("nopro")) importedPacks.push({ format: "fp3dpack", version: 1, id: "demo.pro", name: "NeonPlan Pro (Demo)", publisher: "Mastershort", licensee: null, features: ["camera_cockpit", "weather", "screens", "energy_pro", "sound", "auto_pro", "time_travel", "household", "fun_pets", "fun_halloween", ...(unreleasedDemo ? ["pool"] : [])], items: [] });
+          if (!params.has("nopro")) importedPacks.push({ format: "fp3dpack", version: 1, id: "demo.pro", name: "MasterPlan3D Pro (Demo)", publisher: "Mastershort", licensee: null, features: ["camera_cockpit", "weather", "screens", "energy_pro", "sound", "auto_pro", "time_travel", "household", "fun_pets", "fun_halloween", ...(unreleasedDemo ? ["pool"] : [])], items: [] });
           try {
             const res = await fetch("../private/packs/starter.json");
             if (res.ok) importedPacks.push({ licensee: null, ...(await res.json()) });
@@ -291,7 +291,7 @@
       let current = hass;
       await import("../custom_components/neonplan3d/frontend/neonplan3d.js");
       if (params.has("site")) {
-        // ?site: the public online demo says what it is and where to get NeonPlan 3D
+        // ?site: the public online demo says what it is and where to get MasterPlan3D
         const de = hass.language === "de";
         // phones: short and at the top of the 3D area, clear of the toolbars at the bottom
         const narrow = innerWidth < 700;
@@ -333,11 +333,11 @@
             `<button style="width:100%;margin-top:10px;padding:11px 14px;border-radius:12px;font:600 15px Figtree,Roboto,sans-serif;cursor:pointer;${primary ? "background:#00e5ff;color:#06101c;border:0" : "background:none;color:#cfe9ff;border:1px solid rgba(0,229,255,.45)"}">${text}</button>`;
           box.innerHTML = de
             ? `<b style="font-size:18px;color:#fff">Willkommen in der Demo 👋</b>
-               <p style="margin:10px 0 0">NeonPlan 3D ist für <b>Wandtablets, Tablets und den PC</b> gemacht – den Grundriss zeichnet man am PC. Am Handy siehst du nur einen kleinen Ausschnitt, deshalb wirken die vielen Knöpfe hier etwas eng.</p>
+               <p style="margin:10px 0 0">MasterPlan3D ist für <b>Wandtablets, Tablets und den PC</b> gemacht – den Grundriss zeichnet man am PC. Am Handy siehst du nur einen kleinen Ausschnitt, deshalb wirken die vielen Knöpfe hier etwas eng.</p>
                <p style="margin:8px 0 0">Tipp: Handy <b>quer</b> halten oder die Demo am PC öffnen: <span style="color:#00e5ff">neonplan3d.mastershort.de</span></p>
                ${btn("Nur das Haus zeigen", true)}${btn("Alles ansehen", false)}<p style="margin:10px 0 0;font-size:13px;opacity:.75">Das Auge 👁 unten links holt die Knöpfe zurück.</p>`
             : `<b style="font-size:18px;color:#fff">Welcome to the demo 👋</b>
-               <p style="margin:10px 0 0">NeonPlan 3D is made for <b>wall tablets, tablets and the PC</b> – you draw the floor plan on a PC. A phone shows only a small part, so all the buttons feel a bit cramped here.</p>
+               <p style="margin:10px 0 0">MasterPlan3D is made for <b>wall tablets, tablets and the PC</b> – you draw the floor plan on a PC. A phone shows only a small part, so all the buttons feel a bit cramped here.</p>
                <p style="margin:8px 0 0">Tip: turn your phone <b>sideways</b> or open the demo on a PC: <span style="color:#00e5ff">neonplan3d.mastershort.de</span></p>
                ${btn("Show just the house", true)}${btn("See everything", false)}<p style="margin:10px 0 0;font-size:13px;opacity:.75">The eye 👁 at the bottom left brings the buttons back.</p>`;
           const [clean, all] = box.querySelectorAll("button");

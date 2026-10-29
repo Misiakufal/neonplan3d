@@ -1,4 +1,4 @@
-"""NeonPlan 3D: draw your home in Home Assistant and control it in 3D."""
+"""MasterPlan3D: draw your home in Home Assistant and control it in 3D."""
 
 from __future__ import annotations
 
@@ -197,6 +197,6 @@ async def async_remove_entry(hass: HomeAssistant, entry: ConfigEntry) -> None:
     await async_remove_card_resource(hass)
     with contextlib.suppress(OSError):
         await hass.async_add_executor_job(remove_loader, Path(hass.config.path("www")))
-    # the Assist sentence files NeonPlan wrote (a file the user changed stays)
+    # the Assist sentence files MasterPlan3D wrote (a file the user changed stays)
     with contextlib.suppress(OSError):
         await async_remove_sentences(hass)

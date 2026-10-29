@@ -2,12 +2,12 @@
   "config": {
     "step": {
       "user": {
-        "title": "NeonPlan 3D",
+        "title": "MasterPlan3D",
         "description": "Doda stran v stransko vrstico, kjer narišeš svoj dom in ga vidiš v 3D."
       }
     },
     "abort": {
-      "single_instance_allowed": "NeonPlan 3D je že nastavljen."
+      "single_instance_allowed": "MasterPlan3D je že nastavljen."
     }
   }
 }

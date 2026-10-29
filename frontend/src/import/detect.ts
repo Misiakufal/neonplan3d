@@ -25,9 +25,9 @@ export interface ReadOptions {
 
 export interface ReadResult {
   kind: Kind;
-  /** Raw floors for the builder; null for a complete NeonPlan plan. */
+  /** Raw floors for the builder; null for a complete MasterPlan3D plan. */
   raw: RawPlan | null;
-  /** A complete NeonPlan plan (checked and repaired). */
+  /** A complete MasterPlan3D plan (checked and repaired). */
   building: Building | null;
   warnings: Warning[];
   layers?: DxfLayer[];

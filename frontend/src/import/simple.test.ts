@@ -48,7 +48,7 @@ test("the simple format: units, doors and windows on their edges, furniture by k
   assert.ok(warnings.some((w) => w.code === "rooms_skipped"));
 });
 
-test("a NeonPlan plan written by an AI with mistakes is repaired", () => {
+test("a MasterPlan3D plan written by an AI with mistakes is repaired", () => {
   const b = emptyBuilding();
   const f = newFloor("eg", "EG", 0);
   f.rooms = [

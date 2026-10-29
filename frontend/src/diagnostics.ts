@@ -1,4 +1,4 @@
-// Opt-in "help improve NeonPlan" reports (custom_components/neonplan3d/diagnostics_report.py).
+// Opt-in "help improve MasterPlan3D" reports (custom_components/neonplan3d/diagnostics_report.py).
 //
 // Off by default. Only while the user switched it on in the editor, this page collects: its device class,
 // browser and OS (name and major version), the 3D view's quality level, frame rate and GPU tier, how often

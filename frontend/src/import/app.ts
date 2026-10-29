@@ -1,4 +1,4 @@
-// The import page (neonplan3d.mastershort.de/import/): a file from another program in, a NeonPlan plan out. Everything
+// The import page (neonplan3d.mastershort.de/import/): a file from another program in, a MasterPlan3D plan out. Everything
 // runs in the browser – the file never leaves the computer.
 
 import type { Building, Floor, Vec2 } from "../model.ts";
@@ -11,9 +11,9 @@ import type { LayerRole } from "./dxf.ts";
 const DE = {
   title: "Plan importieren",
   beta: "Beta – noch im Test. Klappt etwas nicht, schick uns die Datei gern mit einer kurzen Beschreibung auf GitHub (Issues) oder Discord.",
-  lead: "Bring deinen Grundriss aus einem anderen Programm in NeonPlan 3D – Räume, Wände, Türen, Fenster und Möbel. Die Datei bleibt auf deinem Computer: alles läuft hier im Browser.",
+  lead: "Bring deinen Grundriss aus einem anderen Programm in MasterPlan3D – Räume, Wände, Türen, Fenster und Möbel. Die Datei bleibt auf deinem Computer: alles läuft hier im Browser.",
   drop: "Datei hierher ziehen oder klicken",
-  formats: "Sweet Home 3D (.sh3d) · iPhone-/iPad-Scan mit RoomPlan (.json) · CAD (.dxf) · 3D-Modell aus Blender, SketchUp & Co. (.glb, .gltf, .obj, .stl) · Floorplanner (.json) · Valetudo-Saugroboterkarte (.json) · NeonPlan-Importformat oder ein NeonPlan-Plan von einer KI (.json)",
+  formats: "Sweet Home 3D (.sh3d) · iPhone-/iPad-Scan mit RoomPlan (.json) · CAD (.dxf) · 3D-Modell aus Blender, SketchUp & Co. (.glb, .gltf, .obj, .stl) · Floorplanner (.json) · Valetudo-Saugroboterkarte (.json) · MasterPlan3D-Importformat oder ein MasterPlan3D-Plan von einer KI (.json)",
   how: "So exportierst du aus …",
   how_items: [
     ["Sweet Home 3D", "Die gespeicherte .sh3d-Datei direkt hierher ziehen. Dateien aus Versionen vor 5.3 (2016) einmal in einer aktuellen Version öffnen und speichern."],
@@ -54,8 +54,8 @@ const DE = {
   role_ignore: "ignorieren",
   preview: "Vorschau",
   room_names: "Räume umbenennen",
-  download: "NeonPlan-Datei herunterladen",
-  next: "In NeonPlan: Editor → Sicherung → Importieren … und diese Datei wählen. Danach Räume mit Home-Assistant-Bereichen verknüpfen und Geräte setzen.",
+  download: "MasterPlan3D-Datei herunterladen",
+  next: "In MasterPlan3D: Editor → Sicherung → Importieren … und diese Datei wählen. Danach Räume mit Home-Assistant-Bereichen verknüpfen und Geräte setzen.",
   warnings: "Hinweise",
   w_no_rooms: "Keine Räume gefunden.",
   w_no_rooms_found: "{floor}: aus den Wänden ergaben sich keine geschlossenen Räume – Layer oder Einheit prüfen.",
@@ -74,7 +74,7 @@ const DE = {
   e_dxf_broken: "Die DXF-Datei enthält keine Zeichnung (ENTITIES fehlt).",
   e_gltf_external: "Die glTF-Datei verweist auf externe Dateien. Bitte als .glb (alles in einer Datei) exportieren.",
   e_zip_broken: "Die Datei ist beschädigt.",
-  e_not_plan: "Das ist kein vollständiger NeonPlan-Plan.",
+  e_not_plan: "Das ist kein vollständiger MasterPlan3D-Plan.",
   privacy: "Datenschutz: Die Datei wird nur in deinem Browser gelesen und nirgendwohin hochgeladen. Wir zählen nur anonym, wie oft die Seite genutzt wird und welche Formate – ohne Cookies, ohne IP-Adresse, ohne Inhalte.",
   ai: "Plan mit KI erstellen: Vorlage",
   format_doc: "Importformat",
@@ -83,9 +83,9 @@ const DE = {
 const EN: typeof DE = {
   title: "Import a plan",
   beta: "Beta – still being tested. If something goes wrong, please send us the file with a short note on GitHub (issues) or Discord.",
-  lead: "Bring your floor plan from another program into NeonPlan 3D – rooms, walls, doors, windows and furniture. The file stays on your computer: everything runs here in the browser.",
+  lead: "Bring your floor plan from another program into MasterPlan3D – rooms, walls, doors, windows and furniture. The file stays on your computer: everything runs here in the browser.",
   drop: "Drop a file here or click",
-  formats: "Sweet Home 3D (.sh3d) · iPhone/iPad scan with RoomPlan (.json) · CAD (.dxf) · 3D model from Blender, SketchUp & co. (.glb, .gltf, .obj, .stl) · Floorplanner (.json) · Valetudo robot vacuum map (.json) · NeonPlan import format or a NeonPlan plan written by an AI (.json)",
+  formats: "Sweet Home 3D (.sh3d) · iPhone/iPad scan with RoomPlan (.json) · CAD (.dxf) · 3D model from Blender, SketchUp & co. (.glb, .gltf, .obj, .stl) · Floorplanner (.json) · Valetudo robot vacuum map (.json) · MasterPlan3D import format or a MasterPlan3D plan written by an AI (.json)",
   how: "How to export from …",
   how_items: [
     ["Sweet Home 3D", "Drop the saved .sh3d file here. Files from versions before 5.3 (2016): open and save them once in a current version."],
@@ -126,8 +126,8 @@ const EN: typeof DE = {
   role_ignore: "ignore",
   preview: "Preview",
   room_names: "Rename rooms",
-  download: "Download the NeonPlan file",
-  next: "In NeonPlan: Editor → Backup → Import … and choose this file. Then link the rooms to Home Assistant areas and place your devices.",
+  download: "Download the MasterPlan3D file",
+  next: "In MasterPlan3D: Editor → Backup → Import … and choose this file. Then link the rooms to Home Assistant areas and place your devices.",
   warnings: "Notes",
   w_no_rooms: "No rooms found.",
   w_no_rooms_found: "{floor}: the walls enclose no closed rooms – check the layers or the unit.",
@@ -146,7 +146,7 @@ const EN: typeof DE = {
   e_dxf_broken: "The DXF file holds no drawing (ENTITIES missing).",
   e_gltf_external: "The glTF file points to external files. Please export as .glb (all in one file).",
   e_zip_broken: "The file is damaged.",
-  e_not_plan: "This is no complete NeonPlan plan.",
+  e_not_plan: "This is no complete MasterPlan3D plan.",
   privacy: "Privacy: the file is only read in your browser and uploaded nowhere. We only count anonymously how often the page is used and which formats – no cookies, no IP address, no contents.",
   ai: "Create a plan with AI: template",
   format_doc: "Import format",
@@ -343,13 +343,13 @@ function render(): void {
   const t = T();
   const root = document.getElementById("app")!;
   document.documentElement.lang = lang;
-  document.title = `NeonPlan 3D – ${t.title}`;
+  document.title = `MasterPlan3D – ${t.title}`;
   const b = state.building;
   const s = b ? stats(b) : null;
   const warns = [...(state.read?.warnings ?? []), ...(state.result?.warnings ?? [])];
   root.innerHTML = `
     <header>
-      <a class="brand" href="../">NeonPlan 3D</a>
+      <a class="brand" href="../">MasterPlan3D</a>
       <h1>${esc(t.title)} <span class="beta">Beta</span></h1>
       <button class="lang" data-lang="${lang === "de" ? "en" : "de"}">${lang === "de" ? "English" : "Deutsch"}</button>
     </header>
@@ -366,7 +366,7 @@ function render(): void {
     ${
       b && s
         ? `<section class="card summary">
-            <span>${esc(t.source)}: <b>${esc(state.read?.raw?.source ?? "NeonPlan")}</b></span>
+            <span>${esc(t.source)}: <b>${esc(state.read?.raw?.source ?? "MasterPlan3D")}</b></span>
             <span><b>${s.floors}</b> ${esc(t.floors)}</span><span><b>${s.rooms}</b> ${esc(t.rooms)}</span><span><b>${s.doors}</b> ${esc(t.doors)}</span>
             <span><b>${s.windows}</b> ${esc(t.windows)}</span><span><b>${s.furniture}</b> ${esc(t.furniture)}</span>${s.walls ? `<span><b>${s.walls}</b> ${esc(t.walls)}</span>` : ""}
           </section>

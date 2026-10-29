@@ -104,7 +104,7 @@ export function personsInRooms(hass: HomeAssistant, building: Building): PersonM
 }
 
 /**
- * People and things NeonPlan's own locating puts in a room: its sensors (attribute neonplan_locate) name a room of
+ * People and things MasterPlan3D's own locating puts in a room: its sensors (attribute neonplan_locate) name a room of
  * the plan. A device of a person who is away is left out; several in one room stand on a small circle.
  */
 export function locatedPersons(hass: HomeAssistant, building: Building, skip: ReadonlySet<string> = new Set(), now = Date.now()): PersonMarker[] {

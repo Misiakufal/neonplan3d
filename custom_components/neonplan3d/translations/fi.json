@@ -2,12 +2,12 @@
   "config": {
     "step": {
       "user": {
-        "title": "NeonPlan 3D",
+        "title": "MasterPlan3D",
         "description": "Lisää sivupalkkiin sivun, jolla piirrät kotisi ja näet sen 3D:nä."
       }
     },
     "abort": {
-      "single_instance_allowed": "NeonPlan 3D on jo määritetty."
+      "single_instance_allowed": "MasterPlan3D on jo määritetty."
     }
   }
 }
