@@ -139,7 +139,8 @@ function copyFonts() {
 // main 724 KB on 2026-10-29 for the 3D safety net on graphics chips that fail on the sun effects (#827), the 24-hour clock from the profile (#823) and their texts
 // main 726 KB on 2026-10-29: announcements from automations shown and spoken on the screens
 // Floor-process controls and their translated labels add about 4 KB to the editor and 1 KB to shared UI.
-const BUDGET = { "masterplan3d.js": 727 * 1024, "masterplan3d-fun.js": 40 * 1024, "masterplan3d-voice.js": 60 * 1024, "masterplan3d-locate.js": 160 * 1024, "masterplan3d-timetravel.js": 120 * 1024, "masterplan3d-3d.js": 836 * 1024, "masterplan3d-editor.js": 950 * 1024, "masterplan3d-card-editor.js": 275 * 1024 };
+// The five-second floor-process overlay adds about 5 KB to the main bundle.
+const BUDGET = { "masterplan3d.js": 732 * 1024, "masterplan3d-fun.js": 40 * 1024, "masterplan3d-voice.js": 60 * 1024, "masterplan3d-locate.js": 160 * 1024, "masterplan3d-timetravel.js": 120 * 1024, "masterplan3d-3d.js": 836 * 1024, "masterplan3d-editor.js": 950 * 1024, "masterplan3d-card-editor.js": 275 * 1024 };
 
 copyFonts();
 if (watch) {

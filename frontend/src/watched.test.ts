@@ -48,3 +48,14 @@ test("the room sensors are only watched for the heatmap or the room values; a ch
   assert.ok(ids.includes("weather.b"));
   assert.ok(!ids.includes("weather.a"));
 });
+
+
+test("floor process status, progress and optional time-left sensors stay watched without duplicate IDs", () => {
+  const { hass, b, openings, furniture } = setup();
+  b.floors[0].processes = [
+    { id: "wash", name: "Laundry", running_entity: "binary_sensor.wash", progress_entity: "sensor.progress", time_left_entity: "sensor.remaining" },
+    { id: "dry", name: "Dryer", running_entity: "binary_sensor.dry", progress_entity: "sensor.progress" },
+  ];
+  const ids = watchedEntities(hass, b, { openings, furniture, heat: false, warnings: [], weatherEntityId: null });
+  for (const id of ["binary_sensor.wash", "binary_sensor.dry", "sensor.progress", "sensor.remaining"]) assert.equal(ids.filter((value) => value === id).length, 1);
+});

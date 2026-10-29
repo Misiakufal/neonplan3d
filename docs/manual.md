@@ -145,7 +145,11 @@ On the far left of the toolbar is **Floor: Ground floor ▾** – the floor you 
 
 In **Editor → Floor settings → Processes**, choose **Add process**. Enter a name and select the Home Assistant entities for its running state and progress. You can also select a time-left entity; leave it unselected when the process has none. Search the selectors by entity name or ID, then choose **Save process**. Saving is enabled once all three required fields are filled.
 
-Each floor keeps its own process list. Use **Edit process** or **Delete** to change it; **Cancel** discards an unfinished edit. Changes use the editor's normal save and undo/redo controls. Full plan exports and backups retain the definitions; shareable templates omit them because they contain private entity links. These settings define the processes; they do not add a live process display to the 3D view.
+Each floor keeps its own process list. Use **Edit process** or **Delete** to change it; **Cancel** discards an unfinished edit. Changes use the editor's normal save and undo/redo controls. Full plan exports and backups retain the definitions; shareable templates omit them because they contain private entity links.
+
+In **3D**, select a single floor to see its active processes in translucent panels at the upper left. Panels follow the configured list order and occupy 15% of the 3D view's width. Each shows the process name, percentage and progress bar, followed by remaining time when that entity is configured. Long lists scroll vertically. The process list, progress and remaining time refresh together every five seconds from Home Assistant's latest states. Returning to **All floors** hides the panels.
+
+Running-state entities can report `on`, `true`, a positive numeric boolean, or common activity states such as `running`, `washing`, `printing` or `cleaning`. Missing, unavailable, paused and idle states stay hidden. Progress is read as a percentage and bounded to 0–100; an unavailable progress sensor shows a dash and an indeterminate bar. Remaining-time sensors support minutes, seconds, hours, durations such as `01:15:00`, or an end timestamp.
 
 ### 4.3 Drawing rooms
 

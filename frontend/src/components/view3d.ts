@@ -1,6 +1,7 @@
 // Lit wrapper around the lazily loaded 3D viewer.
 
 import { css, html, LitElement, nothing, svg, type PropertyValues } from "lit";
+import "./floor-process-overlay.ts";
 import { linesField } from "./lines-field.ts";
 import { carState, type CarState, heatSensorOn, roomClimateValue,
   appColor,
@@ -237,6 +238,7 @@ export class Fp3dView3d extends LitElement {
     hass: { attribute: false },
     building: { attribute: false },
     floorId: { attribute: false },
+    _processPanels: { state: true },
     roomId: { attribute: false },
     wallMode: { attribute: false },
     explode: { type: Boolean },
@@ -356,6 +358,7 @@ export class Fp3dView3d extends LitElement {
   /** How long the last full sync took (ms, smoothed), shown with the stats. */
   private syncMs = 0;
   declare floorId: string | null;
+  private declare _processPanels: boolean;
   declare roomId: string | null;
   declare wallMode: WallMode;
   declare explode: boolean;
@@ -663,6 +666,7 @@ export class Fp3dView3d extends LitElement {
     this.replay = null;
     this._info = null;
     this.floorId = null;
+    this._processPanels = false;
     this.roomId = null;
     this.wallMode = "auto";
     this.explode = true;
@@ -971,6 +975,7 @@ export class Fp3dView3d extends LitElement {
   }
 
   protected willUpdate(changed: PropertyValues): void {
+    if (!this.floorId || this.ro || this.cameraWall) this._processPanels = false;
     // this bundle's own copy of the ground: lamps and markers on a sloped lawn sit on it
     if (changed.has("building")) {
       setTerrain(this.building ?? null);
@@ -5604,12 +5609,19 @@ export class Fp3dView3d extends LitElement {
       @touchstart=${this.keepTouch}
       @touchmove=${this.keepTouch}
       @touchend=${this.keepTouch}
-      class="fp3d-stage ${this.roomLabels ? "" : "fp3d-no-room-names"} ${this._low ? "fp3d-low" : ""} ${this.panelOpen ? "fp3d-panel-open" : ""} ${this.controlsRight ? "fp3d-side-right" : ""} ${this._alerts.length ? "fp3d-has-alerts" : ""} ${this._through ? "fp3d-through-on" : ""} ${this._flash ? "fp3d-flash" : ""} ${this.replay ? "fp3d-replay" : ""}"
+      class="fp3d-stage ${this._processPanels ? "fp3d-has-processes" : ""} ${this.roomLabels ? "" : "fp3d-no-room-names"} ${this._low ? "fp3d-low" : ""} ${this.panelOpen ? "fp3d-panel-open" : ""} ${this.controlsRight ? "fp3d-side-right" : ""} ${this._alerts.length ? "fp3d-has-alerts" : ""} ${this._through ? "fp3d-through-on" : ""} ${this._flash ? "fp3d-flash" : ""} ${this.replay ? "fp3d-replay" : ""}"
       style=${style}
     >
       ${this._error ? html`<p class="fp3d-error">${this._error}</p>` : nothing} ${this.clean ? nothing : this.renderEnergy()} ${this.renderHologram()} ${this.clean ? nothing : this.renderLegend()}
       ${this.renderClock()} ${this.renderAlerts()} ${this.clean || this._walk ? nothing : html`${this.renderHousehold()} ${this.renderThumbs()} ${this.renderScenes()} ${this.renderFind()} ${this.renderCentral()}`} ${this.clean ? nothing : this.renderWalk()} ${this.renderSwipe()} ${this.renderInfo()} ${this.renderBinInfo()} ${this.renderGangMenu()} ${this.renderThrough()} ${this.renderCameraWall()} ${this.renderSheet()} ${this.renderSettings()} ${this.renderNote()}
       ${this.clean ? nothing : this.renderProHint()} ${this.renderMenu()} ${this.renderEye()}
+      ${this.floorId && !this.ro && !this.cameraWall ? html`<fp3d-floor-processes
+        .hass=${this.hass}
+        .floor=${this.building?.floors.find((f) => f.id === this.floorId)}
+        @process-panels-changed=${(e: CustomEvent<{ active: boolean }>) => (this._processPanels = e.detail.active)}
+        @pointerdown=${(e: Event) => e.stopPropagation()}
+        @wheel=${(e: Event) => e.stopPropagation()}
+      ></fp3d-floor-processes>` : nothing}
       ${this.renderMic()}
       ${this._announce ? html`<div class="fp3d-announce" role="status" @click=${() => (this._announce = null)}>📢 ${this._announce}</div>` : nothing}
       ${this.pivotMark && !this._walk ? html`<span class="fp3d-pivot" aria-hidden="true"></span>` : nothing}
@@ -7712,6 +7724,13 @@ export class Fp3dView3d extends LitElement {
         max-width: calc(100% - 24px);
         pointer-events: none;
       }
+      .fp3d-has-processes .fp3d-energy,
+      .fp3d-has-processes .fp3d-clock-tl,
+      .fp3d-has-processes .fp3d-clock-bl {
+        left: calc(15% + 24px);
+        max-width: calc(85% - 36px);
+      }
+      .fp3d-has-processes .fp3d-alert-banner { left: calc(15% + 24px); right: 12px; max-width: none; transform: none; }
       .fp3d-energy-item {
         display: grid;
         padding: 5px 11px 6px;
