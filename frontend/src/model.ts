@@ -381,12 +381,23 @@ export interface Background {
   rotation?: number;
 }
 
+/** An activity configured for one floor; entity states are supplied by Home Assistant. */
+export interface FloorProcess {
+  id: string;
+  name: string;
+  running_entity: string;
+  progress_entity: string;
+  time_left_entity?: string | null;
+}
+
 export interface Floor {
   id: string;
   name: string;
   elevation: number;
   height: number;
   cut_height: number;
+  /** Optional for plans saved before floor processes were introduced. */
+  processes?: FloorProcess[];
   rooms: Room[];
   openings: Opening[];
   furniture: Furniture[];

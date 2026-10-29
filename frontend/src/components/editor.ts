@@ -106,6 +106,7 @@ import {
   uid,
   type Building,
   type Floor,
+  type FloorProcess,
   type Furniture,
   type FurnitureType,
   type LampMount,
@@ -607,6 +608,7 @@ export class Fp3dEditor extends LitElement {
   private declare _shiftX: number;
   /** Shift and turn take every floor with them (roof, outdoor areas, cables, hologram included). */
   private declare _shiftAll: boolean;
+  private _processDraft: { floorId: string; value: FloorProcess } | null = null;
   /** The background picture is being moved and scaled in the plan (drag it, pull its corner). */
   private declare _bgEdit: boolean;
   /** Scale the background with a ruler (#183): null = off, else the points tapped so far (two = waiting for the length). */
@@ -10520,6 +10522,7 @@ export class Fp3dEditor extends LitElement {
             : floor
               ? this.renderRoomList(floor)
               : nothing}
+      ${floor ? this.renderFloorProcesses(floor) : nothing}
       ${this.renderHelpLinks()}
       ${admin && SHOW_PRESENCE ? this.renderPresenceSettings() : nothing}
       ${floor && admin ? this.renderBackgroundForm(floor) : nothing}
@@ -10535,6 +10538,52 @@ export class Fp3dEditor extends LitElement {
       const [room] = floor.rooms.splice(i, 1);
       floor.rooms.splice(j, 0, room);
     });
+  }
+
+  private renderFloorProcesses(floor: Floor) {
+    const processes = floor.processes ?? [];
+    const draft = this._processDraft?.floorId === floor.id ? this._processDraft.value : null;
+    const start = (value: FloorProcess) => {
+      this._processDraft = { floorId: floor.id, value: { ...value } };
+      this.requestUpdate();
+    };
+    const patch = (value: Partial<FloorProcess>) => {
+      if (!draft) return;
+      Object.assign(draft, value);
+      this.requestUpdate();
+    };
+    const close = () => { this._processDraft = null; this.requestUpdate(); };
+    const valid = draft && draft.name.trim() && draft.name.trim().length <= 100 && draft.running_entity && draft.progress_entity;
+    const options = this.entityOptionsOf(() => true);
+    return html`<section class="fp3d-floor-processes">
+      <h3>${this.t("floor_processes")}</h3>
+      <p class="fp3d-sub">${this.t("floor_processes_hint")}</p>
+      ${processes.length ? processes.map((p) => html`<div class="fp3d-row">
+        <span>${p.name}</span>
+        ${this.isAdmin ? html`<button class="fp3d-btn" aria-label=${this.t("floor_process_edit") + ": " + p.name} @click=${() => start(p)}>${this.t("floor_process_edit")}</button>
+          <button class="fp3d-btn fp3d-danger" aria-label=${this.t("delete") + ": " + p.name} @click=${() => {
+            this.updateFloor({ processes: processes.filter((item) => item.id !== p.id) });
+            if (draft?.id === p.id) close();
+          }}>${this.t("delete")}</button>` : nothing}
+      </div>`) : html`<p class="fp3d-sub">${this.t("floor_processes_empty")}</p>`}
+      ${this.isAdmin && draft ? html`<div class="fp3d-form">
+        <label class="fp3d-field fp3d-wide">${this.t("floor_process_name")}
+          <input required maxlength="100" .value=${draft.name} @input=${(e: Event) => patch({ name: (e.target as HTMLInputElement).value })} />
+        </label>
+        ${this.entitySelect(this.t("floor_process_running"), draft.running_entity || null, undefined, options, (v) => patch({ running_entity: v === "none" ? "" : v ?? "" }))}
+        ${this.entitySelect(this.t("floor_process_progress"), draft.progress_entity || null, undefined, options, (v) => patch({ progress_entity: v === "none" ? "" : v ?? "" }))}
+        ${this.entitySelect(this.t("floor_process_time_left"), draft.time_left_entity ?? null, undefined, options, (v) => patch({ time_left_entity: v === "none" ? null : v }))}
+        <div class="fp3d-actions fp3d-wide">
+          <button class="fp3d-btn fp3d-primary" ?disabled=${!valid} @click=${() => {
+            if (!valid || !this.isAdmin) return;
+            const value = { ...draft, name: draft.name.trim() };
+            this.updateFloor({ processes: processes.some((p) => p.id === value.id) ? processes.map((p) => p.id === value.id ? value : p) : [...processes, value] });
+            close();
+          }}>${this.t("floor_process_save")}</button>
+          <button class="fp3d-btn" @click=${close}>${this.t("cancel")}</button>
+        </div>
+      </div>` : this.isAdmin ? html`<button class="fp3d-btn" @click=${() => start({ id: uid("process"), name: "", running_entity: "", progress_entity: "", time_left_entity: null })}>${this.t("floor_process_add")}</button>` : nothing}
+    </section>`;
   }
 
   private renderRoomList(floor: Floor) {
@@ -13961,6 +14010,8 @@ export class Fp3dEditor extends LitElement {
         cursor: pointer;
         text-align: left;
       }
+      .fp3d-floor-processes .fp3d-row { flex-wrap: wrap; align-items: center; cursor: default; }
+      .fp3d-floor-processes .fp3d-row > span { flex: 1 1 100%; overflow-wrap: anywhere; }
       .fp3d-row:hover {
         color: var(--fp3d-accent);
       }

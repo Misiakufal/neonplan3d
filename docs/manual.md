@@ -141,6 +141,12 @@ On the far left of the toolbar is **Floor: Ground floor ▾** – the floor you 
 
 ![Rooms from areas](images/editor-area-rooms.jpg)
 
+#### Processes on a floor
+
+In **Editor → Floor settings → Processes**, choose **Add process**. Enter a name and select the Home Assistant entities for its running state and progress. You can also select a time-left entity; leave it unselected when the process has none. Search the selectors by entity name or ID, then choose **Save process**. Saving is enabled once all three required fields are filled.
+
+Each floor keeps its own process list. Use **Edit process** or **Delete** to change it; **Cancel** discards an unfinished edit. Changes use the editor's normal save and undo/redo controls. Full plan exports and backups retain the definitions; shareable templates omit them because they contain private entity links. These settings define the processes; they do not add a live process display to the 3D view.
+
 ### 4.3 Drawing rooms
 
 - **Rectangle:** Tap the plan and drag.

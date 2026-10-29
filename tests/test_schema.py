@@ -4,6 +4,8 @@ import pytest
 import voluptuous as vol
 
 from custom_components.neonplan3d.schema import (
+    FLOOR_PROCESS_SCHEMA,
+    FLOOR_SCHEMA,
     FURNITURE_SCHEMA,
     HOLOGRAM_SCHEMA,
     OPENING_SCHEMA,
@@ -321,3 +323,44 @@ def test_door_keeps_its_opening_angle() -> None:
     assert OPENING_SCHEMA({**door, "open_angle": 15})["open_angle"] == 15
     with pytest.raises(vol.Invalid):
         OPENING_SCHEMA({**door, "open_angle": 200})
+
+
+PROCESS = {
+    "id": "laundry",
+    "name": "Laundry",
+    "running_entity": "binary_sensor.washer_running",
+    "progress_entity": "sensor.washer_progress",
+}
+
+
+def test_floor_process_optional_time_left() -> None:
+    assert FLOOR_PROCESS_SCHEMA(PROCESS)["time_left_entity"] is None
+    process = FLOOR_PROCESS_SCHEMA({**PROCESS, "time_left_entity": "sensor.washer_remaining"})
+    assert process["time_left_entity"] == "sensor.washer_remaining"
+
+
+@pytest.mark.parametrize("field", ["name", "running_entity", "progress_entity"])
+@pytest.mark.parametrize("value", [None, "", "   "])
+def test_floor_process_requires_name_and_entities(field: str, value: str | None) -> None:
+    with pytest.raises(vol.Invalid):
+        FLOOR_PROCESS_SCHEMA({**PROCESS, field: value})
+    with pytest.raises(vol.Invalid):
+        FLOOR_PROCESS_SCHEMA({k: v for k, v in PROCESS.items() if k != field})
+
+
+def test_floor_processes_are_saved_per_floor_and_older_plans_still_work() -> None:
+    floor = {
+        "id": "ground",
+        "name": "Ground",
+        "elevation": 0,
+        "height": 2.5,
+        "cut_height": 1.15,
+        "rooms": [],
+        "openings": [],
+        "furniture": [],
+        "placements": [],
+        "background": None,
+    }
+    assert FLOOR_SCHEMA(floor)["processes"] == []
+    assert FLOOR_SCHEMA({**floor, "processes": [PROCESS]})["processes"][0]["name"] == "Laundry"
+    assert FLOOR_SCHEMA({**floor, "id": "upper"})["processes"] == []

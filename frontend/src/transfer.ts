@@ -19,6 +19,8 @@ export function withoutEntities(b: Building): Building {
   out.presence = [];
   for (const f of out.floors) {
     f.placements = [];
+    // Process definitions require private entity links; omit them from shared templates.
+    delete f.processes;
     f.background = null;
     f.rooms = f.rooms.map((r) => ({ ...r, area_id: null }));
     f.furniture = f.furniture.map((m) => ({ ...m, entity: null, power: null }));

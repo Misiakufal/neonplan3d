@@ -706,6 +706,17 @@ FREE_WALL_SCHEMA = vol.Schema(
     extra=vol.ALLOW_EXTRA,
 )
 
+FLOOR_PROCESS_SCHEMA = vol.Schema(
+    {
+        vol.Required("id"): _ID,
+        vol.Required("name"): vol.All(str, str.strip, vol.Length(min=1, max=100)),
+        vol.Required("running_entity"): vol.All(str, str.strip, vol.Length(min=1, max=255)),
+        vol.Required("progress_entity"): vol.All(str, str.strip, vol.Length(min=1, max=255)),
+        vol.Optional("time_left_entity", default=None): _ENTITY_REF,
+    },
+    extra=vol.ALLOW_EXTRA,
+)
+
 FLOOR_SCHEMA = vol.Schema(
     {
         vol.Required("id"): _ID,
@@ -713,6 +724,7 @@ FLOOR_SCHEMA = vol.Schema(
         vol.Required("elevation"): vol.All(vol.Coerce(float), vol.Range(min=-100, max=500)),
         vol.Required("height"): vol.All(vol.Coerce(float), vol.Range(min=1, max=20)),
         vol.Required("cut_height"): vol.All(vol.Coerce(float), vol.Range(min=0.2, max=20)),
+        vol.Optional("processes", default=list): vol.All([FLOOR_PROCESS_SCHEMA], vol.Length(max=MAX_ITEMS)),
         vol.Required("rooms"): vol.All([ROOM_SCHEMA], vol.Length(max=MAX_ROOMS)),
         vol.Required("openings"): vol.All([OPENING_SCHEMA], vol.Length(max=MAX_ITEMS)),
         vol.Required("furniture"): vol.All([FURNITURE_SCHEMA], vol.Length(max=MAX_ITEMS)),

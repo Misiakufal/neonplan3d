@@ -39,3 +39,19 @@ test("import reads export files and plain buildings, and rejects anything else",
   assert.throws(() => parseExport("{}"));
   assert.throws(() => parseExport("kein json"));
 });
+
+
+test("floor processes survive a full export and stay out of shareable templates", () => {
+  const b = building();
+  b.floors[0].processes = [
+    { id: "wash", name: "Laundry", running_entity: "binary_sensor.washer_running", progress_entity: "sensor.washer_progress" },
+    { id: "dishes", name: "Dishes", running_entity: "sensor.dishwasher_state", progress_entity: "sensor.dishwasher_progress", time_left_entity: "sensor.dishwasher_remaining" },
+  ];
+  const saved = structuredClone(b.floors[0].processes);
+  const full = parseExport(JSON.stringify(exportFile(b, false)));
+  assert.deepEqual(full.floors[0].processes, saved);
+  assert.equal(full.floors[0].processes?.[0].time_left_entity, undefined);
+  const shared = exportFile(b, true);
+  assert.equal(shared.building.floors[0].processes, undefined);
+  assert.deepEqual(b.floors[0].processes, saved, "sharing must not change the original floor");
+});
