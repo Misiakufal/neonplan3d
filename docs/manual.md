@@ -278,6 +278,8 @@ The **Furniture** tool opens the library: the 80 built-in models and everything 
 
 The **Worktop** (Kitchen) is a free top without a base, for gaps in the kitchen or a self-built desk; its **height** is the top edge, 91 cm by default. Under Sofas, next to the sofa, there are a **Corner sofa (L-shaped)** and a **U-shaped sofa**; **Mirror** puts the corner sofa's side section on the other side. On devices that show the cards without pictures, hovering shows the bigger 3D preview as before.
 
+Under **Kitchen → Appliances**, **Air fryer Philips OVI Smart 2.0 XXL HD9880/90** has a rounded black body, silver band, display, dial and basket handle. Its default size is 33.5 × 44.3 × 35.1 cm (width × depth × height). It sits on a supporting worktop or table automatically; a manual mounting height overrides this. It also supports a power sensor like other electric appliances.
+
 **Symbols on the entries:**
 
 - 💡 A **lamp**: it links to a light and switches in 3D.

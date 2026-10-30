@@ -100,6 +100,20 @@ class Builder {
     this.loft([x0, x1, z0, z1], [x0 + r, x1 - r, z0 + r, z1 - r], y1 - r, y1, side, top);
   }
 
+  /** A rounded rectangular footprint extruded vertically, with an optional top outline. */
+  roundedBox(x0: number, x1: number, y0: number, y1: number, z0: number, z1: number, radius: number, side: number, top: number, edges: Color | null = null): void {
+    const r = Math.min(radius, (x1 - x0) / 2, (z1 - z0) / 2);
+    const poly: Vec2[] = [];
+    for (const [cx, cz, start] of [[x1 - r, z1 - r, 0], [x0 + r, z1 - r, 90], [x0 + r, z0 + r, 180], [x1 - r, z0 + r, 270]]) {
+      for (let i = 0; i <= 3; i++) {
+        const a = (start + i * 30) * DEG;
+        poly.push(this.tf(cx + Math.cos(a) * r, cz + Math.sin(a) * r));
+      }
+    }
+    pushPrism(this.buf, ccw(poly), y0, y1, side, top, { aoFrom: 0, bottom: y0 > 0.05 });
+    if (edges) for (let i = 0; i < poly.length; i++) this.line(poly[i], poly[(i + 1) % poly.length], y1, y1, edges);
+  }
+
   /** A cylinder lying along x or z (wheels, rollers); `edges` draws both rims. */
   lyingCyl(axis: "x" | "z", cx: number, cz: number, y0: number, y1: number, len: number, dia: number, side: number, cap = side, n = 12, edges: Color | null = null): void {
     const r = Math.min(dia, y1 - y0) / 2;
@@ -1148,6 +1162,29 @@ function island(b: Builder, w: number, d: number, h: number): void {
   b.box(-w / 2, w / 2, h - 0.04, h, -d / 2, d / 2, C.whiteTop, C.whiteTop, EDGE_FURN);
 }
 
+/** Philips OVI Smart 2.0 XXL HD9880/90: rounded shell, silver belt, TFT, dial and vertical drawer grip. */
+function philipsAirFryer(b: Builder, w: number, d: number, h: number): void {
+  const front = d * 0.41;
+  const r = w * 0.14;
+  // Four feet and a rounded black drawer/body; the handle occupies the front 9% of the depth.
+  for (const x of [-0.32, 0.32]) for (const z of [-0.3, 0.27]) b.box((x - 0.07) * w, (x + 0.07) * w, 0, h * 0.035, (z - 0.05) * d, (z + 0.05) * d, C.dark);
+  b.roundedBox(-w / 2, w / 2, h * 0.025, h * 0.565, -d / 2, front, r, C.body, C.bodyTop, EDGE_FURN);
+  b.roundedBox(-w / 2, w / 2, h * 0.565, h * 0.605, -d / 2, front, r, C.metal, C.metal, EDGE_FAINT);
+  b.roundedBox(-w / 2, w / 2, h * 0.605, h * 0.965, -d / 2, front, r, C.body, C.bodyTop, EDGE_FURN);
+  b.roundedBox(-w * 0.485, w * 0.485, h * 0.965, h, -d * 0.485, front - d * 0.015, r, C.dark, C.bodyTop, EDGE_FAINT);
+  // Front control fascia with a small display and the prominent silver rotary knob to its right.
+  b.pad(-w * 0.425, w * 0.425, h * 0.65, h * 0.91, front, front + d * 0.012, C.dark, C.glass, w * 0.02, EDGE_FAINT);
+  b.box(-w * 0.15, w * 0.11, h * 0.69, h * 0.855, front + d * 0.012, front + d * 0.015, C.glass, C.glass, EDGE_GLOW);
+  for (const y of [0.745, 0.795]) b.seg(-w * 0.10, h * y, front + d * 0.016, w * 0.065, h * y, front + d * 0.016, EDGE_GLOW);
+  b.lyingCyl("z", w * 0.30, front + d * 0.025, h * 0.71, h * 0.87, d * 0.035, w * 0.14, C.dark, C.metal, 16, EDGE_GLOW);
+  // Raised vertical handle, separated from the drawer face by its two mounting points.
+  for (const y of [0.10, 0.47]) b.box(-w * 0.065, w * 0.065, h * y, h * (y + 0.06), front, d / 2 - d * 0.025, C.dark);
+  b.pad(-w * 0.075, w * 0.075, h * 0.07, h * 0.535, d / 2 - d * 0.04, d / 2, C.body, C.metal, w * 0.025, EDGE_GLOW);
+  // Drawer split and rear ventilation slots.
+  b.seg(-w * 0.35, h * 0.55, front + d * 0.001, w * 0.35, h * 0.55, front + d * 0.001, EDGE_FAINT);
+  for (let i = 0; i < 6; i++) b.seg(-w * 0.25, h * (0.70 + i * 0.025), -d / 2 - 0.0005, w * 0.25, h * (0.70 + i * 0.025), -d / 2 - 0.0005, EDGE_FAINT);
+}
+
 function dishwasher(b: Builder, w: number, d: number, h: number): void {
   b.box(-w / 2, w / 2, 0.02, h - 0.04, -d / 2, d / 2 - 0.02, C.body, C.bodyTop, EDGE_FURN);
   b.box(-w / 2 + 0.02, w / 2 - 0.02, 0, 0.08, -d / 2 + 0.02, d / 2 - 0.06, C.dark);
@@ -1765,6 +1802,9 @@ function buildFurniture(buf: GeoBuffer, lines: LineBuffer, shadow: GeoBuffer, f:
       // only the 4 cm top at its height, nothing below it (no contact shadow)
       b.box(-w / 2, w / 2, Math.max(0, h - 0.04), h, -d / 2, d / 2, C.whiteTop, C.whiteTop, EDGE_FURN);
       return;
+    case "air_fryer_philips_hd9880":
+      philipsAirFryer(b, w, d, h);
+      break;
     case "dishwasher":
       dishwasher(b, w, d, h);
       break;

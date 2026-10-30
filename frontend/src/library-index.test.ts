@@ -2,6 +2,17 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { basicTypes, buildIndex, cardsOf, classify, familyLabel, familyOf, filterEntries, roomKindOf, sizeText, variantLabel, type LibraryEntry } from "./library-index.ts";
 import type { FurniturePack, PackItem } from "./packs.ts";
+import { furnitureSize } from "./packs.ts";
+import { furnitureName } from "./furniture-names.ts";
+
+test("the Philips air fryer is searchable under Kitchen / Appliances with its real dimensions and power link", () => {
+  const entries = buildIndex({ packs: [], basics: basicTypes(), language: "en", basicName: t => furnitureName(undefined, t), basicNameEn: t => furnitureName(undefined, t), kindName: k => k, size: furnitureSize });
+  const matches = filterEntries(entries, { query: "Philips HD9880/90", room: "kitchen", electric: true, light: false, outdoor: false });
+  assert.equal(matches.length, 1);
+  assert.equal(matches[0].type, "air_fryer_philips_hd9880");
+  assert.equal(matches[0].kind, "appliance");
+  assert.deepEqual(furnitureSize(matches[0].type), [0.335, 0.443, 0.351]);
+});
 
 const part = { shape: "box" as const, x: 0, z: 0, w: 1, d: 1, y: 0, h: 1, color: "dark" };
 const item = (id: string, en: string, de = en, extra: Partial<PackItem> = {}): PackItem => ({ id, name: { de, en }, size: [1, 0.5, 0.8], parts: [part], ...extra });

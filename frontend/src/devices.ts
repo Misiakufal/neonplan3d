@@ -883,6 +883,7 @@ const FURNITURE_NAMES: Record<string, RegExp> = {
   stove: /(herd|kochfeld|cooktop|stove|induktion)/i,
   kitchen_tall: /(backofen|oven|ofen)/i,
   dishwasher: /(spülmaschine|geschirrspül|dishwasher)/i,
+  air_fryer_philips_hd9880: /(air.?fryer|\bovi\b|hd9880|heißluft|frytkown)/i,
   washer: /(waschmaschine|washer|washing)/i,
   dryer: /(trockner|dryer)/i,
   kitchen: /(kaffee|coffee|wasserkocher|kettle)/i,

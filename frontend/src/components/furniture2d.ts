@@ -137,6 +137,8 @@ export function furnitureSymbol(type: string, w: number, d: number): Part[] | ty
       const bw = Math.min(0.5, w - 0.2);
       return [rect(-bw / 2, -d / 2 + 0.1, bw / 2, d / 2 - 0.08), circle(0, -d / 2 + 0.06, 0.025, "fp3d-sym-fill")];
     }
+    case "air_fryer_philips_hd9880":
+      return [rect(-w * 0.4, -d * 0.42, w * 0.4, d * 0.38), line(-w * 0.38, d * 0.15, w * 0.38, d * 0.15), rect(-w * 0.075, d * 0.32, w * 0.075, d * 0.5, "fp3d-sym-strong")];
     case "dishwasher":
       return [line(-w / 2 + 0.08, d / 2 - 0.05, w / 2 - 0.08, d / 2 - 0.05, "fp3d-sym-strong")];
     case "washer":

@@ -120,6 +120,7 @@ const BASIC: Record<string, [Kind, Room[]]> = {
   sink: ["kitchen", ["kitchen", "utility"]],
   stove: ["appliance", ["kitchen"]],
   dishwasher: ["appliance", ["kitchen"]],
+  air_fryer_philips_hd9880: ["appliance", ["kitchen"]],
   fridge: ["appliance", ["kitchen", "utility"]],
   fridge_smart: ["appliance", ["kitchen"]],
   bed: ["bed", ["bedroom", "kids"]],

@@ -7,6 +7,29 @@ import { hasFixedColors, packGlowCentre, packMotionParts, pushFurniture, screenP
 import { packMotion, type PackItem } from "../packs.ts";
 import { GeoBuffer, LineBuffer } from "./geo.ts";
 
+test("the Philips air fryer sits on a worktop, keeps its size when turned or mirrored and honours a manual height", () => {
+  const floor = newFloor("kitchen", "Kitchen", 0);
+  const f = { id: "air", type: "air_fryer_philips_hd9880", x: 0, z: 0, rotation: 0, w: 0.335, d: 0.443, h: 0.351, variant: null } as Furniture;
+  assert.equal(mountBase(floor, f), 0);
+  floor.furniture = [{ ...f, id: "counter", type: "worktop", w: 1.2, d: 0.65, h: 0.92 }, f];
+  assert.equal(mountBase(floor, f), 0.92);
+  assert.equal(mountBase(floor, { ...f, mount_y: 1.1 }), 1.1);
+  for (const rotation of [0, 90]) for (const mirror of [false, true]) {
+    const buf = new GeoBuffer();
+    const lines = new LineBuffer();
+    pushFurniture(buf, lines, new GeoBuffer(), { ...f, rotation, mirror }, mountBase(floor, f));
+    assert.ok(buf.count > 100);
+    assert.ok(buf.p.every(Number.isFinite) && lines.p.every(Number.isFinite));
+    const xs = buf.p.filter((_, i) => i % 3 === 0);
+    const ys = buf.p.filter((_, i) => i % 3 === 1);
+    const zs = buf.p.filter((_, i) => i % 3 === 2);
+    assert.ok(Math.abs(Math.min(...ys) - 0.92) < 1e-6);
+    assert.ok(Math.abs(Math.max(...ys) - 1.271) < 1e-6);
+    assert.ok(Math.abs(Math.max(...xs) - Math.min(...xs) - (rotation ? f.d : f.w)) < 1e-6);
+    assert.ok(Math.abs(Math.max(...zs) - Math.min(...zs) - (rotation ? f.w : f.d)) < 1e-6);
+  }
+});
+
 const PACK: FurniturePack = {
   id: "t.cars",
   name: "Cars",
