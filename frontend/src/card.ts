@@ -1,5 +1,6 @@
 // Lovelace card (loaded automatically by the integration, no resource needed).
 
+import { roomSelection } from "./room-selection.ts";
 import { zonesOf } from "./model.ts";
 import { confirmEntities } from "./devices.ts";
 import { countView } from "./diagnostics.ts";
@@ -409,16 +410,9 @@ clearTimeout(this.cleanTimer);
               .startView=${c?.start_view ?? null}
               style=${tt ? `--fp3d-bottom-inset: ${bar ? "calc(52px + var(--fp3d-tt-h))" : "var(--fp3d-tt-h)"}` : bar ? "--fp3d-bottom-inset: 52px" : ""}
               @room-tap=${(e: CustomEvent<{ floorId: string; roomId: string | null }>) => {
-                // in the house view (or on another floor) a tap first opens the whole floor; the floor as it is now,
-                // not as rendered: a jump switches the floor and opens the room 60 ms later, before a slow tablet
-                // has drawn again (#784)
-                if (this.canSwitch && (b?.floors.length ?? 0) > 1 && e.detail.floorId && this.currentFloor() !== e.detail.floorId) {
-                  this._floorId = e.detail.floorId;
-                  this._roomId = null;
-                  return;
-                }
-                if (!e.detail.roomId) return;
-                this._roomId = e.detail.roomId === this._roomId ? null : e.detail.roomId;
+                const next = roomSelection({ floorId: this.currentFloor(), roomId: this._roomId }, e.detail.floorId, e.detail.roomId, this.canSwitch && (b?.floors.length ?? 0) > 1);
+                if (next.floorId !== this.currentFloor()) this._floorId = next.floorId;
+                this._roomId = next.roomId;
               }}
               @floor-tap=${(e: CustomEvent<{ floorId: string | null }>) => {
                 this._floorId = e.detail.floorId;

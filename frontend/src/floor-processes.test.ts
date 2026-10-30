@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { floorProcessPanels, processRunning } from "./floor-processes.ts";
-import { newFloor } from "./model.ts";
+import { floorProcessPanels, processPanelsForView, processRunning } from "./floor-processes.ts";
+import { emptyBuilding, newFloor } from "./model.ts";
 import type { HassEntity, HomeAssistant } from "./types.ts";
 
 const entity = (state: string, attributes: Record<string, unknown> = {}): HassEntity => ({ entity_id: "sensor.test", state, attributes });
@@ -14,6 +14,22 @@ function floor() {
   ];
   return f;
 }
+
+test("all-floor panels combine active processes in floor order and switching back filters them", () => {
+  const b = emptyBuilding();
+  const ground = floor();
+  const upper = newFloor("upper", "Upper", 3);
+  upper.processes = [{ id: "wash", name: "Upper laundry", running_entity: "binary_sensor.upper", progress_entity: "sensor.upper_progress" }];
+  b.floors = [upper, ground, newFloor("empty", "Empty", -3)];
+  const h = hass({ "binary_sensor.wash": entity("on"), "sensor.dishes": entity("off"), "binary_sensor.upper": entity("on"), "sensor.upper_progress": entity("80") });
+  assert.deepEqual(processPanelsForView(h, b, null).map((p) => p.name), ["Upper laundry", "Laundry"], "process IDs may repeat across floors");
+  assert.deepEqual(processPanelsForView(h, b, "ground").map((p) => p.name), ["Laundry"]);
+  assert.deepEqual(processPanelsForView(h, b, "upper").map((p) => p.progress), [80]);
+  assert.deepEqual(processPanelsForView(h, b, "missing"), []);
+  assert.deepEqual(processPanelsForView(h, null, null), []);
+  h.states["binary_sensor.upper"].state = "off";
+  assert.deepEqual(processPanelsForView(h, b, null).map((p) => p.name), ["Laundry"]);
+});
 
 test("only explicit running states and positive boolean readings activate a process", () => {
   for (const state of ["on", "true", "1", "running", " RUNNING ", "active", "washing", "printing", "in_progress"]) {

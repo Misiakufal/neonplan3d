@@ -976,7 +976,7 @@ export class FloorplanViewer {
       return;
     }
     // a room, or an outdoor area acting as one (#100)
-    const fv = this.floors.find((f) => zonesOf(f.floor).some((r) => r.id === roomId));
+    const fv = this.floors.find((f) => (this.floorId === null || f.floor.id === this.floorId) && zonesOf(f.floor).some((r) => r.id === roomId));
     const room = fv ? zonesOf(fv.floor).find((r) => r.id === roomId) : undefined;
     if (!fv || !room) return;
     // a room may open with a camera of its own (#282)

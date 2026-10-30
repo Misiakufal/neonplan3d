@@ -975,7 +975,7 @@ export class Fp3dView3d extends LitElement {
   }
 
   protected willUpdate(changed: PropertyValues): void {
-    if (!this.floorId || this.ro || this.cameraWall) this._processPanels = false;
+    if (this.ro || this.cameraWall) this._processPanels = false;
     // this bundle's own copy of the ground: lamps and markers on a sloped lawn sit on it
     if (changed.has("building")) {
       setTerrain(this.building ?? null);
@@ -1034,7 +1034,8 @@ export class Fp3dView3d extends LitElement {
     if (changed.has("autoOrbit")) v.setAutoOrbit(this.autoOrbit ? 0.06 : 0);
     if (changed.has("_thumbs") || changed.has("_narrowStage")) v.setLabelInset(this._thumbs.length ? (this.narrowThumbs ? 136 : 184) : 0);
     if (changed.has("floorId")) v.setFloor(this.floorId);
-    if (changed.has("roomId") && (this.roomId || changed.get("roomId"))) v.selectRoom(this.roomId);
+    // setFloor clears the renderer's room selection, even when the next floor reuses the same room ID.
+    if ((changed.has("roomId") && (this.roomId || changed.get("roomId"))) || (changed.has("floorId") && this.roomId)) v.selectRoom(this.roomId);
     if (changed.has("wallMode")) v.setWallMode(this.wallMode);
     if (changed.has("keepView")) v.setKeepView(this.keepView);
     if (changed.has("angleLock")) v.setAngleLock(this.angleLock);
@@ -5615,9 +5616,10 @@ export class Fp3dView3d extends LitElement {
       ${this._error ? html`<p class="fp3d-error">${this._error}</p>` : nothing} ${this.clean ? nothing : this.renderEnergy()} ${this.renderHologram()} ${this.clean ? nothing : this.renderLegend()}
       ${this.renderClock()} ${this.renderAlerts()} ${this.clean || this._walk ? nothing : html`${this.renderHousehold()} ${this.renderThumbs()} ${this.renderScenes()} ${this.renderFind()} ${this.renderCentral()}`} ${this.clean ? nothing : this.renderWalk()} ${this.renderSwipe()} ${this.renderInfo()} ${this.renderBinInfo()} ${this.renderGangMenu()} ${this.renderThrough()} ${this.renderCameraWall()} ${this.renderSheet()} ${this.renderSettings()} ${this.renderNote()}
       ${this.clean ? nothing : this.renderProHint()} ${this.renderMenu()} ${this.renderEye()}
-      ${this.floorId && !this.ro && !this.cameraWall ? html`<fp3d-floor-processes
+      ${!this.ro && !this.cameraWall ? html`<fp3d-floor-processes
         .hass=${this.hass}
-        .floor=${this.building?.floors.find((f) => f.id === this.floorId)}
+        .building=${this.building}
+        .floorId=${this.floorId}
         @process-panels-changed=${(e: CustomEvent<{ active: boolean }>) => (this._processPanels = e.detail.active)}
         @pointerdown=${(e: Event) => e.stopPropagation()}
         @wheel=${(e: Event) => e.stopPropagation()}

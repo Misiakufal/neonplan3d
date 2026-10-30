@@ -1,25 +1,28 @@
 import { css, html, LitElement, nothing, type PropertyValues } from "lit";
 import { ifDefined } from "lit/directives/if-defined.js";
-import { floorProcessPanels, PROCESS_REFRESH_MS, type ProcessPanel } from "../floor-processes.ts";
+import { processPanelsForView, PROCESS_REFRESH_MS, type ProcessPanel } from "../floor-processes.ts";
 import { formatNumber, translate } from "../i18n.ts";
-import type { Floor } from "../model.ts";
+import type { Building } from "../model.ts";
 import type { HomeAssistant } from "../types.ts";
 
 /** Read the latest HA states every five seconds without rebuilding the 3D scene. */
 export class FloorProcessOverlay extends LitElement {
   static properties = {
     hass: { attribute: false },
-    floor: { attribute: false },
+    building: { attribute: false },
+    floorId: { attribute: false },
     _panels: { state: true },
   };
 
   declare hass: HomeAssistant | undefined;
-  declare floor: Floor | undefined;
+  declare building: Building | null | undefined;
+  declare floorId: string | null;
   private declare _panels: ProcessPanel[];
   private timer: ReturnType<typeof setInterval> | undefined;
 
   constructor() {
     super();
+    this.floorId = null;
     this._panels = [];
   }
 
@@ -36,12 +39,12 @@ export class FloorProcessOverlay extends LitElement {
   }
 
   protected willUpdate(changed: PropertyValues): void {
-    // Switching floors or editing a definition must never show the old floor's snapshot.
-    if (changed.has("floor")) this.refresh();
+    // Switching views or editing definitions immediately replaces the previous snapshot.
+    if (changed.has("building") || changed.has("floorId")) this.refresh();
   }
 
   private refresh = (): void => {
-    this._panels = floorProcessPanels(this.hass, this.floor);
+    this._panels = processPanelsForView(this.hass, this.building, this.floorId);
     const active = this._panels.length > 0;
     this.toggleAttribute("active", active);
     this.dispatchEvent(new CustomEvent("process-panels-changed", { detail: { active }, bubbles: true, composed: true }));

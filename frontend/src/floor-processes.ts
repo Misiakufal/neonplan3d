@@ -1,5 +1,5 @@
 import { remainingMinutes, remainingText } from "./household.ts";
-import type { Floor } from "./model.ts";
+import type { Building, Floor } from "./model.ts";
 import type { HassEntity, HomeAssistant } from "./types.ts";
 
 export const PROCESS_REFRESH_MS = 5000;
@@ -18,6 +18,12 @@ export interface ProcessPanel {
   progress: number | null;
   /** Undefined: no time-left entity; null: configured, but unavailable. */
   remaining: string | null | undefined;
+}
+
+/** All floors follow building order; a selected floor shows only its own processes. */
+export function processPanelsForView(hass: HomeAssistant | undefined, building: Building | null | undefined, floorId: string | null, now = Date.now()): ProcessPanel[] {
+  const floors = building?.floors ?? [];
+  return floors.filter((f) => floorId === null || f.id === floorId).flatMap((f) => floorProcessPanels(hass, f, now));
 }
 
 /** A snapshot of the selected floor, in its configured process order. */

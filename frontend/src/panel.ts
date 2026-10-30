@@ -1,5 +1,6 @@
 // Sidebar page: 3D view and editor.
 
+import { roomSelection } from "./room-selection.ts";
 import { formatImperial, lengthUnit, parseLength } from "./units.ts";
 import { css, html, LitElement, nothing, type PropertyValues } from "lit";
 import { BuildingController } from "./building-controller.ts";
@@ -256,16 +257,10 @@ export class Floorplan3dPanel extends LitElement {
     countView(mode);
   }
 
-  private onRoomTap(e: CustomEvent<{ floorId: string; roomId: string | null }>): void {
-    const { floorId, roomId } = e.detail;
-    // in the house view (or on another floor) a tap first opens the whole floor; rooms come next
-    if ((this.data.building?.floors.length ?? 0) > 1 && floorId && this._floorId !== floorId) {
-      this._floorId = floorId;
-      this._roomId = null;
-      return;
-    }
-    if (!roomId) return;
-    this._roomId = roomId === this._roomId ? null : roomId;
+  private selectRoom(floorId: string, roomId: string | null): void {
+    const next = roomSelection({ floorId: this._floorId, roomId: this._roomId }, floorId, roomId, (this.data.building?.floors.length ?? 0) > 1);
+    this._floorId = next.floorId;
+    this._roomId = next.roomId;
   }
 
   private setWallMode(mode: WallMode): void {
@@ -937,10 +932,7 @@ export class Floorplan3dPanel extends LitElement {
             (r) => html`<button
               class="fp3d-chip fp3d-room-chip"
               aria-pressed=${r.id === this._roomId}
-              @click=${() => {
-                if (b.floors.length > 1) this._floorId = f.id;
-                this._roomId = r.id === this._roomId ? null : r.id;
-              }}
+              @click=${() => this.selectRoom(f.id, r.id)}
             >
               ${r.name}
             </button>`,
@@ -1006,7 +998,7 @@ export class Floorplan3dPanel extends LitElement {
           @device-move=${this.moveDevice}
           .quality=${this._quality}
           ?showStats=${this._stats}
-          @room-tap=${this.onRoomTap}
+          @room-tap=${(e: CustomEvent<{ floorId: string; roomId: string | null }>) => this.selectRoom(e.detail.floorId, e.detail.roomId)}
           @open-extensions=${() => this.setMode("extensions")}
           @floor-tap=${(e: CustomEvent<{ floorId: string | null }>) => {
             this._floorId = e.detail.floorId;

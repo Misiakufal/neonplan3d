@@ -147,7 +147,7 @@ In **Editor → Floor settings → Processes**, choose **Add process**. Enter a 
 
 Each floor keeps its own process list. Use **Edit process** or **Delete** to change it; **Cancel** discards an unfinished edit. Changes use the editor's normal save and undo/redo controls. Full plan exports and backups retain the definitions; shareable templates omit them because they contain private entity links.
 
-In **3D**, select a single floor to see its active processes in translucent panels at the upper left. Panels follow the configured list order and occupy 15% of the 3D view's width. Each shows the process name, percentage and progress bar, followed by remaining time when that entity is configured. Long lists scroll vertically. The process list, progress and remaining time refresh together every five seconds from Home Assistant's latest states. Returning to **All floors** hides the panels.
+In **3D**, active processes appear in translucent panels at the upper left. **All floors** combines processes from every floor, following the floor list order and each floor’s configured process order. Selecting a single floor shows only its processes. Panels follow the configured list order and occupy 15% of the 3D view's width. Each shows the process name, percentage and progress bar, followed by remaining time when that entity is configured. Long lists scroll vertically. The process list, progress and remaining time refresh together every five seconds from Home Assistant's latest states. Switching between **All floors** and individual floors immediately updates the process list.
 
 Running-state entities can report `on`, `true`, a positive numeric boolean, or common activity states such as `running`, `washing`, `printing` or `cleaning`. Missing, unavailable, paused and idle states stay hidden. Progress is read as a percentage and bounded to 0–100; an unavailable progress sensor shows a dash and an indeterminate bar. Remaining-time sensors support minutes, seconds, hours, durations such as `01:15:00`, or an end timestamp.
 
@@ -563,7 +563,7 @@ The 3D view has three levels:
 
 **Navigating:**
 
-- Tap a floor label or a room to go one level down.
+- Tap a floor label to open that floor. Tap a room name in the top row or on the floor layout to select its floor and focus and zoom the room in one action, including from **All floors**.
 - **Double tap** an empty spot, **Esc** or **Back** go one level up.
 - Drag to turn the view, two fingers or the mouse wheel zoom.
 - The **floor pictures** on the left jump straight to a floor. The small arrow above them folds them into plain floor buttons (the device remembers it); in the card `floor_thumbs: false` turns them off.
