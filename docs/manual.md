@@ -375,7 +375,7 @@ TVs, media walls, the wall unit with a TV (the wall unit without a TV is a lamp:
 
 "Automatic" means MasterPlan3D finds the matching entity in the area by itself.
 
-A running built-in **washing machine** smoothly pulses its body in the same orange as an open door (**#FFB547**). One full fade-in/fade-out cycle takes **two seconds**. The original colours return when the machine stops. Running detection still uses the furniture’s linked device/state or power sensor and its **Running from (watts)** threshold; floor-process panels are configured separately. Dryers and dishwashers retain their existing lighting.
+A running built-in **washing machine or dishwasher** smoothly pulses its body in the same orange as an open door (**#FFB547**). One full fade-in/fade-out cycle takes **two seconds**. The original colours return when the machine stops. Running detection still uses the furniture’s linked device/state or power sensor and its **Running from (watts)** threshold; floor-process panels are configured separately. Dryers retain their existing lighting.
 
 ### 4.13 Cameras
 

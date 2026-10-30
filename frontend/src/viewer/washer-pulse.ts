@@ -10,7 +10,7 @@ export function washerPulseAmount(elapsed: number): number {
 
 interface Range { id: string; start: number; end: number }
 
-/** Recolour only washer vertices in the merged furniture mesh, preserving the original colours for restoration. */
+/** Recolour only running washer/dishwasher vertices in the merged furniture mesh, preserving the original colours for restoration. */
 export class WasherPulse {
   private entries = new Map<string, { start: number; base: Float32Array; at: number }>();
   private readonly orange = new Color(OPEN_WARM).toArray();

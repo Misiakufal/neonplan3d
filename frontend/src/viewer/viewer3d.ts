@@ -280,7 +280,7 @@ export interface SoundSource {
 }
 
 export interface ScreenState {
-  /** Smooth two-second orange pulse over a running washer's body. */
+  /** Smooth two-second orange pulse over a running washer or dishwasher. */
   pulse?: boolean;
   /** Light the item's glowing pack parts too (a smart speaker's ring while it plays). */
   ring?: boolean;
@@ -3508,7 +3508,7 @@ export class FloorplanViewer {
   /** Lit screens of a floor: a bright panel in the app colour and a faint glow around it. */
   private buildScreens(fv: FloorView): void {
     const colors = fv.wallMesh.geometry.getAttribute("color") as Float32BufferAttribute;
-    const running = new Set(fv.floor.furniture.filter((f) => f.type === "washer" && this.screens.get(f.id)?.pulse).map((f) => f.id));
+    const running = new Set(fv.floor.furniture.filter((f) => (f.type === "washer" || f.type === "dishwasher") && this.screens.get(f.id)?.pulse).map((f) => f.id));
     if (running.size || fv.washerPulse) {
       fv.washerPulse ??= new WasherPulse(colors.array as Float32Array, (start, count) => {
         colors.addUpdateRange(start, count);
@@ -4977,7 +4977,7 @@ export class FloorplanViewer {
     if (this.effectTick) busy.push("effect");
     if (robotsMoving) busy.push("robot");
     if (fansTurning) busy.push("fan");
-    if (washersPulsing) busy.push("washer");
+    if (washersPulsing) busy.push("appliance");
     if (orbiting) busy.push("orbit");
     if (this.tintTick) busy.push("tint");
     this.effectTick = this.tintTick = false;
@@ -4997,7 +4997,7 @@ export class FloorplanViewer {
     }
     // everything that keeps drawing (also the energy flow, effects, robots) shows in the frame rate
     this.reportStats(now, busy);
-    // Keep the two-second washer pulse smooth even while the camera rests.
+    // Keep the two-second appliance pulse smooth even while the camera rests.
     if (!moving && washersPulsing && !this.washerTimer) {
       this.washerTimer = setTimeout(() => { this.washerTimer = undefined; this.invalidate(); }, this.lowQuality ? 66 : 33);
     }

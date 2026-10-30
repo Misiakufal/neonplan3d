@@ -7935,9 +7935,9 @@ function formatPower(hass: HomeAssistant | undefined, w: number): string {
 }
 
 /** Marker height above furniture: in front of a screen, above wall units, else just above the top. */
-/** A running washer pulses orange; a dryer lights its door ring, a dishwasher its front. */
+/** Running washers and dishwashers pulse orange; a dryer lights its door ring. */
 function runGlow(type: string): ScreenState {
-  if (type === "washer") return { color: OPEN_WARM_RGB, level: 0.8, pulse: true };
+  if (type === "washer" || type === "dishwasher") return { color: OPEN_WARM_RGB, level: 0.8, pulse: true };
   const color: [number, number, number] = [0.3, 0.85, 1];
   return type === "dryer" ? { color, level: 0.8, faces: [{ part: "drum", color, level: 0.8 }] } : { color, level: 0.8 };
 }
