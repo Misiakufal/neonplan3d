@@ -2,6 +2,7 @@
 
 import { css, html, LitElement, nothing, svg, type PropertyValues } from "lit";
 import "./floor-process-overlay.ts";
+import { OPEN_WARM_RGB } from "../activity-colors.ts";
 import { linesField } from "./lines-field.ts";
 import { carState, type CarState, heatSensorOn, roomClimateValue,
   appColor,
@@ -7934,10 +7935,11 @@ function formatPower(hass: HomeAssistant | undefined, w: number): string {
 }
 
 /** Marker height above furniture: in front of a screen, above wall units, else just above the top. */
-/** A running washer or dryer: a ring of light round its round door (#516); a dishwasher: its front. */
+/** A running washer pulses orange; a dryer lights its door ring, a dishwasher its front. */
 function runGlow(type: string): ScreenState {
+  if (type === "washer") return { color: OPEN_WARM_RGB, level: 0.8, pulse: true };
   const color: [number, number, number] = [0.3, 0.85, 1];
-  return type === "washer" || type === "dryer" ? { color, level: 0.8, faces: [{ part: "drum", color, level: 0.8 }] } : { color, level: 0.8 };
+  return type === "dryer" ? { color, level: 0.8, faces: [{ part: "drum", color, level: 0.8 }] } : { color, level: 0.8 };
 }
 
 /** Furniture nobody asks to see by voice (the floor itself, holes, helpers). */

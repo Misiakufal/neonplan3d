@@ -4,6 +4,7 @@
 // so all windows of a floor stay three draw calls: frames, glass and blinds.
 
 import { Color, type BufferGeometry } from "three";
+import { OPEN_WARM } from "../activity-colors.ts";
 import { sidelightLayout, isFrontDoor, openingStyle } from "../model.ts";
 import type { OpeningInfo } from "./build.ts";
 import { ALWAYS, GeoBuffer, shade } from "./geo.ts";
@@ -32,7 +33,6 @@ const FRAME_TOP = 0x2a4270;
 const SASH = 0x22375f;
 const SILL = 0x1c2a47;
 const BLIND_BOX = 0x16223a;
-const OPEN_WARM = 0xffb547;
 /** The stock accent: the leaf edge of an unlocked door (takes the user's accent in the neon look). */
 const UNLOCKED = 0x37e0ff;
 

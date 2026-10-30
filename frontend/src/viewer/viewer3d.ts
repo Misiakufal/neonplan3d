@@ -54,6 +54,7 @@ import { clampIntoRoom } from "../geometry/snap.ts";
 import { activeSections, roofRider, roofUnderAt, sectionAbove, sectionCutsBelow } from "../roof-sections.ts";
 import { buildFloorGeometry, SLAB, stairHoleParts, type FloorGeometry } from "./build.ts";
 import { OrbitControls, type OrbitView } from "./controls.ts";
+import { WasherPulse } from "./washer-pulse.ts";
 import { makeFoldable, type FoldMasks } from "./fold.ts";
 import { CameraProjections, PROJECTION_LAYER, type ProjectionSurface, type ProjectorPose } from "./projection.ts";
 import { packGlowCentre, pushAwning, pushCameraModel, pushPackGlow, pushPackRobot, pushPackLamp, pushPackMotion, screenRect, screenPictureSize, pushFridgeDoors, setLightLook, hasFixedColors } from "./furniture.ts";
@@ -279,6 +280,8 @@ export interface SoundSource {
 }
 
 export interface ScreenState {
+  /** Smooth two-second orange pulse over a running washer's body. */
+  pulse?: boolean;
   /** Light the item's glowing pack parts too (a smart speaker's ring while it plays). */
   ring?: boolean;
   color: [number, number, number];
@@ -508,6 +511,7 @@ interface FloorView {
   glassTris: { id: string; start: number; end: number }[];
   blindTris: { id: string; start: number; end: number }[];
   wallMesh: Mesh;
+  washerPulse?: WasherPulse;
   screenMesh: Mesh;
   screenSig: string;
   /** Klang & Kino: rings around playing speakers and lines between grouped ones (made when first needed). */
@@ -640,6 +644,7 @@ export class FloorplanViewer {
   private lowQuality = false;
   private highQuality = false;
   /** Tablet level: when the view was last touched or something began to move (decorative animations rest 30 s later). */
+  private washerTimer: ReturnType<typeof setTimeout> | undefined;
   private lastWake = performance.now();
   /** The tints and selection last written into each floor's colours (applyHighlight skips floors that stay). */
   private highlighted = new WeakMap<object, string>();
@@ -2074,6 +2079,8 @@ export class FloorplanViewer {
       (o.material as Material).dispose();
     }
     this.sunFx.dispose();
+    clearTimeout(this.washerTimer);
+    this.washerTimer = undefined;
     this.resizeObserver.disconnect();
     this.intersection?.disconnect();
     document.removeEventListener("visibilitychange", this.onVisibility);
@@ -3500,6 +3507,16 @@ export class FloorplanViewer {
 
   /** Lit screens of a floor: a bright panel in the app colour and a faint glow around it. */
   private buildScreens(fv: FloorView): void {
+    const colors = fv.wallMesh.geometry.getAttribute("color") as Float32BufferAttribute;
+    const running = new Set(fv.floor.furniture.filter((f) => f.type === "washer" && this.screens.get(f.id)?.pulse).map((f) => f.id));
+    if (running.size || fv.washerPulse) {
+      fv.washerPulse ??= new WasherPulse(colors.array as Float32Array, (start, count) => {
+        colors.addUpdateRange(start, count);
+        colors.needsUpdate = true;
+      });
+      fv.washerPulse.setRunning(fv.geo.furnitureTris.filter((r) => running.has(r.id)), performance.now());
+      fv.washerPulse.update(performance.now());
+    }
     // the vehicles in the parking spots count as furniture here too (Auto Pro lights a band on them)
     const items = withVehicles(fv.floor, this.parked).furniture.filter((f) => this.screens.has(f.id));
     // (with the accent colour: a light switch's rocker glows in it)
@@ -3511,6 +3528,7 @@ export class FloorplanViewer {
     const buf = new GeoBuffer();
     for (const item of items) {
       const st = this.screens.get(item.id)!;
+      if (st.pulse) continue;
       // a switch or socket is drawn where the walls put it (#593), its glow with it
       const plate = GANG_TYPES.has(item.type) ? placeWallPlate(fv.geo.walls2d, item, fv.floor.height, mountBase(fv.floor, item)) : null;
       const f = plate ? { ...item, x: plate.x, z: plate.z, mount_y: plate.y } : item;
@@ -4937,6 +4955,13 @@ export class FloorplanViewer {
     const robotsMoving = this.stepRobots(now);
     const fansTurning = this.stepFans(now);
     const weatherMoving = this.stepWeather(now);
+    const washersPulsing = this.floors.some((f) => !!f.washerPulse?.active && f.o > 0.001);
+    if (washersPulsing) {
+      for (const fv of this.floors) {
+        if (!fv.washerPulse?.active || fv.o <= 0.001) continue;
+        fv.washerPulse.update(now);
+      }
+    }
     const moving = cameraMoving || floorsMoving || openingsMoving || flashing || roofMoving;
     const busy: string[] = [];
     // a finger or the mouse turning the view draws frames too, though no inertia runs yet
@@ -4952,6 +4977,7 @@ export class FloorplanViewer {
     if (this.effectTick) busy.push("effect");
     if (robotsMoving) busy.push("robot");
     if (fansTurning) busy.push("fan");
+    if (washersPulsing) busy.push("washer");
     if (orbiting) busy.push("orbit");
     if (this.tintTick) busy.push("tint");
     this.effectTick = this.tintTick = false;
@@ -4971,6 +4997,10 @@ export class FloorplanViewer {
     }
     // everything that keeps drawing (also the energy flow, effects, robots) shows in the frame rate
     this.reportStats(now, busy);
+    // Keep the two-second washer pulse smooth even while the camera rests.
+    if (!moving && washersPulsing && !this.washerTimer) {
+      this.washerTimer = setTimeout(() => { this.washerTimer = undefined; this.invalidate(); }, this.lowQuality ? 66 : 33);
+    }
     if (moving) this.invalidate();
     // tablet level: something new began to move (music, a robot, the energy flow …) – it shows for a while
     const decorNow = this.flowActive || this.solarActive || this.soundActive || this.poolActive || robotsMoving || fansTurning || this.effectFloors.size > 0;

@@ -140,7 +140,8 @@ function copyFonts() {
 // main 726 KB on 2026-10-29: announcements from automations shown and spoken on the screens
 // Floor-process controls and their translated labels add about 4 KB to the editor and 1 KB to shared UI.
 // The five-second floor-process overlay adds about 5 KB to the main bundle.
-const BUDGET = { "masterplan3d.js": 732 * 1024, "masterplan3d-fun.js": 40 * 1024, "masterplan3d-voice.js": 60 * 1024, "masterplan3d-locate.js": 160 * 1024, "masterplan3d-timetravel.js": 120 * 1024, "masterplan3d-3d.js": 836 * 1024, "masterplan3d-editor.js": 950 * 1024, "masterplan3d-card-editor.js": 275 * 1024 };
+// Smooth whole-body washer pulses add about 2 KB to the 3D bundle.
+const BUDGET = { "masterplan3d.js": 732 * 1024, "masterplan3d-fun.js": 40 * 1024, "masterplan3d-voice.js": 60 * 1024, "masterplan3d-locate.js": 160 * 1024, "masterplan3d-timetravel.js": 120 * 1024, "masterplan3d-3d.js": 838 * 1024, "masterplan3d-editor.js": 950 * 1024, "masterplan3d-card-editor.js": 275 * 1024 };
 
 copyFonts();
 if (watch) {
